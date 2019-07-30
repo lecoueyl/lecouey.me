@@ -1,0 +1,11 @@
+// List component
+
+$iota-components-divider-namespace: 'divider';
+$iota-components-divider: $iota-global-components-namespace + $iota-components-divider-namespace;
+
+
+.#{$iota-components-divider} {
+  border-color: $color-accent-primary;
+  border-style: solid;
+  border-width: 3px 0 0 0;
+}

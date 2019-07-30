@@ -1,0 +1,14 @@
+body {
+  font-family: $iota-type-family-default;
+  color: $color-foreground;
+  text-rendering: optimizelegibility;
+}
+
+:lang(ja-Jp) 	{
+  font-family: $iota-type-family-ja;
+}
+
+::selection {
+  background: $color-accent-primary;
+  color: $color-background;
+}

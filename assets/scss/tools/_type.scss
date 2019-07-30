@@ -1,0 +1,6 @@
+@function iota-type-size($size) {
+  @return $size, $size * $iota-type-line-height;
+}
+
+
+@import 'node_modules/iotacss/tools/type';

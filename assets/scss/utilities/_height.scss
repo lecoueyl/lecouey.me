@@ -1,0 +1,18 @@
+// Height Utility
+
+$iota-utils-height-names: (
+  -100: 100vh,
+);
+
+// Helper Local Variables
+
+$iota-utils-height-namespace : 'height';
+$iota-utils-height: $iota-global-utilities-namespace + $iota-utils-height-namespace;
+
+// Generate modifier
+
+@each $height-name, $height-size in $iota-utils-height-names {
+  .#{$iota-utils-height + $height-name} {
+    height: $height-size;
+  }
+}

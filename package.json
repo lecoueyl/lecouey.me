@@ -1,0 +1,52 @@
+{
+  "name": "lecouey.me",
+  "version": "1.0.0",
+  "description": "Leonard Lecouey personal website",
+  "author": "Leonard Lecouey <leonard.lecouey@gmail.com>",
+  "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "8889"
+    }
+  },
+  "scripts": {
+    "clean": "rm -r node_modules .nuxt package-lock.json && npm install",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
+  },
+  "dependencies": {
+    "@nuxtjs/google-analytics": "^2.2.0",
+    "@nuxtjs/sitemap": "^1.2.0",
+    "@nuxtjs/style-resources": "^0.1.2",
+    "animejs": "^3.1.0",
+    "iotacss": "^1.6.0",
+    "nuxt": "^2.8.1",
+    "nuxt-i18n": "^6.0.0",
+    "nuxt-purgecss": "^0.2.1",
+    "nuxt-svg": "^0.1.6",
+    "nuxt-webfontloader": "^1.1.0",
+    "vue-i18n": "^8.12.0"
+  },
+  "devDependencies": {
+    "ajv": "^6.10.2",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
+  }
+}

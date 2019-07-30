@@ -1,0 +1,27 @@
+// Background-image Utility
+
+$iota-utils-bgimage-type: (
+  '-light':  url('~assets/svg/background-light.svg'),
+  '-dark':  url('~assets/svg/background-dark.svg'),
+);
+
+// Helper Local Variables
+
+$iota-utils-bgimage-namespace : 'bgimage';
+$iota-utils-bgimage: $iota-global-utilities-namespace + $iota-utils-bgimage-namespace;
+
+// Default
+
+.#{$iota-utils-bgimage}  {
+  background-position: center top;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+// Generate modifier
+
+@each $name, $value in $iota-utils-bgimage-type {
+  .#{$iota-utils-bgimage + $name} {
+    background-image: $value;
+  }
+}
