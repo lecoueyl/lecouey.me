@@ -1,7 +1,9 @@
 body {
   font-family: $iota-type-family-default;
   color: $color-foreground;
-  text-rendering: optimizelegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :lang(ja-Jp) 	{
@@ -9,6 +11,6 @@ body {
 }
 
 ::selection {
-  background: $color-accent-primary;
+  background: $color-foreground;
   color: $color-background;
 }

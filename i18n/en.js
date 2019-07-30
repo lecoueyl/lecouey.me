@@ -36,7 +36,6 @@ module.exports = {
     title: 'About',
 
     hero: {
-      name: 'Leonard Lecouey',
       sysadmin: 'System administrator',
       designer: 'Fullstack designer',
       living: 'Living in Japan',

@@ -2,7 +2,7 @@
   <TransitionFadeY :duration="{ enter: 800, leave: 1000 }">
     <header
       v-if="scrolledOut"
-      class="app-header o-container o-container--full o-type-xs u-pt-x4 u-fixed u-12/12"
+      class="app-header o-container o-container--full o-type-xs u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium"
     >
       <div class="o-media o-media--middle u-overflow-hidden">
         <div
@@ -13,8 +13,9 @@
             key="logo"
             :to="localePath('index')"
             :aria-label="$t('links.index')"
+            class="c-link c-link--foreground"
           >
-            <SvgLogo class="app-header__logo u-block" />
+            Leonard Lecouey
           </nuxt-link>
         </div>
 
@@ -26,7 +27,7 @@
           key="nav"
           class="o-media__fluid u-text-right"
         >
-          <ul class="o-list o-list--inline o-type-m u-weight-medium">
+          <ul class="o-list o-list--inline">
             <!-- v-if="!$nuxt.$route.path.includes('about')" -->
             <li
               v-for="(item, index) in menu"
@@ -91,7 +92,6 @@ import anime from 'animejs';
 import { mapState } from 'vuex';
 import { easeLeave } from '~/components/transitions';
 import TransitionFadeY from '~/components/transitions/fade-y';
-import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
   targets: '.app-header__item',
@@ -102,7 +102,6 @@ const animeHeader = {
 export default {
   components: {
     TransitionFadeY,
-    SvgLogo,
   },
 
   data() {

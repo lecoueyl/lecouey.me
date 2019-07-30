@@ -23,7 +23,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: 'u-bgcolor-background u-bgimage u-bgimage-light',
+        class: 'u-bgcolor-background',
       },
     };
   },
