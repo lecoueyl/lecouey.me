@@ -1,13 +1,13 @@
 <template>
-  <footer class="u-bgcolor-foreground u-bgimage u-bgimage-dark">
+  <footer class="u-bgcolor-secondary">
     <div class="o-container u-mt-x10 u-pv-x10">
       <p
         v-t="'footer.contact'"
-        class="o-type-xl u-color-wash-light"
+        class="o-type-l u-color-wash-light"
       />
 
-      <div class="o-media o-media--bottom u-pv-x4">
-        <div class="o-media__fluid">
+      <section class="o-media o-media--bottom o-type-s u-pv-x4">
+        <article class="o-media__fluid">
           <ul class="o-list o-list--block">
             <li class="o-list__item">
               <a
@@ -32,9 +32,9 @@
               />
             </li>
           </ul>
-        </div>
+        </article>
 
-        <div class="o-media__fluid u-text-right u-color-wash-light">
+        <article class="o-media__fluid u-text-right u-color-wash-light">
           <i18n path="footer.source">
             <a
               v-t="'links.social.github'"
@@ -44,8 +44,8 @@
               class="c-link c-link-underline c-link--background"
             />
           </i18n>
-        </div>
-      </div>
+        </article>
+      </section>
     </div>
   </footer>
 </template>

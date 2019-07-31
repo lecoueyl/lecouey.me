@@ -51,12 +51,15 @@ module.exports = {
       current: 'Always thriving to deliver the simpler solutions to evry problems.',
       linkedin: 'More about me on {linkedin}',
     },
+
+    system: 'System',
+    design: 'Design',
   },
 
   // footer
 
   footer: {
-    contact: 'Don\'t be a stranger and send a nice message',
+    contact: 'Don\'t be a stranger and send me a nice message',
     source: 'View source on {0}',
   },
 

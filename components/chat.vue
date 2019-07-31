@@ -1,5 +1,5 @@
 <template>
-  <div class="app-chat u-pb-x4 o-type-l">
+  <div class="app-chat u-pb-x4 o-type-m">
     <div class="app-chat__container u-12/12 u-relative">
       <TransitionCollapseY
         group
@@ -383,9 +383,7 @@ export default {
 }
 
 .app-chat__message {
-  padding: $baseline $baseline-x2;
   max-width: 80%;
-  border-radius: 4px;
   display: inline-block;
 }
 
@@ -399,8 +397,7 @@ export default {
 }
 
 .app-chat__message-container--author .app-chat__message {
-  color: $color-background;
-  background-color: $color-accent-primary;
+  color: $color-foreground;
 }
 
 .app-chat__message-container--reply {
@@ -409,8 +406,7 @@ export default {
   margin-bottom: $baseline-x2;
 
   & .app-chat__message {
-    color: $color-foreground;
-    background-color: $color-wash-light;
+    color: $color-accent-primary;
   }
 }
 </style>

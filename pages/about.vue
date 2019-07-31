@@ -16,14 +16,14 @@
 
     <section class="o-container u-relative u-mv-x10 u-relative">
       <div class="o-grid">
-        <aside class="o-grid__col u-4/12">
+        <aside class="o-grid__col u-4/12@sm">
           <h1
             v-t="'about.title'"
             class="o-type-l u-weight-normal u-color-secondary"
           />
         </aside>
 
-        <article class="o-grid__col u-8/12">
+        <article class="o-grid__col u-8/12@sm">
           <p
             v-for="paragraph in ['intro', 'history', 'work', 'current']"
             :key="paragraph"
@@ -46,6 +46,36 @@
               class="c-link c-link-underline c-link--primary"
             />
           </i18n>
+        </article>
+      </div>
+    </section>
+
+    <section class="o-container u-relative u-mv-x10 u-relative">
+      <div class="o-grid">
+        <aside class="o-grid__col u-4/12@sm">
+          <h1
+            v-t="'about.system'"
+            class="o-type-l u-weight-normal u-color-secondary"
+          />
+        </aside>
+
+        <article class="o-grid__col u-8/12@sm">
+          <ul class="o-type-m o-list o-grid__col u-7/12@sm">
+            <li
+              v-for="item in [
+                'Graphic Design',
+                'User Interface Design',
+                'Heavy Moodboarding',
+                'Wireframing',
+                'Prototyping',
+                'Design Systems',
+              ]"
+              :key="item"
+              class="o-list__item"
+            >
+              {{ item }}
+            </li>
+          </ul>
         </article>
       </div>
     </section>
@@ -103,27 +133,6 @@
           </div>
         </article>
       </div>
-
-      <!-- <ul class="o-list o-grid__col u-6/12@sm u-pt@xs">
-        <li
-          v-for="item in [
-            'Graphic Design',
-            'User Interface Design',
-            'Heavy Moodboarding',
-            'Wireframing',
-            'Prototyping',
-            'Design Systems',
-            'Frontend Development',
-          ]"
-          :key="item"
-          class="o-list__item"
-        >
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-  </main>
-</article> -->
     </section>
   </main>
 </template>

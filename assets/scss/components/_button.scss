@@ -16,7 +16,7 @@ $iota-components-buttons-colors: (
 );
 
 $iota-components-button-border-width: 2px;
-$iota-components-button-radius: 4px;
+$iota-components-button-radius: 100px;
 $iota-components-button-shadow: 10px 35px 0 rgba(black, 0.1);
 $iota-components-button-shadow--is-active: 10px 15px 0 rgba(black, 0.1);
 
@@ -59,11 +59,6 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
   border-style: solid;
   border-width: $iota-components-button-border-width;
   border-radius: $iota-components-button-radius;
-  box-shadow: $iota-components-button-shadow;
-}
-
-.#{$iota-components-button}-outline.#{$iota-components-button}--is-active {
-  box-shadow: $iota-components-button-shadow--is-active;
 }
 
 // Colors modifier

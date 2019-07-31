@@ -157,7 +157,7 @@ export default {
 .app-cursor__dot {
   width: 100%;
   height: 100%;
-  border-width: 1px;
+  border-width: 1.5px;
   border-style: solid;
   border-color: $color-accent-primary;
   border-radius: 100%;

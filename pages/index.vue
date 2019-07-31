@@ -1,8 +1,6 @@
 <template>
   <main class="u-overflow-hidden">
     <section class="o-container u-height-100 u-mb-x10 u-relative">
-      <SvgHero class="app-index__hero-illustration u-5/12 u-absolute" />
-
       <div class="o-grid u-height-100">
         <div class="o-grid__col u-7/12@sm">
           <Chat />
@@ -92,13 +90,11 @@
 import anime from 'animejs';
 import Chat from '~/components/chat';
 // import WorkHeader from '~/components/work/header';
-import SvgHero from '~/assets/svg/shape-rect.svg?inline';
 
 export default {
   components: {
     Chat,
     // WorkHeader,
-    SvgHero,
   },
 
   transition: {
@@ -117,15 +113,3 @@ export default {
   },
 };
 </script>
-
-
-<style lang="scss">
-.app-index__hero-illustration {
-  right: -15%;
-  bottom: -5%;
-}
-
-.app-index__hero-illustration path {
-  fill: $color-wash-light;
-}
-</style>

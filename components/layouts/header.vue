@@ -13,15 +13,15 @@
             key="logo"
             :to="localePath('index')"
             :aria-label="$t('links.index')"
-            class="c-link c-link--foreground"
+            class="c-link u-color-foreground"
           >
-            Leonard Lecouey
+            <SvgLogo class="app-header__logo u-block" />
           </nuxt-link>
         </div>
 
-        <!-- <div class="app-header__item o-media__fluid o-type-m u-weight-medium u-text-center">
+        <div class="app-header__item o-media__fluid u-pl">
           Léonard Lecouey
-        </div> -->
+        </div>
 
         <nav
           key="nav"
@@ -92,6 +92,7 @@ import anime from 'animejs';
 import { mapState } from 'vuex';
 import { easeLeave } from '~/components/transitions';
 import TransitionFadeY from '~/components/transitions/fade-y';
+import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
   targets: '.app-header__item',
@@ -102,12 +103,12 @@ const animeHeader = {
 export default {
   components: {
     TransitionFadeY,
+    SvgLogo,
   },
 
   data() {
     return {
       menu: [
-        // 'project',
         'about',
       ],
       currentScrollPosition: 0,
@@ -191,11 +192,11 @@ export default {
 }
 
 .app-header__logo {
-  width: 2.5em;
-  height: 2.5em;
+  width: 30px;
+  height: 30px;
 }
 
 .app-header__logo path {
-  fill: $color-accent-primary;
+  fill: $color-foreground;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="app-layout">
     <Pointer />
-    <LayoutHeader />
-    <nuxt />
-    <LayoutFooter />
+    <LayoutHeader role="header" />
+    <nuxt role="main" />
+    <LayoutFooter role="footer" />
   </div>
 </template>
 
