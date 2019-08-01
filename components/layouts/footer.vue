@@ -12,7 +12,7 @@
             <li class="o-list__item">
               <a
                 :href="`mailto:${mail}`"
-                class="c-link c-link--background"
+                class="c-link c-link-underline c-link--background"
               >
                 {{ mail }}
               </a>
@@ -28,7 +28,7 @@
                 :href="link"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="c-link c-link--background"
+                class="c-link c-link-underline c-link--background"
               />
             </li>
           </ul>

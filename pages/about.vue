@@ -15,41 +15,83 @@
     </section>
 
     <section class="o-container u-relative u-mv-x10 u-relative">
-      <div class="o-grid">
-        <aside class="o-grid__col u-4/12@sm">
-          <h1
+      <div
+        v-view="asideViewHandler"
+        class="o-grid"
+      >
+        <aside class="o-grid__col u-4/12@sm u-relative">
+          <!-- <h1
             v-t="'about.title'"
             class="o-type-l u-weight-normal u-color-secondary"
-          />
+          /> -->
+
+          <ul
+            class="o-type-l o-list o-grid__col u-7/12@sm"
+            style="top: 0"
+            :class="{ 'u-fixed': viewingAside }"
+          >
+            <li
+              v-for="item in [
+                'About',
+                'System',
+                'Design',
+              ]"
+              :key="item"
+              class="o-list__item"
+            >
+              {{ item }}
+            </li>
+          </ul>
         </aside>
 
-        <article class="o-grid__col u-8/12@sm">
-          <p
-            v-for="paragraph in ['intro', 'history', 'work', 'current']"
-            :key="paragraph"
-            v-t="`about.me.${paragraph}`"
-            class="o-type-m u-pb-x2"
-          />
-
-          <i18n
-            path="about.me.linkedin"
-            tag="p"
-            class="o-type-m"
-          >
-            <a
-              v-t="'links.social.linkedin'"
-              :href="links.linkedin"
-              place="linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="visit"
-              class="c-link c-link-underline c-link--primary"
+        <div class="o-grid__col u-8/12@sm">
+          <article v-view="setCurrentArticle('test')">
+            <p
+              v-for="paragraph in ['intro', 'history', 'work', 'current']"
+              :key="paragraph"
+              v-t="`about.me.${paragraph}`"
+              class="o-type-m u-pb-x2"
             />
-          </i18n>
-        </article>
+
+            <i18n
+              path="about.me.linkedin"
+              tag="p"
+              class="o-type-m"
+            >
+              <a
+                v-t="'links.social.linkedin'"
+                :href="links.linkedin"
+                place="linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="visit"
+                class="c-link c-link-underline c-link--primary"
+              />
+            </i18n>
+          </article>
+
+          <article v-view>
+            <ul class="o-type-m o-list o-grid__col u-pt-x10">
+              <li
+                v-for="item in [
+                  'Graphic Design',
+                  'User Interface Design',
+                  'Heavy Moodboarding',
+                  'Wireframing',
+                  'Prototyping',
+                  'Design Systems',
+                ]"
+                :key="item"
+                class="o-list__item"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
-
+    <!--
     <section class="o-container u-relative u-mv-x10 u-relative">
       <div class="o-grid">
         <aside class="o-grid__col u-4/12@sm">
@@ -133,10 +175,9 @@
           </div>
         </article>
       </div>
-    </section>
+    </section> -->
   </main>
 </template>
-
 
 <script>
 import anime from 'animejs';
@@ -151,6 +192,7 @@ const animeHero = {
 export default {
   data() {
     return {
+      viewingAside: false,
       mail: process.env.mail,
       links: process.env.links,
     };
@@ -165,5 +207,34 @@ export default {
       delay: anime.stagger(animeHero.stagger),
     });
   },
+
+  methods: {
+    asideViewHandler(event) {
+      // console.log('percentTop', event.target.rect);
+      // console.log('percentCenter', event.target.rect);
+      if (event.target.rect.top <= 0 && event.percentTop > 0) {
+        this.viewingAside = true;
+      } else {
+        this.viewingAside = false;
+      }
+    },
+
+    setCurrentArticle(event, test) {
+      console.log('percentTop', event, test);
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+article {
+  opacity: .2;
+  transition: opacity 1s;
+}
+// .view-in--gt-half {
+//   opacity: .5;
+// }
+.view-in--gt-half, .view-in--full {
+  opacity: 1;
+}
+</style>

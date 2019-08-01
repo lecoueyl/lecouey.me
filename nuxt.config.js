@@ -57,6 +57,12 @@ module.exports = {
     '~/assets/scss/main.scss',
   ],
   /*
+  ** Plugins
+  */
+  plugins: [
+    { src: '~/plugins/vue-check-view', ssr: false },
+  ],
+  /*
   ** Modules
   */
   modules: [
@@ -67,7 +73,6 @@ module.exports = {
       id: 'UA-66613236-1',
     }],
     'nuxt-webfontloader',
-    // 'nuxt-purgecss',
   ],
   /*
   ** Sitemap
