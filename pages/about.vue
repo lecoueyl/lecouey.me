@@ -14,27 +14,56 @@
       </p>
     </section>
 
-    <section class="o-container u-relative u-mv-x10 u-relative">
-      <div
-        v-view="asideViewHandler"
-        class="o-grid"
-      >
-        <aside class="o-grid__col u-4/12@sm u-relative">
-          <!-- <h1
+    <section class="o-container u-relative u-mv-x10">
+      <div class="o-grid">
+        <aside class="o-grid__col u-4/12@sm">
+          <h2
             v-t="'about.title'"
             class="o-type-l u-weight-normal u-color-secondary"
-          /> -->
+          />
+        </aside>
 
-          <ul
-            class="o-type-l o-list o-grid__col u-7/12@sm"
-            style="top: 0"
-            :class="{ 'u-fixed': viewingAside }"
+        <article class="o-grid__col u-8/12@sm">
+          <p
+            v-for="paragraph in ['intro', 'history', 'work', 'current']"
+            :key="paragraph"
+            v-t="`about.me.${paragraph}`"
+            class="o-type-m u-pb-x2"
+          />
+
+          <i18n
+            path="about.me.linkedin"
+            tag="p"
+            class="o-type-m"
           >
+            <a
+              v-t="'links.social.linkedin'"
+              :href="links.linkedin"
+              place="linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="visit"
+              class="c-link c-link-underline c-link--primary"
+            />
+          </i18n>
+        </article>
+      </div>
+
+      <div class="o-grid u-pt-x10">
+        <aside class="o-grid__col u-4/12@sm u-relative">
+          <h2
+            v-t="'about.system'"
+            class="o-type-l u-weight-normal u-color-secondary"
+          />
+        </aside>
+
+        <article class="o-grid__col u-8/12@sm">
+          <ul class="o-type-m o-list">
             <li
               v-for="item in [
-                'About',
-                'System',
-                'Design',
+                'Infrastructure Architecture',
+                'System administration',
+                'Backend Development',
               ]"
               :key="item"
               class="o-list__item"
@@ -42,10 +71,38 @@
               {{ item }}
             </li>
           </ul>
+        </article>
+      </div>
+
+      <div class="o-grid">
+        <aside class="o-grid__col u-4/12@sm u-relative">
+          <h1
+            v-t="'about.title'"
+            class="o-type-l u-weight-normal u-color-secondary"
+          />
+          <!--
+          <ul
+            class="o-type-l o-list o-grid__col u-7/12@sm"
+            style="top: 0"
+            :class="{ 'u-fixed': viewingAside }"
+          >
+            <li
+              v-for="item in [
+                'about',
+                'system',
+                'design',
+              ]"
+              :key="item"
+              class="o-list__item"
+              :class="{ 'u-color-secondary': item === currentView }"
+            >
+              {{ item }}
+            </li>
+          </ul> -->
         </aside>
 
         <div class="o-grid__col u-8/12@sm">
-          <article v-view="setCurrentArticle('test')">
+          <InView @inView="currentView = 'about'">
             <p
               v-for="paragraph in ['intro', 'history', 'work', 'current']"
               :key="paragraph"
@@ -68,9 +125,25 @@
                 class="c-link c-link-underline c-link--primary"
               />
             </i18n>
-          </article>
+          </InView>
 
-          <article v-view>
+          <InView @inView="currentView = 'system'">
+            <ul class="o-type-m o-list o-grid__col u-pt-x10">
+              <li
+                v-for="item in [
+                  'Infrastructure Architecture',
+                  'System administration',
+                  'Backend Development',
+                ]"
+                :key="item"
+                class="o-list__item"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </InView>
+
+          <InView @inView="currentView = 'design'">
             <ul class="o-type-m o-list o-grid__col u-pt-x10">
               <li
                 v-for="item in [
@@ -87,7 +160,7 @@
                 {{ item }}
               </li>
             </ul>
-          </article>
+          </InView>
         </div>
       </div>
     </section>
@@ -182,6 +255,7 @@
 <script>
 import anime from 'animejs';
 import { easeEnter } from '~/components/transitions';
+import InView from '~/components/in-view';
 
 const animeHero = {
   targets: '.app-about__hero-text',
@@ -190,8 +264,13 @@ const animeHero = {
 };
 
 export default {
+  components: {
+    InView,
+  },
+
   data() {
     return {
+      currentView: 'about',
       viewingAside: false,
       mail: process.env.mail,
       links: process.env.links,
@@ -218,23 +297,6 @@ export default {
         this.viewingAside = false;
       }
     },
-
-    setCurrentArticle(event, test) {
-      console.log('percentTop', event, test);
-    },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-article {
-  opacity: .2;
-  transition: opacity 1s;
-}
-// .view-in--gt-half {
-//   opacity: .5;
-// }
-.view-in--gt-half, .view-in--full {
-  opacity: 1;
-}
-</style>

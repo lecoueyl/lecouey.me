@@ -112,6 +112,13 @@ module.exports = {
   build: {
     extractCSS: true,
     /*
+    ** Safari hot reload fix
+    */
+    filenames: {
+      app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
+      chunk: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
+    },
+    /*
     ** Run ESLint on save
     */
     extend(config, { isDev, isClient }) {
