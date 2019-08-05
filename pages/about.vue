@@ -15,247 +15,85 @@
     </section>
 
     <section class="o-container u-relative u-mv-x10">
-      <div class="o-grid">
-        <aside class="o-grid__col u-4/12@sm">
-          <h2
-            v-t="'about.title'"
-            class="o-type-l u-weight-normal u-color-secondary"
-          />
-        </aside>
+      <AboutArticle>
+        <template v-slot:title>
+          {{ $t('about.title') }}
+        </template>
 
-        <article class="o-grid__col u-8/12@sm">
-          <p
-            v-for="paragraph in ['intro', 'history', 'work', 'current']"
-            :key="paragraph"
-            v-t="`about.me.${paragraph}`"
-            class="o-type-m u-pb-x2"
-          />
+        <p
+          v-for="paragraph in ['intro', 'history', 'work', 'current']"
+          :key="paragraph"
+          v-t="`about.me.${paragraph}`"
+          class="o-type-m u-pb-x2"
+        />
 
-          <i18n
-            path="about.me.linkedin"
-            tag="p"
-            class="o-type-m"
+        <i18n
+          path="about.me.linkedin"
+          tag="p"
+          class="o-type-m"
+        >
+          <a
+            v-t="'links.social.linkedin'"
+            :href="links.linkedin"
+            place="linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="visit"
+            class="c-link c-link-underline c-link--primary"
+          />
+        </i18n>
+      </AboutArticle>
+
+      <AboutArticle class="u-pt-x10">
+        <template v-slot:title>
+          {{ $t('about.system') }}
+        </template>
+
+        <ul class="o-type-m o-list">
+          <li
+            v-for="item in [
+              'Infrastructure Architecture',
+              'System administration',
+              'Backend Development',
+            ]"
+            :key="item"
+            class="o-list__item"
           >
-            <a
-              v-t="'links.social.linkedin'"
-              :href="links.linkedin"
-              place="linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="visit"
-              class="c-link c-link-underline c-link--primary"
-            />
-          </i18n>
-        </article>
-      </div>
+            {{ item }}
+          </li>
+        </ul>
+      </AboutArticle>
 
-      <div class="o-grid u-pt-x10">
-        <aside class="o-grid__col u-4/12@sm u-relative">
-          <h2
-            v-t="'about.system'"
-            class="o-type-l u-weight-normal u-color-secondary"
-          />
-        </aside>
+      <AboutArticle class="u-pt-x10">
+        <template v-slot:title>
+          {{ $t('about.design') }}
+        </template>
 
-        <article class="o-grid__col u-8/12@sm">
-          <ul class="o-type-m o-list">
-            <li
-              v-for="item in [
-                'Infrastructure Architecture',
-                'System administration',
-                'Backend Development',
-              ]"
-              :key="item"
-              class="o-list__item"
-            >
-              {{ item }}
-            </li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="o-grid">
-        <aside class="o-grid__col u-4/12@sm u-relative">
-          <h1
-            v-t="'about.title'"
-            class="o-type-l u-weight-normal u-color-secondary"
-          />
-          <!--
-          <ul
-            class="o-type-l o-list o-grid__col u-7/12@sm"
-            style="top: 0"
-            :class="{ 'u-fixed': viewingAside }"
+        <ul class="o-type-m o-list">
+          <li
+            v-for="item in [
+              'Graphic Design',
+              'User Interface Design',
+              'Heavy Moodboarding',
+              'Wireframing',
+              'Prototyping',
+              'Design Systems',
+            ]"
+            :key="item"
+            class="o-list__item"
           >
-            <li
-              v-for="item in [
-                'about',
-                'system',
-                'design',
-              ]"
-              :key="item"
-              class="o-list__item"
-              :class="{ 'u-color-secondary': item === currentView }"
-            >
-              {{ item }}
-            </li>
-          </ul> -->
-        </aside>
-
-        <div class="o-grid__col u-8/12@sm">
-          <InView @inView="currentView = 'about'">
-            <p
-              v-for="paragraph in ['intro', 'history', 'work', 'current']"
-              :key="paragraph"
-              v-t="`about.me.${paragraph}`"
-              class="o-type-m u-pb-x2"
-            />
-
-            <i18n
-              path="about.me.linkedin"
-              tag="p"
-              class="o-type-m"
-            >
-              <a
-                v-t="'links.social.linkedin'"
-                :href="links.linkedin"
-                place="linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cursor="visit"
-                class="c-link c-link-underline c-link--primary"
-              />
-            </i18n>
-          </InView>
-
-          <InView @inView="currentView = 'system'">
-            <ul class="o-type-m o-list o-grid__col u-pt-x10">
-              <li
-                v-for="item in [
-                  'Infrastructure Architecture',
-                  'System administration',
-                  'Backend Development',
-                ]"
-                :key="item"
-                class="o-list__item"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </InView>
-
-          <InView @inView="currentView = 'design'">
-            <ul class="o-type-m o-list o-grid__col u-pt-x10">
-              <li
-                v-for="item in [
-                  'Graphic Design',
-                  'User Interface Design',
-                  'Heavy Moodboarding',
-                  'Wireframing',
-                  'Prototyping',
-                  'Design Systems',
-                ]"
-                :key="item"
-                class="o-list__item"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </InView>
-        </div>
-      </div>
+            {{ item }}
+          </li>
+        </ul>
+      </AboutArticle>
     </section>
-    <!--
-    <section class="o-container u-relative u-mv-x10 u-relative">
-      <div class="o-grid">
-        <aside class="o-grid__col u-4/12@sm">
-          <h1
-            v-t="'about.system'"
-            class="o-type-l u-weight-normal u-color-secondary"
-          />
-        </aside>
-
-        <article class="o-grid__col u-8/12@sm">
-          <ul class="o-type-m o-list o-grid__col u-7/12@sm">
-            <li
-              v-for="item in [
-                'Graphic Design',
-                'User Interface Design',
-                'Heavy Moodboarding',
-                'Wireframing',
-                'Prototyping',
-                'Design Systems',
-              ]"
-              :key="item"
-              class="o-list__item"
-            >
-              {{ item }}
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="o-container u-relative u-mv-x10 u-pv-x10">
-      <div class="o-grid">
-        <article class="o-grid__col u-6/12@sm">
-          <div class="o-grid">
-            <h1
-              class="o-type-l o-grid__col u-5/12@sm u-weight-normal u-color-wash-dark"
-            >
-              System
-            </h1>
-
-            <ul class="o-type-m o-list o-grid__col u-7/12@sm">
-              <li
-                v-for="item in [
-                  'Infrastructure Architecture',
-                  'System administration',
-                  'Backend Development',
-                ]"
-                :key="item"
-                class="o-list__item"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="o-grid__col u-6/12@sm">
-          <div class="o-grid">
-            <h1
-              class="o-type-l o-grid__col u-5/12@sm u-weight-normal u-color-wash-dark"
-            >
-              Design
-            </h1>
-
-            <ul class="o-type-m o-list o-grid__col u-7/12@sm">
-              <li
-                v-for="item in [
-                  'Graphic Design',
-                  'User Interface Design',
-                  'Heavy Moodboarding',
-                  'Wireframing',
-                  'Prototyping',
-                  'Design Systems',
-                ]"
-                :key="item"
-                class="o-list__item"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section> -->
   </main>
 </template>
 
 <script>
 import anime from 'animejs';
 import { easeEnter } from '~/components/transitions';
-import InView from '~/components/in-view';
+import AboutArticle from '~/components/about-article';
 
 const animeHero = {
   targets: '.app-about__hero-text',
@@ -265,7 +103,7 @@ const animeHero = {
 
 export default {
   components: {
-    InView,
+    AboutArticle,
   },
 
   data() {
