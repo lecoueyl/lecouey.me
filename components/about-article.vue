@@ -35,9 +35,7 @@ export default {
   opacity: .2;
   transition: opacity 1s;
 }
-// .view-in--gt-half {
-//   opacity: .5;
-// }
+
 .view-in--gt-half, .view-in--full {
   opacity: 1;
 }

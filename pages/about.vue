@@ -124,17 +124,5 @@ export default {
       delay: anime.stagger(animeHero.stagger),
     });
   },
-
-  methods: {
-    asideViewHandler(event) {
-      // console.log('percentTop', event.target.rect);
-      // console.log('percentCenter', event.target.rect);
-      if (event.target.rect.top <= 0 && event.percentTop > 0) {
-        this.viewingAside = true;
-      } else {
-        this.viewingAside = false;
-      }
-    },
-  },
 };
 </script>

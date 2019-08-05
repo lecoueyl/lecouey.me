@@ -19,9 +19,14 @@
           </nuxt-link>
         </div>
 
-        <div class="app-header__item o-media__fluid u-pl">
+        <nuxt-link
+          key="logo"
+          :to="localePath('index')"
+          :aria-label="$t('links.index')"
+          class="app-header__item o-media__fluid u-pl c-link u-color-foreground"
+        >
           Léonard Lecouey
-        </div>
+        </nuxt-link>
 
         <nav
           key="nav"
