@@ -102,6 +102,12 @@ const animeHero = {
 };
 
 export default {
+  head() {
+    return {
+      title: this.$t('about.title'),
+    };
+  },
+
   components: {
     AboutArticle,
   },

@@ -92,6 +92,12 @@ import Chat from '~/components/chat';
 // import WorkHeader from '~/components/work/header';
 
 export default {
+  head() {
+    return {
+      title: this.$t('index.title'),
+    };
+  },
+
   components: {
     Chat,
     // WorkHeader,

@@ -24,6 +24,7 @@ module.exports = {
 
   index: {
     name: 'Home',
+    title: 'Hi!',
     head: {
       title: 'Emin',
       description: '人工知能を活用した『気持ちを解するテクノロジー』で認知科学的アプローチから人と機械のインタラクティブデザインを行います。ECサイト向け購買行動 解析・販促サービス『ZenClerk』を運営する、Emotion Intelligence株式会社のコーポレートサイトです。',
