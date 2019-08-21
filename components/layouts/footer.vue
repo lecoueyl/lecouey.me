@@ -61,18 +61,3 @@ export default {
   },
 };
 </script>
-
-
-<style lang="scss">
-.app-header {
-  z-index: map-get($iota-global-zindex, header);
-}
-
-.app-footer__spacer svg {
-  height: 1em;
-}
-
-.app-footer__spacer svg path {
-  stroke: $color-foreground;
-}
-</style>

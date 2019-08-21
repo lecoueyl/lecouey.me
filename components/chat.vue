@@ -227,7 +227,7 @@ export default {
   methods: {
     delaySend() {
       const randomDelay = Math.floor(Math.random() * 1000) + this.sendDelay;
-      return new Promise(resolve => setTimeout(resolve, randomDelay));
+      return new Promise((resolve) => setTimeout(resolve, randomDelay));
     },
 
     sendMessage(from) {
@@ -270,7 +270,7 @@ export default {
     },
 
     getMessage(id) {
-      return this.script.find(message => message.id === id);
+      return this.script.find((message) => message.id === id);
     },
 
     getLastMessage() {
@@ -280,7 +280,7 @@ export default {
     setReplies() {
       const lastMessage = this.getLastMessage();
       if (this.isNextAnswer(lastMessage)) {
-        this.replies = this.script.filter(message => lastMessage.next.indexOf(message.id) > -1);
+        this.replies = this.script.filter((message) => lastMessage.next.indexOf(message.id) > -1);
       }
 
       this.$nextTick(() => {

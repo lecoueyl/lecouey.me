@@ -65,6 +65,7 @@ export default {
         targets: this.$refs.cursor,
         translateX: event.clientX,
         translateY: event.clientY,
+        translateZ: 0,
         easing: 'easeOutQuart',
         duration: animeDot.duration.move,
       });
