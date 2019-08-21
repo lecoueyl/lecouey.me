@@ -98,7 +98,7 @@ export default {
     return {
       isSending: false,
       visitorReplied: null,
-      sendDelay: 1200,
+      sendDelay: 1000,
       history: [],
       replies: [],
       script: [
