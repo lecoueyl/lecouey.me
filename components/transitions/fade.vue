@@ -25,7 +25,7 @@ export default {
         opacity: [0, 1],
         duration: this.durationEnter,
         easing: 'linear',
-        complete: () => done(),
+        complete: done,
       });
     },
 
@@ -35,7 +35,7 @@ export default {
         opacity: 0,
         duration: this.durationEnter,
         easing: 'linear',
-        complete: () => done(),
+        complete: done,
       });
     },
   },

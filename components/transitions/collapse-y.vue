@@ -39,7 +39,7 @@ export default {
         easing: easeEnter,
         translateY: 0,
         opacity: 1,
-        complete: () => done(),
+        complete: done,
       });
     },
 
@@ -50,7 +50,7 @@ export default {
         easing: easeLeave,
         translateY: '100%',
         opacity: 0,
-        complete: () => done(),
+        complete: done,
       });
     },
   },

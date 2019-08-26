@@ -25,7 +25,7 @@ export default {
         opacity: [0, 1],
         translateY: ['-100%', 1],
         duration: this.durationEnter,
-        complete: () => done(),
+        complete: done,
       });
     },
 
@@ -35,7 +35,7 @@ export default {
         opacity: 0,
         translateY: '-100%',
         duration: this.durationLeave,
-        complete: () => done(),
+        complete: done,
       });
     },
   },
