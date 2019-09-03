@@ -1,6 +1,6 @@
 <template>
-  <main class="u-overflow-hidden">
-    <section class="o-container u-height-100 u-mb-x10 u-relative">
+  <main>
+    <section class="o-container u-mb-x10 u-relative">
       <div class="o-grid u-height-100">
         <div class="o-grid__col u-7/12@sm">
           <Chat />

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-layout">
+  <div>
     <Pointer />
     <LayoutHeader role="header" />
     <nuxt role="main" />
