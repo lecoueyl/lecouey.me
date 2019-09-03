@@ -33,9 +33,9 @@
           class="o-type-m"
         >
           <a
+            slot="linkedin"
             v-t="'links.social.linkedin'"
             :href="links.linkedin"
-            place="linkedin"
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="visit"

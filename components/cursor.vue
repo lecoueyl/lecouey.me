@@ -9,25 +9,24 @@
     />
     <TransitionCollapseY :class="{ 'u-float-right': actionPosition === 'right' }">
       <div
-        v-if="action"
-        ref="action"
+        v-if="actionText"
+        ref="actionText"
         class="o-type-s u-color-primary"
       >
-        {{ action }}
+        {{ actionText }}
       </div>
     </TransitionCollapseY>
   </div>
 </template>
 
-
 <script>
 import anime from 'animejs';
 import TransitionCollapseY from '~/components/transitions/collapse-y';
 
-const animeDot = {
-  scale: 1.5,
+const animeCursor = {
+  dotScale: 1.5,
   duration: {
-    move: 300,
+    translate: 300,
     scale: 800,
   },
 };
@@ -39,7 +38,7 @@ export default {
 
   data() {
     return {
-      action: null,
+      actionText: null,
       actionPosition: null,
       isHoverLink: false,
       linkElement: [
@@ -50,64 +49,40 @@ export default {
   },
 
   beforeMount() {
-    window.addEventListener('mousemove', this.moveCursor);
+    window.addEventListener('mousemove', this.onMouseMove);
     document.addEventListener('click', this.onClick);
   },
 
   beforeDestroy() {
-    window.removeEventListener('mousemove', this.moveCursor);
+    window.removeEventListener('mousemove', this.onMouseMove);
     document.removeEventListener('click', this.onClick);
   },
 
   methods: {
-    moveCursor(event) {
+    onMouseMove(event) {
       anime({
         targets: this.$refs.cursor,
         translateX: event.clientX,
         translateY: event.clientY,
         translateZ: 0,
         easing: 'easeOutQuart',
-        duration: animeDot.duration.move,
+        duration: animeCursor.duration.translate,
       });
 
       // active cursor
-      if (this.linkElement.includes(event.target.localName) && !this.isHoverLink) {
-        // display action message if any
-        if (event.target.dataset.cursor) {
-          this.action = event.target.dataset.cursor;
-        }
-
-        // animate cursor
-        anime({
-          targets: this.$refs.dot,
-          scale: animeDot.scale,
-          duration: animeDot.duration.scale,
-        });
-
-        this.isHoverLink = true;
+      if (this.isMouseHoverLink(event)) {
+        this.onMouseEnter(event);
       }
 
       // reset cursor
       if (!this.linkElement.includes(event.target.localName) && this.isHoverLink) {
-        anime({
-          targets: this.$refs.dot,
-          scale: 1,
-          duration: animeDot.duration.scale,
-        });
-
-        this.isHoverLink = false;
-        this.action = null;
-
-        const delayResetPosition = 300;
-        setTimeout(() => {
-          this.actionPosition = null;
-        }, delayResetPosition);
+        this.onMouseLeave();
       }
 
       // action message position
-      if (this.action) {
+      if (this.actionText) {
         this.$nextTick(() => {
-          const isElementOut = this.isOutOfViewport(this.$refs.action);
+          const isElementOut = this.isOutOfViewport(this.$refs.actionText);
           if (isElementOut.right && !this.actionPosition) {
             this.actionPosition = 'right';
           }
@@ -129,19 +104,49 @@ export default {
       };
     },
 
+    isMouseHoverLink(event) {
+      return this.linkElement.includes(event.target.localName) && !this.isHoverLink;
+    },
+
+    onMouseEnter(event) {
+      this.isHoverLink = true;
+
+      anime({
+        targets: this.$refs.dot,
+        scale: animeCursor.dotScale,
+        duration: animeCursor.duration.scale,
+      });
+
+      // display action message if any
+      if (event.target.dataset.cursor) {
+        this.actionText = event.target.dataset.cursor;
+      }
+    },
+
+    onMouseLeave() {
+      this.isHoverLink = false;
+
+      anime({
+        targets: this.$refs.dot,
+        scale: 1,
+        duration: animeCursor.duration.scale,
+      });
+
+      this.actionText = null;
+    },
+
     onClick() {
       if (this.isHoverLink) {
         anime({
           targets: this.$refs.dot,
-          scale: [animeDot.scale * 1.1, 1],
-          duration: animeDot.duration.scale,
+          scale: [animeCursor.dotScale * 1.1, 1],
+          duration: animeCursor.duration.scale,
         });
       }
     },
   },
 };
 </script>
-
 
 <style lang="scss">
 .app-cursor {
