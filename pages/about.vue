@@ -2,15 +2,18 @@
   <main class="u-pt-x10 u-overflow-hidden">
     <section
       class="o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative"
+      style="white-space: pre;"
     >
       <p
-        v-for="(text, index) in $t('about.hero')"
+        v-for="(sentence, index) in $t('about.hero')"
         :key="index"
         class="u-overflow-hidden u-push-2/12"
       >
-        <span class="app-about__hero-text u-inline-block">
-          {{ text }}
-        </span>
+        <span
+          v-for="word in sentence"
+          :key="word"
+          class="app-about__hero-text u-inline-block"
+        >{{ word }}</span>
       </p>
     </section>
 

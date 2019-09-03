@@ -36,11 +36,11 @@ module.exports = {
   about: {
     title: 'About',
 
-    hero: {
-      sysadmin: 'System administrator',
-      designer: 'Fullstack designer',
-      living: 'Living in Japan',
-    },
+    hero: [
+      ['System', ' administrator'],
+      ['Fullstack', ' designer'],
+      ['Living', ' in', ' Japan'],
+    ],
 
     me: {
       intro: `I am a French System Administrator and Fullstack designer with over 12 years of experience.
