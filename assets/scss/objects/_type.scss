@@ -1,24 +1,17 @@
 $iota-objs-type-sizes: (
-  xs: (
-    null: iota-type-size(iota-ms(-2)),
-    sm: iota-type-size(iota-ms(-1)),
-  ),
   s: (
-    null: iota-type-size(iota-ms(-1)),
-    sm: iota-type-size(iota-ms(0)),
+    null: 0.9rem,
+    sm: 1rem,
   ),
   m: (
-    null: iota-type-size(iota-ms(0)),
-    sm: iota-type-size(iota-ms(2)),
+    null: (1.25rem,  1.625),
+    sm: (2rem, 1.625),
   ),
   l: (
-    null: iota-type-size(iota-ms(5)),
-    sm: iota-type-size(iota-ms(8)),
+    null: (2rem,  1.375),
+    sm: (5rem, 1.25),
   ),
-  xl: (
-    null: iota-type-size(iota-ms(8)),
-    sm: iota-type-size(iota-ms(10)),
-  ),
+  xl: (4rem),
 );
 
 @import 'node_modules/iotacss/objects/type';

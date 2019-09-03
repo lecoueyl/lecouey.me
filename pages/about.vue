@@ -7,7 +7,7 @@
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
-        class="u-overflow-hidden u-push-2/12"
+        class="u-overflow-hidden u-push-2/12@md"
       >
         <span
           v-for="word in sentence"

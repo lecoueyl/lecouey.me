@@ -5,13 +5,13 @@ module.exports = {
     {
       code: 'en',
       iso: 'en-US',
-      name: 'English',
+      name: 'EN',
       file: 'en.js',
     },
     {
       code: 'ja',
       iso: 'ja-JP',
-      name: '日本語',
+      name: 'JP',
       file: 'ja.js',
     },
   ],

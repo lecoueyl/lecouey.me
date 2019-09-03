@@ -2,7 +2,7 @@
   <TransitionFadeY :duration="{ enter: 800, leave: 1000 }">
     <header
       v-if="scrolledOut"
-      class="app-header o-container o-container--full o-type-xs u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium"
+      class="app-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium"
     >
       <div class="o-media o-media--middle u-overflow-hidden">
         <div
