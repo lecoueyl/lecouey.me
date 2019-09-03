@@ -69,17 +69,17 @@ export default {
         duration: animeCursor.duration.translate,
       });
 
-      // active cursor
-      if (this.isMouseHoverLink(event)) {
+      // onMouseHover
+      if (this.linkElement.includes(event.target.localName) && !this.isHoverLink) {
         this.onMouseEnter(event);
       }
 
-      // reset cursor
+      // onMouseLeave
       if (!this.linkElement.includes(event.target.localName) && this.isHoverLink) {
         this.onMouseLeave();
       }
 
-      // action message position
+      // set action text position
       if (this.actionText) {
         this.$nextTick(() => {
           const isElementOut = this.isOutOfViewport(this.$refs.actionText);
@@ -102,10 +102,6 @@ export default {
         bottom: bound.bottom > (window.innerHeight || document.documentElement.clientHeight),
         right: bound.right > (window.innerWidth || document.documentElement.clientWidth),
       };
-    },
-
-    isMouseHoverLink(event) {
-      return this.linkElement.includes(event.target.localName) && !this.isHoverLink;
     },
 
     onMouseEnter(event) {
@@ -148,13 +144,15 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+$cursor-size: 30px;
+
 .app-cursor {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  top: -10px;
-  left: -10px;
+  width: $cursor-size;
+  height: $cursor-size;
+  top: -$cursor-size/2;
+  left: -$cursor-size/2;
   user-select: none;
   pointer-events: none;
   z-index: map-get($iota-global-zindex, cursor);
