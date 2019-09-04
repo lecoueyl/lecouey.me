@@ -43,7 +43,7 @@ module.exports = {
     ],
 
     me: {
-      intro: `I am a French System Administrator and Fullstack designer with over 12 years of experience.
+      intro: `I am a French system administrator and fullstack designer with over 12 years of experience.
         Currently living in Tokyo.`,
       history: `Working at Emotion Intelligence since 2014, where I have the chance to do create
         product from the bottom to the end.`,
