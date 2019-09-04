@@ -72,7 +72,6 @@ module.exports = {
     ['@nuxtjs/google-analytics', {
       id: 'UA-66613236-1',
     }],
-    'nuxt-webfontloader',
   ],
   /*
   ** Sitemap
@@ -99,14 +98,6 @@ module.exports = {
     linkActiveClass: 'c-link--is-active',
   },
   /*
-  ** Webfont loader
-  */
-  webfontloader: {
-    google: {
-      families: ['Poppins:400,600'],
-    },
-  },
-  /*
   ** Build configuration
   */
   build: {
@@ -131,7 +122,7 @@ module.exports = {
         });
       }
 
-      // media
+      // Load media assets
       config.module.rules.push({
         test: /\.(m4a|mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',

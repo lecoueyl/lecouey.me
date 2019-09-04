@@ -18,7 +18,7 @@
           <div class="app-chat__message">
             <img
               v-if="message.action === 'gif'"
-              src="../assets/images/gif/cat-hello.gif"
+              src="../assets/images/cat-hello.gif"
             >
 
             <span v-if="message.content">

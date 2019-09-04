@@ -29,7 +29,9 @@ export default {
   },
 
   head() {
-    return { title: this.error.statusCode };
+    return {
+      title: this.error.statusCode,
+    };
   },
 };
 </script>

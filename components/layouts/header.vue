@@ -33,7 +33,6 @@
           class="o-media__fluid u-text-right"
         >
           <ul class="o-list o-list--inline">
-            <!-- v-if="!$nuxt.$route.path.includes('about')" -->
             <li
               v-for="(item, index) in menu"
               :key="item"
@@ -47,27 +46,7 @@
                 {{ $t(`links.${item}`) }}
               </nuxt-link>
             </li>
-            <!-- <li
-              v-if="!$nuxt.$route.path.includes('about')"
-              class="o-list__item">
-              <nuxt-link
-                v-t="'links.about'"
-                :to="localePath('about')"
-                class="c-link c-link--foreground" />
-            </li>
 
-            <li
-              v-if="$nuxt.$route.path.includes('about')"
-              class="o-list__item">
-              <nuxt-link
-                v-t="'links.back'"
-                :to="localePath('index')"
-                class="c-link c-link--foreground" />
-            </li> -->
-
-            <!-- <li class="o-list__item">
-              —
-            </li> -->
             <template v-for="(locale, index) in $i18n.locales">
               <li
                 v-if="locale.code !== $i18n.locale"
@@ -136,25 +115,6 @@ export default {
         duration: animeHeader.duration,
         delay: anime.stagger(animeHeader.stagger, { from: this.clickedIndex }),
       });
-      // if (loading) {
-      //   anime({
-      //     targets: animeHeader.targets,
-      //     translateY: '-100%',
-      //     opacity: 0,
-      //     easing: easeLeave,
-      //     duration: animeHeader.duration,
-      //     delay: anime.stagger(animeHeader.stagger),
-      //   });
-      // } else {
-      //   anime({
-      //     targets: animeHeader.targets,
-      //     translateY: 0,
-      //     opacity: 1,
-      //     easing: easeEnter,
-      //     duration: animeHeader.duration,
-      //     delay: anime.stagger(animeHeader.stagger),
-      //   });
-      // }
     },
   },
 
@@ -199,9 +159,5 @@ export default {
 .app-header__logo {
   width: 30px;
   height: 30px;
-}
-
-.app-header__logo path {
-  fill: $color-foreground;
 }
 </style>
