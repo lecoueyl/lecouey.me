@@ -7,23 +7,23 @@
       <div class="o-media o-media--middle u-overflow-hidden">
         <div
           class="app-header__item o-media__fixed"
-          @click="clickedIndex = 0"
         >
           <nuxt-link
             key="logo"
             :to="localePath('index')"
             :aria-label="$t('links.index')"
             class="c-link u-color-foreground"
+            @click.native="clickedIndex = 0"
           >
             <SvgLogo class="app-header__logo u-block" />
           </nuxt-link>
         </div>
 
         <nuxt-link
-          key="logo"
+          key="name"
           :to="localePath('index')"
-          :aria-label="$t('links.index')"
           class="app-header__item o-media__fluid u-pl c-link u-color-foreground"
+          @click.native="clickedIndex = 1"
         >
           Léonard Lecouey
         </nuxt-link>
@@ -37,7 +37,7 @@
               v-for="(item, index) in menu"
               :key="item"
               class="app-header__item o-list__item"
-              @click="clickedIndex = index + 1"
+              @click="clickedIndex = index + 2"
             >
               <nuxt-link
                 :to="localePath(item)"
@@ -108,13 +108,16 @@ export default {
   watch: {
     loading(isLoading) {
       // hide or show header's item
-      anime({
-        targets: animeHeader.targets,
-        translateY: isLoading ? '110%' : 0,
-        easing: easeLeave,
-        duration: animeHeader.duration,
-        delay: anime.stagger(animeHeader.stagger, { from: this.clickedIndex }),
-      });
+      const timeoutAnime = 10;
+      setTimeout(() => {
+        anime({
+          targets: animeHeader.targets,
+          translateY: isLoading ? '150%' : 0,
+          easing: easeLeave,
+          duration: animeHeader.duration,
+          delay: anime.stagger(animeHeader.stagger, { from: this.clickedIndex }),
+        });
+      }, timeoutAnime);
     },
   },
 
@@ -137,14 +140,14 @@ export default {
     },
 
     switchLocale(localeCode) {
-      const loadingTimeout = 1000;
+      const timeoutLoading = 1000;
       this.$store.commit('updateLoading', true);
       setTimeout(() => {
         this.$router.push(this.switchLocalePath(localeCode));
         setTimeout(() => {
           this.$store.commit('updateLoading', false);
-        }, loadingTimeout);
-      }, loadingTimeout);
+        }, timeoutLoading);
+      }, timeoutLoading);
     },
   },
 };
