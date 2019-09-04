@@ -36,8 +36,6 @@ export default {
 
 
 <style lang="scss">
-@import "~assets/scss/settings/animations";
-
 .app-loading {
   position: fixed;
   top: 0;
