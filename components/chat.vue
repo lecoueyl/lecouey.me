@@ -319,19 +319,6 @@ export default {
       }
       audio.play();
     },
-
-    // showMessage(el, done) {
-    //   TweenLite.fromTo(el, 0.4, {
-    //     autoAlpha: 0,
-    //     y: '200px',
-    //     position: 'absolute',
-    //   }, {
-    //     autoAlpha: 1,
-    //     position: 'relative',
-    //     y: 0,
-    //     onComplete: done,
-    //   });
-    // },
   },
 };
 </script>
