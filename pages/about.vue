@@ -26,9 +26,10 @@
         <p
           v-for="paragraph in ['intro', 'history', 'work', 'current']"
           :key="paragraph"
-          v-t="`about.me.${paragraph}`"
           class="o-type-m u-pb-x2"
-        />
+        >
+          {{ $t(`about.me.${paragraph}`) }}
+        </p>
 
         <i18n
           path="about.me.linkedin"

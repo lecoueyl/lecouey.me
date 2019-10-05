@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.view-in {
+.view-in, .view-out {
   opacity: .2;
   transition: opacity 1s;
 }
