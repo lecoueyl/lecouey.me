@@ -60,7 +60,7 @@ module.exports = {
   // footer
 
   footer: {
-    contact: 'Don\'t be a stranger and send me a nice message',
+    contact: 'Anything to say? Send me a nice message',
     source: 'View source on {0}',
   },
 

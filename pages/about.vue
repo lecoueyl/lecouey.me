@@ -120,7 +120,7 @@ const animeHero = {
 };
 
 const animeCircle = {
-  duration: 2000,
+  duration: 3000,
   stagger: 150,
 };
 
