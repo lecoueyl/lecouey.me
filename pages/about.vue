@@ -1,13 +1,13 @@
 <template>
   <main class="u-pt-x10 u-overflow-hidden">
     <section
-      class="o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative"
+      class="o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative u-text-center"
       style="white-space: pre;"
     >
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
-        class="u-overflow-hidden u-push-2/12@md"
+        class="u-overflow-hidden"
       >
         <span
           v-for="word in sentence"
@@ -15,6 +15,18 @@
           class="app-about__hero-text u-inline-block"
         >{{ word }}</span>
       </p>
+
+      <div class="u-6/12@sm u-push-3/12@sm">
+        <div class="o-media">
+          <div class="o-media__fixed u-6/12">
+            <SvgCircleLeft class="about-circle__left path" />
+          </div>
+
+          <div class="o-media__fixed u-6/12">
+            <SvgCircleRight class="about-circle__right" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="o-container u-relative u-mv-x10">
@@ -98,10 +110,17 @@
 import anime from 'animejs';
 import { easeEnter } from '~/components/transitions';
 import AboutArticle from '~/components/about-article';
+import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
+import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
 const animeHero = {
   targets: '.app-about__hero-text',
   duration: 1000,
+  stagger: 150,
+};
+
+const animeCircle = {
+  duration: 2000,
   stagger: 150,
 };
 
@@ -114,6 +133,8 @@ export default {
 
   components: {
     AboutArticle,
+    SvgCircleLeft,
+    SvgCircleRight,
   },
 
   data() {
@@ -132,6 +153,22 @@ export default {
       easing: easeEnter,
       duration: animeHero.duration,
       delay: anime.stagger(animeHero.stagger),
+    });
+
+    anime({
+      targets: '.about-circle__left path',
+      translateX: ['100%', 0],
+      easing: easeEnter,
+      duration: animeCircle.duration,
+      delay: anime.stagger(animeCircle.stagger),
+    });
+
+    anime({
+      targets: '.about-circle__right path',
+      translateX: ['-100%', 0],
+      easing: easeEnter,
+      duration: animeCircle.duration,
+      delay: anime.stagger(animeCircle.stagger),
     });
   },
 };
