@@ -13,6 +13,7 @@
             :to="localePath('index')"
             :aria-label="$t('links.index')"
             class="c-link u-color-foreground"
+            :class="[$store.state.theme === 'light' ? 'u-color-foreground' : 'u-color-background']"
             @click.native="clickedIndex = 0"
           >
             <SvgLogo class="app-header__logo u-block" />
@@ -23,6 +24,7 @@
           key="name"
           :to="localePath('index')"
           class="app-header__item o-media__fluid u-pl c-link u-color-foreground"
+          :class="[$store.state.theme === 'light' ? 'u-color-foreground' : 'u-color-background']"
           @click.native="clickedIndex = 1"
         >
           Léonard Lecouey
@@ -41,7 +43,8 @@
             >
               <nuxt-link
                 :to="localePath(item)"
-                class="c-link c-link--foreground"
+                class="c-link"
+                :class="[$store.state.theme === 'light' ? 'c-link--foreground' : 'c-link--background']"
               >
                 {{ $t(`links.${item}`) }}
               </nuxt-link>
@@ -55,7 +58,8 @@
                 @click="clickedIndex = menu.length + index + 1"
               >
                 <a
-                  class="c-link c-link--foreground"
+                  class="c-link"
+                  :class="[$store.state.theme === 'light' ? 'c-link--foreground' : 'c-link--background']"
                   data-cursor="translate"
                   @click="switchLocale(locale.code)"
                 >

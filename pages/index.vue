@@ -26,6 +26,10 @@ export default {
     Chat,
   },
 
+  mounted() {
+    this.$store.commit('updateTheme', 'light');
+  },
+
   transition: {
     mode: 'out-in',
     css: false,

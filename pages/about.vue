@@ -38,7 +38,7 @@
         <p
           v-for="paragraph in ['intro', 'history', 'work', 'current']"
           :key="paragraph"
-          class="o-type-m u-pb-x2"
+          class="o-type-m u-pb-x2 u-color-background"
         >
           {{ $t(`about.me.${paragraph}`) }}
         </p>
@@ -46,7 +46,7 @@
         <i18n
           path="about.me.linkedin"
           tag="p"
-          class="o-type-m"
+          class="o-type-m u-color-background"
         >
           <a
             slot="linkedin"
@@ -65,7 +65,7 @@
           {{ $t('about.system') }}
         </template>
 
-        <ul class="o-type-m o-list">
+        <ul class="o-type-m o-list u-color-background">
           <li
             v-for="item in [
               'Infrastructure Architecture',
@@ -85,7 +85,7 @@
           {{ $t('about.design') }}
         </template>
 
-        <ul class="o-type-m o-list">
+        <ul class="o-type-m o-list u-color-background">
           <li
             v-for="item in [
               'Graphic Design',
@@ -128,6 +128,9 @@ export default {
   head() {
     return {
       title: this.$t('about.title'),
+      bodyAttrs: {
+        class: 'u-bgcolor-foreground',
+      },
     };
   },
 
@@ -147,6 +150,8 @@ export default {
   },
 
   mounted() {
+    this.$store.commit('updateTheme', 'dark');
+
     anime({
       targets: animeHero.targets,
       translateY: ['120%', 0],
