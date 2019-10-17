@@ -26,12 +26,12 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "animejs": "^3.1.0",
     "iotacss": "^1.6.0",
-    "nuxt": "^2.10.0",
+    "nuxt": "^2.10.1",
     "nuxt-i18n": "^6.3.0",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg": "^0.1.6",
     "vue-check-view": "^0.3.0",
-    "vue-i18n": "^8.14.1"
+    "vue-i18n": "^8.15.0"
   },
   "devDependencies": {
     "ajv": "^6.10.2",
