@@ -21,22 +21,21 @@
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "^2.2.0",
-    "@nuxtjs/sitemap": "^2.0.0",
+    "@nuxtjs/google-analytics": "^2.2.1",
+    "@nuxtjs/sitemap": "^2.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "animejs": "^3.1.0",
     "iotacss": "^1.6.0",
-    "nuxt": "^2.10.1",
-    "nuxt-i18n": "^6.3.0",
+    "nuxt": "^2.10.2",
+    "nuxt-i18n": "^6.3.1",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg": "^0.1.6",
-    "vue-check-view": "^0.3.0",
-    "vue-i18n": "^8.15.0"
+    "vue-check-view": "^0.3.0"
   },
   "devDependencies": {
     "ajv": "^6.10.2",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^3.0.2",
@@ -45,8 +44,8 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^5.2.3",
-    "node-sass": "^4.12.0",
+    "eslint-plugin-vue": "^6.0.1",
+    "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   }
 }

@@ -16,18 +16,18 @@ import anime from 'animejs';
 import Chat from '~/components/chat';
 
 export default {
-  head() {
-    return {
-      title: this.$t('index.title'),
-    };
-  },
-
   components: {
     Chat,
   },
 
   mounted() {
     this.$store.commit('updateTheme', 'light');
+  },
+
+  head() {
+    return {
+      title: this.$t('index.title'),
+    };
   },
 
   transition: {

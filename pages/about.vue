@@ -125,15 +125,6 @@ const animeCircle = {
 };
 
 export default {
-  head() {
-    return {
-      title: this.$t('about.title'),
-      bodyAttrs: {
-        class: 'u-bgcolor-foreground',
-      },
-    };
-  },
-
   components: {
     AboutArticle,
     SvgCircleLeft,
@@ -175,6 +166,15 @@ export default {
       duration: animeCircle.duration,
       delay: anime.stagger(animeCircle.stagger),
     });
+  },
+
+  head() {
+    return {
+      title: this.$t('about.title'),
+      bodyAttrs: {
+        class: 'u-bgcolor-foreground',
+      },
+    };
   },
 };
 </script>

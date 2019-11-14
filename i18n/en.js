@@ -37,13 +37,13 @@ module.exports = {
     title: 'About',
 
     hero: [
-      ['System', ' administrator'],
+      ['Tech', ' Leader'],
       ['Fullstack', ' designer'],
       ['Living', ' in', ' Japan'],
     ],
 
     me: {
-      intro: `I am a French system administrator and fullstack designer with over 12 years of experience.
+      intro: `I am a French Fullstack designer, developer and sysadmin with over 12 years of experience.
         Currently living in Tokyo.`,
       history: `Working at Emotion Intelligence since 2014, where I have the chance to do create
         product from the bottom to the end.`,
