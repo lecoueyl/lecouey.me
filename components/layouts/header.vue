@@ -76,16 +76,16 @@
 
 
 <script>
-import anime from 'animejs';
+import gsap from 'gsap';
 import { mapState } from 'vuex';
-import { easeLeave } from '~/components/transitions';
+import { ease } from '~/components/transitions';
 import TransitionFadeY from '~/components/transitions/fade-y';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
   targets: '.app-header__item',
-  duration: 800,
-  stagger: 200,
+  duration: 1,
+  stagger: 0.2,
 };
 
 export default {
@@ -114,12 +114,15 @@ export default {
       // hide or show header's item
       const timeoutAnime = 10;
       setTimeout(() => {
-        anime({
-          targets: animeHeader.targets,
-          translateY: isLoading ? '150%' : 0,
-          easing: easeLeave,
+        gsap.to(animeHeader.targets, {
           duration: animeHeader.duration,
-          delay: anime.stagger(animeHeader.stagger, { from: this.clickedIndex }),
+          ease: ease.leave,
+          yPercent: isLoading ? 150 : 0,
+          stagger: {
+            amount: animeHeader.stagger,
+            from: this.clickedIndex,
+            grid: 'auto',
+          },
         });
       }, timeoutAnime);
     },

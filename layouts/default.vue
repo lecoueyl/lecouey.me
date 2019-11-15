@@ -9,7 +9,7 @@
 
 
 <script>
-import Pointer from '~/components/cursor';
+import Pointer from '~/components/cursor-gsap';
 import LayoutHeader from '~/components/layouts/header';
 import LayoutFooter from '~/components/layouts/footer';
 

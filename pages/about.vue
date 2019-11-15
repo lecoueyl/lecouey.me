@@ -107,21 +107,21 @@
 </template>
 
 <script>
-import anime from 'animejs';
-import { easeEnter } from '~/components/transitions';
+import gsap from 'gsap';
+import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/about-article';
 import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
 import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
 const animeHero = {
   targets: '.app-about__hero-text',
-  duration: 1000,
-  stagger: 150,
+  duration: 1,
+  stagger: 0.15,
 };
 
 const animeCircle = {
-  duration: 3000,
-  stagger: 150,
+  duration: 3,
+  stagger: 0.15,
 };
 
 export default {
@@ -143,28 +143,34 @@ export default {
   mounted() {
     this.$store.commit('updateTheme', 'dark');
 
-    anime({
-      targets: animeHero.targets,
-      translateY: ['120%', 0],
-      easing: easeEnter,
+    gsap.fromTo(animeHero.targets, {
+      yPercent: 120,
+    },
+    {
       duration: animeHero.duration,
-      delay: anime.stagger(animeHero.stagger),
+      easing: ease.enter,
+      stagger: animeHero.stagger,
+      yPercent: 0,
     });
 
-    anime({
-      targets: '.about-circle__left path',
-      translateX: ['100%', 0],
-      easing: easeEnter,
+    gsap.fromTo('.about-circle__left path', {
+      xPercent: 100,
+    },
+    {
       duration: animeCircle.duration,
-      delay: anime.stagger(animeCircle.stagger),
+      easing: ease.enter,
+      stagger: animeCircle.stagger,
+      xPercent: 0,
     });
 
-    anime({
-      targets: '.about-circle__right path',
-      translateX: ['-100%', 0],
-      easing: easeEnter,
+    gsap.fromTo('.about-circle__right path', {
+      xPercent: -100,
+    },
+    {
       duration: animeCircle.duration,
-      delay: anime.stagger(animeCircle.stagger),
+      easing: ease.enter,
+      stagger: animeCircle.stagger,
+      xPercent: 0,
     });
   },
 
