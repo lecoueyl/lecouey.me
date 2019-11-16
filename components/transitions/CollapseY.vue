@@ -13,44 +13,39 @@
 </template>
 
 <script>
-import anime from 'animejs';
-import { easeEnter, easeLeave } from '~/components/transitions';
+import gsap from 'gsap';
+import { ease } from '~/components/transitions';
 import mixins from '~/components/transitions/mixins';
-
-// const tl = new TimelineMax();
 
 export default {
   mixins: [mixins],
 
   methods: {
     beforeEnter(el) {
-      anime({
-        targets: el,
-        opacity: 0,
-        translateY: '100%',
+      gsap.to(el, {
         duration: 0,
+        opacity: 0,
+        yPercent: 100,
       });
     },
 
     enter(el, done) {
-      anime({
-        targets: el,
+      gsap.to(el, {
         duration: this.durationEnter,
-        easing: easeEnter,
-        translateY: 0,
+        easing: ease.enter,
+        yPercent: 0,
         opacity: 1,
-        complete: done,
+        onComplete: done,
       });
     },
 
     leave(el, done) {
-      anime({
-        targets: el,
+      gsap.to(el, {
         duration: this.durationLeave,
-        easing: easeLeave,
-        translateY: '100%',
+        easing: ease.leave,
+        yPercent: 100,
         opacity: 0,
-        complete: done,
+        onComplete: done,
       });
     },
   },

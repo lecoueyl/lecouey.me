@@ -7,7 +7,7 @@ export default {
      */
     duration: {
       type: [Number, Object],
-      default: 300,
+      default: 0.3,
     },
     /**
      * Whether the component should be a `transition-group` component.

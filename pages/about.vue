@@ -109,7 +109,7 @@
 <script>
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
-import AboutArticle from '~/components/about-article';
+import AboutArticle from '~/components/AboutArticle';
 import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
 import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
@@ -120,8 +120,8 @@ const animeHero = {
 };
 
 const animeCircle = {
-  duration: 3,
-  stagger: 0.15,
+  duration: 1,
+  stagger: 0.1,
 };
 
 export default {

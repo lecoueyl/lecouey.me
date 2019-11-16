@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import anime from 'animejs';
-import TransitionCollapseY from '~/components/transitions/collapse-y';
+import gsap from 'gsap';
+import TransitionCollapseY from '~/components/transitions/CollapseY';
 
 const animeCursor = {
-  dotScale: 1.5,
+  scaleSize: 1.4,
   duration: {
-    translate: 300,
-    scale: 800,
+    move: 0.3,
+    scale: 0.3,
   },
 };
 
@@ -60,13 +60,10 @@ export default {
 
   methods: {
     onMouseMove(event) {
-      anime({
-        targets: this.$refs.cursor,
-        translateX: event.clientX,
-        translateY: event.clientY,
-        translateZ: 0,
-        easing: 'easeOutQuart',
-        duration: animeCursor.duration.translate,
+      gsap.to(this.$refs.cursor, {
+        duration: animeCursor.duration.move,
+        x: event.clientX,
+        y: event.clientY,
       });
 
       // onMouseHover
@@ -107,10 +104,10 @@ export default {
     onMouseEnter(event) {
       this.isHoverLink = true;
 
-      anime({
-        targets: this.$refs.dot,
-        scale: animeCursor.dotScale,
+      gsap.to(this.$refs.dot, {
         duration: animeCursor.duration.scale,
+        ease: 'back.out(4)',
+        scale: animeCursor.scaleSize,
       });
 
       // display action message if any
@@ -122,10 +119,9 @@ export default {
     onMouseLeave() {
       this.isHoverLink = false;
 
-      anime({
-        targets: this.$refs.dot,
-        scale: 1,
+      gsap.to(this.$refs.dot, {
         duration: animeCursor.duration.scale,
+        scale: 1,
       });
 
       this.actionText = null;
@@ -133,10 +129,12 @@ export default {
 
     onClick() {
       if (this.isHoverLink) {
-        anime({
-          targets: this.$refs.dot,
-          scale: [animeCursor.dotScale * 1.1, 1],
+        gsap.fromTo(this.$refs.dot, {
+          scale: animeCursor.scale * 1.1,
+        },
+        {
           duration: animeCursor.duration.scale,
+          scale: 1,
         });
       }
     },

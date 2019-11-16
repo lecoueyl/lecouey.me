@@ -10,7 +10,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import TransitionFade from '~/components/transitions/fade';
+import TransitionFade from '~/components/transitions/Fade';
 
 export default {
   components: {

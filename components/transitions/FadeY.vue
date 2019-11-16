@@ -12,7 +12,7 @@
 
 
 <script>
-import anime from 'animejs';
+import gsap from 'gsap';
 import mixins from '~/components/transitions/mixins';
 
 export default {
@@ -20,22 +20,24 @@ export default {
 
   methods: {
     enter(el, done) {
-      anime({
-        targets: el,
-        opacity: [0, 1],
-        translateY: ['-100%', 1],
+      gsap.fromTo(el, {
+        opacity: 0,
+        yPercent: -100,
+      },
+      {
         duration: this.durationEnter,
-        complete: done,
+        opacity: 1,
+        yPercent: 0,
+        onComplete: done,
       });
     },
 
     leave(el, done) {
-      anime({
-        targets: el,
+      gsap.to(el, {
+        duration: this.durationEnter,
         opacity: 0,
-        translateY: '-100%',
-        duration: this.durationLeave,
-        complete: done,
+        yPercent: -100,
+        onComplete: done,
       });
     },
   },

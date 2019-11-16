@@ -12,8 +12,7 @@
 
 
 <script>
-import anime from 'animejs';
-import Chat from '~/components/chat';
+import Chat from '~/components/Chat';
 
 export default {
   components: {
@@ -28,31 +27,6 @@ export default {
     return {
       title: this.$t('index.title'),
     };
-  },
-
-  transition: {
-    mode: 'out-in',
-    css: false,
-
-    enter(el, done) {
-      anime({
-        targets: el,
-        translateY: [0, 1],
-        duration: 1000,
-        easing: 'linear',
-        complete: done,
-      });
-    },
-
-    leave(el, done) {
-      anime({
-        targets: el,
-        translateY: [1, 0],
-        duration: 1000,
-        easing: 'linear',
-        complete: done,
-      });
-    },
   },
 };
 </script>

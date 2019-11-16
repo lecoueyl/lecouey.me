@@ -64,7 +64,7 @@
 
       <!-- Dummy element to simulate container height -->
       <div
-        class="o-transition-hide-slideup o-anim-stagger o-media__fixed"
+        class="o-transition-hide-slideup o-media__fixed"
         style="visibility: hidden; width: 0"
       >
         <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
@@ -77,16 +77,15 @@
 
 
 <script>
-import anime from 'animejs';
+import gsap from 'gsap';
 import { mapState } from 'vuex';
-import { easeLeave } from '~/components/transitions';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
-import TransitionCollapseY from '~/components/transitions/collapse-y';
+import TransitionCollapseY from '~/components/transitions/CollapseY';
 
 const animeReplies = {
   targets: '.app-chat__answer',
-  stagger: 200,
+  stagger: 0.2,
 };
 
 export default {
@@ -285,26 +284,48 @@ export default {
 
       this.$nextTick(() => {
         this.isSending = false;
-        anime({
-          targets: animeReplies.targets,
-          translateY: ['150%', 0],
-          duration: this.sendDelay,
-          easing: 'spring(1, 80, 12, 0)',
-          delay: anime.stagger(animeReplies.stagger),
+        gsap.fromTo(animeReplies.targets, {
+          yPercent: 150,
+        },
+        {
+          duration: 0.6,
+          ease: 'back.out(1.7)',
+          stagger: animeReplies.stagger,
+          yPercent: 0,
         });
+        // anime({
+        //   targets: animeReplies.targets,
+        //   translateY: ['150%', 0],
+        //   duration: this.sendDelay,
+        //   easing: 'spring(1, 80, 12, 0)',
+        //   delay: anime.stagger(animeReplies.stagger),
+        // });
       });
     },
 
     sendAnswer(next, index) {
       this.visitorReplied = true;
       if (!this.isSending) {
-        anime({
-          targets: animeReplies.targets,
-          translateY: [0, '150%'],
-          duration: this.sendDelay / 2,
-          easing: easeLeave,
-          delay: anime.stagger(animeReplies.stagger, { from: index }),
+        gsap.fromTo(animeReplies.targets, {
+          yPercent: 0,
+        },
+        {
+          duration: 0.6,
+          ease: 'back.out(1.7)',
+          stagger: {
+            amount: animeReplies.stagger,
+            from: index,
+            grid: 'auto',
+          },
+          yPercent: 150,
         });
+        // anime({
+        //   targets: animeReplies.targets,
+        //   translateY: [0, '150%'],
+        //   duration: this.sendDelay / 2,
+        //   easing: easeLeave,
+        //   delay: anime.stagger(animeReplies.stagger, { from: index }),
+        // });
         this.playAudio('send');
         this.sendMessage(next);
       }

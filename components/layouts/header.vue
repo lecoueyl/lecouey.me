@@ -1,5 +1,5 @@
 <template>
-  <TransitionFadeY :duration="{ enter: 800, leave: 1000 }">
+  <TransitionFadeY>
     <header
       v-if="scrolledOut"
       class="app-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium"
@@ -79,7 +79,7 @@
 import gsap from 'gsap';
 import { mapState } from 'vuex';
 import { ease } from '~/components/transitions';
-import TransitionFadeY from '~/components/transitions/fade-y';
+import TransitionFadeY from '~/components/transitions/FadeY';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {

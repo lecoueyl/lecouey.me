@@ -9,9 +9,9 @@
 
 
 <script>
-import Pointer from '~/components/cursor-gsap';
-import LayoutHeader from '~/components/layouts/header';
-import LayoutFooter from '~/components/layouts/footer';
+import Pointer from '~/components/Cursor';
+import LayoutHeader from '~/components/layouts/Header';
+import LayoutFooter from '~/components/layouts/Footer';
 
 export default {
   components: {
