@@ -32,7 +32,7 @@ export default {
     enter(el, done) {
       gsap.to(el, {
         duration: this.durationEnter,
-        easing: ease.enter,
+        ease: ease.enter,
         yPercent: 0,
         opacity: 1,
         onComplete: done,
@@ -42,7 +42,7 @@ export default {
     leave(el, done) {
       gsap.to(el, {
         duration: this.durationLeave,
-        easing: ease.leave,
+        ease: ease.leave,
         yPercent: 100,
         opacity: 0,
         onComplete: done,

@@ -120,7 +120,7 @@ const animeHero = {
 };
 
 const animeCircle = {
-  duration: 1,
+  duration: 2,
   stagger: 0.1,
 };
 
@@ -148,7 +148,7 @@ export default {
     },
     {
       duration: animeHero.duration,
-      easing: ease.enter,
+      ease: ease.enter,
       stagger: animeHero.stagger,
       yPercent: 0,
     });
@@ -158,7 +158,7 @@ export default {
     },
     {
       duration: animeCircle.duration,
-      easing: ease.enter,
+      ease: ease.enter,
       stagger: animeCircle.stagger,
       xPercent: 0,
     });
@@ -168,7 +168,7 @@ export default {
     },
     {
       duration: animeCircle.duration,
-      easing: ease.enter,
+      ease: ease.enter,
       stagger: animeCircle.stagger,
       xPercent: 0,
     });

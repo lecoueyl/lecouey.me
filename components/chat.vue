@@ -81,6 +81,7 @@ import gsap from 'gsap';
 import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
+import { ease } from '~/components/transitions';
 import TransitionCollapseY from '~/components/transitions/CollapseY';
 
 const animeReplies = {
@@ -288,18 +289,11 @@ export default {
           yPercent: 150,
         },
         {
-          duration: 0.6,
-          ease: 'back.out(1.7)',
+          duration: 1,
+          ease: ease.elastic,
           stagger: animeReplies.stagger,
           yPercent: 0,
         });
-        // anime({
-        //   targets: animeReplies.targets,
-        //   translateY: ['150%', 0],
-        //   duration: this.sendDelay,
-        //   easing: 'spring(1, 80, 12, 0)',
-        //   delay: anime.stagger(animeReplies.stagger),
-        // });
       });
     },
 
@@ -319,13 +313,6 @@ export default {
           },
           yPercent: 150,
         });
-        // anime({
-        //   targets: animeReplies.targets,
-        //   translateY: [0, '150%'],
-        //   duration: this.sendDelay / 2,
-        //   easing: easeLeave,
-        //   delay: anime.stagger(animeReplies.stagger, { from: index }),
-        // });
         this.playAudio('send');
         this.sendMessage(next);
       }
