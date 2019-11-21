@@ -3,7 +3,7 @@ export default {
   props: {
     /**
      * Transition duration. Number for specifying the same duration for enter/leave transitions
-     * Object style { enter: 300, leave: 200 } for specifying explicit durations for enter/leave
+     * Object style { enter: 0.3, leave: 0.2 } for specifying explicit durations for enter/leave
      */
     duration: {
       type: [Number, Object],

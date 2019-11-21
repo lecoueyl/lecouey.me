@@ -22,8 +22,7 @@ export default {
 
   methods: {
     beforeEnter(el) {
-      gsap.to(el, {
-        duration: 0,
+      gsap.set(el, {
         opacity: 0,
         yPercent: 100,
       });

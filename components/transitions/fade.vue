@@ -10,7 +10,6 @@
   </Component>
 </template>
 
-
 <script>
 import gsap from 'gsap';
 import mixins from '~/components/transitions/mixins';

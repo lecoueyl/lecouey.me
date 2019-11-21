@@ -10,7 +10,6 @@
   </Component>
 </template>
 
-
 <script>
 import gsap from 'gsap';
 import mixins from '~/components/transitions/mixins';
@@ -34,7 +33,7 @@ export default {
 
     leave(el, done) {
       gsap.to(el, {
-        duration: this.durationEnter,
+        duration: this.durationLeave,
         opacity: 0,
         yPercent: -100,
         onComplete: done,
