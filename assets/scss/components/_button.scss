@@ -1,6 +1,5 @@
 // Button component
 
-
 // Options
 
 $iota-components-button: true;
@@ -20,11 +19,9 @@ $iota-components-button-radius: 100px;
 $iota-components-button-shadow: 10px 35px 0 rgba(black, 0.1);
 $iota-components-button-shadow--is-active: 10px 15px 0 rgba(black, 0.1);
 
-
 // Helper Local Variables
 
 $iota-components-button: $iota-global-components-namespace + $iota-components-button-namespace;
-
 
 // Button Component
 
@@ -40,15 +37,18 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
   user-select: none;
   font-weight: 400;
   transition-duration: 0.2s;
-  transition-property: transform,
-                       background-color,
-                       border-color,
-                       box-shadow,
-                       color;
-  will-change: transform,
-               background-color,
-               box-shadow, color,
-               border-color;
+  transition-property:
+    transform,
+    background-color,
+    border-color,
+    box-shadow,
+    color;
+  will-change:
+    transform,
+    background-color,
+    box-shadow,
+    color,
+    border-color;
   outline: none;
 }
 
@@ -78,15 +78,10 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
     border-color: map-get($color, 'hover');
   }
 
-  // .#{$iota-components-button}--is-active.#{$iota-components-button}-outline.#{$iota-components-button}--#{$name},
-  .#{$iota-components-button}-outline.#{$iota-components-button}--#{$name}:hover {
-    border-color: map-get($color, 'hover');
-  }
-
   // active
 
   .#{$iota-components-button}-outline.#{$iota-components-button}--#{$name}:active {
-    color:  map-get($color, 'hover');
-    border-color:  map-get($color, 'hover');
+    color: map-get($color, 'hover');
+    border-color: map-get($color, 'hover');
   }
 }

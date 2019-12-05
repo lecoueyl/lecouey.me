@@ -10,15 +10,20 @@
 }
 
 @keyframes hi {
-	from,
+  from,
   30%,
   to {
     transform: rotate(0);
   }
-  5%, 15%, 25% {
+
+  5%,
+  15%,
+  25% {
     transform: rotate(14deg);
   }
-  10%, 20% {
+
+  10%,
+  20% {
     transform: rotate(-14deg);
   }
 }

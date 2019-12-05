@@ -31,12 +31,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.view-in, .view-out {
-  opacity: .2;
+.view-in,
+.view-out {
+  opacity: 0.2;
   transition: opacity 1s;
 }
 
-.view-in--gt-half, .view-in--full {
+.view-in--gt-half,
+.view-in--full {
   opacity: 1;
 }
 </style>

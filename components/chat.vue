@@ -65,7 +65,7 @@
       <!-- Dummy element to simulate container height -->
       <div
         class="o-transition-hide-slideup o-media__fixed"
-        style="visibility: hidden; width: 0"
+        style="visibility: hidden; width: 0;"
       >
         <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
           &nbsp;
@@ -344,7 +344,7 @@ export default {
   flex: 1;
 }
 
-.app-chat__container:before {
+.app-chat__container::before {
   content: '';
   display: block;
   position: absolute;
@@ -354,22 +354,26 @@ export default {
   right: 0;
   left: 0;
   z-index: 1;
-  background-image: linear-gradient(to bottom, $color-background 0%,
-                    rgba($color-background, 0.79) 8.1%,
-                    rgba($color-background, 0.761) 15.5%,
-                    rgba($color-background, 0.717) 22.5%,
-                    rgba($color-background, 0.66) 29%,
-                    rgba($color-background, 0.593) 35.3%,
-                    rgba($color-background, 0.518) 41.2%,
-                    rgba($color-background, 0.44) 47.1%,
-                    rgba($color-background, 0.36) 52.9%,
-                    rgba($color-background, 0.282) 58.8%,
-                    rgba($color-background, 0.207) 64.7%,
-                    rgba($color-background, 0.14) 71%,
-                    rgba($color-background, 0.083) 77.5%,
-                    rgba($color-background, 0.039) 84.5%,
-                    rgba($color-background, 0.01) 91.9%,
-                    transparent 100%);
+  background-image:
+    linear-gradient(
+      to bottom,
+      $color-background 0%,
+      rgba($color-background, 0.79) 8.1%,
+      rgba($color-background, 0.761) 15.5%,
+      rgba($color-background, 0.717) 22.5%,
+      rgba($color-background, 0.66) 29%,
+      rgba($color-background, 0.593) 35.3%,
+      rgba($color-background, 0.518) 41.2%,
+      rgba($color-background, 0.44) 47.1%,
+      rgba($color-background, 0.36) 52.9%,
+      rgba($color-background, 0.282) 58.8%,
+      rgba($color-background, 0.207) 64.7%,
+      rgba($color-background, 0.14) 71%,
+      rgba($color-background, 0.083) 77.5%,
+      rgba($color-background, 0.039) 84.5%,
+      rgba($color-background, 0.01) 91.9%,
+      transparent 100%
+    );
 }
 
 .app-chat__thread {
