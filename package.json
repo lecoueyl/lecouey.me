@@ -17,7 +17,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint '**/*.scss' '**/*.vue'",
+    "lint:style": "stylelint '**/*.{vue,scss}'",
     "precommit": "npm run lint",
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
