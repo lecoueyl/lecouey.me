@@ -69,9 +69,6 @@ module.exports = {
     '@nuxtjs/style-resources',
     ['nuxt-i18n', i18n],
     ['nuxt-svg'],
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-66613236-1',
-    }],
   ],
   /*
   ** Sitemap
@@ -97,6 +94,19 @@ module.exports = {
   router: {
     linkActiveClass: 'c-link--is-active',
   },
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+    ['@nuxtjs/google-analytics', {
+      id: envConfig.googleAnalyticsId,
+      // debug: {
+      //   enabled: envConfig.parsed.GOOGLE_ANALYTICS_DEBUG,
+      //   sendHitTask: envConfig.parsed.GOOGLE_ANALYTICS_DEBUG,
+      // },
+    }],
+    '@nuxtjs/stylelint-module',
+  ],
   /*
   ** Build configuration
   */

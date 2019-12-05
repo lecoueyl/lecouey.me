@@ -9,4 +9,5 @@ module.exports = {
     dribbble: 'https://dribbble.com/wtrmine',
     linkedin: 'https://www.linkedin.com/in/llecouey/',
   },
+  googleAnalyticsId: 'UA-66613236-1',
 };

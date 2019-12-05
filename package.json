@@ -17,6 +17,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint '**/*.scss' '**/*.vue'",
     "precommit": "npm run lint",
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
@@ -33,6 +34,7 @@
     "vue-check-view": "^0.3.0"
   },
   "devDependencies": {
+    "@nuxtjs/stylelint-module": "^3.1.1",
     "ajv": "^6.10.2",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
@@ -46,6 +48,9 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
     "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.13.0"
   }
 }
