@@ -1,3 +1,4 @@
+require('dotenv').config();
 const envConfig = require('./config');
 const i18n = require('./i18n');
 
@@ -98,11 +99,12 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/dotenv',
     ['@nuxtjs/google-analytics', {
-      id: envConfig.googleAnalyticsId,
+      id: process.env.GOOGLE_ANALYTICS_ID,
       // debug: {
-      //   enabled: envConfig.parsed.GOOGLE_ANALYTICS_DEBUG,
-      //   sendHitTask: envConfig.parsed.GOOGLE_ANALYTICS_DEBUG,
+      //   enabled: true,
+      //   sendHitTask: true,
       // },
     }],
     '@nuxtjs/stylelint-module',

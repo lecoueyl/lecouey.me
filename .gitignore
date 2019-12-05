@@ -19,3 +19,6 @@ dist
 
 # Nuxt generate
 dist
+
+# dotenv
+.env.*
