@@ -22,13 +22,13 @@
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "^2.2.1",
+    "@nuxtjs/google-analytics": "^2.2.2",
     "@nuxtjs/sitemap": "^2.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
-    "gsap": "^3.0.1",
+    "gsap": "^3.0.2",
     "iotacss": "^1.6.0",
     "nuxt": "^2.10.2",
-    "nuxt-i18n": "^6.4.0",
+    "nuxt-i18n": "^6.4.1",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg": "^0.1.6",
     "vue-check-view": "^0.3.0"
@@ -38,7 +38,7 @@
     "@nuxtjs/stylelint-module": "^3.1.1",
     "ajv": "^6.10.2",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^3.0.2",
