@@ -30,12 +30,12 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
   display: inline-block;
   padding: 0;
   font: inherit;
+  font-weight: 400;
   white-space: nowrap;
   text-align: center;
-  vertical-align: middle;
   text-decoration: none;
-  user-select: none;
-  font-weight: 400;
+  vertical-align: middle;
+  outline: none;
   transition-duration: 0.2s;
   transition-property:
     transform,
@@ -43,13 +43,13 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
     border-color,
     box-shadow,
     color;
+  user-select: none;
   will-change:
     transform,
     background-color,
     box-shadow,
     color,
     border-color;
-  outline: none;
 }
 
 // Outline type

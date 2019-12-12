@@ -40,10 +40,10 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   z-index: 100;
   display: table;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 </style>

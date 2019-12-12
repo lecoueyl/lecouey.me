@@ -4,9 +4,9 @@
   display: inline-block;
   animation-name: hi;
   animation-duration: 5s;
-  animation-fill-mode: forwards;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 
 @keyframes hi {

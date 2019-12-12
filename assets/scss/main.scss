@@ -3,7 +3,6 @@
 @import 'settings/baseline';
 @import 'settings/colors';
 @import 'settings/type';
-@import 'settings/zindex';
 
 // Tools
 @import 'tools/core';
@@ -29,6 +28,7 @@
 @import 'utilities/size';
 @import 'utilities/text';
 @import 'utilities/weight';
+@import 'utilities/zindex';
 
 // Objects
 @import 'objects/animation';

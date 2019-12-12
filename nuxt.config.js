@@ -86,7 +86,6 @@ module.exports = {
       './assets/scss/settings/_animations.scss',
       './assets/scss/settings/_baseline.scss',
       './assets/scss/settings/_colors.scss',
-      './assets/scss/settings/_zindex.scss',
     ],
   },
   /*

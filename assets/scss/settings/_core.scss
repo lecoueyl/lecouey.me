@@ -6,13 +6,6 @@ $iota-global-breakpoints: (
   md: "screen and ( min-width: 1100px )",
 );
 
-$iota-global-zindex: (
-  loading: 1000,
-  menu: 92,
-  logo: 91,
-  nav: 90,
-);
-
 $iota-global-columns: 3, 12;
 
 @import 'node_modules/iotacss/settings/core';

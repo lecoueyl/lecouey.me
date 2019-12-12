@@ -1,7 +1,7 @@
 <template>
   <div
     ref="cursor"
-    class="app-cursor u-hidden@xs u-text-center"
+    class="app-cursor u-hidden@xs u-text-center u-zindex-cursor"
   >
     <div
       ref="dot"
@@ -147,21 +147,20 @@ $cursor-size: 30px;
 
 .app-cursor {
   position: fixed;
-  width: $cursor-size;
-  height: $cursor-size;
   top: -$cursor-size/2;
   left: -$cursor-size/2;
+  width: $cursor-size;
+  height: $cursor-size;
   user-select: none;
   pointer-events: none;
-  z-index: map-get($iota-global-zindex, cursor);
 }
 
 .app-cursor__dot {
   width: 100%;
   height: 100%;
-  border-width: 1.5px;
-  border-style: solid;
   border-color: $color-accent-primary;
+  border-style: solid;
+  border-width: 1.5px;
   border-radius: 100%;
 }
 </style>

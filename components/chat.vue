@@ -65,7 +65,7 @@
       <!-- Dummy element to simulate container height -->
       <div
         class="o-transition-hide-slideup o-media__fixed"
-        style="visibility: hidden; width: 0;"
+        style=" width: 0; visibility: hidden;"
       >
         <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
           &nbsp;
@@ -334,26 +334,25 @@ export default {
 
 <style lang="scss">
 .app-chat {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .app-chat__container {
-  overflow: hidden;
   flex: 1;
+  overflow: hidden;
 }
 
 .app-chat__container::before {
-  content: '';
-  display: block;
   position: absolute;
-  width: 100%;
-  height: 25%;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1;
+  display: block;
+  width: 100%;
+  height: 25%;
   background-image:
     linear-gradient(
       to bottom,
@@ -374,6 +373,7 @@ export default {
       rgba($color-background, 0.01) 91.9%,
       transparent 100%
     );
+  content: '';
 }
 
 .app-chat__thread {
@@ -382,17 +382,17 @@ export default {
 }
 
 .app-chat__message {
-  max-width: 80%;
   display: inline-block;
+  max-width: 80%;
 }
 
 .app-chat__message-container {
-  will-change: opacity, transform;
-  transition-property: opacity, transform;
-  transition-duration: 0.4s;
-  transition-timing-function: $anim-transition-timing-move;
   padding-top: $baseline;
   padding-bottom: $baseline;
+  transition-timing-function: $anim-transition-timing-move;
+  transition-duration: 0.4s;
+  transition-property: opacity, transform;
+  will-change: opacity, transform;
 }
 
 .app-chat__message-container--author .app-chat__message {
@@ -400,9 +400,9 @@ export default {
 }
 
 .app-chat__message-container--reply {
-  text-align: right;
   margin-top: $baseline-x2;
   margin-bottom: $baseline-x2;
+  text-align: right;
 
   & .app-chat__message {
     color: $color-accent-primary;

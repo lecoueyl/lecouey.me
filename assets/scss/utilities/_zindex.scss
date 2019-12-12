@@ -1,0 +1,19 @@
+// z-index Utility
+
+$iota-utils-zindex-value: (
+  '-cursor': 80,
+  '-header': 10,
+) !default;
+
+// Helper Local Variables
+
+$iota-utils-zindex-namespace : 'zindex' !default;
+$iota-utils-zindex: $iota-global-utilities-namespace + $iota-utils-zindex-namespace;
+
+// Generate z-index
+
+@each $name, $value in $iota-utils-zindex-value {
+  .#{$iota-utils-zindex + $name} {
+    z-index: $value;
+  }
+}

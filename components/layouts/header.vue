@@ -2,7 +2,7 @@
   <TransitionFadeY>
     <header
       v-if="scrolledOut"
-      class="app-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium"
+      class="app-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium  u-zindex-header"
     >
       <div class="o-media o-media--middle u-overflow-hidden">
         <div
@@ -162,10 +162,6 @@ export default {
 
 
 <style lang="scss">
-.app-header {
-  z-index: map-get($iota-global-zindex, header);
-}
-
 .app-header__logo {
   width: 30px;
   height: 30px;

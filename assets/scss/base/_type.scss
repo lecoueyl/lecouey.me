@@ -1,7 +1,7 @@
 body {
-  font-family: $iota-type-family-default;
   color: $color-foreground;
   font-size: $iota-tools-ms-base;
+  font-family: $iota-type-family-default;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,6 +12,6 @@ body {
 }
 
 ::selection {
-  background: $color-foreground;
   color: $color-background;
+  background: $color-foreground;
 }
