@@ -75,7 +75,6 @@
   </div>
 </template>
 
-
 <script>
 import gsap from 'gsap';
 import { mapState } from 'vuex';
@@ -330,7 +329,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss">
 .app-chat {
