@@ -21,4 +21,5 @@ dist
 dist
 
 # dotenv
-.env.*
+.env*
+!.env.sample

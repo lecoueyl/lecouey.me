@@ -1,4 +1,4 @@
-const resolve = require('path').resolve; // eslint-disable-line
+const { resolve } = require('path');
 
 // Minimal Webpack config to supply to Eslint.
 // This is not actually used by Nuxt but instead mirrors
@@ -9,7 +9,6 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       '~': __dirname,
-      '@': __dirname,
     },
   },
 
