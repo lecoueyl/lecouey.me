@@ -98,13 +98,12 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/dotenv',
     ['@nuxtjs/google-analytics', {
       id: process.env.GOOGLE_ANALYTICS_ID,
-      // debug: {
-      //   enabled: true,
-      //   sendHitTask: true,
-      // },
+      debug: {
+        enabled: envConfig.GOOGLE_ANALYTICS_DEBUG === 'true',
+        sendHitTask: envConfig.GOOGLE_ANALYTICS_DEBUG !== 'true',
+      },
     }],
     '@nuxtjs/stylelint-module',
   ],
@@ -114,25 +113,9 @@ module.exports = {
   build: {
     extractCSS: true,
     /*
-    ** Safari hot reload fix
-    */
-    filenames: {
-      app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
-      chunk: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
-    },
-    /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
-
+    extend(config) {
       // Load media assets
       config.module.rules.push({
         test: /\.(m4a|mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
