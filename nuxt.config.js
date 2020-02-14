@@ -1,8 +1,9 @@
 require('dotenv').config();
 const envConfig = require('./config');
-const i18n = require('./i18n');
+const i18n = require('./src/i18n');
 
 module.exports = {
+  srcDir: 'src',
   env: envConfig,
 
   /*
@@ -111,6 +112,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    publicPath: '/assets/',
     extractCSS: true,
     /*
     ** Run ESLint on save
