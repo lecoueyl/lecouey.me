@@ -19,14 +19,16 @@
           </nuxt-link>
         </div>
 
-        <nuxt-link
-          key="name"
-          :to="localePath('index')"
-          class="app-header__item o-media__fluid u-pl c-link u-color-foreground"
-          @click.native="clickedIndex = 1"
-        >
-          Léonard Lecouey
-        </nuxt-link>
+        <div class="app-header__item o-media__fluid u-pl">
+          <nuxt-link
+            key="name"
+            :to="localePath('index')"
+            class="c-link u-color-foreground"
+            @click.native="clickedIndex = 1"
+          >
+            Léonard Lecouey
+          </nuxt-link>
+        </div>
 
         <nav
           key="nav"
