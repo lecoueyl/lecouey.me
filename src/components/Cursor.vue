@@ -1,45 +1,29 @@
 <template>
   <div
     ref="cursor"
-    class="app-cursor u-hidden@xs u-text-center u-zindex-cursor"
+    class="app-cursor u-hidden@xs u-zindex-cursor"
   >
     <div
       ref="dot"
       class="app-cursor__dot"
     />
-    <TransitionCollapseY :class="{ 'u-float-right': actionPosition === 'right' }">
-      <div
-        v-if="actionText"
-        ref="actionText"
-        class="o-type-s u-color-primary"
-      >
-        {{ actionText }}
-      </div>
-    </TransitionCollapseY>
   </div>
 </template>
 
 <script>
 import gsap from 'gsap';
-import TransitionCollapseY from '~/components/transitions/CollapseY';
 
-const animeCursor = {
-  scaleSize: 1.4,
+const cursor = {
+  scale: 1.4,
   duration: {
     move: 0.3,
-    scale: 0.3,
+    scale: 0.4,
   },
 };
 
 export default {
-  components: {
-    TransitionCollapseY,
-  },
-
   data() {
     return {
-      actionText: null,
-      actionPosition: null,
       isHoverLink: false,
       linkElement: [
         'button',
@@ -49,94 +33,77 @@ export default {
   },
 
   beforeMount() {
-    window.addEventListener('mousemove', this.onMouseMove);
-    document.addEventListener('click', this.onClick);
+    document.addEventListener('mousemove', this.onMouseMove);
+    document.addEventListener('mousedown', this.onMouseDown);
+    document.addEventListener('mouseup', this.onMouseUp);
   },
 
   beforeDestroy() {
-    window.removeEventListener('mousemove', this.onMouseMove);
-    document.removeEventListener('click', this.onClick);
+    document.removeEventListener('mousemove', this.onMouseMove);
+    document.removeEventListener('mousedown', this.onMouseDown);
+    document.removeEventListener('mouseup', this.onMouseUp);
   },
 
   methods: {
     onMouseMove(event) {
+      // show cursur if inside the dom
+      if (this.isOutsideDom) {
+        this.isOutsideDom = false;
+        this.scaleCursor(1);
+      }
+
+      // hide cursor when exiting the window
+      if (event.clientY <= 0
+         || event.clientX <= 0
+         || (event.clientX + 20 >= window.innerWidth || event.clientY + 20 >= window.innerHeight)) {
+        this.isOutsideDom = true;
+        this.scaleCursor(0);
+      }
+
+      // move cursor
       gsap.to(this.$refs.cursor, {
-        duration: animeCursor.duration.move,
+        duration: cursor.duration.move,
         x: event.clientX,
         y: event.clientY,
       });
 
-      // onMouseHover
+      // onMouseEnter
       if (this.linkElement.includes(event.target.localName) && !this.isHoverLink) {
-        this.onMouseEnter(event);
+        this.onMouseEnter();
       }
 
       // onMouseLeave
       if (!this.linkElement.includes(event.target.localName) && this.isHoverLink) {
         this.onMouseLeave();
       }
-
-      // set action text position
-      if (this.actionText) {
-        this.$nextTick(() => {
-          const isElementOut = this.isOutOfViewport(this.$refs.actionText);
-          if (isElementOut.right && !this.actionPosition) {
-            this.actionPosition = 'right';
-          }
-        });
-      }
     },
 
-    // https://gomakethings.com/how-to-check-if-any-part-of-an-element-is-out-of-the-viewport-with-vanilla-js
-    isOutOfViewport(elem) {
-      // get element's bound
-      const bound = elem.getBoundingClientRect();
-
-      // check if it's out of the viewport on each side
-      return {
-        top: bound.top < 0,
-        left: bound.left < 0,
-        bottom: bound.bottom > (window.innerHeight || document.documentElement.clientHeight),
-        right: bound.right > (window.innerWidth || document.documentElement.clientWidth),
-      };
-    },
-
-    onMouseEnter(event) {
+    onMouseEnter() {
       this.isHoverLink = true;
-
-      gsap.to(this.$refs.dot, {
-        duration: animeCursor.duration.scale,
-        ease: 'back.out(4)',
-        scale: animeCursor.scaleSize,
-      });
-
-      // display action message if any
-      if (event.target.dataset.cursor) {
-        this.actionText = event.target.dataset.cursor;
-      }
+      this.scaleCursor(cursor.scale);
     },
 
     onMouseLeave() {
       this.isHoverLink = false;
-
-      gsap.to(this.$refs.dot, {
-        duration: animeCursor.duration.scale,
-        scale: 1,
-      });
-
-      this.actionText = null;
+      this.scaleCursor(1);
     },
 
-    onClick() {
-      if (this.isHoverLink) {
-        gsap.fromTo(this.$refs.dot, {
-          scale: animeCursor.scale * 1.1,
-        },
-        {
-          duration: animeCursor.duration.scale,
-          scale: 1,
-        });
-      }
+    onMouseDown() {
+      const scale = this.isHoverLink ? cursor.scale * 1.2 : 0.8;
+      this.scaleCursor(scale);
+    },
+
+    onMouseUp() {
+      const scale = this.isHoverLink ? cursor.scale : 1;
+      this.scaleCursor(scale);
+    },
+
+    scaleCursor(scale) {
+      gsap.to(this.$refs.dot, {
+        duration: cursor.duration.scale,
+        ease: 'back.out(3)',
+        scale,
+      });
     },
   },
 };
@@ -151,6 +118,7 @@ $cursor-size: 30px;
   left: -$cursor-size/2;
   width: $cursor-size;
   height: $cursor-size;
+  mix-blend-mode: multiply;
   user-select: none;
   pointer-events: none;
 }
