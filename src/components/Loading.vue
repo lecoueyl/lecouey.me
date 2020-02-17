@@ -1,7 +1,7 @@
 <template>
   <TransitionFade>
     <div
-      v-if="loading"
+      v-if="false"
       class="app-loading u-bgcolor-background"
     />
   </TransitionFade>

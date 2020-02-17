@@ -8,7 +8,7 @@ module.exports = {
     modules: [resolve(__dirname, 'lib'), 'node_modules'],
     extensions: ['.js', '.vue'],
     alias: {
-      '~': __dirname,
+      '~': resolve(__dirname, 'src'),
     },
   },
 
