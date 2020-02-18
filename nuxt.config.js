@@ -44,7 +44,7 @@ module.exports = {
       {
         rel: 'mask-icon',
         href: '/safari-pinned-tab.svg',
-        color: '#1e2bff',
+        color: '#2b2b2b',
       },
     ],
   },
