@@ -16,8 +16,8 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Leonard Lecouey' },
-      { name: 'msapplication-TileColor', content: '#ffffff' },
-      { name: 'theme-color', content: '"#ffffff' },
+      { name: 'msapplication-TileColor', content: '#f5f5f5' },
+      { name: 'theme-color', content: '"#f5f5f5' },
     ],
     link: [
       {

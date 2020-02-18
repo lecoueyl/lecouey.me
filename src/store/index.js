@@ -1,16 +1,19 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 export const state = () => ({
-  loading: false,
   chatThread: [],
+  loading: false,
+  showMenu: false,
 });
 
 export const mutations = {
+  updateChatThread: (state, message) => {
+    state.chatThread.push(message);
+  },
   updateLoading: (state, status) => {
     state.loading = status;
   },
-
-  updateChatThread: (state, message) => {
-    state.chatThread.push(message);
+  updateShowMenu: (state, status) => {
+    state.showMenu = status;
   },
 };
