@@ -1,17 +1,15 @@
-require('dotenv').config();
-const envConfig = require('./config');
+const env = require('dotenv').config().parsed;
 const i18n = require('./src/i18n');
 
 module.exports = {
   srcDir: 'src',
-  env: envConfig,
-
+  env,
   /*
   ** Headers of the page
   */
   head: {
-    title: 'Leonard Lecouey',
-    titleTemplate: '%s — Leonard Lecouey',
+    title: env.APP_NAME,
+    titleTemplate: `%s — ${env.APP_NAME}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -76,7 +74,7 @@ module.exports = {
   ** Sitemap
   */
   sitemap: {
-    hostname: envConfig.app.url,
+    hostname: env.APP_URL,
     gzip: true,
   },
   /*
@@ -100,10 +98,10 @@ module.exports = {
   */
   buildModules: [
     ['@nuxtjs/google-analytics', {
-      id: process.env.GOOGLE_ANALYTICS_ID,
+      id: env.GOOGLE_ANALYTICS_ID,
       debug: {
-        enabled: envConfig.GOOGLE_ANALYTICS_DEBUG === 'true',
-        sendHitTask: envConfig.GOOGLE_ANALYTICS_DEBUG !== 'true',
+        enabled: env.GOOGLE_ANALYTICS_DEBUG === 'true',
+        sendHitTask: env.GOOGLE_ANALYTICS_DEBUG !== 'true',
       },
     }],
     '@nuxtjs/stylelint-module',

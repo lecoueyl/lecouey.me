@@ -91,8 +91,12 @@
 export default {
   data() {
     return {
-      mail: process.env.mail,
-      links: process.env.links,
+      mail: process.env.APP_MAIL,
+      links: {
+        github: process.env.LINKS_GITHUB,
+        dribbble: process.env.LINKS_DRIBBBLE,
+        linkedin: process.env.LINKS_LINKEDIN,
+      },
     };
   },
 };

@@ -135,8 +135,10 @@ export default {
     return {
       currentView: 'about',
       viewingAside: false,
-      mail: process.env.mail,
-      links: process.env.links,
+      mail: process.env.APP_mail,
+      links: {
+        linkedIn: process.env.LINKS_LINKEDIN,
+      },
     };
   },
 
