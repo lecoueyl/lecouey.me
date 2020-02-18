@@ -7,7 +7,6 @@
   </div>
 </template>
 
-
 <script>
 import Pointer from '~/components/Cursor';
 import LayoutHeader from '~/components/layouts/Header';

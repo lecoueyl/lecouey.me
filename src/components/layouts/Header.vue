@@ -36,7 +36,7 @@
         >
           <ul class="o-list o-list--inline">
             <li
-              v-for="(item, index) in menu"
+              v-for="(item, index) in ['about']"
               :key="item"
               class="app-header__item o-list__item"
               @click="clickedIndex = index + 2"
@@ -72,7 +72,6 @@
   </TransitionFadeY>
 </template>
 
-
 <script>
 import gsap from 'gsap';
 import { mapState } from 'vuex';
@@ -94,9 +93,6 @@ export default {
 
   data() {
     return {
-      menu: [
-        'about',
-      ],
       currentScrollPosition: 0,
       scrolledOut: true,
       clickedIndex: 0,

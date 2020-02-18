@@ -10,7 +10,6 @@
   </main>
 </template>
 
-
 <script>
 import Chat from '~/components/Chat';
 

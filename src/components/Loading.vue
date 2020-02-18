@@ -7,7 +7,6 @@
   </TransitionFade>
 </template>
 
-
 <script>
 import { mapState } from 'vuex';
 import TransitionFade from '~/components/transitions/Fade';

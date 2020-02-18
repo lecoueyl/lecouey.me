@@ -38,7 +38,7 @@
         <p
           v-for="paragraph in ['intro', 'history', 'work', 'current']"
           :key="paragraph"
-          class="o-type-m u-pb-x2 u-color-background"
+          class="o-type-m u-pb-x2 u-color-foreground"
         >
           {{ $t(`about.me.${paragraph}`) }}
         </p>
@@ -46,7 +46,7 @@
         <i18n
           path="about.me.linkedin"
           tag="p"
-          class="o-type-m u-color-background"
+          class="o-type-m u-color-foreground"
         >
           <a
             slot="linkedin"
@@ -65,7 +65,7 @@
           {{ $t('about.system') }}
         </template>
 
-        <ul class="o-type-m o-list u-color-background">
+        <ul class="o-type-m o-list u-color-foreground">
           <li
             v-for="item in [
               'Infrastructure Architecture',
@@ -85,7 +85,7 @@
           {{ $t('about.design') }}
         </template>
 
-        <ul class="o-type-m o-list u-color-background">
+        <ul class="o-type-m o-list u-color-foreground">
           <li
             v-for="item in [
               'Graphic Design',
