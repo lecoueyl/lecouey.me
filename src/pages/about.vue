@@ -141,8 +141,6 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('updateTheme', 'dark');
-
     gsap.fromTo(animeHero.targets, {
       yPercent: 120,
     },
@@ -174,13 +172,10 @@ export default {
     });
   },
 
-  // head() {
-  //   return {
-  //     title: this.$t('about.title'),
-  //     bodyAttrs: {
-  //       class: 'u-bgcolor-foreground',
-  //     },
-  //   };
-  // },
+  head() {
+    return {
+      title: this.$t('about.title'),
+    };
+  },
 };
 </script>

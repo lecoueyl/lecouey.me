@@ -18,10 +18,6 @@ export default {
     Chat,
   },
 
-  mounted() {
-    this.$store.commit('updateTheme', 'light');
-  },
-
   head() {
     return {
       title: this.$t('index.title'),
