@@ -110,6 +110,7 @@
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/AboutArticle';
+import transitionPage from '~/mixins/transitionPage';
 import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
 import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
@@ -131,6 +132,8 @@ export default {
     SvgCircleRight,
   },
 
+  mixins: [transitionPage],
+
   data() {
     return {
       currentView: 'about',
@@ -143,6 +146,10 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.$store.commit('updateShowMenu', true);
+    }, 3000);
+
     gsap.fromTo(animeHero.targets, {
       yPercent: 120,
     },

@@ -36,7 +36,7 @@
         >
           <ul class="o-list o-list--inline">
             <li
-              v-for="(item, index) in ['about']"
+              v-for="(item, index) in menu"
               :key="item"
               class="app-header__item o-list__item"
               @click="clickedIndex = index + 2"
@@ -82,7 +82,8 @@ import SvgLogo from '~/assets/svg/logo.svg?inline';
 const animeHeader = {
   targets: '.app-header__item',
   duration: 1,
-  stagger: 0.2,
+  stagger: 0.3,
+  yPercent: 150,
 };
 
 export default {
@@ -96,22 +97,53 @@ export default {
       currentScrollPosition: 0,
       scrolledOut: true,
       clickedIndex: 0,
+      menu: ['about'],
     };
   },
 
   computed: mapState([
     'loading',
+    'showMenu',
   ]),
 
   watch: {
-    loading(isLoading) {
-      // hide or show header's item
-      const timeoutAnime = 10;
+    showMenu(showMenu) {
+      this.animeMenu(showMenu);
+    },
+    loading(loading) {
+      this.animeMenu(!loading);
+    },
+  },
+
+  beforeMount() {
+    gsap.set(animeHeader.targets, {
+      yPercent: animeHeader.yPercent,
+      rotate: 5,
+      transformOrigin: 'left bottom',
+    });
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  // mounted() {
+  //   setTimeout(() => {
+  //     this.animeMenu();
+  //   }, 1000);
+  // },
+
+  methods: {
+    animeMenu(show = true) {
+      const timeoutAnime = 100;
       setTimeout(() => {
         gsap.to(animeHeader.targets, {
           duration: animeHeader.duration,
           ease: ease.leave,
-          yPercent: isLoading ? 150 : 0,
+          yPercent: show ? 0 : animeHeader.yPercent,
+          rotate: show ? 0 : 5,
+          transformOrigin: 'left bottom',
           stagger: {
             amount: animeHeader.stagger,
             from: this.clickedIndex,
@@ -120,17 +152,7 @@ export default {
         });
       }, timeoutAnime);
     },
-  },
 
-  beforeMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
-
-  methods: {
     handleScroll() {
       if ((window.scrollY > this.currentScrollPosition) && this.currentScrollPosition > 0) {
         this.scrolledOut = false;
