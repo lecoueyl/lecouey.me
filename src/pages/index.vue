@@ -3,7 +3,7 @@
     <section class="o-container u-relative">
       <div class="o-grid">
         <div class="o-grid__col u-7/12@sm">
-          <Chat />
+          <Chat class="u-pb-x10@xs u-pb-x4@sm" />
         </div>
       </div>
     </section>

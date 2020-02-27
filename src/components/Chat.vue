@@ -1,5 +1,5 @@
 <template>
-  <div class="o-type-m c-chat u-height-100vh u-pb-x4 u-pb-x10@xs">
+  <div class="o-type-m c-chat u-height-100vh">
     <div class="c-chat__messages u-12/12 u-relative">
       <TransitionCollapseY
         group
