@@ -2,7 +2,7 @@
   <TransitionFade>
     <div
       v-if="false"
-      class="app-loading u-bgcolor-background"
+      class="c-loading u-bgcolor-background"
     />
   </TransitionFade>
 </template>
@@ -35,7 +35,7 @@ export default {
 
 
 <style lang="scss">
-.app-loading {
+.c-loading {
   position: fixed;
   top: 0;
   left: 0;

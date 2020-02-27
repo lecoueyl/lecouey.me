@@ -1,11 +1,11 @@
 <template>
   <div
     ref="cursor"
-    class="app-cursor u-hidden@xs u-zindex-cursor"
+    class="c-cursor u-hidden@xs u-zindex-cursor"
   >
     <div
       ref="dot"
-      class="app-cursor__dot"
+      class="c-cursor__dot"
     />
   </div>
 </template>
@@ -134,7 +134,7 @@ export default {
 <style lang="scss" scoped>
 $cursor-size: 30px;
 
-.app-cursor {
+.c-cursor {
   position: fixed;
   top: -$cursor-size/2;
   left: -$cursor-size/2;
@@ -145,7 +145,7 @@ $cursor-size: 30px;
   pointer-events: none;
 }
 
-.app-cursor__dot {
+.c-cursor__dot {
   width: 100%;
   height: 100%;
   border-color: $color-accent-primary;

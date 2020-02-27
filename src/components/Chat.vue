@@ -1,21 +1,21 @@
 <template>
-  <div class="app-chat u-pb-x4 o-type-m">
-    <div class="app-chat__messages u-12/12 u-relative">
+  <div class="o-type-m c-chat u-height-100vh u-pb-x4 u-pb-x10@xs">
+    <div class="c-chat__messages u-12/12 u-relative">
       <TransitionCollapseY
         group
         tag="ul"
-        class="o-list app-chat__thread u-absolute u-12/12"
+        class="o-list c-chat__thread u-absolute u-12/12"
       >
         <li
           v-for="(message, index) in chatThread"
           :key="index"
           :class="{
-            'app-chat__message-container--author': !message.reply,
-            'app-chat__message-container--reply': message.reply,
+            'c-chat__message-container--author': !message.reply,
+            'c-chat__message-container--reply': message.reply,
           }"
-          class="o-list__item app-chat__message-container"
+          class="o-list__item c-chat__message-container"
         >
-          <div class="app-chat__message u-inline-block">
+          <div class="c-chat__message u-inline-block">
             <img
               v-if="message.action === 'gif'"
               src="../assets/images/cat-hello.gif"
@@ -44,12 +44,12 @@
       </TransitionCollapseY>
     </div>
 
-    <div class="app-chat__answers">
+    <div class="c-chat__answers">
       <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
         <div
           v-for="(answer, index) in replies"
           :key="index"
-          class="app-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
+          class="c-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
         >
           <button
             :class="{
@@ -86,7 +86,7 @@ import { ease } from '~/components/transitions';
 import TransitionCollapseY from '~/components/transitions/CollapseY';
 
 const animeReplies = {
-  targets: '.app-chat__answer',
+  targets: '.c-chat__answer',
   stagger: 0.2,
 };
 
@@ -333,18 +333,17 @@ export default {
 </script>
 
 <style lang="scss">
-.app-chat {
+.c-chat {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
-.app-chat__messages {
+.c-chat__messages {
   flex: 1 0 auto;
   overflow: hidden;
 }
 
-// .app-chat__messages::before {
+// .c-chat__messages::before {
 //   position: absolute;
 //   top: 0;
 //   right: 0;
@@ -376,16 +375,16 @@ export default {
 //   content: '';
 // }
 
-.app-chat__thread {
+.c-chat__thread {
   bottom: 0;
   left: 0;
 }
 
-.app-chat__message {
+.c-chat__message {
   max-width: 80%;
 }
 
-.app-chat__message-container {
+.c-chat__message-container {
   padding-top: $baseline;
   padding-bottom: $baseline;
   transition-timing-function: $anim-transition-timing-move;
@@ -394,21 +393,21 @@ export default {
   will-change: opacity, transform;
 }
 
-.app-chat__message-container--author .app-chat__message {
+.c-chat__message-container--author .c-chat__message {
   color: $color-foreground;
 }
 
-.app-chat__message-container--reply {
+.c-chat__message-container--reply {
   margin-top: $baseline-x2;
   margin-bottom: $baseline-x2;
   text-align: right;
 
-  & .app-chat__message {
+  & .c-chat__message {
     color: $color-accent-primary;
   }
 }
 
-.app-chat__answers {
+.c-chat__answers {
   flex: none;
   overflow: hidden;
 }

@@ -2,11 +2,11 @@
   <TransitionFadeY>
     <header
       v-if="scrolledOut"
-      class="app-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium  u-zindex-header"
+      class="c-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium  u-zindex-header"
     >
       <div class="o-media o-media--middle u-overflow-hidden">
         <div
-          class="app-header__item o-media__fixed"
+          class="c-header__item o-media__fixed"
         >
           <nuxt-link
             key="logo"
@@ -15,11 +15,11 @@
             class="c-link u-color-foreground u-inline-block"
             @click.native="clickedIndex = 0"
           >
-            <SvgLogo class="app-header__logo u-block" />
+            <SvgLogo class="c-header__logo u-block" />
           </nuxt-link>
         </div>
 
-        <div class="app-header__item o-media__fluid u-pl">
+        <div class="c-header__item o-media__fluid u-pl">
           <nuxt-link
             key="name"
             :to="localePath('index')"
@@ -38,7 +38,7 @@
             <li
               v-for="(item, index) in menu"
               :key="item"
-              class="app-header__item o-list__item"
+              class="c-header__item o-list__item"
               @click="clickedIndex = index + 2"
             >
               <nuxt-link
@@ -53,7 +53,7 @@
               <li
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
-                class="app-header__item o-list__item"
+                class="c-header__item o-list__item"
                 @click="clickedIndex = menu.length + index + 1"
               >
                 <a
@@ -80,7 +80,7 @@ import TransitionFadeY from '~/components/transitions/FadeY';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
-  targets: '.app-header__item',
+  targets: '.c-header__item',
   duration: 1,
   stagger: 0.3,
   yPercent: 150,
@@ -178,7 +178,7 @@ export default {
 
 
 <style lang="scss">
-.app-header__logo {
+.c-header__logo {
   width: 30px;
   height: 30px;
 }

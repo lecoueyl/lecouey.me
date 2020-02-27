@@ -1,6 +1,6 @@
 <template>
   <footer class="u-bgcolor-foreground">
-    <div class="o-container u-mt-x10 u-pv-x10">
+    <div class="o-container u-pv-x10">
       <p
         v-t="'footer.contact'"
         class="o-type-l u-color-wash-light"

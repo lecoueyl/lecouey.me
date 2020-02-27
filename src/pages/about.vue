@@ -1,7 +1,7 @@
 <template>
   <main class="u-pt-x10 u-overflow-hidden">
     <section
-      class="app-about__hero o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative u-text-center"
+      class="o-type-l c-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center"
       style="white-space: pre;"
     >
       <p
@@ -170,7 +170,7 @@ export default {
 
   methods: {
     animateHero() {
-      gsap.fromTo('.app-about__hero p', {
+      gsap.fromTo('.c-about__hero p', {
         rotate: 10,
         transformOrigin: 'left bottom',
       },
@@ -181,7 +181,7 @@ export default {
         rotate: 0,
       });
 
-      gsap.fromTo('.app-about__hero span', {
+      gsap.fromTo('.c-about__hero span', {
         yPercent: 120,
       },
       {
