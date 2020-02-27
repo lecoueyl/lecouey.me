@@ -172,6 +172,7 @@ export default {
     animateHero() {
       gsap.fromTo('.app-about__hero p', {
         rotate: 10,
+        transformOrigin: 'left bottom',
       },
       {
         duration: animeHero.duration,

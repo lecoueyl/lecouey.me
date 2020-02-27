@@ -12,7 +12,7 @@
             key="logo"
             :to="localePath('index')"
             :aria-label="$t('links.index')"
-            class="c-link u-color-foreground"
+            class="c-link u-color-foreground u-inline-block"
             @click.native="clickedIndex = 0"
           >
             <SvgLogo class="app-header__logo u-block" />

@@ -344,37 +344,37 @@ export default {
   overflow: hidden;
 }
 
-.app-chat__messages::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 25%;
-  background-image:
-    linear-gradient(
-      to bottom,
-      $color-background 0%,
-      rgba($color-background, 0.79) 8.1%,
-      rgba($color-background, 0.761) 15.5%,
-      rgba($color-background, 0.717) 22.5%,
-      rgba($color-background, 0.66) 29%,
-      rgba($color-background, 0.593) 35.3%,
-      rgba($color-background, 0.518) 41.2%,
-      rgba($color-background, 0.44) 47.1%,
-      rgba($color-background, 0.36) 52.9%,
-      rgba($color-background, 0.282) 58.8%,
-      rgba($color-background, 0.207) 64.7%,
-      rgba($color-background, 0.14) 71%,
-      rgba($color-background, 0.083) 77.5%,
-      rgba($color-background, 0.039) 84.5%,
-      rgba($color-background, 0.01) 91.9%,
-      transparent 100%
-    );
-  content: '';
-}
+// .app-chat__messages::before {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: 1;
+//   display: block;
+//   width: 100%;
+//   height: 25%;
+//   background-image:
+//     linear-gradient(
+//       to bottom,
+//       $color-background 0%,
+//       rgba($color-background, 0.79) 8.1%,
+//       rgba($color-background, 0.761) 15.5%,
+//       rgba($color-background, 0.717) 22.5%,
+//       rgba($color-background, 0.66) 29%,
+//       rgba($color-background, 0.593) 35.3%,
+//       rgba($color-background, 0.518) 41.2%,
+//       rgba($color-background, 0.44) 47.1%,
+//       rgba($color-background, 0.36) 52.9%,
+//       rgba($color-background, 0.282) 58.8%,
+//       rgba($color-background, 0.207) 64.7%,
+//       rgba($color-background, 0.14) 71%,
+//       rgba($color-background, 0.083) 77.5%,
+//       rgba($color-background, 0.039) 84.5%,
+//       rgba($color-background, 0.01) 91.9%,
+//       transparent 100%
+//     );
+//   content: '';
+// }
 
 .app-chat__thread {
   bottom: 0;
