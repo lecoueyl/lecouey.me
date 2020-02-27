@@ -3,17 +3,17 @@
 export const state = () => ({
   chatThread: [],
   loading: false,
-  showMenu: false,
+  transitionPage: false,
 });
 
 export const mutations = {
   updateChatThread: (state, message) => {
     state.chatThread.push(message);
   },
+  updateTransitionPage: (state, status) => {
+    state.transitionPage = status;
+  },
   updateLoading: (state, status) => {
     state.loading = status;
-  },
-  updateShowMenu: (state, status) => {
-    state.showMenu = status;
   },
 };

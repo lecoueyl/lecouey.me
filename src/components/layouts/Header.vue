@@ -26,7 +26,7 @@
             class="c-link u-color-foreground"
             @click.native="clickedIndex = 1"
           >
-            Léonard Lecouey
+            {{ $t('head.title') }}
           </nuxt-link>
         </div>
 
@@ -103,12 +103,12 @@ export default {
 
   computed: mapState([
     'loading',
-    'showMenu',
+    'transitionPage',
   ]),
 
   watch: {
-    showMenu(showMenu) {
-      this.animeMenu(showMenu);
+    transitionPage(showMenu) {
+      this.animeMenu(!showMenu);
     },
     loading(loading) {
       this.animeMenu(!loading);

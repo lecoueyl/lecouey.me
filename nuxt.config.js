@@ -113,9 +113,6 @@ module.exports = {
   build: {
     publicPath: '/assets/',
     extractCSS: true,
-    /*
-    ** Run ESLint on save
-    */
     extend(config) {
       // Load media assets
       config.module.rules.push({

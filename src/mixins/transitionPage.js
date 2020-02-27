@@ -5,6 +5,7 @@ export default {
 
   transition: {
     beforeEnter(el) {
+      this.$store.commit('updateTransitionPage', true);
       gsap.set(el, {
         autoAlpha: 0,
       });
@@ -12,10 +13,13 @@ export default {
 
     enter(el, done) {
       gsap.to(el, {
-        duration: 2.4,
+        duration: 0.4,
         autoAlpha: 1,
         ease: 'circ.inOut',
-      }).then(() => done());
+      }).then(() => {
+        this.$store.commit('updateTransitionPage', false);
+        done();
+      });
     },
 
     leave(el, done) {

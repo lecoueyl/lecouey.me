@@ -1,7 +1,7 @@
 <template>
   <main class="u-pt-x10 u-overflow-hidden">
     <section
-      class="o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative u-text-center"
+      class="app-about__hero o-container u-pv-x10 u-mv-x10 o-type-l u-color-primary u-relative u-text-center"
       style="white-space: pre;"
     >
       <p
@@ -12,7 +12,7 @@
         <span
           v-for="word in sentence"
           :key="word"
-          class="app-about__hero-text u-inline-block"
+          class="u-inline-block"
         >{{ word }}</span>
       </p>
 
@@ -115,9 +115,8 @@ import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
 import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
 const animeHero = {
-  targets: '.app-about__hero-text',
   duration: 1,
-  stagger: 0.15,
+  stagger: 0.1,
 };
 
 const animeCircle = {
@@ -146,19 +145,7 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      this.$store.commit('updateShowMenu', true);
-    }, 3000);
-
-    gsap.fromTo(animeHero.targets, {
-      yPercent: 120,
-    },
-    {
-      duration: animeHero.duration,
-      ease: ease.enter,
-      stagger: animeHero.stagger,
-      yPercent: 0,
-    });
+    this.animateHero();
 
     gsap.fromTo('.about-circle__left path', {
       xPercent: 100,
@@ -179,6 +166,30 @@ export default {
       stagger: animeCircle.stagger,
       xPercent: 0,
     });
+  },
+
+  methods: {
+    animateHero() {
+      gsap.fromTo('.app-about__hero p', {
+        rotate: 10,
+      },
+      {
+        duration: animeHero.duration,
+        ease: ease.enter,
+        stagger: animeHero.stagger,
+        rotate: 0,
+      });
+
+      gsap.fromTo('.app-about__hero span', {
+        yPercent: 120,
+      },
+      {
+        duration: animeHero.duration,
+        ease: ease.enter,
+        stagger: animeHero.stagger,
+        yPercent: 0,
+      });
+    },
   },
 
   head() {

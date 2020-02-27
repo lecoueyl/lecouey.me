@@ -1,7 +1,7 @@
 module.exports = {
-
   head: {
-    keywords: 'ZenClerk,ECコンサル,クーポン,ビッグデータ,コンバージョン率向上,EC,ゼンクラーク,Emotion Intelligence,エモーション・インテリジェンス,emin,リアルタイム解析,リアルタイム行動分析,RealtimeDataAnalytics',
+    title: 'Léonard Lecouey',
+    keywords: '',
   },
 
   links: {
