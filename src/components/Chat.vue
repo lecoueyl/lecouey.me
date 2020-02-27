@@ -1,6 +1,6 @@
 <template>
   <div class="app-chat u-pb-x4 o-type-m">
-    <div class="app-chat__container u-12/12 u-relative">
+    <div class="app-chat__messages u-12/12 u-relative">
       <TransitionCollapseY
         group
         tag="ul"
@@ -15,7 +15,7 @@
           }"
           class="o-list__item app-chat__message-container"
         >
-          <div class="app-chat__message">
+          <div class="app-chat__message u-inline-block">
             <img
               v-if="message.action === 'gif'"
               src="../assets/images/cat-hello.gif"
@@ -44,31 +44,33 @@
       </TransitionCollapseY>
     </div>
 
-    <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
-      <div
-        v-for="(answer, index) in replies"
-        :key="index"
-        class="app-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
-      >
-        <button
-          :class="{
-            'c-button--is-active': !isSending,
-          }"
-          class="c-button c-button-outline c-button--secondary u-12/12 u-p"
-          data-cursor="send"
-          @click="sendAnswer(answer.id, index)"
+    <div class="app-chat__answers">
+      <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
+        <div
+          v-for="(answer, index) in replies"
+          :key="index"
+          class="app-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
         >
-          {{ $t(`chat.replies.${answer.reply}`) }}
-        </button>
-      </div>
+          <button
+            :class="{
+              'c-button--is-active': !isSending,
+            }"
+            class="c-button c-button-outline c-button--secondary u-12/12 u-p"
+            data-cursor="send"
+            @click="sendAnswer(answer.id, index)"
+          >
+            {{ $t(`chat.replies.${answer.reply}`) }}
+          </button>
+        </div>
 
-      <!-- Dummy element to simulate container height -->
-      <div
-        class="o-transition-hide-slideup o-media__fixed"
-        style=" width: 0; visibility: hidden;"
-      >
-        <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
-          &nbsp;
+        <!-- Dummy element to simulate container height -->
+        <div
+          class="o-transition-hide-slideup o-media__fixed"
+          style=" width: 0; visibility: hidden;"
+        >
+          <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
+            &nbsp;
+          </div>
         </div>
       </div>
     </div>
@@ -337,12 +339,12 @@ export default {
   height: 100%;
 }
 
-.app-chat__container {
-  flex: 1;
+.app-chat__messages {
+  flex: 1 0 auto;
   overflow: hidden;
 }
 
-.app-chat__container::before {
+.app-chat__messages::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -380,7 +382,6 @@ export default {
 }
 
 .app-chat__message {
-  display: inline-block;
   max-width: 80%;
 }
 
@@ -405,5 +406,10 @@ export default {
   & .app-chat__message {
     color: $color-accent-primary;
   }
+}
+
+.app-chat__answers {
+  flex: none;
+  overflow: hidden;
 }
 </style>
