@@ -9,16 +9,14 @@
         <li
           v-for="(message, index) in chatThread"
           :key="index"
-          :class="{
-            'c-chat__message-container--author': !message.reply,
-            'c-chat__message-container--reply': message.reply,
-          }"
-          class="o-list__item c-chat__message-container"
+          class="o-list__item c-chat__message-container u-pv"
+          :class="{ 'u-color-primary u-text-right u-mv-x2': message.reply }"
         >
           <div class="c-chat__message u-inline-block">
             <img
               v-if="message.action === 'gif'"
               src="../assets/images/cat-hello.gif"
+              alt="cat"
             >
 
             <span v-if="message.content">
@@ -44,7 +42,7 @@
       </TransitionCollapseY>
     </div>
 
-    <div class="c-chat__answers">
+    <div class="u-overlay-hidden">
       <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
         <div
           v-for="(answer, index) in replies"
@@ -52,11 +50,8 @@
           class="c-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
         >
           <button
-            :class="{
-              'c-button--is-active': !isSending,
-            }"
             class="c-button c-button-outline c-button--secondary u-12/12 u-p"
-            data-cursor="send"
+            :class="{ 'c-button--is-active': !isSending }"
             @click="sendAnswer(answer.id, index)"
           >
             {{ $t(`chat.replies.${answer.reply}`) }}
@@ -385,30 +380,9 @@ export default {
 }
 
 .c-chat__message-container {
-  padding-top: $baseline;
-  padding-bottom: $baseline;
   transition-timing-function: $anim-transition-timing-move;
   transition-duration: 0.4s;
   transition-property: opacity, transform;
   will-change: opacity, transform;
-}
-
-.c-chat__message-container--author .c-chat__message {
-  color: $color-foreground;
-}
-
-.c-chat__message-container--reply {
-  margin-top: $baseline-x2;
-  margin-bottom: $baseline-x2;
-  text-align: right;
-
-  & .c-chat__message {
-    color: $color-accent-primary;
-  }
-}
-
-.c-chat__answers {
-  flex: none;
-  overflow: hidden;
 }
 </style>
