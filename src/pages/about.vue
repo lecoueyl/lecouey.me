@@ -1,6 +1,6 @@
 <template>
   <main class="u-pt-x10">
-    <section class="o-type-l c-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
+    <section class="o-type-l p-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
@@ -167,7 +167,7 @@ export default {
 
   methods: {
     animateHero() {
-      gsap.fromTo('.c-about__hero p', {
+      gsap.fromTo('.p-about__hero p', {
         rotate: 10,
         transformOrigin: 'left bottom',
       },
@@ -178,7 +178,7 @@ export default {
         rotate: 0,
       });
 
-      gsap.fromTo('.c-about__hero span', {
+      gsap.fromTo('.p-about__hero span', {
         yPercent: 120,
       },
       {
