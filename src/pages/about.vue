@@ -1,9 +1,6 @@
 <template>
-  <main class="u-pt-x10 u-overflow-hidden">
-    <section
-      class="o-type-l c-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center"
-      style="white-space: pre;"
-    >
+  <main class="u-pt-x10">
+    <section class="o-type-l c-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
