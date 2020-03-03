@@ -1,5 +1,7 @@
 <template>
   <main class="u-pt-x10">
+    <Slides />
+
     <section class="o-type-l p-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
@@ -56,8 +58,10 @@
           />
         </i18n>
       </AboutArticle>
+    </section>
 
-      <AboutArticle class="u-pt-x10">
+    <section class="o-container u-relative u-mv-x10">
+      <AboutArticle>
         <template v-slot:title>
           {{ $t('about.system') }}
         </template>
@@ -107,6 +111,7 @@
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/AboutArticle';
+import Slides from '~/components/Slides';
 import transitionPage from '~/mixins/transitionPage';
 import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
 import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
@@ -124,6 +129,7 @@ const animeCircle = {
 export default {
   components: {
     AboutArticle,
+    Slides,
     SvgCircleLeft,
     SvgCircleRight,
   },
