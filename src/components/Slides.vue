@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       mouseDownPositionX: null,
-      sliderWidtch: null,
+      sliderWidth: 0,
     };
   },
 
@@ -56,21 +56,31 @@ export default {
   },
 
   mounted() {
-    this.sliderWidth = this.$refs.slides.offsetWidth;
-    console.log('sliderWidth', this.sliderWidth);
+    this.setSlidesWidth();
   },
 
   methods: {
+    setSlidesWidth() {
+      const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
+      Array.from(slides).forEach((slide) => {
+        this.sliderWidth += slide.clientWidth;
+      });
+    },
+
     onMouseMove(event) {
       // move cursor
       if (this.mouseDownPositionX) {
         const dragDistance = event.clientX - this.mouseDownPositionX;
-        slidePosition += dragDistance * 0.1;
+        slidePosition += dragDistance * 0.05;
 
         if (slidePosition > 0) {
           slidePosition = 0;
         }
-        console.log('dragDistance', dragDistance);
+
+        if (slidePosition < this.sliderWidth * -1) {
+          slidePosition = this.sliderWidth * -1;
+        }
+        console.log('dragDistance', this.sliderWidth * -1);
         console.log('slidePosition', slidePosition);
         // console.log(dragDistance, slidePosition);
         gsap.to('.c-slides__panel', {

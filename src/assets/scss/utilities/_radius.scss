@@ -1,0 +1,18 @@
+// Radius Utility
+
+$iota-utils-radius-size: (
+  '-s': $baseline,
+) !default;
+
+// Helper Local Variables
+
+$iota-utils-radius-namespace : 'radius' !default;
+$iota-utils-radius: $iota-global-utilities-namespace + $iota-utils-radius-namespace;
+
+// Generate Radius sizes
+
+@each $name, $size in $iota-utils-radius-size {
+  .#{$iota-utils-radius + $name} {
+    border-radius: $size;
+  }
+}

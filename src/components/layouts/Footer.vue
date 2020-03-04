@@ -1,16 +1,17 @@
 <template>
-  <footer class="u-bgcolor-foreground">
+  <footer>
     <div class="o-container u-pv-x10">
       <p
         v-t="'footer.contact'"
-        class="o-type-l u-color-wash-light"
+        class="o-type-l u-color-background u-bgcolor-secondary u-p-x2 u-radius-s"
       />
+      <SvgDialogueBubbleTail class="u-color-secondary u-ml-x4" />
 
       <ul class="o-list o-list--block o-type-m u-pv-x4">
         <li class="o-list__item">
           <a
             :href="`mailto:${mail}`"
-            class="c-link c-link-underline c-link--background"
+            class="c-link c-link-underline c-link--foreground"
           >
             {{ mail }}
           </a>
@@ -26,13 +27,13 @@
             :href="link"
             target="_blank"
             rel="noopener noreferrer"
-            class="c-link c-link-underline c-link--background"
+            class="c-link c-link-underline c-link--foreground"
           />
         </li>
       </ul>
 
       <i18n
-        class="o-type-s u-color-wash-light"
+        class="o-type-s"
         path="footer.source"
       >
         <a
@@ -40,55 +41,21 @@
           :href="links.github"
           target="_blank"
           rel="noopener noreferrer"
-          class="c-link c-link-underline c-link--background"
+          class="c-link c-link-underline c-link--foreground"
         />
       </i18n>
-      <!-- <section class="o-media o-media--bottom o-type-s u-pv-x4">
-        <article class="o-media__fluid">
-          <ul class="o-list o-list--block">
-            <li class="o-list__item">
-              <a
-                :href="`mailto:${mail}`"
-                class="c-link c-link-underline c-link--background"
-              >
-                {{ mail }}
-              </a>
-            </li>
-
-            <li
-              v-for="(link, key) in links"
-              :key="key"
-              class="o-list__item"
-            >
-              <a
-                v-t="`links.social.${key}`"
-                :href="link"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="c-link c-link-underline c-link--background"
-              />
-            </li>
-          </ul>
-        </article>
-
-        <article class="o-media__fluid u-text-right u-color-wash-light">
-          <i18n path="footer.source">
-            <a
-              v-t="'links.social.github'"
-              :href="links.github"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-link c-link-underline c-link--background"
-            />
-          </i18n>
-        </article>
-      </section> -->
     </div>
   </footer>
 </template>
 
 <script>
+import SvgDialogueBubbleTail from '~/assets/svg/dialogue-bubble-tail.svg?inline';
+
 export default {
+  components: {
+    SvgDialogueBubbleTail,
+  },
+
   data() {
     return {
       mail: process.env.APP_MAIL,
