@@ -242,6 +242,7 @@ export default {
       });
       thread.then(() => {
         this.setReplies();
+        this.$emit('chatInitated');
       });
     },
 

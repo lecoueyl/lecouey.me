@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Intro
-      v-if="!introFinished"
-      @introFinished="introFinished = true"
-    />
+    <Intro v-if="!$store.state.introFinished" />
 
     <Pointer />
 
@@ -27,12 +24,6 @@ export default {
     Pointer,
     LayoutHeader,
     LayoutFooter,
-  },
-
-  data() {
-    return {
-      introFinished: false,
-    };
   },
 
   head() {

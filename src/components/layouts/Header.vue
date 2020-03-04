@@ -176,7 +176,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
 .c-header__logo {
   width: 30px;

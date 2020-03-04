@@ -3,7 +3,10 @@
     <section class="o-container u-relative">
       <div class="o-grid">
         <div class="o-grid__col u-7/12@sm">
-          <Chat class="u-pb-x10@xs u-pb-x4@sm" />
+          <Chat
+            class="u-pb-x10@xs u-pb-x4@sm"
+            @chatInitated="chatInitated = true"
+          />
         </div>
       </div>
     </section>
@@ -20,6 +23,19 @@ export default {
   },
 
   mixins: [transitionPage],
+
+  data() {
+    return {
+      chatInitated: false,
+    };
+  },
+
+  watch: {
+    chatInitated() {
+      console.log('chatInitated');
+      this.$store.commit('updateTransitionPage', false);
+    },
+  },
 
   head() {
     return {
