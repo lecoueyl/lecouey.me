@@ -37,7 +37,10 @@ export default {
         duration: 0.6,
         delay: 0.6,
         ease: ease.leave,
-        stagger: 0.1,
+        stagger: {
+          from: 'end',
+          amount: 0.2,
+        },
         yPercent: 0,
         rotate: 0,
         opacity: 1,
