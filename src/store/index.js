@@ -4,18 +4,18 @@ export const state = () => ({
   chatThread: [],
   introFinished: false,
   loading: false,
-  transitionPage: false,
+  pageTransitioning: true,
 });
 
 export const mutations = {
   updateChatThread: (state, message) => {
     state.chatThread.push(message);
   },
-  updateIntroFinished: (state, status) => {
-    state.introFinished = status;
+  setIntroFinished: (state) => {
+    state.introFinished = true;
   },
-  updateTransitionPage: (state, status) => {
-    state.transitionPage = status;
+  updatePageTransitioning: (state, status) => {
+    state.pageTransitioning = status;
   },
   updateLoading: (state, status) => {
     state.loading = status;

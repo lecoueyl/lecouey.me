@@ -103,11 +103,11 @@ export default {
 
   computed: mapState([
     'loading',
-    'transitionPage',
+    'pageTransitioning',
   ]),
 
   watch: {
-    transitionPage(showMenu) {
+    pageTransitioning(showMenu) {
       this.animeMenu(!showMenu);
     },
     loading(loading) {

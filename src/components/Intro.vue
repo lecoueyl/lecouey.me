@@ -32,7 +32,7 @@ export default {
   },
 
   mounted() {
-    gsap.timeline({ onComplete: () => this.$store.commit('updateIntroFinished', true) })
+    gsap.timeline({ onComplete: () => this.$store.commit('setIntroFinished') })
       .to('.c-intro__item', {
         duration: 0.6,
         delay: 0.6,

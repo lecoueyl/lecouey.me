@@ -32,7 +32,7 @@ export default {
 
   watch: {
     chatInitated() {
-      this.$store.commit('updateTransitionPage', false);
+      this.$store.commit('updatePageTransitioning', false);
     },
   },
 
