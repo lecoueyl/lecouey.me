@@ -15,7 +15,7 @@
           <div class="c-chat__message u-inline-block">
             <img
               v-if="message.action === 'gif'"
-              src="../assets/images/cat-hello.gif"
+              src="~assets/images/cat-hello.gif"
               alt="cat"
             >
 

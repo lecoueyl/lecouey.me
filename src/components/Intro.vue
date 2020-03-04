@@ -24,6 +24,7 @@ export default {
       yPercent: 100,
       rotate: 5,
       opacity: 0,
+      transformOrigin: 'left bottom',
     });
     gsap.set('.c-intro__list', {
       opacity: 1,
@@ -36,24 +37,26 @@ export default {
         duration: 0.6,
         delay: 0.6,
         ease: ease.leave,
+        stagger: 0.1,
         yPercent: 0,
         rotate: 0,
         opacity: 1,
-        stagger: 0.1,
       })
       .to('.c-intro__item', {
-        duration: 2,
+        duration: 0.6,
         delay: 0.6,
         ease: ease.leave,
-        yPercent: -100,
-        rotate: -5,
         stagger: 0.1,
+        yPercent: -100,
+        rotate: 5,
+        opacity: 0,
+        transformOrigin: 'top right',
       })
       .to('.c-intro', {
         duration: 1,
         ease: ease.leave,
-        yPercent: -100,
-      }, '-=2');
+        autoAlpha: 0,
+      }, '-=0.6');
   },
 };
 </script>
