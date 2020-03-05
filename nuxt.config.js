@@ -110,23 +110,13 @@ module.exports = {
     'nuxt-purgecss',
   ],
   purgeCSS: {
-    enabled: true,
-    // whitelistPatterns: [/^u-(.*)@([a-z0-9]+)/],
+    enabled: false,
     extractors: () => [
       {
         extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [],
         extensions: ['html', 'vue', 'js'],
       },
     ],
-  // extractors: [
-  //     {
-  //       // extractor: (content) => content.match(/[\u-/@]+(?<!:)/g) || [],
-  //       extractor: (content) => content.match(/^u-(.*)@([a-z0-9]+)/g) || [],
-  //       // defaultExtractor: (content) => content.match(/[\u-/@]+(?<!:)/g) || [],
-  //       extensions: ['html', 'vue', 'js'],
-  //     },
-  //   ],
-    // defaultExtractor: (content) => content.match(/[\u-/:@]+(?<!:)/g) || [],
   },
   /*
   ** Build configuration
