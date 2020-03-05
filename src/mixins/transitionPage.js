@@ -5,7 +5,7 @@ export default {
 
   transition: {
     beforeEnter(el) {
-      this.$store.commit('updateTransitionPage', true);
+      this.$store.commit('updatePageTransitioning', true);
       gsap.set(el, {
         autoAlpha: 0,
       });
@@ -17,7 +17,7 @@ export default {
         autoAlpha: 1,
         ease: 'circ.inOut',
       }).then(() => {
-        this.$store.commit('updateTransitionPage', false);
+        this.$store.commit('updatePageTransitioning', false);
         done();
       });
     },

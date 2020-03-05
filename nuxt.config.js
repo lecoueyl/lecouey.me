@@ -67,9 +67,10 @@ module.exports = {
   ** Modules
   */
   modules: [
-    '@nuxtjs/style-resources',
     ['nuxt-i18n', i18n],
     ['nuxt-svg'],
+    '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources',
   ],
   /*
   ** Sitemap
@@ -106,7 +107,27 @@ module.exports = {
       },
     }],
     '@nuxtjs/stylelint-module',
+    'nuxt-purgecss',
   ],
+  purgeCSS: {
+    enabled: true,
+    // whitelistPatterns: [/^u-(.*)@([a-z0-9]+)/],
+    extractors: () => [
+      {
+        extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [],
+        extensions: ['html', 'vue', 'js'],
+      },
+    ],
+  // extractors: [
+  //     {
+  //       // extractor: (content) => content.match(/[\u-/@]+(?<!:)/g) || [],
+  //       extractor: (content) => content.match(/^u-(.*)@([a-z0-9]+)/g) || [],
+  //       // defaultExtractor: (content) => content.match(/[\u-/@]+(?<!:)/g) || [],
+  //       extensions: ['html', 'vue', 'js'],
+  //     },
+  //   ],
+    // defaultExtractor: (content) => content.match(/[\u-/:@]+(?<!:)/g) || [],
+  },
   /*
   ** Build configuration
   */
