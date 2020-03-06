@@ -109,8 +109,10 @@ module.exports = {
     '@nuxtjs/stylelint-module',
     'nuxt-purgecss',
   ],
+  /*
+  ** PurgeCSS configuration
+  */
   purgeCSS: {
-    enabled: false,
     extractors: () => [
       {
         extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [],
