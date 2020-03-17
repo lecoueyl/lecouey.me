@@ -1,8 +1,8 @@
 <template>
   <main class="u-pt-x10">
-    <Slides />
+    <!-- <Slides /> -->
 
-    <section class="o-type-l p-about__hero o-container u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
+    <section class="o-type-l o-container p-about__hero u-pv-x10 u-mv-x10 u-color-primary u-relative u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
@@ -15,7 +15,7 @@
         >{{ word }}</span>
       </p>
 
-      <div class="u-6/12@sm u-push-3/12@sm">
+      <!-- <div class="u-6/12@sm u-push-3/12@sm">
         <div class="o-media">
           <div class="o-media__fixed u-6/12">
             <SvgCircleLeft class="about-circle__left path" />
@@ -25,7 +25,11 @@
             <SvgCircleRight class="about-circle__right" />
           </div>
         </div>
-      </div>
+      </div> -->
+    </section>
+
+    <section class="o-container">
+      <SvgDevices />
     </section>
 
     <section class="o-container u-relative u-mv-x10">
@@ -111,27 +115,29 @@
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/AboutArticle';
-import Slides from '~/components/Slides';
+// import Slides from '~/components/Slides';
 import transitionPage from '~/mixins/transitionPage';
-import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
-import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
+import SvgDevices from '~/assets/svg/devices.svg?inline';
+// import SvgCircleLeft from '~/assets/svg/circle-rainbow-left.svg?inline';
+// import SvgCircleRight from '~/assets/svg/circle-rainbow-right.svg?inline';
 
 const animeHero = {
   duration: 1,
   stagger: 0.1,
 };
 
-const animeCircle = {
-  duration: 2,
-  stagger: 0.1,
-};
+// const animeCircle = {
+//   duration: 2,
+//   stagger: 0.1,
+// };
 
 export default {
   components: {
     AboutArticle,
-    Slides,
-    SvgCircleLeft,
-    SvgCircleRight,
+    // Slides,
+    SvgDevices,
+    // SvgCircleLeft,
+    // SvgCircleRight,
   },
 
   mixins: [transitionPage],
@@ -150,25 +156,25 @@ export default {
   mounted() {
     this.animateHero();
 
-    gsap.fromTo('.about-circle__left path', {
-      xPercent: 100,
-    },
-    {
-      duration: animeCircle.duration,
-      ease: ease.enter,
-      stagger: animeCircle.stagger,
-      xPercent: 0,
-    });
-
-    gsap.fromTo('.about-circle__right path', {
-      xPercent: -100,
-    },
-    {
-      duration: animeCircle.duration,
-      ease: ease.enter,
-      stagger: animeCircle.stagger,
-      xPercent: 0,
-    });
+    // gsap.fromTo('.about-circle__left path', {
+    //   xPercent: 100,
+    // },
+    // {
+    //   duration: animeCircle.duration,
+    //   ease: ease.enter,
+    //   stagger: animeCircle.stagger,
+    //   xPercent: 0,
+    // });
+    //
+    // gsap.fromTo('.about-circle__right path', {
+    //   xPercent: -100,
+    // },
+    // {
+    //   duration: animeCircle.duration,
+    //   ease: ease.enter,
+    //   stagger: animeCircle.stagger,
+    //   xPercent: 0,
+    // });
   },
 
   methods: {
