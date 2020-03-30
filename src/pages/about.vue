@@ -57,7 +57,6 @@
             :href="links.linkedin"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="visit"
             class="c-link c-link-underline c-link--primary"
           />
         </i18n>
@@ -67,27 +66,34 @@
     <section class="o-container u-relative u-mv-x10">
       <AboutArticle>
         <template v-slot:title>
-          {{ $t('about.system') }}
+          CV
         </template>
 
         <ul class="o-type-m o-list u-color-foreground">
           <li
-            v-for="item in [
-              'Infrastructure Architecture',
-              'System administration',
-              'Backend Development',
-            ]"
-            :key="item"
+            v-for="period in resume"
+            :key="period.from"
             class="o-list__item"
           >
-            {{ item }}
+            <div class="o-media">
+              <div class="o-media__fixed u-inline-block u-5/12">
+                {{ $d(new Date(period.from), 'year') }}
+                <template v-if="period.to">
+                  ー {{ $d(new Date(period.to), 'year') }}
+                </template>
+              </div>
+
+              <div class="o-media__fluid">
+                {{ period.workplace }}
+              </div>
+            </div>
           </li>
         </ul>
       </AboutArticle>
 
       <AboutArticle class="u-pt-x10">
         <template v-slot:title>
-          {{ $t('about.design') }}
+          CV
         </template>
 
         <ul class="o-type-m o-list u-color-foreground">
@@ -147,6 +153,32 @@ export default {
       currentView: 'about',
       viewingAside: false,
       mail: process.env.APP_mail,
+      resume: [
+        {
+          from: '2014',
+          to: new Date(),
+          workplace: 'Emotion Intelligence',
+        },
+        {
+          from: '2012',
+          to: '2016',
+          workplace: 'Syllage',
+        },
+        {
+          from: '2010',
+          to: '2012',
+          workplace: 'French Embassy in Japan',
+        },
+        {
+          from: '2007',
+          to: '2010',
+          workplace: 'Telindus',
+        },
+        {
+          from: '2007',
+          workplace: 'AF83',
+        },
+      ],
       links: {
         linkedIn: process.env.LINKS_LINKEDIN,
       },

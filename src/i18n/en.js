@@ -108,19 +108,11 @@ module.exports = {
     },
   },
 
-  // cursor
-
-  cursor: {
-    visit: 'visit',
-    mail: 'mail',
-    translate: 'translate',
-  },
-
   // error
 
   error: {
-    title: 'エラー',
-    notFound: 'ご指定のページが見つかりませんでした。',
-    occured: 'エラーが発生しました。',
+    title: 'Not found',
+    notFound: 'Oh, could not find what you are looking for.',
+    occured: 'Oups, an error occurred.',
   },
 };

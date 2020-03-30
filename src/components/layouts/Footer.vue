@@ -3,7 +3,7 @@
     <div class="o-container u-pv-x10">
       <p
         v-t="'footer.contact'"
-        class="o-type-l u-color-background u-bgcolor-secondary u-p-x2 u-radius-s"
+        class="o-type-l u-color-foreground u-bgcolor-secondary u-p-x2 u-radius-s"
       />
       <SvgDialogueBubbleTail class="u-color-secondary u-ml-x4" />
 

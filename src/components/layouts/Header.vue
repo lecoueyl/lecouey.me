@@ -58,7 +58,6 @@
               >
                 <a
                   class="c-link c-link--foreground"
-                  data-cursor="translate"
                   @click="switchLocale(locale.code)"
                 >
                   {{ locale.name }}

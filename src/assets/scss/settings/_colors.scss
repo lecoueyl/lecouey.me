@@ -1,10 +1,11 @@
 // Colors
 
-$color-accent-primary: #ff4f27;
-$color-accent-secondary: #800cec;
+$color-accent-primary: #f0323c;
+$color-accent-secondary: #d250e6;
+$color-accent-teriary: #facd23;
 
-$color-background: #f5f5f5;
-$color-foreground: #2b2b2b;
+$color-background: #0b0b0b;
+$color-foreground: #f5f5f5;
 
 $color-wash-dark: lighten($color-foreground, 30%);
 $color-wash-light: lighten($color-foreground, 90%);
