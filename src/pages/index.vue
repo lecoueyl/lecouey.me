@@ -38,7 +38,7 @@ export default {
 
   head() {
     return {
-      title: this.$t('index.title'),
+      title: this.$t('index.head.title'),
     };
   },
 };

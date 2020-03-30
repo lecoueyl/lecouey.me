@@ -1,7 +1,8 @@
 module.exports = {
   head: {
     title: 'Léonard Lecouey',
-    keywords: '',
+    description: 'Full stack enginner and designer from France, living in Japan',
+    keywords: 'Full stack, Full stack engineer, designer, tech leader, developer',
   },
 
   links: {
@@ -23,11 +24,8 @@ module.exports = {
   // index
 
   index: {
-    name: 'Home',
-    title: 'Hi!',
     head: {
-      title: 'Emin',
-      description: '人工知能を活用した『気持ちを解するテクノロジー』で認知科学的アプローチから人と機械のインタラクティブデザインを行います。ECサイト向け購買行動 解析・販促サービス『ZenClerk』を運営する、Emotion Intelligence株式会社のコーポレートサイトです。',
+      title: 'Hi!',
     },
   },
 
@@ -43,7 +41,7 @@ module.exports = {
     ],
 
     me: {
-      intro: `I am a French Fullstack designer, developer and sysadmin with over 12 years of experience.
+      intro: `I am a French Fullstack engineer and designer with over 12 years of experience.
         Currently living in Tokyo.`,
       history: `Working at Emotion Intelligence since 2014, where I have the chance to do create
         product from the bottom to the end.`,

@@ -1,5 +1,6 @@
 const env = require('dotenv').config().parsed;
 const i18n = require('./src/i18n');
+const i18nEn = require('./src/i18n/en.js');
 
 module.exports = {
   srcDir: 'src',
@@ -8,16 +9,32 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: env.APP_NAME,
-    titleTemplate: `%s — ${env.APP_NAME}`,
+    title: i18nEn.head.title,
+    titleTemplate: `%s — ${i18nEn.head.title}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'author', content: env.APP_NAME },
-      { hid: 'description', name: 'description', content: 'Leonard Lecouey' },
+      { name: 'author', content: i18nEn.head.title },
+      { name: 'description', content: i18nEn.head.description },
+      { name: 'keywords', content: i18nEn.head.keywords },
+
       { name: 'msapplication-TileColor', content: '#f5f5f5' },
-      { name: 'theme-color', content: '"#f5f5f5' },
+      { name: 'theme-color', content: '#f5f5f5' },
+
+      { property: 'og:title', content: i18nEn.head.title },
+      { property: 'og:description', content: i18nEn.head.description },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: env.APP_URL },
+      { property: 'og:image', content: `${env.APP_URL}/social.png` },
+      { property: 'og:site_name', content: i18nEn.head.title },
+
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: i18nEn.head.title },
+      { name: 'twitter:description', content: i18nEn.head.description },
+      { name: 'twitter:image', content: `${env.APP_URL}/social.png` },
+      { name: 'twitter:site', content: env.TWITTER_ACCOUNT },
     ],
+
     link: [
       {
         rel: 'apple-touch-icon',
