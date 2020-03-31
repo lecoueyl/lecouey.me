@@ -27,7 +27,7 @@
     "gsap": "3.2.6",
     "iotacss": "1.6.0",
     "nuxt": "2.12.1",
-    "nuxt-i18n": "6.7.1",
+    "nuxt-i18n": "6.7.2",
     "nuxt-svg": "0.1.6",
     "vue-check-view": "0.3.0"
   },
