@@ -3,16 +3,17 @@
     ref="slides"
     class="c-slides u-mt_-x10"
   >
-    <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
+    <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
       What I can do
-    </article>
+    </article> -->
 
     <article
-      v-for="type in ['frontend', 'backend', 'design', 'frontend1', 'backend1', 'design1']"
+      v-for="(type, index) in ['frontend', 'backend', 'design', 'frontend1', 'backend1', 'design1']"
       :key="type"
-      class="c-slides__panel u-8/12@xs u-4/12@sm u-inline-block u-pr-x2@xs u-pr-x4@sm u-pr-x6@md"
+      class="c-slides__panel u-8/12@xs u-4/12@sm u-inline-block u-pl-x2@xs  u-pr-x2@xs u-pr-x4@sm u-pr-x6@md"
+      :class="{ 'u-pl-x4@sm u-pl-x6@md': index === 0 }"
     >
-      <div class="u-p-x4 u-bgcolor-secondary">
+      <div class="u-p-x4 u-bgcolor-tertiary">
         <h2 class="o-type-m u-weight-normal u-color-background u-pt-x10">
           {{ type }}
         </h2>

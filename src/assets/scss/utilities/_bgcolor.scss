@@ -1,7 +1,9 @@
 $iota-utils-bgcolor-names: (
+  'primary':  $color-accent-primary,
+  'secondary':  $color-accent-secondary,
+  'tertiary':  $color-accent-tertiary,
   'background':  $color-background,
   'foreground':  $color-foreground,
-  'secondary':  $color-accent-secondary,
 );
 
 @import 'node_modules/iotacss/utilities/bgcolor';

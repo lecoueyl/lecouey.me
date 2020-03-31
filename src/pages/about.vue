@@ -1,7 +1,5 @@
 <template>
   <main class="u-pt-x10">
-    <!-- <Slides /> -->
-
     <section class="o-type-l o-container p-about__hero u-pv-x10 u-color-primary u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
@@ -51,6 +49,8 @@
       </AboutArticle>
     </section>
 
+    <Slides />
+
     <section class="o-container u-relative u-mv-x10">
       <AboutArticle>
         <template v-slot:title>
@@ -86,7 +86,7 @@
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/AboutArticle';
-// import Slides from '~/components/Slides';
+import Slides from '~/components/Slides';
 import transitionPage from '~/mixins/transitionPage';
 import SvgDevices from '~/assets/svg/devices.svg?inline';
 
@@ -98,7 +98,7 @@ const animeHero = {
 export default {
   components: {
     AboutArticle,
-    // Slides,
+    Slides,
     SvgDevices,
   },
 

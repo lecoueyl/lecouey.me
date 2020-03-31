@@ -2,7 +2,7 @@
   <TransitionFadeY>
     <header
       v-if="scrolledOut"
-      class="c-header o-container o-container--full u-pt-x4 u-fixed u-12/12 o-type-s u-weight-medium  u-zindex-header"
+      class="c-header o-container o-container--full u-pt-x2@xs u-pt-x4@sm u-pt-x6@md u-fixed u-12/12 o-type-s u-weight-medium u-zindex-header"
     >
       <div class="o-media o-media--middle u-overflow-hidden">
         <div

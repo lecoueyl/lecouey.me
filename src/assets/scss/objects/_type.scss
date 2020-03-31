@@ -1,7 +1,7 @@
 $iota-objs-type-sizes: (
   s: (
-    null: 0.9rem,
-    sm: 1rem,
+    null: (0.9rem,  1.625),
+    sm: (1.1rem,  1.625),
   ),
   m: (
     null: (1.25rem,  1.625),
