@@ -1,59 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1234 648">
-  <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="6" transform="translate(3 3)" stroke-linejoin="round">
-    <g transform="translate(0 177)">
-      <rect width="146" height="288" rx="24"/>
-      <rect width="38" height="10" x="54" y="15" rx="5"/>
-      <path d="M58,272 L88,272" stroke-linecap="round"/>
-    </g>
-    <g transform="translate(247 7)">
-      <rect width="30" height="98" x="22" y="183" rx="15"/>
-      <path d="M37,0 C60.1959595,0 76.4541635,18.8040405 73.313715,42 L57.4733497,159 C55.6788077,172.254834 49.8174913,183 44.3817332,183 L29.6182668,183 C24.1825087,183 18.3211923,172.254834 16.5266503,159 L0.686284978,42 C-2.4541635,18.8040405 13.8040405,0 37,0 Z"/>
-      <path d="M37,0 C49.640195,0 58.4997927,18.8040405 56.7884653,42 L48.1565608,159 C47.1786595,172.254834 43.9846471,183 41.0225345,183 L32.9774655,183 C30.0153529,183 26.8213405,172.254834 25.8434392,159 L17.2115347,42 C15.5002073,18.8040405 24.359805,0 37,0 Z"/>
-    </g>
-    <g transform="translate(223 354)">
-      <rect width="240" height="288" rx="24"/>
-      <path d="M105,273 L135,273" stroke-linecap="round"/>
-      <rect width="38" height="10" x="101" y="15" rx="5"/>
-      <path d="M272,42 C274.761424,42 277,44.2385763 277,47 L277,237 L277,237 L272,252 L267,237 L267,47 C267,44.2385763 269.238576,42 272,42 Z"/>
-    </g>
-    <g transform="translate(1034 372)">
-      <rect width="194" height="255" y="1" rx="24"/>
-      <path d="M30,1 L30,256" stroke-linecap="round"/>
-      <g transform="translate(90 56)" stroke-linecap="round">
-        <polyline points="0 55 22 0 44 55"/>
-        <path d="M9,32 L32,32"/>
-      </g>
-      <g transform="translate(81 137)" stroke-linecap="round">
-        <path d="M2 15.5L62 15.5M32 15.5L32 .5M62 62.5C51 62.5 21 50.5 21 24.5M10 32.5C12 31.5 18 28.5 21 22.5M45 15.5C45 32.5 29.0151496 63.5 0 63.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1276" height="690" viewBox="0 0 1276 690">
+  <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <g class="i-devices_iphone">
+      <g transform="translate(24 201)">
+        <rect width="146" height="288" rx="24"/>
+        <rect width="38" height="10" x="54" y="15" rx="5"/>
+        <path d="M58,272 L88,272"/>
       </g>
     </g>
-    <g transform="translate(418)">
-      <rect width="417" height="288" rx="24"/>
-      <circle cx="208" cy="144" r="12"/>
+
+    <g class="i-devices_mixer">
+      <g transform="translate(271 31)">
+        <rect width="30" height="98" x="22" y="183" rx="15"/>
+        <path d="M37,0 C60.1959595,0 76.4541635,18.8040405 73.313715,42 L57.4733497,159 C55.6788077,172.254834 49.8174913,183 44.3817332,183 L29.6182668,183 C24.1825087,183 18.3211923,172.254834 16.5266503,159 L0.686284978,42 C-2.4541635,18.8040405 13.8040405,0 37,0 Z"/>
+        <path d="M37,0 C49.640195,0 58.4997927,18.8040405 56.7884653,42 L48.1565608,159 C47.1786595,172.254834 43.9846471,183 41.0225345,183 L32.9774655,183 C30.0153529,183 26.8213405,172.254834 25.8434392,159 L17.2115347,42 C15.5002073,18.8040405 24.359805,0 37,0 Z"/>
+      </g>
     </g>
-    <g transform="translate(577 431)">
-      <rect width="380" height="140" rx="24"/>
-      <rect width="10" height="60" x="48" y="65" rx="5"/>
-      <rect width="10" height="60" x="73" y="65" rx="5"/>
-      <rect width="10" height="60" x="123" y="65" rx="5"/>
-      <rect width="10" height="60" x="148" y="65" rx="5"/>
-      <rect width="10" height="60" x="173" y="65" rx="5"/>
-      <rect width="10" height="60" x="249" y="65" rx="5"/>
-      <rect width="10" height="60" x="299" y="65" rx="5"/>
-      <rect width="10" height="60" x="324" y="65" rx="5"/>
-      <rect width="10" height="60" x="349" y="65" rx="5"/>
-      <rect width="10" height="60" x="223" y="65" rx="5"/>
-      <circle cx="289" cy="23" r="8"/>
-      <circle cx="320" cy="23" r="8"/>
-      <circle cx="351" cy="23" r="8"/>
+
+    <g class="i-devices_ipad">
+      <g transform="translate(247 378)">
+        <rect width="240" height="288" rx="24"/>
+        <path d="M105,273 L135,273"/>
+        <rect width="38" height="10" x="101" y="15" rx="5"/>
+        <g class="i-devices_pencil">
+          <path d="M272,42 C274.761424,42 277,44.2385763 277,47 L277,237 L277,237 L272,252 L267,237 L267,47 C267,44.2385763 269.238576,42 272,42 Z"/>
+        </g>
+      </g>
     </g>
-    <g transform="translate(957 80)">
-      <rect width="30" height="50" x="10" y="78" rx="15"/>
-      <rect width="10" height="32" y="87" rx="5"/>
-      <rect width="10" height="32" x="136" y="87" rx="5"/>
-      <rect width="30" height="50" x="106" y="79" rx="15"/>
-      <path d="M146,96 L146,73.1851852 C146,32.7661235 113.316787,0 73,0 C32.6832133,0 0,32.7661235 0,73.1851852 L0,96"/>
-      <path d="M136,87 L136,74.3333333 C136,39.3552992 107.793939,11 73,11 C38.2060608,11 10,39.3552992 10,74.3333333 L10,87"/>
+
+    <g class="i-devices_book">
+      <g transform="translate(1058 396)">
+        <rect width="194" height="255" y="1" rx="24"/>
+        <path d="M30,1 L30,256"/>
+        <polyline points="90 111 112 56 134 111"/>
+        <path d="M99 88L122 88M83 152.5L143 152.5M113 152.5L113 137.5M143 199.5C132 199.5 102 187.5 102 161.5M91 169.5C93 168.5 99 165.5 102 159.5M126 152.5C126 169.5 110.01515 200.5 81 200.5"/>
+      </g>
+    </g>
+
+    <g class="i-devices_macbook">
+      <g transform="translate(442 24)">
+        <rect width="417" height="288" rx="24"/>
+        <circle cx="208" cy="144" r="12"/>
+      </g>
+    </g>
+
+    <g class="i-devices_keyboard">
+      <g transform="translate(601 455)">
+        <rect width="380" height="140" rx="24"/>
+        <rect width="10" height="60" x="48" y="65" rx="5"/>
+        <rect width="10" height="60" x="73" y="65" rx="5"/>
+        <rect width="10" height="60" x="123" y="65" rx="5"/>
+        <rect width="10" height="60" x="148" y="65" rx="5"/>
+        <rect width="10" height="60" x="173" y="65" rx="5"/>
+        <rect width="10" height="60" x="249" y="65" rx="5"/>
+        <rect width="10" height="60" x="299" y="65" rx="5"/>
+        <rect width="10" height="60" x="324" y="65" rx="5"/>
+        <rect width="10" height="60" x="349" y="65" rx="5"/>
+        <rect width="10" height="60" x="223" y="65" rx="5"/>
+        <circle cx="289" cy="23" r="8"/>
+        <circle cx="320" cy="23" r="8"/>
+        <circle cx="351" cy="23" r="8"/>
+      </g>
+    </g>
+
+    <g class="i-devices_headphone">
+      <g transform="translate(981 104)">
+        <rect width="30" height="50" x="10" y="78" rx="15"/>
+        <rect width="10" height="32" y="87" rx="5"/>
+        <rect width="10" height="32" x="136" y="87" rx="5"/>
+        <rect width="30" height="50" x="106" y="79" rx="15"/>
+        <path d="M146,96 L146,73.1851852 C146,32.7661235 113.316787,0 73,0 C32.6832133,0 0,32.7661235 0,73.1851852 L0,96"/>
+        <path d="M136,87 L136,74.3333333 C136,39.3552992 107.793939,11 73,11 C38.2060608,11 10,39.3552992 10,74.3333333 L10,87"/>
+      </g>
     </g>
   </g>
 </svg>

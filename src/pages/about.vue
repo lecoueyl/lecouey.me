@@ -140,11 +140,12 @@ export default {
   },
 
   mounted() {
-    this.animateHero();
+    this.animeHero();
+    this.animeIllustration();
   },
 
   methods: {
-    animateHero() {
+    animeHero() {
       gsap.fromTo('.p-about__hero p', {
         rotate: 10,
         transformOrigin: 'left bottom',
@@ -164,6 +165,34 @@ export default {
         ease: ease.enter,
         stagger: animeHero.stagger,
         yPercent: 0,
+      });
+    },
+
+    animeIllustration() {
+      [
+        '.i-devices_iphone',
+        '.i-devices_mixer',
+        '.i-devices_ipad',
+        '.i-devices_pencil',
+        '.i-devices_book',
+        '.i-devices_macbook',
+        '.i-devices_keyboard',
+        '.i-devices_headphone',
+      ].forEach((device) => {
+        gsap.fromTo(device, {
+          transformOrigin: 'center center',
+          rotation: gsap.utils.random(-6, 6),
+          xPercent: gsap.utils.random(-5, 5),
+          yPercent: gsap.utils.random(-5, 5),
+        },
+        {
+          duration: gsap.utils.random(10, 15),
+          yoyo: true,
+          repeat: -1,
+          rotation: gsap.utils.random(-6, 6),
+          xPercent: gsap.utils.random(-5, 5),
+          yPercent: gsap.utils.random(-5, 5),
+        });
       });
     },
   },
