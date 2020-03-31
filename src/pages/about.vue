@@ -187,6 +187,7 @@ export default {
         },
         {
           duration: gsap.utils.random(10, 15),
+          ease: 'expo.inOut',
           yoyo: true,
           repeat: -1,
           rotation: gsap.utils.random(-6, 6),
