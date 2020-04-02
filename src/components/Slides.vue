@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       mouseDownPositionX: null,
-      sliderWidth: 0,
+      sliderBoundaryWidth: 0,
     };
   },
 
@@ -57,15 +57,16 @@ export default {
   },
 
   mounted() {
-    this.setSlidesWidth();
+    this.setSlidesBoundaryWidth();
   },
 
   methods: {
-    setSlidesWidth() {
+    setSlidesBoundaryWidth() {
       const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
       Array.from(slides).forEach((slide) => {
-        this.sliderWidth += slide.clientWidth;
+        this.sliderBoundaryWidth += slide.clientWidth;
       });
+      this.sliderBoundaryWidth -= window.innerWidth;
     },
 
     onMouseMove(event) {
@@ -74,18 +75,18 @@ export default {
         const dragDistance = event.clientX - this.mouseDownPositionX;
         slidePosition += dragDistance * 0.05;
 
+        // block swipe right
         if (slidePosition > 0) {
           slidePosition = 0;
         }
 
-        if (slidePosition < this.sliderWidth * -1) {
-          slidePosition = this.sliderWidth * -1;
+        // block swipe left
+        if (slidePosition < this.sliderBoundaryWidth * -1) {
+          slidePosition = this.sliderBoundaryWidth * -1;
         }
-        console.log('dragDistance', this.sliderWidth * -1);
-        console.log('slidePosition', slidePosition);
-        // console.log(dragDistance, slidePosition);
+
         gsap.to('.c-slides__panel', {
-          duration: 0.3,
+          duration: 0.1,
           x: slidePosition,
           ease: 'expo.out',
         });
