@@ -73,7 +73,7 @@ export default {
       // move cursor
       if (this.mouseDownPositionX) {
         const dragDistance = event.clientX - this.mouseDownPositionX;
-        slidePosition += dragDistance * 0.05;
+        slidePosition += dragDistance * 0.1;
 
         // block swipe right
         if (slidePosition > 0) {
