@@ -35,8 +35,8 @@ module.exports = {
     title: 'About',
 
     hero: [
-      ['Tech', ' Leader'],
-      ['Fullstack', ' designer'],
+      ['Fullstack', ' engineer'],
+      ['and', ' designer'],
       ['Living', ' in', ' Japan'],
     ],
 
@@ -50,7 +50,16 @@ module.exports = {
       current: 'Always thriving to deliver the simpler solutions to evry problems.',
       linkedin: 'More about me on {linkedin}',
     },
-
+    skills: {
+      frontend: {
+        title: 'Front-end',
+        description: 'Fluent in html, css and JavaScript',
+      },
+      backend: {
+        title: 'Back-end',
+        description: 'NodeJs',
+      },
+    },
     system: 'System',
     design: 'Design',
   },

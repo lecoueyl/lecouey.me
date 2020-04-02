@@ -8,14 +8,14 @@
     </article> -->
 
     <article
-      v-for="(type, index) in ['frontend', 'backend', 'design', 'frontend1', 'backend1', 'design1']"
-      :key="type"
+      v-for="(skill, index) in $t('about.skills')"
+      :key="index"
       class="c-slides__panel u-8/12@xs u-4/12@sm u-inline-block u-pl-x2@xs  u-pr-x2@xs u-pr-x4@sm u-pr-x6@md"
       :class="{ 'u-pl-x4@sm u-pl-x6@md': index === 0 }"
     >
       <div class="u-p-x4 u-bgcolor-tertiary">
         <h2 class="o-type-m u-weight-normal u-color-background u-pt-x10">
-          {{ type }}
+          {{ skill.title }}
         </h2>
 
         <div
@@ -24,7 +24,7 @@
         />
 
         <p class="o-type-s u-color-background">
-          {{ type }}
+          {{ skill.description }}
         </p>
       </div>
     </article>

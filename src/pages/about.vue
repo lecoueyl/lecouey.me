@@ -155,7 +155,7 @@ export default {
         ease: ease.enter,
         stagger: animeHero.stagger,
         rotate: 0,
-      });
+      }).then(() => this.$store.commit('updatePageTransitioning', false));
 
       gsap.fromTo('.p-about__hero span', {
         yPercent: 120,
