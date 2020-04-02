@@ -227,6 +227,7 @@ export default {
     },
 
     sendMessage(from) {
+      this.scrollTop();
       this.isSending = true;
       const dialogue = this.getCurrentDialogue(from);
       let thread = Promise.resolve();
@@ -323,6 +324,14 @@ export default {
         audio.src = audioSend;
       }
       audio.play();
+    },
+
+    scrollTop() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
     },
   },
 };
