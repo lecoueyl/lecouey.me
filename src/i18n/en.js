@@ -57,7 +57,23 @@ module.exports = {
       },
       backend: {
         title: 'Back-end',
-        description: 'NodeJs',
+        description: 'NodeJs, Ruby',
+      },
+      devops: {
+        title: 'DevOps',
+        description: 'Sysadmin, AWS, CI/CD, Web Servers, Containers and Shell scripting',
+      },
+      interactionDesign: {
+        title: 'Interaction Design',
+        description: 'Prototype, Animation, Micro-Interaction',
+      },
+      uiDesign: {
+        title: 'UI Design',
+        description: 'High-Fidelity comp, Design system',
+      },
+      uxDesign: {
+        title: 'UX Design',
+        description: 'User research, Wireframing, Mockup',
       },
     },
     system: 'System',

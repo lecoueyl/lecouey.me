@@ -8,24 +8,26 @@
     </article> -->
 
     <article
-      v-for="(skill, index) in $t('about.skills')"
-      :key="index"
-      class="c-slides__panel u-8/12@xs u-4/12@sm u-inline-block u-pl-x2@xs  u-pr-x2@xs u-pr-x4@sm u-pr-x6@md"
-      :class="{ 'u-pl-x4@sm u-pl-x6@md': index === 0 }"
+      v-for="(skill, key, index) in $t('about.skills')"
+      :key="key"
+      class="c-slides__panel u-10/12@xs u-4/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
+      :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
     >
-      <div class="u-p-x4 u-bgcolor-tertiary">
-        <h2 class="o-type-m u-weight-normal u-color-background u-pt-x10">
-          {{ skill.title }}
-        </h2>
+      <div class="u-bgcolor-tertiary u-relative u-height-100p">
+        <div class="u-absolute u-bottom u-p-x4 u-12/12">
+          <h2 class="o-type-m u-weight-normal u-color-background">
+            {{ skill.title }}
+          </h2>
 
-        <div
-          class="u-mv-x2 u-bgcolor-background"
-          style="height: 0.1rem;"
-        />
+          <div
+            class="u-mv-x2 u-bgcolor-background"
+            style="height: 0.1rem;"
+          />
 
-        <p class="o-type-s u-color-background">
-          {{ skill.description }}
-        </p>
+          <p class="o-type-s u-color-background">
+            {{ skill.description }}
+          </p>
+        </div>
       </div>
     </article>
   </section>
@@ -120,6 +122,8 @@ export default {
 }
 
 .c-slides__panel {
+  height: 16em;
+  white-space: initial;
   scroll-snap-align: start;
 }
 </style>
