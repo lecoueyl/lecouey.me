@@ -1,7 +1,7 @@
 <template>
   <section
     ref="slides"
-    class="c-slides u-mt_-x10"
+    class="c-slides"
   >
     <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
       What I can do

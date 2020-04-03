@@ -1,6 +1,6 @@
 <template>
   <main class="u-pt-x10">
-    <section class="o-type-l o-container p-about__hero u-pv-x10 u-color-primary u-text-center u-whitespace-pre">
+    <section class="o-type-l o-container p-about__hero u-color-primary u-mv-x10 u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
@@ -14,7 +14,7 @@
       </p>
     </section>
 
-    <section class="o-container u-color-wash-light">
+    <section class="o-container u-color-wash-light u-mv-x10">
       <SvgDevices />
     </section>
 
@@ -49,7 +49,7 @@
       </AboutArticle>
     </section>
 
-    <Slides />
+    <Slides class="u-mv-x10" />
 
     <section class="o-container u-relative u-mv-x10">
       <AboutArticle>
