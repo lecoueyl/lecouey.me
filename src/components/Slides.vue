@@ -10,7 +10,7 @@
     <article
       v-for="(skill, key, index) in $t('about.skills')"
       :key="key"
-      class="c-slides__panel u-10/12@xs u-4/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
+      class="c-slides__panel u-10/12@xs u-5/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
       :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
     >
       <div class="u-bgcolor-tertiary u-relative u-height-100p">
@@ -24,7 +24,10 @@
             style="height: 0.1rem;"
           />
 
-          <p class="o-type-s u-color-background">
+          <p
+            class="c-slides__description o-type-s u-color-background"
+            :style="{ height: maxDescriptionHeight }"
+          >
             {{ skill.description }}
           </p>
         </div>
@@ -43,6 +46,7 @@ export default {
     return {
       mouseDownPositionX: null,
       sliderBoundaryWidth: 0,
+      maxDescriptionHeight: 'auto',
     };
   },
 
@@ -50,16 +54,19 @@ export default {
     document.addEventListener('mousemove', this.onMouseMove);
     document.addEventListener('mousedown', this.onMouseDown);
     document.addEventListener('mouseup', this.onMouseUp);
+    window.addEventListener('resize', this.onWindowResize);
   },
 
   beforeDestroy() {
     document.removeEventListener('mousemove', this.onMouseMove);
     document.removeEventListener('mousedown', this.onMouseDown);
     document.removeEventListener('mouseup', this.onMouseUp);
+    window.removeEventListener('resize', this.onWindowResize);
   },
 
   mounted() {
     this.setSlidesBoundaryWidth();
+    this.setPanelDescriptionHeight();
   },
 
   methods: {
@@ -69,6 +76,12 @@ export default {
         this.sliderBoundaryWidth += slide.clientWidth;
       });
       this.sliderBoundaryWidth -= window.innerWidth;
+    },
+
+    setPanelDescriptionHeight() {
+      const slides = this.$refs.slides.getElementsByClassName('c-slides__description');
+      const descriptionHeights = Array.from(slides).map((slide) => slide.clientHeight);
+      this.maxDescriptionHeight = `${Math.max(...descriptionHeights)}px`;
     },
 
     onMouseMove(event) {
@@ -102,6 +115,11 @@ export default {
     onMouseUp() {
       this.mouseDownPositionX = null;
     },
+
+    onWindowResize() {
+      this.maxDescriptionHeight = 'auto';
+      this.$nextTick(() => this.setPanelDescriptionHeight());
+    },
   },
 };
 </script>
@@ -122,7 +140,7 @@ export default {
 }
 
 .c-slides__panel {
-  height: 16em;
+  height: 14em;
   white-space: initial;
   scroll-snap-align: start;
 }

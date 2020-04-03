@@ -65,11 +65,11 @@ module.exports = {
       },
       interactionDesign: {
         title: 'Interaction Design',
-        description: 'Prototype, Animation, Micro-Interaction',
+        description: 'Prototype, Animation, Micro-Interaction, Accessibility',
       },
       uiDesign: {
         title: 'UI Design',
-        description: 'High-Fidelity comp, Design system',
+        description: 'High-Fidelity comp, Moodboarding, Design system',
       },
       uxDesign: {
         title: 'UX Design',
