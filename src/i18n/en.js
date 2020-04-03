@@ -85,7 +85,7 @@ module.exports = {
         thanks: 'Thank you my good sir',
         bye: 'Thank you for comming',
         seeYou: 'See you around',
-        profession: 'System administration and fullstack design',
+        profession: 'Full stack enginner and designer',
         workplace: 'at Emotion Intelligence in Tokyo',
         challenging: 'I would say it\'s challenging',
       },
@@ -111,7 +111,7 @@ module.exports = {
       iKnow: 'I know',
       bye: 'Bye!',
       where: 'Where?',
-      andSo: 'and so?',
+      andSo: 'And so?',
     },
   },
 
