@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div>
     <section class="o-container u-relative">
       <div class="o-grid">
         <div class="o-grid__col u-7/12@sm">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>

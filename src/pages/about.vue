@@ -1,5 +1,5 @@
 <template>
-  <main class="u-pt-x10">
+  <div class="u-pt-x10">
     <section class="o-type-l o-container p-about__hero u-color-primary u-mv-x10 u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
@@ -57,14 +57,14 @@
           CV
         </template>
 
-        <ul class="o-type-m o-list u-color-foreground">
+        <ul class="o-list o-list--block u-color-foreground">
           <li
             v-for="period in resume"
             :key="period.workplace"
             class="o-list__item"
           >
             <div class="o-media">
-              <div class="o-media__fixed u-inline-block u-5/12">
+              <div class="o-media__fixed o-type-m u-inline-block u-5/12">
                 {{ $d(new Date(period.from), 'year') }}
                 <template v-if="period.to">
                   ー {{ $d(new Date(period.to), 'year') }}
@@ -72,14 +72,17 @@
               </div>
 
               <div class="o-media__fluid">
-                {{ period.workplace }}
+                <span class="o-type-m">{{ period.workplace }}</span>
+                <p class="o-type-s">
+                  {{ period.job }}
+                </p>
               </div>
             </div>
           </li>
         </ul>
       </AboutArticle>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -112,25 +115,30 @@ export default {
           from: '2014',
           to: new Date(),
           workplace: 'Emotion Intelligence',
+          job: 'Tech leader',
         },
         {
           from: '2012',
           to: '2014',
           workplace: 'Syllage',
+          job: 'Tech leader',
         },
         {
           from: '2010',
           to: '2012',
           workplace: 'French Embassy in Japan',
+          job: 'Tech leader',
         },
         {
           from: '2007',
           to: '2010',
           workplace: 'Telindus',
+          job: 'Tech leader',
         },
         {
           from: '2007',
           workplace: 'AF83',
+          job: 'Tech leader',
         },
       ],
       links: {
