@@ -63,16 +63,17 @@
             :key="period.workplace"
             class="o-list__item"
           >
-            <div class="o-media">
-              <div class="o-media__fixed o-type-m u-inline-block u-5/12">
+            <div class="o-grid">
+              <div class="o-grid__col o-type-m u-5/12">
                 {{ $d(new Date(period.from), 'year') }}
                 <template v-if="period.to">
                   ー {{ $d(new Date(period.to), 'year') }}
                 </template>
               </div>
 
-              <div class="o-media__fluid">
+              <div class="o-grid__col u-7/12">
                 <span class="o-type-m">{{ period.workplace }}</span>
+                <sup class="o-type-xs">{{ period.location }}</sup>
                 <p class="o-type-s">
                   {{ period.job }}
                 </p>
@@ -115,30 +116,35 @@ export default {
           from: '2014',
           to: new Date(),
           workplace: 'Emotion Intelligence',
+          location: 'JP',
           job: 'Tech leader',
         },
         {
           from: '2012',
           to: '2014',
           workplace: 'Syllage',
-          job: 'Tech leader',
+          location: 'FR',
+          job: 'Fullstack engineer',
         },
         {
           from: '2010',
           to: '2012',
           workplace: 'French Embassy in Japan',
-          job: 'Tech leader',
+          location: 'JP',
+          job: 'System administrator',
         },
         {
           from: '2007',
           to: '2010',
           workplace: 'Telindus',
-          job: 'Tech leader',
+          location: 'FR',
+          job: 'System administrator',
         },
         {
           from: '2007',
           workplace: 'AF83',
-          job: 'Tech leader',
+          location: 'FR',
+          job: 'Fullstack engineer',
         },
       ],
       links: {

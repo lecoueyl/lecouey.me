@@ -17,7 +17,7 @@ export const mutations = {
   updatePageTransitioning: (state, status) => {
     state.pageTransitioning = status;
   },
-  updateLoading: (state, status) => {
+  isLoading: (state, status) => {
     state.loading = status;
   },
 };

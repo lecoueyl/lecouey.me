@@ -127,12 +127,6 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
 
-  // mounted() {
-  //   setTimeout(() => {
-  //     this.animeMenu();
-  //   }, 1000);
-  // },
-
   methods: {
     animeMenu(show = true) {
       const timeoutAnime = 100;
@@ -163,11 +157,11 @@ export default {
 
     switchLocale(localeCode) {
       const timeoutLoading = 1000;
-      this.$store.commit('updateLoading', true);
+      this.$store.commit('isLoading', true);
       setTimeout(() => {
         this.$router.push(this.switchLocalePath(localeCode));
         setTimeout(() => {
-          this.$store.commit('updateLoading', false);
+          this.$store.commit('isLoading', false);
         }, timeoutLoading);
       }, timeoutLoading);
     },

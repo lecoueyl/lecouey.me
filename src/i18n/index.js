@@ -11,7 +11,7 @@ module.exports = {
     {
       code: 'ja',
       iso: 'ja-JP',
-      name: 'JP',
+      name: 'JA',
       file: 'ja.js',
     },
   ],
