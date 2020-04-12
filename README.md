@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/lecoueyl/lecouey.me/1.0/src/static/social.png?token=AB7Q7DQZVX5BA3FEEX5IGUK6SKETI" width="300" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/lecoueyl/lecouey.me/master/src/static/social.png" width="300" />
 </div>
 <h1 align="center">
   lecouey.me
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
+  <a href="https://app.netlify.com/sites/lecouey/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/8d9c041f-c71a-4ff1-b2a8-7d328ef72297/deploy-status" alt="Netlify Status" />
   </a>
 </p>
@@ -30,9 +30,9 @@
 
 3. Set environment variable
 
-  ```sh
-  cp .env.sample .env
-  ```
+   ```sh
+   cp .env.sample .env
+   ```
 
 4. Start the development server
 
