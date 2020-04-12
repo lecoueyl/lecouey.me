@@ -20,6 +20,7 @@ $components-links-color-names: (
 
 .#{$iota-components-link} {
   text-decoration: none;
+  cursor: pointer;
   transition-timing-function: $anim-transition-timing-move;
   transition-duration: 0.3s;
   transition-property: color;

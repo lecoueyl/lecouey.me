@@ -154,12 +154,12 @@ export default {
   },
 
   mounted() {
-    this.animeHero();
+    this.animeHeroText();
     this.animeIllustration();
   },
 
   methods: {
-    animeHero() {
+    animeHeroText() {
       gsap.fromTo('.p-about__hero p', {
         rotate: 10,
         transformOrigin: 'left bottom',

@@ -13,7 +13,10 @@
       class="c-slides__panel u-10/12@xs u-5/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
       :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
     >
-      <div class="u-bgcolor-tertiary u-relative u-height-100p">
+      <div
+        class="u-relative u-height-100p"
+        :class="[['frontend', 'backend', 'devops'].includes(key) ? 'u-bgcolor-tertiary' : 'u-bgcolor-quaternary']"
+      >
         <div class="u-absolute u-bottom u-p-x4 u-12/12">
           <h2 class="o-type-m u-weight-normal u-color-background">
             {{ skill.title }}
