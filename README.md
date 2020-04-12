@@ -1,50 +1,37 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/master/src/images/logo.png" width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/lecoueyl/lecouey.me/1.0/src/static/social.png?token=AB7Q7DQZVX5BA3FEEX5IGUK6SKETI" width="300" />
 </div>
 <h1 align="center">
-  brittanychiang.com - v4
+  lecouey.me
 </h1>
 <p align="center">
-  The fourth iteration of <a href="https://brittanychiang.com" target="_blank">brittanychiang.com</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+  Built with <a href="https://nuxtjs.org" target="_blank">NuxtJS</a>, <a href="https://www.iotacss.com" target="_blank">iotaCSS</a> and hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a>
 </p>
-<p align="center">
-  Previous iterations:
-  <a href="https://github.com/bchiang7/v1" target="_blank">v1</a>,
-  <a href="https://github.com/bchiang7/v2" target="_blank">v2</a>,
-  <a href="https://github.com/bchiang7/bchiang7.github.io" target="_blank">v3</a>
-</p>
+
 <p align="center">
   <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
+    <img src="https://api.netlify.com/api/v1/badges/8d9c041f-c71a-4ff1-b2a8-7d328ef72297/deploy-status" alt="Netlify Status" />
   </a>
 </p>
 
-![demo](https://raw.githubusercontent.com/bchiang7/v4/master/src/images/demo.png)
-
 ## 🛠 Installation & Set Up
 
-1. Install the Gatsby CLI
+1. Install and use the correct version of Node using [nodenv](https://github.com/nodenv/nodenv) (or any other NodeJS manager you like)
 
    ```sh
-   npm install -g gatsby-cli
+   nodenv install
    ```
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+2. Install dependencies
 
    ```sh
-   nvm install
+   npm install
    ```
 
-3. Install dependencies
+3. Start the development server
 
    ```sh
-   yarn
-   ```
-
-4. Start the development server
-
-   ```sh
-   npm start
+   npm start dev
    ```
 
 ## 🚀 Building and Running for Production
@@ -52,32 +39,29 @@
 1. Generate a full static production build
 
    ```sh
-   npm run build
+   npm run generate
    ```
 
 1. Preview the site as it will appear once deployed
 
    ```sh
-   npm run serve
+   npm start
    ```
 
 ## 🎨 Color Reference
 
-| Color          | Hex                                                                |
-| -------------- | ------------------------------------------------------------------ |
-| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
-| Light Navy     | ![#172a45](https://via.placeholder.com/10/0a192f?text=+) `#172a45` |
-| Dark Grey      | ![#333f58](https://via.placeholder.com/10/333f58?text=+) `#333f58` |
-| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
-| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
-| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
-| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
-| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
+| Color      | Hex                                                                |
+| ---------- | ------------------------------------------------------------------ |
+| Primary    | ![#f0323c](https://via.placeholder.com/10/f0323c?text=+) `#f0323c` |
+| Secondary  | ![#d250e6](https://via.placeholder.com/10/d250e6?text=+) `#d250e6` |
+| Tertiary   | ![#facd23](https://via.placeholder.com/10/facd23?text=+) `#facd23` |
+| Quaternary | ![#13a5ee](https://via.placeholder.com/10/13a5ee?text=+) `#13a5ee` |
+| Foreground | ![#f5f5f5](https://via.placeholder.com/10/f5f5f5?text=+) `#f5f5f5` |
+| Background | ![#0b0b0b](https://via.placeholder.com/10/0b0b0b?text=+) `#0b0b0b` |
+| Wash Dark  | ![#c2c2c2](https://via.placeholder.com/10/c2c2c2?text=+) `#c2c2c2` |
+| Wash Light | ![#8f8f8f](https://via.placeholder.com/10/8f8f8f?text=+) `#8f8f8f` |
 
 ## 🚨 Forking this repo
 
-Many people have contacted me asking me if they can use this code for their own websites. The answer to that question is _usually_ "yes", with attribution. There are some cases, such as using this code for a business or something that is greater than a personal project, that I may be less comfortable saying yes to. If in doubt, please don't hesitate to ask me.
-
-I value keeping this site open source, but as you all know, _**plagiarism is bad**_. I spent a non-negligible amount of effort developing, designing, and trying to perfect this iteration of my website, and I am proud of it! All I ask is to not claim this effort as your own.
-
-So, feel free to fork this repo. If you do, please just give me proper credit by linking back to my website, https://brittanychiang.com. Refer to this handy [quora post](https://www.quora.com/Is-it-bad-to-copy-other-peoples-code) if you're not sure what to do. Thanks!
+Feel free to fork this repo. If you do, please let me know so I can see what beautiful things you did with it.
+If you use it as your perosnal website, don't forget to credit me by linking back to my website, https://lecouey.me.
