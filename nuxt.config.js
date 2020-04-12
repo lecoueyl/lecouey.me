@@ -2,6 +2,11 @@ const env = require('dotenv').config().parsed;
 const i18n = require('./src/i18n');
 const i18nEn = require('./src/i18n/en.js');
 
+// Allow system env overwrite .env file
+Object.keys(env).forEach((key) => {
+  env[key] = process.env[key];
+});
+
 module.exports = {
   srcDir: 'src',
   env,
