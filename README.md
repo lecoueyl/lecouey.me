@@ -5,7 +5,7 @@
   lecouey.me
 </h1>
 <p align="center">
-  Built with <a href="https://nuxtjs.org" target="_blank">NuxtJS</a>, <a href="https://www.iotacss.com" target="_blank">iotaCSS</a> and hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a>
+  Personal website built with <a href="https://nuxtjs.org" target="_blank">NuxtJS</a>, <a href="https://www.iotacss.com" target="_blank">iotaCSS</a>, <a href="https://greensock.com" target="_blank">GSAP</a> and hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## 🛠 Installation & Set Up
 
-1. Install and use the correct version of Node using [nodenv](https://github.com/nodenv/nodenv) (or any other NodeJS manager you like)
+1. Install and use the correct version of Node using [nodenv](https://github.com/nodenv/nodenv) (or with any other NodeJS manager you like)
 
    ```sh
    nodenv install
@@ -28,7 +28,13 @@
    npm install
    ```
 
-3. Start the development server
+3. Set environment variable
+
+  ```sh
+  cp .env.sample .env
+  ```
+
+4. Start the development server
 
    ```sh
    npm start dev
