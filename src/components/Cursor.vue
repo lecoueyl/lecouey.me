@@ -118,7 +118,6 @@ $cursor-size: 30px;
   left: -$cursor-size/2;
   width: $cursor-size;
   height: $cursor-size;
-  mix-blend-mode: multiply;
   user-select: none;
   pointer-events: none;
 }
@@ -128,7 +127,7 @@ $cursor-size: 30px;
   height: 100%;
   border-color: $color-accent-primary;
   border-style: solid;
-  border-width: 1.5px;
+  border-width: 2px;
   border-radius: 100%;
 }
 </style>

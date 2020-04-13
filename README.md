@@ -67,7 +67,10 @@
 | Wash Dark  | ![#c2c2c2](https://via.placeholder.com/10/c2c2c2?text=+) `#c2c2c2` |
 | Wash Light | ![#8f8f8f](https://via.placeholder.com/10/8f8f8f?text=+) `#8f8f8f` |
 
-## 🚨 Forking this repo
+## ♻️ Forking this repo
 
 Feel free to fork this repo. If you do, please let me know so I can see what beautiful things you did with it.
 If you use it as your perosnal website, don't forget to credit me by linking back to my website, https://lecouey.me.
+
+---
+<sup>README inspired from @bchiang7 https://github.com/bchiang7/v4</sup>

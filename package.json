@@ -2,7 +2,17 @@
   "name": "lecouey.me",
   "version": "1.0.0",
   "description": "Leonard Lecouey personal website",
-  "author": "Leonard Lecouey <leonard.lecouey@gmail.com>",
+  "author": "Leonard Lecouey <leonard@lecouey.me>",
+  "keywords": [
+    "nuxtjs",
+    "iotacss",
+    "gsap"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lecoueyl/lecouey.me.git"
+  },
   "private": true,
   "config": {
     "nuxt": {
@@ -22,7 +32,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "2.2.3",
-    "@nuxtjs/sitemap": "2.1.0",
+    "@nuxtjs/sitemap": "2.2.0",
     "@nuxtjs/style-resources": "1.0.0",
     "gsap": "3.2.6",
     "iotacss": "1.6.0",
@@ -40,7 +50,7 @@
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-import-resolver-webpack": "0.12.1",
     "eslint-loader": "4.0.0",
-    "eslint-plugin-html": "6.0.0",
+    "eslint-plugin-html": "6.0.1",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
@@ -49,10 +59,14 @@
     "node-sass": "4.13.1",
     "nuxt-purgecss": "0.2.1",
     "sass-loader": "8.0.2",
-    "stylelint": "13.3.0",
+    "stylelint": "13.3.2",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.0.0",
-    "stylelint-scss": "3.16.0"
+    "stylelint-scss": "3.16.1"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
   }
 }
