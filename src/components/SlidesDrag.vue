@@ -2,6 +2,9 @@
   <section
     ref="slides"
     class="c-slides"
+    @mousedown="onMouseDown($event)"
+    @mouseup="onMouseUp()"
+    @mousemove="onMouseMove($event)"
   >
     <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
       What I can do
@@ -54,16 +57,10 @@ export default {
   },
 
   beforeMount() {
-    document.addEventListener('mousemove', this.onMouseMove);
-    document.addEventListener('mousedown', this.onMouseDown);
-    document.addEventListener('mouseup', this.onMouseUp);
     window.addEventListener('resize', this.onWindowResize);
   },
 
   beforeDestroy() {
-    document.removeEventListener('mousemove', this.onMouseMove);
-    document.removeEventListener('mousedown', this.onMouseDown);
-    document.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('resize', this.onWindowResize);
   },
 
@@ -120,22 +117,35 @@ export default {
 
     onWindowResize() {
       this.maxDescriptionHeight = 'auto';
-      this.$nextTick(() => this.setPanelDescriptionHeight());
+      this.$nextTick(() => {
+        this.setPanelDescriptionHeight();
+        this.setSlidesBoundaryWidth();
+      });
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/scss/settings/_core.scss';
+@import '~/assets/scss/tools/_breakpoint.scss';
+
 .c-slides {
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
   white-space: nowrap;
-  scroll-behavior: smooth;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  -webkit-overflow-scrolling: touch;
   cursor: grab;
   user-select: none;
+
+  @include iota-breakpoint(xs) {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @include iota-breakpoint(sm) {
+    overflow-x: hidden;
+  }
 }
 
 .c-slides::-webkit-scrollbar {
