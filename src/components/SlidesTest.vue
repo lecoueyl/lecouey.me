@@ -1,7 +1,7 @@
 <template>
   <section
     ref="slides"
-    class="c-slides u-pr-x4@sm u-pr-x6@md"
+    class="c-slides"
   >
     <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
       What I can do
@@ -10,8 +10,8 @@
     <article
       v-for="(skill, key, index) in $t('about.skills')"
       :key="key"
-      class="c-slides__panel u-10/12@xs u-4/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md u-mt-x4@sm u-mt-x6@md"
-      :class="{ 'u-pr-x2@xs': index + 1 === Object.keys($t('about.skills')).length }"
+      class="c-slides__panel u-10/12@xs u-5/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
+      :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
     >
       <div
         class="u-relative u-height-100p"
@@ -54,32 +54,32 @@ export default {
   },
 
   beforeMount() {
-    // document.addEventListener('mousemove', this.onMouseMove);
-    // document.addEventListener('mousedown', this.onMouseDown);
-    // document.addEventListener('mouseup', this.onMouseUp);
+    document.addEventListener('mousemove', this.onMouseMove);
+    document.addEventListener('mousedown', this.onMouseDown);
+    document.addEventListener('mouseup', this.onMouseUp);
     window.addEventListener('resize', this.onWindowResize);
   },
 
   beforeDestroy() {
-    // document.removeEventListener('mousemove', this.onMouseMove);
-    // document.removeEventListener('mousedown', this.onMouseDown);
-    // document.removeEventListener('mouseup', this.onMouseUp);
+    document.removeEventListener('mousemove', this.onMouseMove);
+    document.removeEventListener('mousedown', this.onMouseDown);
+    document.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('resize', this.onWindowResize);
   },
 
   mounted() {
-    // this.setSlidesBoundaryWidth();
+    this.setSlidesBoundaryWidth();
     this.setPanelDescriptionHeight();
   },
 
   methods: {
-    // setSlidesBoundaryWidth() {
-    //   const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
-    //   Array.from(slides).forEach((slide) => {
-    //     this.sliderBoundaryWidth += slide.clientWidth;
-    //   });
-    //   this.sliderBoundaryWidth -= window.innerWidth;
-    // },
+    setSlidesBoundaryWidth() {
+      const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
+      Array.from(slides).forEach((slide) => {
+        this.sliderBoundaryWidth += slide.clientWidth;
+      });
+      this.sliderBoundaryWidth -= window.innerWidth;
+    },
 
     setPanelDescriptionHeight() {
       const slides = this.$refs.slides.getElementsByClassName('c-slides__description');
@@ -111,13 +111,13 @@ export default {
       }
     },
 
-    // onMouseDown(event) {
-    //   this.mouseDownPositionX = event.clientX;
-    // },
-    //
-    // onMouseUp() {
-    //   this.mouseDownPositionX = null;
-    // },
+    onMouseDown(event) {
+      this.mouseDownPositionX = event.clientX;
+    },
+
+    onMouseUp() {
+      this.mouseDownPositionX = null;
+    },
 
     onWindowResize() {
       this.maxDescriptionHeight = 'auto';
@@ -128,19 +128,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/settings/_core.scss';
-@import '~/assets/scss/tools/_breakpoint.scss';
-
 .c-slides {
-  @include iota-breakpoint(xs) {
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-    user-select: none;
-  }
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
 }
 
 .c-slides::-webkit-scrollbar {

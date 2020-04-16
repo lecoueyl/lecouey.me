@@ -5,11 +5,11 @@
   lecouey.me
 </h1>
 <p align="center">
-  Personal website built with <a href="https://nuxtjs.org" target="_blank">NuxtJS</a>, <a href="https://www.iotacss.com" target="_blank">iotaCSS</a>, <a href="https://greensock.com" target="_blank">GSAP</a> and hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a>
+  Personal website built with <a href="https://nuxtjs.org"target="_blank" rel="noopener noreferrer">NuxtJS</a>, <a href="https://www.iotacss.com"target="_blank" rel="noopener noreferrer">iotaCSS</a>, <a href="https://greensock.com"target="_blank" rel="noopener noreferrer">GSAP</a> and hosted on <a href="https://www.netlify.com"target="_blank" rel="noopener noreferrer">Netlify</a>
 </p>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/lecouey/deploys" target="_blank">
+  <a href="https://app.netlify.com/sites/lecouey/deploys"target="_blank" rel="noopener noreferrer">
     <img src="https://api.netlify.com/api/v1/badges/8d9c041f-c71a-4ff1-b2a8-7d328ef72297/deploy-status" alt="Netlify Status" />
   </a>
 </p>
@@ -73,4 +73,4 @@ Feel free to fork this repo. If you do, please let me know so I can see what bea
 If you use it as your perosnal website, don't forget to credit me by linking back to my website, https://lecouey.me.
 
 ---
-<sup>README inspired from @bchiang7 https://github.com/bchiang7/v4</sup>
+<sup>README inspired from [@bchiang7](https://github.com/bchiang7/v4)</sup>
