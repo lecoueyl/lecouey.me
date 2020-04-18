@@ -1,85 +1,89 @@
 <template>
-  <section
-    ref="slides"
-    class="c-slides u-pr-x4@sm u-pr-x6@md"
-  >
-    <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
-      What I can do
-    </article> -->
+  <section>
+    <div class="o-container">
+      <h2 class="o-type-m u-weight-normal u-color-secondary">
+        Skills
+      </h2>
+    </div>
 
-    <article
-      v-for="(skill, key, index) in $t('about.skills')"
-      :key="key"
-      class="c-slides__panel u-10/12@xs u-4/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md u-mt-x4@sm u-mt-x6@md"
-      :class="{ 'u-pr-x2@xs': index + 1 === Object.keys($t('about.skills')).length }"
+    <div
+      ref="slides"
+      class="c-slides"
+      @mousedown="onMouseDown($event)"
+      @mouseup="onMouseUp()"
+      @mousemove="onMouseMove($event)"
     >
-      <div
-        class="u-relative u-height-100p"
-        :class="[['frontend', 'backend', 'devops'].includes(key) ? 'u-bgcolor-tertiary' : 'u-bgcolor-quaternary']"
+      <article
+        v-for="(skill, key, index) in $t('about.skills')"
+        :key="key"
+        class="c-slides__panel u-10/12@xs u-5/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
+        :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
       >
-        <div class="u-absolute u-bottom u-p-x4 u-12/12">
-          <h2 class="o-type-m u-weight-normal u-color-background">
-            {{ skill.title }}
-          </h2>
+        <div
+          class="u-relative u-height-100p"
+          :class="[['frontend', 'backend', 'devops'].includes(key) ? 'u-bgcolor-tertiary' : 'u-bgcolor-quaternary']"
+        >
+          <div class="u-absolute u-bottom u-p-x4 u-12/12">
+            <h2 class="o-type-m u-weight-normal u-color-background">
+              {{ skill.title }}
+            </h2>
 
-          <div
-            class="u-mv-x2 u-bgcolor-background"
-            style="height: 0.1rem;"
-          />
+            <div
+              class="u-mv-x2 u-bgcolor-background"
+              style="height: 0.1rem;"
+            />
 
-          <p
-            class="c-slides__description o-type-s u-color-background"
-            :style="{ height: maxDescriptionHeight }"
-          >
-            {{ skill.description }}
-          </p>
+            <p
+              class="c-slides__description o-type-s u-color-background"
+              :style="{ height: maxDescriptionHeight }"
+            >
+              {{ skill.description }}
+            </p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 </template>
 
 <script>
-import gsap from 'gsap';
+import gsap from 'gsap/dist/gsap';
+import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
 
-let slidePosition = 0;
+gsap.registerPlugin(ScrollToPlugin);
 
 export default {
   data() {
     return {
       mouseDownPositionX: null,
-      sliderBoundaryWidth: 0,
+      slidesBoundaryWidth: 0,
       maxDescriptionHeight: 'auto',
+      scrollLeft: 0,
     };
   },
 
   beforeMount() {
-    // document.addEventListener('mousemove', this.onMouseMove);
-    // document.addEventListener('mousedown', this.onMouseDown);
-    // document.addEventListener('mouseup', this.onMouseUp);
     window.addEventListener('resize', this.onWindowResize);
   },
 
   beforeDestroy() {
-    // document.removeEventListener('mousemove', this.onMouseMove);
-    // document.removeEventListener('mousedown', this.onMouseDown);
-    // document.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('resize', this.onWindowResize);
   },
 
   mounted() {
-    // this.setSlidesBoundaryWidth();
+    this.setSlidesBoundaryWidth();
     this.setPanelDescriptionHeight();
   },
 
   methods: {
-    // setSlidesBoundaryWidth() {
-    //   const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
-    //   Array.from(slides).forEach((slide) => {
-    //     this.sliderBoundaryWidth += slide.clientWidth;
-    //   });
-    //   this.sliderBoundaryWidth -= window.innerWidth;
-    // },
+    setSlidesBoundaryWidth() {
+      const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
+      this.slidesBoundaryWidth = 0;
+      Array.from(slides).forEach((slide) => {
+        this.slidesBoundaryWidth += slide.clientWidth;
+      });
+      this.slidesBoundaryWidth -= window.innerWidth;
+    },
 
     setPanelDescriptionHeight() {
       const slides = this.$refs.slides.getElementsByClassName('c-slides__description');
@@ -88,40 +92,42 @@ export default {
     },
 
     onMouseMove(event) {
-      // move cursor
       if (this.mouseDownPositionX) {
-        const dragDistance = event.clientX - this.mouseDownPositionX;
-        slidePosition += dragDistance * 0.1;
+        const dragDistance = this.mouseDownPositionX - event.clientX;
+        this.scrollLeft += dragDistance;
 
-        // block swipe right
-        if (slidePosition > 0) {
-          slidePosition = 0;
+        // // block swipe right
+        if (this.scrollLeft <= 0) {
+          this.scrollLeft = 0;
         }
 
-        // block swipe left
-        if (slidePosition < this.sliderBoundaryWidth * -1) {
-          slidePosition = this.sliderBoundaryWidth * -1;
+        // // block swipe left
+        if (this.scrollLeft > this.slidesBoundaryWidth) {
+          this.scrollLeft = this.slidesBoundaryWidth;
         }
 
-        gsap.to('.c-slides__panel', {
+        gsap.to(this.$refs.slides, {
           duration: 0.1,
-          x: slidePosition,
-          ease: 'expo.out',
+          scrollTo: { x: this.scrollLeft },
         });
       }
     },
 
-    // onMouseDown(event) {
-    //   this.mouseDownPositionX = event.clientX;
-    // },
-    //
-    // onMouseUp() {
-    //   this.mouseDownPositionX = null;
-    // },
+    onMouseDown(event) {
+      this.scrollLeft = this.$refs.slides.scrollLeft;
+      this.mouseDownPositionX = event.clientX;
+    },
+
+    onMouseUp() {
+      this.mouseDownPositionX = null;
+    },
 
     onWindowResize() {
       this.maxDescriptionHeight = 'auto';
-      this.$nextTick(() => this.setPanelDescriptionHeight());
+      this.$nextTick(() => {
+        this.setPanelDescriptionHeight();
+        this.setSlidesBoundaryWidth();
+      });
     },
   },
 };
@@ -132,15 +138,14 @@ export default {
 @import '~/assets/scss/tools/_breakpoint.scss';
 
 .c-slides {
-  @include iota-breakpoint(xs) {
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-    user-select: none;
-  }
+  overflow-x: scroll;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
 }
 
 .c-slides::-webkit-scrollbar {

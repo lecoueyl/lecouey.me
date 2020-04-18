@@ -90,7 +90,7 @@
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
 import AboutArticle from '~/components/AboutArticle';
-import Slides from '~/components/SlidesDrag';
+import Slides from '~/components/Slides';
 import transitionPage from '~/mixins/transitionPage';
 import SvgDevices from '~/assets/svg/devices.svg?inline';
 

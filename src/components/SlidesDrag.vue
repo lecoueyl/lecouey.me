@@ -6,10 +6,6 @@
     @mouseup="onMouseUp()"
     @mousemove="onMouseMove($event)"
   >
-    <!-- <article class="o-type-m c-slides__panel u-6/12@xs u-3/12@sm u-inline-block u-mr-x2 u-pl-x2@xs u-pl-x4@sm u-pl-x6@md">
-      What I can do
-    </article> -->
-
     <article
       v-for="(skill, key, index) in $t('about.skills')"
       :key="key"
@@ -43,7 +39,10 @@
 </template>
 
 <script>
-import gsap from 'gsap';
+import gsap from 'gsap/dist/gsap';
+import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 let slidePosition = 0;
 
@@ -51,7 +50,7 @@ export default {
   data() {
     return {
       mouseDownPositionX: null,
-      sliderBoundaryWidth: 0,
+      slidesBoundaryWidth: 0,
       maxDescriptionHeight: 'auto',
     };
   },
@@ -73,9 +72,9 @@ export default {
     setSlidesBoundaryWidth() {
       const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
       Array.from(slides).forEach((slide) => {
-        this.sliderBoundaryWidth += slide.clientWidth;
+        this.slidesBoundaryWidth += slide.clientWidth;
       });
-      this.sliderBoundaryWidth -= window.innerWidth;
+      this.slidesBoundaryWidth -= window.innerWidth;
     },
 
     setPanelDescriptionHeight() {
@@ -95,14 +94,13 @@ export default {
         }
 
         // block swipe left
-        if (slidePosition < this.sliderBoundaryWidth * -1) {
-          slidePosition = this.sliderBoundaryWidth * -1;
+        if (slidePosition < this.slidesBoundaryWidth * -1) {
+          slidePosition = this.slidesBoundaryWidth * -1;
         }
 
-        gsap.to('.c-slides__panel', {
+        gsap.to(this.$refs.slides, {
           duration: 0.1,
-          x: slidePosition,
-          ease: 'expo.out',
+          scrollTo: { x: slidePosition * -1 },
         });
       }
     },
@@ -131,21 +129,14 @@ export default {
 @import '~/assets/scss/tools/_breakpoint.scss';
 
 .c-slides {
+  overflow-x: scroll;
   white-space: nowrap;
   cursor: grab;
   user-select: none;
-
-  @include iota-breakpoint(xs) {
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  @include iota-breakpoint(sm) {
-    overflow-x: hidden;
-  }
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
 }
 
 .c-slides::-webkit-scrollbar {
