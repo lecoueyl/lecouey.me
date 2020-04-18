@@ -4,6 +4,18 @@
       <h2 class="o-type-m u-weight-normal u-color-secondary">
         Skills
       </h2>
+      <button
+        :disabled="!canSlideLeft"
+        @click="slideLeft()"
+      >
+        ←
+      </button>
+      <button
+        :disabled="!canSlideRight"
+        @click="slideRight()"
+      >
+        →
+      </button>
     </div>
 
     <div
@@ -12,6 +24,7 @@
       @mousedown="onMouseDown($event)"
       @mouseup="onMouseUp()"
       @mousemove="onMouseMove($event)"
+      @scroll="scrollLeft = $refs.slides.scrollLeft"
     >
       <article
         v-for="(skill, key, index) in $t('about.skills')"
@@ -35,7 +48,7 @@
 
             <p
               class="c-slides__description o-type-s u-color-background"
-              :style="{ height: maxDescriptionHeight }"
+              :style="{ height: maxSlideDescriptionHeight }"
             >
               {{ skill.description }}
             </p>
@@ -57,9 +70,20 @@ export default {
     return {
       mouseDownPositionX: null,
       slidesBoundaryWidth: 0,
-      maxDescriptionHeight: 'auto',
+      slideWidth: 0,
+      maxSlideDescriptionHeight: 'auto',
       scrollLeft: 0,
     };
+  },
+
+  computed: {
+    canSlideLeft() {
+      return this.scrollLeft > 0;
+    },
+
+    canSlideRight() {
+      return this.scrollLeft < this.slidesBoundaryWidth;
+    },
   },
 
   beforeMount() {
@@ -71,15 +95,16 @@ export default {
   },
 
   mounted() {
-    this.setSlidesBoundaryWidth();
+    this.setSlidesBoundaries();
     this.setPanelDescriptionHeight();
   },
 
   methods: {
-    setSlidesBoundaryWidth() {
-      const slides = this.$refs.slides.getElementsByClassName('c-slides__panel');
+    setSlidesBoundaries() {
+      const slides = Array.from(this.$refs.slides.getElementsByClassName('c-slides__panel'));
       this.slidesBoundaryWidth = 0;
-      Array.from(slides).forEach((slide) => {
+      this.slideWidth = slides[0].clientWidth;
+      slides.forEach((slide) => {
         this.slidesBoundaryWidth += slide.clientWidth;
       });
       this.slidesBoundaryWidth -= window.innerWidth;
@@ -88,7 +113,21 @@ export default {
     setPanelDescriptionHeight() {
       const slides = this.$refs.slides.getElementsByClassName('c-slides__description');
       const descriptionHeights = Array.from(slides).map((slide) => slide.clientHeight);
-      this.maxDescriptionHeight = `${Math.max(...descriptionHeights)}px`;
+      this.maxSlideDescriptionHeight = `${Math.max(...descriptionHeights)}px`;
+    },
+
+    slideLeft() {
+      if (this.canSlideLeft) {
+        this.scrollLeft -= this.slideWidth;
+        this.scrollSlide();
+      }
+    },
+
+    slideRight() {
+      if (this.canSlideRight) {
+        this.scrollLeft += this.slideWidth;
+        this.scrollSlide();
+      }
     },
 
     onMouseMove(event) {
@@ -96,21 +135,18 @@ export default {
         const dragDistance = this.mouseDownPositionX - event.clientX;
         this.scrollLeft += dragDistance;
 
-        // // block swipe right
-        if (this.scrollLeft <= 0) {
-          this.scrollLeft = 0;
-        }
+        if (!this.canSlideLeft) this.scrollLeft = 0;
+        if (!this.canSlideRight) this.scrollLeft = this.slidesBoundaryWidth;
 
-        // // block swipe left
-        if (this.scrollLeft > this.slidesBoundaryWidth) {
-          this.scrollLeft = this.slidesBoundaryWidth;
-        }
-
-        gsap.to(this.$refs.slides, {
-          duration: 0.1,
-          scrollTo: { x: this.scrollLeft },
-        });
+        this.scrollSlide();
       }
+    },
+
+    scrollSlide() {
+      gsap.to(this.$refs.slides, {
+        duration: 0.1,
+        scrollTo: { x: this.scrollLeft },
+      });
     },
 
     onMouseDown(event) {
@@ -123,10 +159,10 @@ export default {
     },
 
     onWindowResize() {
-      this.maxDescriptionHeight = 'auto';
+      this.maxSlideDescriptionHeight = 'auto';
       this.$nextTick(() => {
         this.setPanelDescriptionHeight();
-        this.setSlidesBoundaryWidth();
+        this.setSlidesBoundaries();
       });
     },
   },
