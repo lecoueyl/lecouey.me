@@ -1,21 +1,33 @@
 <template>
   <section>
     <div class="o-container">
-      <h2 class="o-type-m u-weight-normal u-color-secondary">
-        Skills
-      </h2>
-      <button
-        :disabled="!canSlideLeft"
-        @click="slideLeft()"
-      >
-        ←
-      </button>
-      <button
-        :disabled="!canSlideRight"
-        @click="slideRight()"
-      >
-        →
-      </button>
+      <div class="o-media">
+        <div class="o-media__fluid">
+          <h2 class="o-type-m u-weight-normal u-color-secondary">
+            Skills
+          </h2>
+        </div>
+
+        <div class="o-media__fixed">
+          <button
+            class="c-button c-button-outline c-button--primary u-ph-x2"
+            :class="{ 'c-button--disabled': !canSlideLeft }"
+            :disabled="!canSlideLeft"
+            @click="slideLeft()"
+          >
+            <SvgArrowLeft class="u-block" />
+          </button>
+
+          <button
+            class="c-button c-button-outline c-button--primary u-ml u-ph-x2"
+            :class="{ 'c-button--disabled': !canSlideRight }"
+            :disabled="!canSlideRight"
+            @click="slideRight()"
+          >
+            <SvgArrowRight class="u-block" />
+          </button>
+        </div>
+      </div>
     </div>
 
     <div
@@ -62,10 +74,17 @@
 <script>
 import gsap from 'gsap/dist/gsap';
 import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
+import SvgArrowLeft from '~/assets/svg/arrow-left.svg?inline';
+import SvgArrowRight from '~/assets/svg/arrow-right.svg?inline';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default {
+  components: {
+    SvgArrowLeft,
+    SvgArrowRight,
+  },
+
   data() {
     return {
       mouseDownPositionX: null,

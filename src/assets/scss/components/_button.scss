@@ -7,6 +7,11 @@ $iota-components-button: true;
 $iota-components-button-namespace: 'button';
 
 $iota-components-buttons-colors: (
+  primary: (
+    color: $color-accent-primary,
+    hover: $color-accent-secondary,
+    text: $color-accent-primary,
+  ),
   secondary: (
     color: $color-accent-secondary,
     hover: $color-accent-primary,
