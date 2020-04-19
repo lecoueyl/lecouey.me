@@ -125,13 +125,6 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    ['@nuxtjs/google-analytics', {
-      id: env.GOOGLE_ANALYTICS_ID,
-      debug: {
-        enabled: env.GOOGLE_ANALYTICS_DEBUG === 'true',
-        sendHitTask: env.GOOGLE_ANALYTICS_DEBUG !== 'true',
-      },
-    }],
     '@nuxtjs/stylelint-module',
     'nuxt-purgecss',
   ],

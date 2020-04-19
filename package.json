@@ -31,7 +31,6 @@
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.2.3",
     "@nuxtjs/sitemap": "2.2.0",
     "@nuxtjs/style-resources": "1.0.0",
     "gsap": "3.2.6",
@@ -43,7 +42,6 @@
   },
   "devDependencies": {
     "@nuxtjs/stylelint-module": "3.2.2",
-    "ajv": "6.12.0",
     "babel-eslint": "10.1.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
