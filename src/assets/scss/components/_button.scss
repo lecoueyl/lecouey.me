@@ -17,6 +17,11 @@ $iota-components-buttons-colors: (
     hover: $color-accent-primary,
     text: $color-accent-secondary,
   ),
+  disabled: (
+    color: $color-wash-light,
+    hover: $color-wash-light,
+    text: $color-wash-light,
+  ),
 );
 
 $iota-components-button-border-width: 2px;
@@ -41,18 +46,17 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
   text-decoration: none;
   vertical-align: middle;
   outline: none;
+  cursor: pointer;
   transition-duration: 0.2s;
   transition-property:
     transform,
     background-color,
     border-color,
-    box-shadow,
     color;
   user-select: none;
   will-change:
     transform,
     background-color,
-    box-shadow,
     color,
     border-color;
 }
@@ -89,4 +93,9 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
     color: map-get($color, 'hover');
     border-color: map-get($color, 'hover');
   }
+}
+
+// Disabled modifier
+.#{$iota-components-button}--disabled {
+  cursor: not-allowed;
 }

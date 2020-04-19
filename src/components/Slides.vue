@@ -3,12 +3,12 @@
     <div class="o-container">
       <div class="o-media">
         <div class="o-media__fluid">
-          <h2 class="o-type-m u-weight-normal u-color-secondary">
+          <h2 class="o-type-l u-weight-normal u-color-secondary">
             Skills
           </h2>
         </div>
 
-        <div class="o-media__fixed">
+        <div class="o-media__fixed u-hidden@xs">
           <button
             class="c-button c-button-outline c-button--primary u-ph-x2"
             :class="{ 'c-button--disabled': !canSlideLeft }"

@@ -1,6 +1,6 @@
 <template>
   <div class="u-pt-x10">
-    <section class="o-type-l o-container p-about__hero u-color-primary u-mv-x10 u-text-center u-whitespace-pre">
+    <section class="o-type-l o-container p-about__hero u-color-primary u-mv-x4@xs u-mv-x10@sm u-text-center u-whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
@@ -14,11 +14,11 @@
       </p>
     </section>
 
-    <section class="o-container u-color-wash-light u-mv-x10">
+    <section class="o-container u-color-wash-light u-mv-x4@xs u-mv-x10@sm">
       <SvgDevices />
     </section>
 
-    <section class="o-container u-relative u-mv-x10">
+    <section class="o-container u-relative u-mv-x4@xs u-mv-x10@sm">
       <AboutArticle>
         <template v-slot:title>
           {{ $t('about.title') }}
@@ -49,9 +49,9 @@
       </AboutArticle>
     </section>
 
-    <Slides class="u-mv-x10" />
+    <Slides class="u-mv-x4@xs u-mv-x10@sm" />
 
-    <section class="o-container u-relative u-mv-x10">
+    <section class="o-container u-relative u-mv-x4@xs u-mv-x10@sm">
       <AboutArticle>
         <template v-slot:title>
           CV
@@ -64,14 +64,14 @@
             class="o-list__item"
           >
             <div class="o-grid">
-              <div class="o-grid__col o-type-m u-5/12">
+              <div class="o-grid__col o-type-m u-5/12@sm">
                 {{ $d(new Date(period.from), 'year') }}
                 <template v-if="period.to">
                   ー {{ $d(new Date(period.to), 'year') }}
                 </template>
               </div>
 
-              <div class="o-grid__col u-7/12">
+              <div class="o-grid__col u-7/12@sm u-pl-x4@xs">
                 <span class="o-type-m">{{ period.workplace }}</span>
                 <sup class="o-type-xs">{{ period.location }}</sup>
                 <p class="o-type-s">
