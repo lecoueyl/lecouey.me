@@ -51,6 +51,48 @@ module.exports = {
       current: 'すべての問題に対してよりシンプルなソリューションを提供するよう常に努力しています。',
       linkedin: '{linkedin}について私についてもっと知りたい',
     },
+
+    skills: {
+      frontend: {
+        title: 'Front-end',
+        description: 'Fluent in html, css and JavaScript',
+      },
+      backend: {
+        title: 'Back-end',
+        description: 'NodeJs, Ruby',
+      },
+      devops: {
+        title: 'DevOps',
+        description: 'Sysadmin, AWS, CI/CD, Web Servers, Containers and Shell scripting',
+      },
+      interactionDesign: {
+        title: 'Interaction Design',
+        description: 'Prototype, Animation, Micro-Interaction, Accessibility',
+      },
+      uiDesign: {
+        title: 'UI Design',
+        description: 'High-Fidelity comp, Moodboarding, Design system',
+      },
+      uxDesign: {
+        title: 'UX Design',
+        description: 'User research, Wireframing, Mockup',
+      },
+    },
+
+    cv: {
+      workplace: {
+        emin: 'Emotion Intelligence株式会社',
+        syllage: 'Syllage',
+        frenchEmbassy: 'フランス大使館',
+        telindus: 'Telindus',
+        af83: 'AF83',
+      },
+      job: {
+        techleader: 'テックリーダー',
+        fullstack: 'フルスタックエンジニア',
+        sysadmin: 'システムアドミニストレータ',
+      },
+    },
   },
 
   // chat

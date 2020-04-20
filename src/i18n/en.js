@@ -50,6 +50,7 @@ module.exports = {
       current: 'Always thriving to deliver the simpler solutions to evry problems.',
       linkedin: 'More about me on {linkedin}',
     },
+
     skills: {
       frontend: {
         title: 'Front-end',
@@ -76,8 +77,21 @@ module.exports = {
         description: 'User research, Wireframing, Mockup',
       },
     },
-    system: 'System',
-    design: 'Design',
+
+    cv: {
+      workplace: {
+        emin: 'Emotion Intelligence',
+        syllage: 'Syllage',
+        frenchEmbassy: 'French Embassy in Japan',
+        telindus: 'Telindus',
+        af83: 'AF83',
+      },
+      job: {
+        techleader: 'Tech leader',
+        fullstack: 'Full stack engineer',
+        sysadmin: 'System administrator',
+      },
+    },
   },
 
   // footer
