@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="o-container">
-      <div class="o-media">
+      <div class="o-media o-media--middle">
         <div class="o-media__fluid">
           <h2 class="o-type-l u-weight-normal u-color-secondary">
             Skills
@@ -10,7 +10,7 @@
 
         <div class="o-media__fixed u-hidden@xs">
           <button
-            class="c-button c-button-outline c-button--primary u-ph-x2"
+            class="c-button c-button-outline c-button--secondary u-ph-x2"
             :class="{ 'c-button--disabled': !canSlideLeft }"
             :disabled="!canSlideLeft"
             @click="slideLeft()"
@@ -19,7 +19,7 @@
           </button>
 
           <button
-            class="c-button c-button-outline c-button--primary u-ml u-ph-x2"
+            class="c-button c-button-outline c-button--secondary u-ml u-ph-x2"
             :class="{ 'c-button--disabled': !canSlideRight }"
             :disabled="!canSlideRight"
             @click="slideRight()"
@@ -163,8 +163,9 @@ export default {
 
     scrollSlide() {
       gsap.to(this.$refs.slides, {
-        duration: 0.1,
+        duration: 0.3,
         scrollTo: { x: this.scrollLeft },
+        ease: 'expo.out',
       });
     },
 

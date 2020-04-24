@@ -31,12 +31,12 @@
     "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
   },
   "dependencies": {
-    "@nuxtjs/sitemap": "2.2.0",
+    "@nuxtjs/sitemap": "2.2.1",
     "@nuxtjs/style-resources": "1.0.0",
     "gsap": "3.2.6",
     "iotacss": "1.6.0",
     "nuxt": "2.12.2",
-    "nuxt-i18n": "6.9.1",
+    "nuxt-i18n": "6.10.1",
     "nuxt-svg": "0.1.6",
     "vue-check-view": "0.3.0"
   },
@@ -54,14 +54,14 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
     "eslint-plugin-vue": "6.2.2",
-    "node-sass": "4.13.1",
+    "node-sass": "4.14.0",
     "nuxt-purgecss": "0.2.1",
     "sass-loader": "8.0.2",
-    "stylelint": "13.3.2",
+    "stylelint": "13.3.3",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.0.0",
-    "stylelint-scss": "3.17.0"
+    "stylelint-scss": "3.17.1"
   },
   "engines": {
     "node": ">=10.0.0",
