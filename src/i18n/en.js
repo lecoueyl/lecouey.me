@@ -62,7 +62,7 @@ module.exports = {
       },
       devops: {
         title: 'DevOps',
-        description: 'Sysadmin, AWS, CI/CD, Web Servers, Containers and Shell scripting',
+        description: 'Sysadmin, AWS, CI/CD, Web Servers, containers and shell scripting',
       },
       interactionDesign: {
         title: 'Interaction Design',
@@ -70,11 +70,11 @@ module.exports = {
       },
       uiDesign: {
         title: 'UI Design',
-        description: 'High-Fidelity comp, Moodboarding, Design system',
+        description: 'Moodboarding, High-Fidelity composition, Design system',
       },
       uxDesign: {
         title: 'UX Design',
-        description: 'User research, Wireframing, Mockup',
+        description: 'User research, Wireframing, Mockup, user testing',
       },
     },
 

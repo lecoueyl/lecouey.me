@@ -3,10 +3,9 @@
     <p class="u-p-x10 u-text-center">
       <span
         v-if="error.statusCode === 404"
+        v-t="'error.notFound'"
         class="o-type-l"
-      >
-        {{ $t('error.notFound') }}
-      </span>
+      />
 
       <span
         v-else
