@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="o-container u-relative">
+    <div class="o-container u-relative">
       <div class="o-grid">
         <div class="o-grid__col u-7/12@sm">
           <Chat
@@ -9,7 +9,7 @@
           />
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

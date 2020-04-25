@@ -1,6 +1,6 @@
 <template>
   <div class="c-intro u-fixed u-top u-right u-bottom u-left u-zindex-loader u-bgcolor-background u-12/12">
-    <section class="u-table u-relative u-height-100p u-height-100p u-12/12">
+    <div class="u-table u-relative u-height-100p u-height-100p u-12/12">
       <ul class="c-intro__list u-table-cell o-list o-list--block u-text-center">
         <li
           v-for="i in 4"
@@ -10,7 +10,7 @@
           <span class="c-intro__item u-block">{{ $t('head.title') }}</span>
         </li>
       </ul>
-    </section>
+    </div>
   </div>
 </template>
 
