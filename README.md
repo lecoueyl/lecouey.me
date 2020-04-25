@@ -67,6 +67,14 @@
 | Wash Dark  | ![#c2c2c2](https://via.placeholder.com/10/c2c2c2?text=+) `#c2c2c2` |
 | Wash Light | ![#8f8f8f](https://via.placeholder.com/10/8f8f8f?text=+) `#8f8f8f` |
 
+## 📏 Code lint
+
+| Code     | Lint                        |
+| -------- | --------------------------- |
+| js       | airbnb/base                 |
+| vue      | vue/recommended             |
+| scss     | stylelint/standard          |
+
 ## ♻️ Forking this repo
 
 Feel free to fork this repo. If you do, please let me know so I can see what beautiful things you did with it.
