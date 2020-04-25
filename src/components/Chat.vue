@@ -14,7 +14,7 @@
         >
           <div class="c-chat__message u-inline-block">
             <img
-              v-if="message.action === 'gif'"
+              v-if="message.action === 'cat-gif'"
               src="~assets/images/cat-hello.gif"
               alt="cat"
             >
@@ -137,7 +137,7 @@ export default {
         },
         {
           id: 7,
-          action: 'gif',
+          action: 'cat-gif',
           next: [9],
         },
         {

@@ -157,11 +157,11 @@ export default {
 
     switchLocale(localeCode) {
       const timeoutLoading = 1000;
-      this.$store.commit('isLoading', true);
+      this.$store.commit('setLoading', true);
       setTimeout(() => {
         this.$router.push(this.switchLocalePath(localeCode));
         setTimeout(() => {
-          this.$store.commit('isLoading', false);
+          this.$store.commit('setLoading', false);
         }, timeoutLoading);
       }, timeoutLoading);
     },

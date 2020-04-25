@@ -14,10 +14,10 @@ export const mutations = {
   setIntroFinished: (state) => {
     state.introFinished = true;
   },
-  updatePageTransitioning: (state, status) => {
+  setPageTransitioning: (state, status) => {
     state.pageTransitioning = status;
   },
-  isLoading: (state, status) => {
+  setLoading: (state, status) => {
     state.loading = status;
   },
 };

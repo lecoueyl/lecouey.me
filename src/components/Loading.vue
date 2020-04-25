@@ -22,11 +22,11 @@ export default {
 
   methods: {
     start() {
-      this.$store.commit('isLoading', true);
+      this.$store.commit('setLoading', true);
     },
     finish() {
       setTimeout(() => {
-        this.$store.commit('isLoading', false);
+        this.$store.commit('setLoading', false);
       }, 1000);
     },
   },

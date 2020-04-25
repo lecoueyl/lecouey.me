@@ -25,6 +25,10 @@ export default {
     },
   },
 
+  mounted() {
+    this.$store.commit('setPageTransitioning', false);
+  },
+
   head() {
     return {
       title: this.error.statusCode,
