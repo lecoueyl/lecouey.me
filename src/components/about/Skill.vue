@@ -3,9 +3,9 @@
     <div class="o-container">
       <div class="o-media o-media--middle">
         <div class="o-media__fluid">
-          <h2 class="o-type-l u-weight-normal u-color-secondary">
+          <H2 class="o-type-l u-weight-normal u-color-secondary">
             Skills
-          </h2>
+          </H2>
         </div>
 
         <div class="o-media__fixed u-hidden@xs">
@@ -49,9 +49,9 @@
           :class="[['frontend', 'backend', 'devops'].includes(key) ? 'u-bgcolor-tertiary' : 'u-bgcolor-quaternary']"
         >
           <div class="u-absolute u-bottom u-p-x4 u-12/12">
-            <h2 class="o-type-m u-weight-normal u-color-background">
+            <h3 class="o-type-m u-weight-normal u-color-background">
               {{ skill.title }}
-            </h2>
+            </h3>
 
             <div
               class="u-mv-x2 u-bgcolor-background"
@@ -74,6 +74,7 @@
 <script>
 import gsap from 'gsap/dist/gsap';
 import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
+import H2 from '~/components/H2';
 import SvgArrowLeft from '~/assets/svg/arrow-left.svg?inline';
 import SvgArrowRight from '~/assets/svg/arrow-right.svg?inline';
 
@@ -81,6 +82,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export default {
   components: {
+    H2,
     SvgArrowLeft,
     SvgArrowRight,
   },

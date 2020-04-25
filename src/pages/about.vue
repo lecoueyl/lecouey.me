@@ -18,7 +18,7 @@
       <SvgDevices />
     </section>
 
-    <section class="o-container u-relative u-mv-x4@xs u-mv-x10@sm">
+    <AboutSection class="o-container">
       <AboutArticle>
         <template v-slot:title>
           {{ $t('about.title') }}
@@ -47,11 +47,13 @@
           />
         </i18n>
       </AboutArticle>
-    </section>
+    </AboutSection>
 
-    <Slides class="u-mv-x4@xs u-mv-x10@sm" />
+    <AboutSection>
+      <AboutSkill />
+    </AboutSection>
 
-    <section class="o-container u-relative u-mv-x4@xs u-mv-x10@sm">
+    <AboutSection class="o-container">
       <AboutArticle>
         <template v-slot:title>
           CV
@@ -82,15 +84,16 @@
           </li>
         </ul>
       </AboutArticle>
-    </section>
+    </AboutSection>
   </div>
 </template>
 
 <script>
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
-import AboutArticle from '~/components/AboutArticle';
-import Slides from '~/components/Slides';
+import AboutArticle from '~/components/about/Article';
+import AboutSection from '~/components/about/Section';
+import AboutSkill from '~/components/about/Skill';
 import transitionPage from '~/mixins/transitionPage';
 import SvgDevices from '~/assets/svg/devices.svg?inline';
 
@@ -102,7 +105,8 @@ const animeHero = {
 export default {
   components: {
     AboutArticle,
-    Slides,
+    AboutSection,
+    AboutSkill,
     SvgDevices,
   },
 
