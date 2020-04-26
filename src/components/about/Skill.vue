@@ -42,7 +42,7 @@
         v-for="(skill, key, index) in $t('about.skills.items')"
         :key="key"
         class="c-slides__panel u-10/12@xs u-5/12@sm u-inline-block u-pl-x2@xs u-pl-x4@sm u-pl-x6@md"
-        :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills')).length }"
+        :class="{ 'u-pr-x2@xs u-pr-x4@sm u-pr-x6@md': index + 1 === Object.keys($t('about.skills.items')).length }"
       >
         <div
           class="u-relative u-height-100p"

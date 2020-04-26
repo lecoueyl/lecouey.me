@@ -31,13 +31,13 @@ module.exports = {
     title: 'About',
 
     hero: [
-      ['Fullstack', ' engineer'],
+      ['Full', ' stack', ' engineer'],
       ['and', ' designer'],
       ['Living', ' in', ' Japan'],
     ],
 
     me: {
-      intro: `I am a French Fullstack engineer and designer with over {year} years of experience.
+      intro: `I am a French Full stack engineer and designer with over {year} years of experience.
         Currently living in Tokyo.`,
       current: `Working at Emotion Intelligence since 2014,
         where I have the chance to create products and solutions from beginning to end.`,
