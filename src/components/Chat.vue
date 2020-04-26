@@ -42,7 +42,7 @@
       </TransitionCollapseY>
     </div>
 
-    <div class="u-overlay-hidden">
+    <div class="u-overlay-hidden u-pb-x6@xs">
       <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
         <div
           v-for="(answer, index) in replies"

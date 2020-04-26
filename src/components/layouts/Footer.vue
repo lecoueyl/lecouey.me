@@ -1,5 +1,5 @@
 <template>
-  <footer class="o-container u-pv-x2@xs u-pv-x4@sm u-pv-x6@md">
+  <footer class="o-container u-pb-x8@xs u-pv-x2@xs u-pv-x4@sm u-pv-x6@md">
     <p
       v-t="'footer.contact'"
       class="o-type-l u-color-foreground u-bgcolor-secondary u-p-x2 u-radius-s"
