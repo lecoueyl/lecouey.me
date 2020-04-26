@@ -7,7 +7,7 @@ module.exports = {
 
   links: {
     index: 'ホーム',
-    about: '私について',
+    about: 'プロフィール',
     social: {
       codepen: 'Codepen',
       dribbble: 'Dribbble',
@@ -27,23 +27,23 @@ module.exports = {
   // about
 
   about: {
-    title: '私について',
+    title: '自己紹介',
 
     hero: [
       ['フルスタッカ', 'エンジニア'],
       ['デザイナー'],
-      ['日本', 'に', '住んでる'],
+      ['日本', '在住'],
     ],
 
     me: {
-      intro: `私は12年以上の経験を持つフランスのシステム管理者およびFullstackデザイナーです。
+      intro: `12年以上の経験を持つフランス人のフルスタックエンジニア兼デザイナーです。
         現在、東京に住んでいます。`,
-      history: `Emotion Intelligenceで2014年から働いています。
-        ここで私は底から端まで製品を作り出す機会があります。`,
-      work: `以前は日本に引っ越し、さまざまな会社で働いていました。
-        システム管理からウェブデザインまで、さまざまな分野のスキルを向上させていました`,
-      current: 'すべての問題に対してよりシンプルなソリューションを提供するよう常に努力しています。',
-      linkedin: '{linkedin}について私についてもっと知りたい',
+      history: `Emotion Intelligence株式会社で2014年から勤務し、
+        ここで一からプロダクトを開発し、管理しています。`,
+      work: `渡日以前は、フランスのIT会社でパリを拠点に働いていました。
+        システム管理からウェブデザインまで、様々な分野のスキルを向上しています。`,
+      current: 'すべての問題に対して、よりシンプルな解決策を提供するよう常に努力しています。',
+      linkedin: '{linkedin}で私についてもっと知りたい',
     },
 
     skills: {
@@ -102,24 +102,24 @@ module.exports = {
         howAreYou: '元気？',
         fantastic: '素晴らしい',
         oh: 'そっか。。',
-        cheer: '多分、これはあなたを元気づけるでしょう',
-        leonard: 'そういえば、レオナールです',
-        thanks: 'どもありがとう〜',
+        cheer: '多分、これで元気になるかも',
+        leonard: '私の名前は、レオナールです',
+        thanks: 'どうもありがとう〜',
         bye: '来てくれてありがとう',
-        profession: 'システム管理者とフルスタッカデザイナー',
+        profession: 'フルスタックエンジニア兼デザイナー',
         workplace: '東京のEmotion Intelligence株式会社で',
-        challenging: 'それが挑戦的だと言います',
+        challenging: 'それは挑戦的だね',
       },
 
       visitor: {
         awesome: '元気だよ',
         notGood: 'まあまあ',
         thanks: 'ありがとう！',
-        living: '生活のために何をしていますか？',
+        living: '仕事は何をしていますか？',
         friends: 'もう友達だよ',
         seeYou: 'またね',
         where: 'どこで？',
-        boring: '退屈ですじゃない？',
+        boring: '退屈じゃない？',
       },
     },
 
@@ -131,14 +131,14 @@ module.exports = {
       iKnow: '知ってる',
       bye: 'バイバイ',
       where: 'どこ？',
-      andSo: 'それから',
+      andSo: 'それで？',
     },
   },
 
   // footer
 
   footer: {
-    contact: '見知らぬ人ではなく、素晴らしいメッセージを送っていい',
+    contact: '何か質問があれば、お気軽にお問い合わせください。',
     source: '{0}のソースを表示',
   },
 
@@ -146,7 +146,7 @@ module.exports = {
 
   error: {
     title: 'エラー',
-    notFound: 'ご指定のページが見つかりませんでした〜',
+    notFound: 'ご指定のページが見つかりません〜',
     occured: 'エラーが発生しました。',
   },
 };
