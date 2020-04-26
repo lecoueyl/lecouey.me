@@ -1,0 +1,14 @@
+$iota-utils-display-res: true;
+
+@import 'node_modules/iotacss/utilities/display';
+
+$iota-utils-display-table-name : 'table' !default;
+$iota-utils-display-table-cell-name : 'table-cell' !default;
+
+.#{$iota-utils-display-var-display + $iota-utils-display-table-name} {
+  display: table !important;
+}
+
+.#{$iota-utils-display-var-display + $iota-utils-display-table-cell-name} {
+  display: table-cell !important;
+}

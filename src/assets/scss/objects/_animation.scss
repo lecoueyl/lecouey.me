@@ -1,0 +1,29 @@
+// Hi
+
+.o-anim-hi {
+  display: inline-block;
+  animation-name: hi;
+  animation-duration: 5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hi {
+  from,
+  30%,
+  to {
+    transform: rotate(0);
+  }
+
+  5%,
+  15%,
+  25% {
+    transform: rotate(14deg);
+  }
+
+  10%,
+  20% {
+    transform: rotate(-14deg);
+  }
+}

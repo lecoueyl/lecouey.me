@@ -1,0 +1,18 @@
+// Overflow Utility
+
+$iota-utils-overflow-type: (
+  '-hidden': hidden,
+);
+
+// Helper Local Variables
+
+$iota-utils-overflow-namespace : 'overflow' !default;
+$iota-utils-overflow: $iota-global-utilities-namespace + $iota-utils-overflow-namespace;
+
+// Generate modifier
+
+@each $name, $value in $iota-utils-overflow-type {
+  .#{$iota-utils-overflow + $name} {
+    overflow: $value;
+  }
+}

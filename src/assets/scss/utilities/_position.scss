@@ -1,0 +1,16 @@
+$iota-utils-display-res: true;
+
+@import 'node_modules/iotacss/utilities/position';
+
+$iota-utils-positions: (
+  'top': '0',
+  'right': '0',
+  'bottom': '0',
+  'left': '0',
+);
+
+@each $name, $value in $iota-utils-positions {
+  .#{$iota-utils-position-var-position + $name} {
+    #{$name}: 0;
+  }
+}

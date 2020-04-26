@@ -1,0 +1,7 @@
+$cubic-bezier-easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$cubic-bezier-easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$cubic-bezier-easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+
+$anim-transition-timing-enter: cubic-bezier(0, 0.5, 0.5, 1);
+$anim-transition-timing-move: cubic-bezier(0.55, 0.085, 0, 0.99);
+$anim-transition-timing-leave: cubic-bezier(0.5, 0, 0, 1);

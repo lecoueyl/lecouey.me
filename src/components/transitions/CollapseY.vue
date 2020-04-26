@@ -1,0 +1,52 @@
+<template>
+  <div class="u-overflow-hidden u-inline-block">
+    <Component
+      :is="componentType"
+      :tag="tag"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
+      <slot />
+    </Component>
+  </div>
+</template>
+
+<script>
+import gsap from 'gsap';
+import { ease } from '~/components/transitions';
+import mixins from '~/components/transitions/mixins';
+
+export default {
+  mixins: [mixins],
+
+  methods: {
+    beforeEnter(el) {
+      gsap.set(el, {
+        opacity: 0,
+        yPercent: 100,
+      });
+    },
+
+    enter(el, done) {
+      gsap.to(el, {
+        duration: this.durationEnter,
+        ease: ease.enter,
+        yPercent: 0,
+        opacity: 1,
+        onComplete: done,
+      });
+    },
+
+    leave(el, done) {
+      gsap.to(el, {
+        duration: this.durationLeave,
+        ease: ease.leave,
+        yPercent: 100,
+        opacity: 0,
+        onComplete: done,
+      });
+    },
+  },
+};
+</script>
