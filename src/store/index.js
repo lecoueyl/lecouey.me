@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
+
 export const state = () => ({
   chatThread: [],
   introFinished: false,

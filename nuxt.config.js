@@ -3,7 +3,7 @@ const envSample = require('dotenv').config({ path: '.env.sample' }).parsed;
 const i18n = require('./src/i18n');
 const i18nEn = require('./src/i18n/en.js');
 
-// Allow system env overwrite dotenv file based on sample file
+// Allow system env to overwrite dotenv file based on sample file
 if (!env) {
   Object.keys(envSample).forEach((key) => {
     envSample[key] = process.env[key];
