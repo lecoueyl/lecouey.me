@@ -1,7 +1,7 @@
 module.exports = {
   head: {
     title: 'Léonard Lecouey',
-    description: 'Full stack enginner and designer from France, living in Japan',
+    description: 'Full stack engineer and designer from France, living in Japan',
     keywords: 'Full stack, Full stack engineer, designer, tech leader, developer',
   },
 
@@ -108,7 +108,7 @@ module.exports = {
         thanks: 'Thank you my good sir',
         bye: 'Thank you for comming',
         seeYou: 'See you around',
-        profession: 'Full stack enginner and designer',
+        profession: 'Full stack engineer and designer',
         workplace: 'at Emotion Intelligence in Tokyo',
         challenging: 'I would say it\'s challenging',
       },
