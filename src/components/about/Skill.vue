@@ -3,9 +3,9 @@
     <div class="o-container">
       <div class="o-media o-media--middle">
         <div class="o-media__fluid">
-          <H2 class="o-type-l u-weight-normal u-color-secondary">
+          <H1 class="o-type-l u-weight-normal u-color-secondary">
             {{ $t('about.skills.title') }}
-          </H2>
+          </H1>
         </div>
 
         <div class="o-media__fixed u-hidden@xs">
@@ -74,7 +74,7 @@
 <script>
 import gsap from 'gsap/dist/gsap';
 import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
-import H2 from '~/components/H2';
+import H1 from '~/components/H1';
 import SvgArrowLeft from '~/assets/svg/arrow-left.svg?inline';
 import SvgArrowRight from '~/assets/svg/arrow-right.svg?inline';
 
@@ -82,7 +82,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export default {
   components: {
-    H2,
+    H1,
     SvgArrowLeft,
     SvgArrowRight,
   },

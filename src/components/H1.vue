@@ -1,7 +1,7 @@
 <template>
-  <h2
+  <H1
     class="o-type-l u-weight-normal u-color-secondary"
   >
     <slot />
-  </h2>
+  </H1>
 </template>

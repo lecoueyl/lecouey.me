@@ -3,11 +3,11 @@
     class="o-grid"
   >
     <aside class="o-grid__col u-4/12@sm">
-      <H2
+      <H1
         class="o-type-l u-weight-normal u-color-secondary"
       >
         <slot name="title" />
-      </H2>
+      </H1>
     </aside>
 
     <article class="o-grid__col u-8/12@sm">
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import H2 from '~/components/H2';
+import H1 from '~/components/H1';
 
 export default {
   components: {
-    H2,
+    H1,
   },
 };
 </script>

@@ -24,10 +24,18 @@
           {{ $t('about.title') }}
         </template>
 
+        <i18n
+          path="about.me.intro"
+          tag="p"
+          class="o-type-m u-color-foreground"
+        >
+          <span slot="year">{{ workedSpan }}</span>
+        </i18n>
+
         <p
-          v-for="paragraph in ['intro', 'history', 'work', 'current']"
+          v-for="paragraph in ['current', 'history', 'moto']"
           :key="paragraph"
-          class="o-type-m u-pb-x2 u-color-foreground"
+          class="o-type-m u-color-foreground u-pv"
         >
           {{ $t(`about.me.${paragraph}`) }}
         </p>
@@ -115,6 +123,7 @@ export default {
   data() {
     return {
       mail: process.env.APP_mail,
+      workedSpan: new Date().getFullYear() - 2007,
       resume: [
         {
           from: '2014',
@@ -128,27 +137,27 @@ export default {
           to: '2014',
           workplace: this.$t('about.cv.workplace.syllage'),
           location: 'FR',
-          job: 'Fullstack engineer',
+          job: this.$t('about.cv.job.fullstack'),
         },
         {
           from: '2010',
           to: '2012',
           workplace: this.$t('about.cv.workplace.frenchEmbassy'),
           location: 'JP',
-          job: 'System administrator',
+          job: this.$t('about.cv.job.sysadmin'),
         },
         {
           from: '2007',
           to: '2010',
           workplace: this.$t('about.cv.workplace.telindus'),
           location: 'FR',
-          job: 'System administrator',
+          job: this.$t('about.cv.job.sysadmin'),
         },
         {
           from: '2007',
           workplace: this.$t('about.cv.workplace.af83'),
           location: 'FR',
-          job: 'Fullstack engineer',
+          job: this.$t('about.cv.job.fullstack'),
         },
       ],
       links: {

@@ -37,14 +37,14 @@ module.exports = {
     ],
 
     me: {
-      intro: `I am a French Fullstack engineer and designer with over 12 years of experience.
+      intro: `I am a French Fullstack engineer and designer with over {year} years of experience.
         Currently living in Tokyo.`,
-      history: `Working at Emotion Intelligence since 2014, where I have the chance to do create
-        product from the bottom to the end.`,
-      work: `Prior moving to Japan, I worked in various companies, improving my skills
-       in various domains from system administration to web design`,
-      current: 'Always thriving to deliver the simpler solutions to evry problems.',
-      linkedin: 'More about me on {linkedin}',
+      current: `Working at Emotion Intelligence since 2014,
+        where I have the chance to create products and solutions from beginning to end.`,
+      history: `Prior to moving to Japan, I worked in various companies,
+        improving my skills in various domains from development, system administration to web design.`,
+      moto: 'Always thriving to deliver simpler solutions to every problem.',
+      linkedin: 'More about me on {linkedin}.',
     },
 
     skills: {
@@ -142,7 +142,7 @@ module.exports = {
 
   footer: {
     contact: 'Anything to say? Send me a nice message',
-    source: 'View source on {0}',
+    source: 'View source on {link}',
   },
 
   // error

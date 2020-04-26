@@ -36,6 +36,7 @@
       path="footer.source"
     >
       <a
+        slot="link"
         v-t="'links.social.github'"
         :href="source"
         target="_blank"
