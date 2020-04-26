@@ -7,18 +7,14 @@ module.exports = {
 
   links: {
     index: 'Home',
-    project: 'Project',
     about: 'About',
     back: 'Back',
     social: {
-      linkedin: 'LinkedIn',
-      github: 'Github',
+      codepen: 'Codepen',
       dribbble: 'Dribbble',
+      github: 'Github',
+      linkedin: 'LinkedIn',
     },
-  },
-
-  common: {
-    loading: '読み込み中',
   },
 
   // index
@@ -52,33 +48,37 @@ module.exports = {
     },
 
     skills: {
-      frontend: {
-        title: 'Front-end',
-        description: 'Fluent in html, css and JavaScript',
-      },
-      backend: {
-        title: 'Back-end',
-        description: 'NodeJs, Ruby',
-      },
-      devops: {
-        title: 'DevOps',
-        description: 'Sysadmin, AWS, CI/CD, Web Servers, containers and shell scripting',
-      },
-      interactionDesign: {
-        title: 'Interaction Design',
-        description: 'Prototype, Animation, Micro-Interaction, Accessibility',
-      },
-      uiDesign: {
-        title: 'UI Design',
-        description: 'Moodboarding, High-Fidelity composition, Design system',
-      },
-      uxDesign: {
-        title: 'UX Design',
-        description: 'User research, Wireframing, Mockup, user testing',
+      title: 'Skills',
+      items: {
+        frontend: {
+          title: 'Front-end',
+          description: 'Fluent in HTML, (S)CSS and JavaScript',
+        },
+        backend: {
+          title: 'Back-end',
+          description: 'NodeJs, Ruby',
+        },
+        devops: {
+          title: 'DevOps',
+          description: 'Sysadmin, AWS, CI/CD, Web Servers, containers and shell scripting',
+        },
+        interactionDesign: {
+          title: 'Interaction Design',
+          description: 'Prototype, Animation, Micro-Interaction, Accessibility',
+        },
+        uiDesign: {
+          title: 'UI Design',
+          description: 'Moodboarding, High-Fidelity composition, Design system',
+        },
+        uxDesign: {
+          title: 'UX Design',
+          description: 'User research, Wireframing, Mockup, user testing',
+        },
       },
     },
 
     cv: {
+      title: 'CV',
       workplace: {
         emin: 'Emotion Intelligence',
         syllage: 'Syllage',
@@ -92,13 +92,6 @@ module.exports = {
         sysadmin: 'System administrator',
       },
     },
-  },
-
-  // footer
-
-  footer: {
-    contact: 'Anything to say? Send me a nice message',
-    source: 'View source on {0}',
   },
 
   // chat
@@ -143,6 +136,13 @@ module.exports = {
       where: 'Where?',
       andSo: 'And so?',
     },
+  },
+
+  // footer
+
+  footer: {
+    contact: 'Anything to say? Send me a nice message',
+    source: 'View source on {0}',
   },
 
   // error

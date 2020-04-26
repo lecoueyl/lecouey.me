@@ -26,9 +26,7 @@
     "start": "NODE_ENV=production nuxt start",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint '**/*.{vue,scss}'",
-    "precommit": "npm run lint",
-    "deploy": "npm run generate && bin/deploy.sh -s 'lecouey.me' -d '/opt/www/lecouey.me' -p '/dist'"
+    "lint:style": "stylelint '**/*.{vue,scss}'"
   },
   "dependencies": {
     "@nuxtjs/sitemap": "2.2.1",

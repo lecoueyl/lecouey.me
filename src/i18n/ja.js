@@ -2,31 +2,25 @@ module.exports = {
 
   head: {
     title: 'レコエ　レオナール',
-    keywords: '',
+    keywords: 'フルスタック,フルスタックエンジニア,デザイナー,テックリーダー,開発者',
   },
 
   links: {
     index: 'ホーム',
-    project: 'プロジェクト',
     about: '私について',
-    back: '戻る',
     social: {
-      linkedin: 'LinkedIn',
-      github: 'Github',
+      codepen: 'Codepen',
       dribbble: 'Dribbble',
+      github: 'Github',
+      linkedin: 'LinkedIn',
     },
-  },
-
-  common: {
-    loading: '読み込み中',
   },
 
   // index
 
   index: {
     head: {
-      title: 'Emin',
-      description: '人工知能を活用した『気持ちを解するテクノロジー』で認知科学的アプローチから人と機械のインタラクティブデザインを行います。ECサイト向け購買行動 解析・販促サービス『ZenClerk』を運営する、Emotion Intelligence株式会社のコーポレートサイトです。',
+      title: 'ハーロー!',
     },
   },
 
@@ -53,33 +47,37 @@ module.exports = {
     },
 
     skills: {
-      frontend: {
-        title: 'Front-end',
-        description: 'Fluent in html, css and JavaScript',
-      },
-      backend: {
-        title: 'Back-end',
-        description: 'NodeJs, Ruby',
-      },
-      devops: {
-        title: 'DevOps',
-        description: 'Sysadmin, AWS, CI/CD, Web Servers, Containers and Shell scripting',
-      },
-      interactionDesign: {
-        title: 'Interaction Design',
-        description: 'Prototype, Animation, Micro-Interaction, Accessibility',
-      },
-      uiDesign: {
-        title: 'UI Design',
-        description: 'High-Fidelity comp, Moodboarding, Design system',
-      },
-      uxDesign: {
-        title: 'UX Design',
-        description: 'User research, Wireframing, Mockup',
+      title: 'スキル',
+      items: {
+        frontend: {
+          title: 'フロントエンド',
+          description: 'HTML、(S)CSS、JavaScript',
+        },
+        backend: {
+          title: 'バックエンド',
+          description: 'NodeJs, ルビー',
+        },
+        devops: {
+          title: 'デブオプス',
+          description: 'システム管理、AWS、CI / CD、Webサーバー、コンテナー、シェルスクリプト',
+        },
+        interactionDesign: {
+          title: 'インタラクションデザイン',
+          description: 'プロトタイプ、アニメーション、マイクロインタラクション、アクセシビリティ',
+        },
+        uiDesign: {
+          title: 'UIデザイン',
+          description: 'ムードボード、ハイファイ構成、デザインシステム',
+        },
+        uxDesign: {
+          title: 'UXデザイン',
+          description: 'ユーザー調査、ワイヤーフレーミング、モックアップ、ユーザーテスト',
+        },
       },
     },
 
     cv: {
+      title: '履歴書',
       workplace: {
         emin: 'Emotion Intelligence株式会社',
         syllage: 'Syllage',
@@ -109,7 +107,7 @@ module.exports = {
         thanks: 'どもありがとう〜',
         bye: '来てくれてありがとう',
         profession: 'システム管理者とフルスタッカデザイナー',
-        workplace: 'at Emotion Intelligence in Tokyo',
+        workplace: '東京のEmotion Intelligence株式会社で',
         challenging: 'それが挑戦的だと言います',
       },
 
@@ -137,18 +135,10 @@ module.exports = {
     },
   },
 
-  // cursor
-
-  cursor: {
-    visit: 'サイトを見る',
-    mail: 'メール',
-    translate: '翻訳する',
-  },
-
   // footer
 
   footer: {
-    contact: '見知らぬ人ではなく、素晴らしいメッセージを送ってください。',
+    contact: '見知らぬ人ではなく、素晴らしいメッセージを送っていい',
     source: '{0}のソースを表示',
   },
 
@@ -156,7 +146,7 @@ module.exports = {
 
   error: {
     title: 'エラー',
-    notFound: 'ご指定のページが見つかりませんでした。',
+    notFound: 'ご指定のページが見つかりませんでした〜',
     occured: 'エラーが発生しました。',
   },
 };

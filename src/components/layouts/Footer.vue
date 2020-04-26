@@ -37,7 +37,7 @@
     >
       <a
         v-t="'links.social.github'"
-        :href="links.github"
+        :href="source"
         target="_blank"
         rel="noopener noreferrer"
         class="c-link c-link-underline c-link--foreground"
@@ -57,7 +57,9 @@ export default {
   data() {
     return {
       mail: process.env.APP_MAIL,
+      source: process.env.LINKS_SOURCE,
       links: {
+        codepen: process.env.LINKS_CODEPEN,
         github: process.env.LINKS_GITHUB,
         dribbble: process.env.LINKS_DRIBBBLE,
         linkedin: process.env.LINKS_LINKEDIN,

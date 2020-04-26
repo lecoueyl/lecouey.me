@@ -56,7 +56,7 @@
     <AboutSection class="o-container">
       <AboutArticle>
         <template v-slot:title>
-          CV
+          {{ $t('about.cv.title') }}
         </template>
 
         <ul class="o-list o-list--block u-color-foreground">
