@@ -189,17 +189,28 @@ export default {
           id: 16,
           reply: 'andSo',
           content: 'boring',
-          next: [15],
+          next: 18,
         },
         {
           id: 17,
           content: 'workplace',
-          next: [13],
+          next: [19],
         },
         {
           id: 18,
           content: 'challenging',
-          next: [16],
+          next: [15],
+        },
+        {
+          id: 19,
+          reply: 'bye',
+          content: 'seeYou',
+          next: 20,
+        },
+        {
+          id: 20,
+          content: 'bye',
+          next: [100],
         },
       ],
     };
