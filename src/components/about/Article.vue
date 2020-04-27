@@ -3,9 +3,7 @@
     class="o-grid"
   >
     <aside class="o-grid__col u-4/12@sm">
-      <H1
-        class="o-type-l u-weight-normal u-color-secondary"
-      >
+      <H1>
         <slot name="title" />
       </H1>
     </aside>
