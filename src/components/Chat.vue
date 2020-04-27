@@ -313,17 +313,18 @@ export default {
           yPercent: 0,
         },
         {
-          duration: 0.6,
-          ease: 'back.out(1.7)',
+          duration: 0.5,
+          ease: ease.leave,
           stagger: {
             amount: animeReplies.stagger,
             from: index,
             grid: 'auto',
           },
           yPercent: 150,
+        }).then(() => {
+          this.playAudio('send');
+          this.sendMessage(next);
         });
-        this.playAudio('send');
-        this.sendMessage(next);
       }
     },
 
