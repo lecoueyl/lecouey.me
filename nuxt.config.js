@@ -132,7 +132,11 @@ module.exports = {
   ** PurgeCSS configuration
   */
   purgeCSS: {
-    whitelist: ['c-link--is-active'],
+    whitelist: [
+      'body', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'blockquote', 'p', 'pre', 'code', 'dl', 'dd', 'ol', 'ul', 'figure', 'hr', 'fieldset', 'legend',
+      'c-link--is-active',
+    ],
     extractors: () => [
       {
         extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [],
