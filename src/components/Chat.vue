@@ -9,8 +9,8 @@
         <li
           v-for="(message, index) in chatThread"
           :key="index"
-          class="o-list__item c-chat__message-container u-pv"
-          :class="{ 'u-color-primary u-text-right u-mv-x2': message.reply }"
+          class="o-list__item c-chat__message-container"
+          :class="{ 'u-color-primary u-text-right u-mv-x4': message.reply }"
         >
           <div class="c-chat__message u-inline-block">
             <img
