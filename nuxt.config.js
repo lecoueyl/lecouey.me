@@ -133,13 +133,19 @@ module.exports = {
   */
   purgeCSS: {
     whitelist: [
-      'body', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
       'blockquote', 'p', 'pre', 'code', 'dl', 'dd', 'ol', 'ul', 'figure', 'hr', 'fieldset', 'legend',
       'c-link--is-active',
     ],
+    whitelistPatterns: [
+      /-(leave|enter|appear)(|-(to|from|active))$/, // Normal transitions
+      /^nuxt-link(|-exact)-active$/, // Nuxt link classes
+      /^(?!cursor-move).+-move$/, // Move transitions
+      /data-v-.*/, // Keep scoped styles
+    ],
     extractors: () => [
       {
-        extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [],
+        extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [], // Extarct res class (eg: u-1/12@md)
         extensions: ['html', 'vue', 'js'],
       },
     ],
