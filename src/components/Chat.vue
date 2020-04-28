@@ -1,10 +1,10 @@
 <template>
   <div class="o-type-m c-chat u-height-100vh">
     <div class="c-chat__messages u-12/12 u-relative">
-      <TransitionCollapseY
+      <TransitionTranslateY
         group
         tag="ul"
-        class="o-list c-chat__thread u-absolute u-12/12"
+        class="o-list o-list--block c-chat__thread u-absolute u-12/12"
       >
         <li
           v-for="(message, index) in chatThread"
@@ -39,7 +39,7 @@
             </span>
           </div>
         </li>
-      </TransitionCollapseY>
+      </TransitionTranslateY>
     </div>
 
     <div class="u-overlay-hidden u-pb-x6@xs">
@@ -78,7 +78,7 @@ import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
 import { ease } from '~/components/transitions';
-import TransitionCollapseY from '~/components/transitions/CollapseY';
+import TransitionTranslateY from '~/components/transitions/TranslateY';
 
 const animeReplies = {
   targets: '.c-chat__answer',
@@ -87,7 +87,7 @@ const animeReplies = {
 
 export default {
   components: {
-    TransitionCollapseY,
+    TransitionTranslateY,
   },
 
   data() {
@@ -359,38 +359,6 @@ export default {
   flex: 1 0 auto;
   overflow: hidden;
 }
-
-// .c-chat__messages::before {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   z-index: 1;
-//   display: block;
-//   width: 100%;
-//   height: 25%;
-//   background-image:
-//     linear-gradient(
-//       to bottom,
-//       $color-background 0%,
-//       rgba($color-background, 0.79) 8.1%,
-//       rgba($color-background, 0.761) 15.5%,
-//       rgba($color-background, 0.717) 22.5%,
-//       rgba($color-background, 0.66) 29%,
-//       rgba($color-background, 0.593) 35.3%,
-//       rgba($color-background, 0.518) 41.2%,
-//       rgba($color-background, 0.44) 47.1%,
-//       rgba($color-background, 0.36) 52.9%,
-//       rgba($color-background, 0.282) 58.8%,
-//       rgba($color-background, 0.207) 64.7%,
-//       rgba($color-background, 0.14) 71%,
-//       rgba($color-background, 0.083) 77.5%,
-//       rgba($color-background, 0.039) 84.5%,
-//       rgba($color-background, 0.01) 91.9%,
-//       transparent 100%
-//     );
-//   content: '';
-// }
 
 .c-chat__thread {
   bottom: 0;
