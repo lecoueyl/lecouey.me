@@ -3,7 +3,7 @@
     <div class="o-container">
       <div class="o-media o-media--middle">
         <div class="o-media__fluid">
-          <H1 class="o-type-l u-weight-normal u-color-secondary">
+          <H1>
             {{ $t('about.skills.title') }}
           </H1>
         </div>

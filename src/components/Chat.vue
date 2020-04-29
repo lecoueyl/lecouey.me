@@ -1,16 +1,16 @@
 <template>
   <div class="o-type-m c-chat u-height-100vh">
     <div class="c-chat__messages u-12/12 u-relative">
-      <TransitionCollapseY
+      <TransitionTranslateY
         group
         tag="ul"
-        class="o-list c-chat__thread u-absolute u-12/12"
+        class="o-list o-list--block c-chat__thread u-absolute u-12/12"
       >
         <li
           v-for="(message, index) in chatThread"
           :key="index"
-          class="o-list__item c-chat__message-container u-pv"
-          :class="{ 'u-color-primary u-text-right u-mv-x2': message.reply }"
+          class="o-list__item c-chat__message-container"
+          :class="{ 'u-color-primary u-text-right u-mv-x4': message.reply }"
         >
           <div class="c-chat__message u-inline-block">
             <img
@@ -39,10 +39,10 @@
             </span>
           </div>
         </li>
-      </TransitionCollapseY>
+      </TransitionTranslateY>
     </div>
 
-    <div class="u-overlay-hidden">
+    <div class="u-overlay-hidden u-pb-x6@xs">
       <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
         <div
           v-for="(answer, index) in replies"
@@ -78,7 +78,7 @@ import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
 import { ease } from '~/components/transitions';
-import TransitionCollapseY from '~/components/transitions/CollapseY';
+import TransitionTranslateY from '~/components/transitions/TranslateY';
 
 const animeReplies = {
   targets: '.c-chat__answer',
@@ -87,7 +87,7 @@ const animeReplies = {
 
 export default {
   components: {
-    TransitionCollapseY,
+    TransitionTranslateY,
   },
 
   data() {
@@ -189,17 +189,28 @@ export default {
           id: 16,
           reply: 'andSo',
           content: 'boring',
-          next: [15],
+          next: 18,
         },
         {
           id: 17,
           content: 'workplace',
-          next: [13],
+          next: [19],
         },
         {
           id: 18,
           content: 'challenging',
-          next: [16],
+          next: [15],
+        },
+        {
+          id: 19,
+          reply: 'bye',
+          content: 'seeYou',
+          next: 20,
+        },
+        {
+          id: 20,
+          content: 'bye',
+          next: [100],
         },
       ],
     };
@@ -302,17 +313,18 @@ export default {
           yPercent: 0,
         },
         {
-          duration: 0.6,
-          ease: 'back.out(1.7)',
+          duration: 0.5,
+          ease: ease.leave,
           stagger: {
             amount: animeReplies.stagger,
             from: index,
             grid: 'auto',
           },
           yPercent: 150,
+        }).then(() => {
+          this.playAudio('send');
+          this.sendMessage(next);
         });
-        this.playAudio('send');
-        this.sendMessage(next);
       }
     },
 
@@ -347,38 +359,6 @@ export default {
   flex: 1 0 auto;
   overflow: hidden;
 }
-
-// .c-chat__messages::before {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   z-index: 1;
-//   display: block;
-//   width: 100%;
-//   height: 25%;
-//   background-image:
-//     linear-gradient(
-//       to bottom,
-//       $color-background 0%,
-//       rgba($color-background, 0.79) 8.1%,
-//       rgba($color-background, 0.761) 15.5%,
-//       rgba($color-background, 0.717) 22.5%,
-//       rgba($color-background, 0.66) 29%,
-//       rgba($color-background, 0.593) 35.3%,
-//       rgba($color-background, 0.518) 41.2%,
-//       rgba($color-background, 0.44) 47.1%,
-//       rgba($color-background, 0.36) 52.9%,
-//       rgba($color-background, 0.282) 58.8%,
-//       rgba($color-background, 0.207) 64.7%,
-//       rgba($color-background, 0.14) 71%,
-//       rgba($color-background, 0.083) 77.5%,
-//       rgba($color-background, 0.039) 84.5%,
-//       rgba($color-background, 0.01) 91.9%,
-//       transparent 100%
-//     );
-//   content: '';
-// }
 
 .c-chat__thread {
   bottom: 0;

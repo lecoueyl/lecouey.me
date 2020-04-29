@@ -1,6 +1,6 @@
 {
   "name": "lecouey.me",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Leonard Lecouey personal website",
   "author": "Leonard Lecouey <leonard@lecouey.me>",
   "keywords": [
@@ -53,7 +53,7 @@
     "eslint-plugin-standard": "4.0.1",
     "eslint-plugin-vue": "6.2.2",
     "node-sass": "4.14.0",
-    "nuxt-purgecss": "0.2.1",
+    "nuxt-purgecss": "1.0.0",
     "sass-loader": "8.0.2",
     "stylelint": "13.3.3",
     "stylelint-config-rational-order": "0.1.2",

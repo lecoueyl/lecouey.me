@@ -1,15 +1,13 @@
 <template>
-  <div class="u-overflow-hidden u-inline-block">
-    <Component
-      :is="componentType"
-      :tag="tag"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @leave="leave"
-    >
-      <slot />
-    </Component>
-  </div>
+  <Component
+    :is="componentType"
+    :tag="tag"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
+  >
+    <slot />
+  </Component>
 </template>
 
 <script>
@@ -32,8 +30,8 @@ export default {
       gsap.to(el, {
         duration: this.durationEnter,
         ease: ease.enter,
-        yPercent: 0,
         opacity: 1,
+        yPercent: 0,
         onComplete: done,
       });
     },
@@ -42,8 +40,8 @@ export default {
       gsap.to(el, {
         duration: this.durationLeave,
         ease: ease.leave,
-        yPercent: 100,
         opacity: 0,
+        yPercent: 100,
         onComplete: done,
       });
     },

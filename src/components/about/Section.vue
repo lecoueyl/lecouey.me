@@ -40,7 +40,7 @@ export default {
 
     setOpacity(opacity) {
       gsap.to(this.$refs.content, {
-        duration: 0.4,
+        duration: 0.6,
         opacity,
       });
     },

@@ -166,6 +166,10 @@ export default {
     };
   },
 
+  beforeDestroy() {
+    gsap.killTweensOf('.i-devices__item');
+  },
+
   mounted() {
     this.animeHeroText();
     this.animeIllustration();
@@ -197,14 +201,14 @@ export default {
 
     animeIllustration() {
       [
-        '.i-devices_iphone',
-        '.i-devices_mixer',
-        '.i-devices_ipad',
-        '.i-devices_pencil',
-        '.i-devices_book',
-        '.i-devices_macbook',
-        '.i-devices_keyboard',
-        '.i-devices_headphone',
+        '.i-devices__iphone',
+        '.i-devices__mixer',
+        '.i-devices__ipad',
+        '.i-devices__pencil',
+        '.i-devices__book',
+        '.i-devices__macbook',
+        '.i-devices__keyboard',
+        '.i-devices__headphone',
       ].forEach((device) => {
         gsap.fromTo(device, {
           transformOrigin: 'center center',
