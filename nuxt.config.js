@@ -94,7 +94,6 @@ module.exports = {
   */
   modules: [
     ['nuxt-i18n', i18n],
-    ['nuxt-svg'],
     '@nuxtjs/sitemap',
     '@nuxtjs/style-resources',
   ],
@@ -126,6 +125,7 @@ module.exports = {
   */
   buildModules: [
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/svg',
     'nuxt-purgecss',
   ],
   /*

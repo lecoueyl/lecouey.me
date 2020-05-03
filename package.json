@@ -1,6 +1,6 @@
 {
   "name": "lecouey.me",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Leonard Lecouey personal website",
   "author": "Leonard Lecouey <leonard@lecouey.me>",
   "keywords": [
@@ -34,12 +34,12 @@
     "gsap": "3.2.6",
     "iotacss": "1.6.0",
     "nuxt": "2.12.2",
-    "nuxt-i18n": "6.10.1",
-    "nuxt-svg": "0.1.6",
+    "nuxt-i18n": "6.11.0",
     "vue-check-view": "0.3.0"
   },
   "devDependencies": {
     "@nuxtjs/stylelint-module": "3.2.2",
+    "@nuxtjs/svg": "0.1.11",
     "babel-eslint": "10.1.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
