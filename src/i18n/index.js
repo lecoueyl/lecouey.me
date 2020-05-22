@@ -18,6 +18,7 @@ module.exports = {
   defaultLocale: 'en',
   seo: true,
   lazy: true,
+  baseUrl: process.env.APP_URL,
   detectBrowserLanguage: {
     cookieKey: 'redirected',
     useCookie: true,

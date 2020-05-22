@@ -1,6 +1,6 @@
 {
   "name": "lecouey.me",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Leonard Lecouey personal website",
   "author": "Leonard Lecouey <leonard@lecouey.me>",
   "keywords": [
@@ -29,16 +29,16 @@
     "lint:style": "stylelint '**/*.{vue,scss}'"
   },
   "dependencies": {
-    "@nuxtjs/sitemap": "2.2.1",
-    "@nuxtjs/style-resources": "1.0.0",
+    "@nuxtjs/sitemap": "2.3.0",
     "gsap": "3.2.6",
     "iotacss": "1.6.0",
     "nuxt": "2.12.2",
-    "nuxt-i18n": "6.11.0",
+    "nuxt-i18n": "6.11.1",
     "vue-check-view": "0.3.0"
   },
   "devDependencies": {
-    "@nuxtjs/stylelint-module": "3.2.2",
+    "@nuxtjs/style-resources": "1.0.0",
+    "@nuxtjs/stylelint-module": "4.0.0",
     "@nuxtjs/svg": "0.1.11",
     "babel-eslint": "10.1.0",
     "dotenv": "8.2.0",
@@ -52,14 +52,14 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
     "eslint-plugin-vue": "6.2.2",
-    "node-sass": "4.14.0",
+    "node-sass": "4.14.1",
     "nuxt-purgecss": "1.0.0",
     "sass-loader": "8.0.2",
-    "stylelint": "13.3.3",
+    "stylelint": "13.5.0",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.0.0",
-    "stylelint-scss": "3.17.1"
+    "stylelint-scss": "3.17.2"
   },
   "engines": {
     "node": ">=10.0.0",
