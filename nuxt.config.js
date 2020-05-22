@@ -27,6 +27,10 @@ module.exports = {
       { name: 'description', content: i18nEn.head.description },
       { name: 'keywords', content: i18nEn.head.keywords },
 
+      { name: 'robots', content: 'index, follow' },
+      { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+      { name: 'bingbot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+
       { name: 'msapplication-TileColor', content: '#f5f5f5' },
       { name: 'theme-color', content: '#f5f5f5' },
 
@@ -72,6 +76,10 @@ module.exports = {
         color: '#2b2b2b',
       },
     ],
+
+    bodyAttrs: {
+      class: ['u-bgcolor-background'],
+    },
   },
   /*
   ** Customize the progress bar color
@@ -94,9 +102,7 @@ module.exports = {
   */
   modules: [
     ['nuxt-i18n', i18n],
-    ['nuxt-svg'],
     '@nuxtjs/sitemap',
-    '@nuxtjs/style-resources',
   ],
   /*
   ** Sitemap
@@ -105,6 +111,15 @@ module.exports = {
     hostname: env.APP_URL,
     gzip: true,
   },
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+    '@nuxtjs/style-resources',
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/svg',
+    'nuxt-purgecss',
+  ],
   /*
   ** Import global scss
   */
@@ -115,19 +130,6 @@ module.exports = {
       './assets/scss/settings/_colors.scss',
     ],
   },
-  /*
-  ** Router configuration
-  */
-  router: {
-    linkActiveClass: 'c-link--is-active',
-  },
-  /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-    '@nuxtjs/stylelint-module',
-    'nuxt-purgecss',
-  ],
   /*
   ** PurgeCSS configuration
   */
@@ -149,6 +151,12 @@ module.exports = {
         extensions: ['html', 'vue', 'js'],
       },
     ],
+  },
+  /*
+  ** Router configuration
+  */
+  router: {
+    linkActiveClass: 'c-link--is-active',
   },
   /*
   ** Build configuration

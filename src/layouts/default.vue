@@ -28,9 +28,9 @@ export default {
 
   head() {
     return {
-      bodyAttrs: {
-        class: 'u-bgcolor-background',
-      },
+      link: [
+        { rel: 'canonical', href: `${process.env.APP_URL}${this.$route.path}` },
+      ],
     };
   },
 };
