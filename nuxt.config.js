@@ -110,6 +110,7 @@ module.exports = {
   sitemap: {
     hostname: env.APP_URL,
     gzip: true,
+    i18n: i18n.defaultLocale,
   },
   /*
   ** Nuxt.js dev-modules

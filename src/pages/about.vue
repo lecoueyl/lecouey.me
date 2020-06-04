@@ -126,8 +126,15 @@ export default {
       workedSpan: new Date().getFullYear() - 2007,
       resume: [
         {
-          from: '2014',
+          from: '2020',
           to: new Date(),
+          workplace: this.$t('about.cv.workplace.appier'),
+          location: 'JP',
+          job: this.$t('about.cv.job.fullstack'),
+        },
+        {
+          from: '2014',
+          to: 2020,
           workplace: this.$t('about.cv.workplace.emin'),
           location: 'JP',
           job: this.$t('about.cv.job.techleader'),
