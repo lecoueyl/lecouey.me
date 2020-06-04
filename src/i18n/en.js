@@ -109,7 +109,7 @@ module.exports = {
         bye: 'Thank you for comming',
         seeYou: 'See you around',
         profession: 'Full stack engineer and designer',
-        workplace: 'at Appier in Tokyo',
+        workplace: 'At Appier Japan',
         challenging: 'I would say it\'s challenging',
       },
 
