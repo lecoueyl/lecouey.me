@@ -39,8 +39,7 @@ module.exports = {
     me: {
       intro: `I am a French Full stack engineer and designer with over {year} years of experience.
         Currently living in Tokyo.`,
-      current: `Working at Emotion Intelligence since 2014,
-        where I have the chance to create products and solutions from beginning to end.`,
+      current: 'Presently working at Appier Japan, where I have the opportunity to build end-to-end products.',
       history: `Prior to moving to Japan, I worked in various companies,
         improving my skills in various domains from development, system administration to web design.`,
       moto: 'Always thriving to deliver simpler solutions to every problem.',
@@ -80,6 +79,7 @@ module.exports = {
     cv: {
       title: 'CV',
       workplace: {
+        appier: 'Appier Japan',
         emin: 'Emotion Intelligence',
         syllage: 'Syllage',
         frenchEmbassy: 'French Embassy in Japan',
@@ -109,7 +109,7 @@ module.exports = {
         bye: 'Thank you for comming',
         seeYou: 'See you around',
         profession: 'Full stack engineer and designer',
-        workplace: 'at Emotion Intelligence in Tokyo',
+        workplace: 'At Appier Japan',
         challenging: 'I would say it\'s challenging',
       },
 

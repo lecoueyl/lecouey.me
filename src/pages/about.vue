@@ -76,7 +76,7 @@
             <div class="o-grid">
               <div class="o-grid__col o-type-m u-5/12@sm">
                 {{ $d(new Date(period.from), 'year') }}
-                <template v-if="period.to">
+                <template v-if="period.to && (period.from !== period.to)">
                   ー {{ $d(new Date(period.to), 'year') }}
                 </template>
               </div>
@@ -126,8 +126,15 @@ export default {
       workedSpan: new Date().getFullYear() - 2007,
       resume: [
         {
+          from: '2020',
+          to: new Date().getFullYear().toString(),
+          workplace: this.$t('about.cv.workplace.appier'),
+          location: 'JP',
+          job: this.$t('about.cv.job.fullstack'),
+        },
+        {
           from: '2014',
-          to: new Date(),
+          to: '2020',
           workplace: this.$t('about.cv.workplace.emin'),
           location: 'JP',
           job: this.$t('about.cv.job.techleader'),

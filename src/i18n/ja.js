@@ -38,8 +38,7 @@ module.exports = {
     me: {
       intro: `{year}年以上の経験を持つフランス人のフルスタックエンジニア兼デザイナーです。
         現在、東京に住んでいます。`,
-      current: `Emotion Intelligence株式会社で2014年から勤務し、
-        ここで一からプロダクトを開発し、管理しています。`,
+      current: '現在Appier Japan株式会社で勤務し、ここで一からプロダクトを開発し、管理しています。',
       history: `渡日以前は、フランスのIT会社でパリを拠点に働いていました。
         システム管理からウェブデザインまで、様々な分野のスキルを向上しています。`,
       moto: 'すべての問題に対して、よりシンプルな解決策を提供するよう常に努力しています。',
@@ -79,6 +78,7 @@ module.exports = {
     cv: {
       title: '履歴書',
       workplace: {
+        appier: 'Appier Japan株式会社',
         emin: 'Emotion Intelligence株式会社',
         syllage: 'Syllage',
         frenchEmbassy: 'フランス大使館',
