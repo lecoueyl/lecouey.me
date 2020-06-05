@@ -82,9 +82,11 @@ $iota-components-button: $iota-global-components-namespace + $iota-components-bu
 
   // hover
 
-  .#{$iota-components-button}-outline.#{$iota-components-button}--#{$name}:hover {
-    color: map-get($color, 'hover');
-    border-color: map-get($color, 'hover');
+  @include iota-breakpoint(sm) {
+    .#{$iota-components-button}-outline.#{$iota-components-button}--#{$name}:hover {
+      color: map-get($color, 'hover');
+      border-color: map-get($color, 'hover');
+    }
   }
 
   // active
