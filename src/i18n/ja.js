@@ -107,7 +107,7 @@ module.exports = {
         thanks: 'どうもありがとう〜',
         bye: '来てくれてありがとう',
         profession: 'フルスタックエンジニア兼デザイナー',
-        workplace: '東京のEmotion Intelligence株式会社で',
+        workplace: '東京のAppier Japan株式会社で',
         challenging: 'それは挑戦的だね',
       },
 
