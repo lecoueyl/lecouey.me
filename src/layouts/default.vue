@@ -14,9 +14,9 @@
 
 <script>
 import Intro from '~/components/Intro';
-import Pointer from '~/components/Cursor';
-import LayoutHeader from '~/components/layouts/Header';
-import LayoutFooter from '~/components/layouts/Footer';
+import Pointer from '~/components/Pointer';
+import LayoutHeader from '~/components/layouts/LayoutHeader';
+import LayoutFooter from '~/components/layouts/LayoutFooter';
 
 export default {
   components: {
@@ -29,7 +29,7 @@ export default {
   head() {
     return {
       link: [
-        { rel: 'canonical', href: `${process.env.APP_URL}${this.$route.path}` },
+        { rel: 'canonical', href: `${this.$config.app.url}${this.$route.path}` },
       ],
     };
   },

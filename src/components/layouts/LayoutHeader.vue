@@ -75,7 +75,7 @@
 import gsap from 'gsap';
 import { mapState } from 'vuex';
 import { ease } from '~/components/transitions';
-import TransitionFadeY from '~/components/transitions/FadeY';
+import TransitionFadeY from '~/components/transitions/TransitionFadeY';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {

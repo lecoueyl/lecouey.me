@@ -31,7 +31,7 @@
 3. Set environment variable
 
    ```sh
-   cp .env.sample .env
+   touch .env
    ```
 
 4. Start the development server
@@ -45,13 +45,13 @@
 1. Generate a full static production build
 
    ```sh
-   npm run generate
+   nuxt build && nuxt export
    ```
 
 1. Preview the site as it will appear once deployed
 
    ```sh
-   npm start
+   npm serve
    ```
 
 ## 🎨 Color Reference

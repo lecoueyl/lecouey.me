@@ -78,7 +78,7 @@ import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
 import { ease } from '~/components/transitions';
-import TransitionTranslateY from '~/components/transitions/TranslateY';
+import TransitionTranslateY from '~/components/transitions/TransitionTranslateY';
 
 const animeReplies = {
   targets: '.c-chat__answer',
