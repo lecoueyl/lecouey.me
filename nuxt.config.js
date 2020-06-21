@@ -9,9 +9,9 @@ module.exports = {
   */
   publicRuntimeConfig: {
     app: {
-      url: process.env.APP_URL,
       mail: process.env.APP_MAIL,
       source: process.env.APP_SOURCE,
+      url: process.env.APP_URL,
     },
     links: {
       codepen: process.env.LINKS_CODEPEN,

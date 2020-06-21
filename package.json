@@ -23,9 +23,10 @@
     "build": "nuxt build",
     "clean": "rm -r node_modules .nuxt package-lock.json && npm install",
     "dev": "nuxt",
-    "export": "xport",
+    "export": "nuxt export",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint '**/*.{vue,scss}'",
+    "serve": "nuxt serve",
     "start": "nuxt start"
   },
   "dependencies": {
