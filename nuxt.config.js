@@ -5,7 +5,7 @@ module.exports = {
   srcDir: 'src',
   target: 'static',
   /*
-  ** Config
+  **  Runtime config
   */
   publicRuntimeConfig: {
     app: {

@@ -14,9 +14,9 @@
 
 <script>
 import Intro from '~/components/Intro';
-import Pointer from '~/components/Cursor';
-import LayoutHeader from '~/components/layouts/Header';
-import LayoutFooter from '~/components/layouts/Footer';
+import Pointer from '~/components/Pointer';
+import LayoutHeader from '~/components/layouts/LayoutHeader';
+import LayoutFooter from '~/components/layouts/LayoutFooter';
 
 export default {
   components: {

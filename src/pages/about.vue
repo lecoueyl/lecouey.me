@@ -99,9 +99,9 @@
 <script>
 import gsap from 'gsap';
 import { ease } from '~/components/transitions';
-import AboutArticle from '~/components/about/Article';
-import AboutSection from '~/components/about/Section';
-import AboutSkill from '~/components/about/Skill';
+import AboutArticle from '~/components/about/AboutArticle';
+import AboutSection from '~/components/about/AboutSection';
+import AboutSkill from '~/components/about/AboutSkill';
 import transitionPage from '~/mixins/transitionPage';
 import SvgDevices from '~/assets/svg/devices.svg?inline';
 
