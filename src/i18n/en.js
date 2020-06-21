@@ -119,7 +119,6 @@ module.exports = {
         thanks: 'Thank you my good sir',
         living: 'What do you do for living?',
         friends: 'Yes, we are already friends',
-        bye: 'Thank you for coming',
         seeYou: 'See you around',
         where: 'And where?',
         boring: 'It sounds boring',
