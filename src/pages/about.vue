@@ -48,7 +48,7 @@
           <a
             slot="linkedin"
             v-t="'links.social.linkedin'"
-            :href="links.linkedin"
+            :href="$config.links.linkedin"
             target="_blank"
             rel="noopener noreferrer"
             class="c-link c-link-underline c-link--primary"
@@ -122,7 +122,6 @@ export default {
 
   data() {
     return {
-      mail: process.env.APP_mail,
       workedSpan: new Date().getFullYear() - 2007,
       resume: [
         {
@@ -167,9 +166,6 @@ export default {
           job: this.$t('about.cv.job.fullstack'),
         },
       ],
-      links: {
-        linkedIn: process.env.LINKS_LINKEDIN,
-      },
     };
   },
 

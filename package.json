@@ -1,6 +1,6 @@
 {
   "name": "lecouey.me",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Leonard Lecouey personal website",
   "author": "Leonard Lecouey <leonard@lecouey.me>",
   "keywords": [
@@ -20,19 +20,19 @@
     }
   },
   "scripts": {
+    "build": "nuxt build",
     "clean": "rm -r node_modules .nuxt package-lock.json && npm install",
-    "dev": "NODE_ENV=development nuxt",
-    "build": "NODE_ENV=production nuxt build",
-    "start": "NODE_ENV=production nuxt start",
-    "generate": "NODE_ENV=production nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint '**/*.{vue,scss}'"
+    "dev": "nuxt",
+    "export": "xport",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint '**/*.{vue,scss}'",
+    "start": "nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/sitemap": "2.3.1",
-    "gsap": "3.3.1",
+    "@nuxtjs/sitemap": "2.3.2",
+    "gsap": "3.3.4",
     "iotacss": "1.6.0",
-    "nuxt": "2.12.2",
+    "nuxt": "2.13.0",
     "nuxt-i18n": "6.12.2",
     "vue-check-view": "0.3.0"
   },
@@ -41,13 +41,12 @@
     "@nuxtjs/stylelint-module": "4.0.0",
     "@nuxtjs/svg": "0.1.11",
     "babel-eslint": "10.1.0",
-    "dotenv": "8.2.0",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb-base": "14.1.0",
-    "eslint-import-resolver-webpack": "0.12.1",
+    "eslint": "7.3.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-import-resolver-webpack": "0.12.2",
     "eslint-loader": "4.0.2",
     "eslint-plugin-html": "6.0.2",
-    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-import": "2.21.2",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
@@ -55,11 +54,11 @@
     "node-sass": "4.14.1",
     "nuxt-purgecss": "1.0.0",
     "sass-loader": "8.0.2",
-    "stylelint": "13.6.0",
+    "stylelint": "13.6.1",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
-    "stylelint-scss": "3.17.2"
+    "stylelint-scss": "3.18.0"
   },
   "engines": {
     "node": ">=10.0.0",

@@ -29,7 +29,7 @@ export default {
   head() {
     return {
       link: [
-        { rel: 'canonical', href: `${process.env.APP_URL}${this.$route.path}` },
+        { rel: 'canonical', href: `${this.$config.app.url}${this.$route.path}` },
       ],
     };
   },

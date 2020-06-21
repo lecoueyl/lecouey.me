@@ -9,15 +9,15 @@
     <ul class="o-list o-list--block o-type-m u-pv-x4">
       <li class="o-list__item">
         <a
-          :href="`mailto:${mail}`"
+          :href="`mailto:${$config.app.mail}`"
           class="c-link c-link-underline c-link--foreground"
         >
-          {{ mail }}
+          {{ $config.app.mail }}
         </a>
       </li>
 
       <li
-        v-for="(link, key) in links"
+        v-for="(link, key) in $config.links"
         :key="key"
         class="o-list__item"
       >
@@ -38,7 +38,7 @@
       <a
         slot="link"
         v-t="'links.social.github'"
-        :href="source"
+        :href="$config.app.source"
         target="_blank"
         rel="noopener noreferrer"
         class="c-link c-link-underline c-link--foreground"
@@ -53,19 +53,6 @@ import SvgDialogueBubbleTail from '~/assets/svg/dialogue-bubble-tail.svg?inline'
 export default {
   components: {
     SvgDialogueBubbleTail,
-  },
-
-  data() {
-    return {
-      mail: process.env.APP_MAIL,
-      source: process.env.LINKS_SOURCE,
-      links: {
-        codepen: process.env.LINKS_CODEPEN,
-        github: process.env.LINKS_GITHUB,
-        dribbble: process.env.LINKS_DRIBBBLE,
-        linkedin: process.env.LINKS_LINKEDIN,
-      },
-    };
   },
 };
 </script>

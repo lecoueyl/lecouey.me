@@ -1,19 +1,25 @@
-let env = require('dotenv').config().parsed;
-const envSample = require('dotenv').config({ path: '.env.sample' }).parsed;
 const i18n = require('./src/i18n');
 const i18nEn = require('./src/i18n/en.js');
 
-// Allow system env to overwrite dotenv file based on sample file
-if (!env) {
-  Object.keys(envSample).forEach((key) => {
-    envSample[key] = process.env[key];
-  });
-  env = envSample;
-}
-
 module.exports = {
   srcDir: 'src',
-  env,
+  target: 'static',
+  /*
+  ** Config
+  */
+  publicRuntimeConfig: {
+    app: {
+      url: process.env.APP_URL,
+      mail: process.env.APP_MAIL,
+      source: process.env.APP_SOURCE,
+    },
+    links: {
+      codepen: process.env.LINKS_CODEPEN,
+      dribbble: process.env.LINKS_DRIBBBLE,
+      github: process.env.LINKS_GITHUB,
+      linkedin: process.env.LINKS_LINKEDIN,
+    },
+  },
   /*
   ** Headers of the page
   */
@@ -37,15 +43,15 @@ module.exports = {
       { property: 'og:title', content: i18nEn.head.title },
       { property: 'og:description', content: i18nEn.head.description },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: env.APP_URL },
-      { property: 'og:image', content: `${env.APP_URL}/social.png` },
+      { property: 'og:url', content: process.env.APP_URL },
+      { property: 'og:image', content: `${process.env.APP_URL}/social.png` },
       { property: 'og:site_name', content: i18nEn.head.title },
 
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: i18nEn.head.title },
       { name: 'twitter:description', content: i18nEn.head.description },
-      { name: 'twitter:image', content: `${env.APP_URL}/social.png` },
-      { name: 'twitter:site', content: env.TWITTER_ACCOUNT },
+      { name: 'twitter:image', content: `${process.env.APP_URL}/social.png` },
+      { name: 'twitter:site', content: process.env.TWITTER_ACCOUNT },
     ],
 
     link: [
@@ -108,7 +114,7 @@ module.exports = {
   ** Sitemap
   */
   sitemap: {
-    hostname: env.APP_URL,
+    hostname: process.env.APP_URL,
     gzip: true,
     i18n: i18n.defaultLocale,
   },
