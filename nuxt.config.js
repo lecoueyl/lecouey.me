@@ -9,15 +9,15 @@ module.exports = {
   */
   publicRuntimeConfig: {
     app: {
-      mail: process.env.APP_MAIL,
-      source: process.env.APP_SOURCE,
-      url: process.env.APP_URL,
+      mail: process.env.APP_MAIL || 'leonard@lecouey.me',
+      source: process.env.APP_SOURCE || 'https://github.com/lecoueyl/lecouey.me',
+      url: process.env.APP_URL || 'https://www.lecouey.me',
     },
     links: {
-      codepen: process.env.LINKS_CODEPEN,
-      dribbble: process.env.LINKS_DRIBBBLE,
-      github: process.env.LINKS_GITHUB,
-      linkedin: process.env.LINKS_LINKEDIN,
+      codepen: process.env.LINKS_CODEPEN || 'https://codepen.io/llecouey',
+      dribbble: process.env.LINKS_DRIBBBLE || 'https://dribbble.com/llecouey',
+      github: process.env.LINKS_GITHUB || 'https://github.com/lecoueyl',
+      linkedin: process.env.LINKS_LINKEDIN || 'https://www.linkedin.com/in/llecouey',
     },
   },
   /*
