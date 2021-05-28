@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "2.3.2",
-    "gsap": "3.3.4",
+    "gsap": "3.6.0",
     "iotacss": "1.6.0",
     "nuxt": "2.13.0",
     "nuxt-i18n": "6.12.2",
