@@ -83,6 +83,15 @@ module.exports = {
       },
     ],
 
+    script: [
+      {
+        src: 'https://plausible.lecouey.me/js/plausible.js',
+        async: true,
+        defer: true,
+        'data-domain': 'lecouey.me',
+      },
+    ],
+
     bodyAttrs: {
       class: ['u-bgcolor-background'],
     },
