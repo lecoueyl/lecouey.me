@@ -1,6 +1,6 @@
 <template>
   <div
-    v-view="inViewHandler"
+    ref="section"
     :class="[
       'transition-opacity duration-300',
       inView ? 'opacity-100' : 'opacity-20',
@@ -11,19 +11,27 @@
 </template>
 
 <script>
-const inViewThreshold = 0.4;
-
 export default {
   data() {
     return {
-      inView: false,
+      inView: true,
     };
   },
 
-  methods: {
-    inViewHandler(event) {
-      this.inView = event.percentInView >= inViewThreshold;
-    },
+  mounted() {
+    if ('IntersectionObserver' in window) {
+      this.inView = false;
+
+      const callback = (entries) => {
+        this.inView = entries[0].isIntersecting;
+      };
+
+      const observer = new IntersectionObserver(callback, {
+        threshold: [0.4],
+      });
+
+      observer.observe(this.$refs.section);
+    }
   },
 };
 </script>

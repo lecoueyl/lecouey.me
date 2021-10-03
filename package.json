@@ -36,8 +36,7 @@
     "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/sitemap": "2.4.0",
     "gsap": "3.8.0",
-    "nuxt": "2.15.8",
-    "vue-check-view": "0.3.0"
+    "nuxt": "2.15.8"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",

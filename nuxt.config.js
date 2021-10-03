@@ -114,11 +114,6 @@ module.exports = {
     },
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/vue-check-view', ssr: false },
-  ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     ['@nuxtjs/i18n', i18n],
