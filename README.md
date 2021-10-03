@@ -1,11 +1,13 @@
 <div align="center">
   <img alt="Logo" src="https://raw.githubusercontent.com/lecoueyl/lecouey.me/master/src/static/social.png" width="300" />
 </div>
+
 <h1 align="center">
   lecouey.me
 </h1>
+
 <p align="center">
-  Personal website built with <a href="https://nuxtjs.org"target="_blank" rel="noopener noreferrer">NuxtJS</a>, <a href="https://www.iotacss.com"target="_blank" rel="noopener noreferrer">iotaCSS</a>, <a href="https://greensock.com"target="_blank" rel="noopener noreferrer">GSAP</a> and hosted on <a href="https://www.netlify.com"target="_blank" rel="noopener noreferrer">Netlify</a>
+  Personal website built with <a href="https://nuxtjs.org"target="_blank" rel="noopener noreferrer">NuxtJS</a>, <a href="https://www.tailwindcss.com"target="_blank" rel="noopener noreferrer">Tailwind CSS</a>, <a href="https://greensock.com"target="_blank" rel="noopener noreferrer">GSAP</a> and hosted on <a href="https://www.netlify.com"target="_blank" rel="noopener noreferrer">Netlify</a>
 </p>
 
 <p align="center">
@@ -31,7 +33,7 @@
 3. Set environment variable
 
    ```sh
-   touch .env
+   cp .env.sample .env
    ```
 
 4. Start the development server
@@ -45,10 +47,10 @@
 1. Generate a full static production build
 
    ```sh
-   nuxt build && nuxt export
+   npm run generate
    ```
 
-1. Preview the site as it will appear once deployed
+2. Preview the site as it will appear once deployed
 
    ```sh
    npm serve
@@ -56,16 +58,13 @@
 
 ## 🎨 Color Reference
 
-| Color      | Hex                                                                |
-| ---------- | ------------------------------------------------------------------ |
-| Primary    | ![#f0323c](https://via.placeholder.com/10/f0323c?text=+) `#f0323c` |
-| Secondary  | ![#d250e6](https://via.placeholder.com/10/d250e6?text=+) `#d250e6` |
-| Tertiary   | ![#facd23](https://via.placeholder.com/10/facd23?text=+) `#facd23` |
-| Quaternary | ![#13a5ee](https://via.placeholder.com/10/13a5ee?text=+) `#13a5ee` |
-| Foreground | ![#f5f5f5](https://via.placeholder.com/10/f5f5f5?text=+) `#f5f5f5` |
-| Background | ![#0b0b0b](https://via.placeholder.com/10/0b0b0b?text=+) `#0b0b0b` |
-| Wash Dark  | ![#c2c2c2](https://via.placeholder.com/10/c2c2c2?text=+) `#c2c2c2` |
-| Wash Light | ![#8f8f8f](https://via.placeholder.com/10/8f8f8f?text=+) `#8f8f8f` |
+| Color                  | Light                                                                            | Dark
+| ---------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| primary                | ![#8e4ec6](https://via.placeholder.com/10/8e4ec6?text=+) `hsl(272, 51%, 54%)`    | ![#8e4ec6](https://via.placeholder.com/10/8e4ec6?text=+) `hsl(272, 51%, 54%)`  |
+| foreground             | ![#1a1523](https://via.placeholder.com/10/1a1523?text=+) `hsl(260, 25%, 11%)`    | ![#ededef](https://via.placeholder.com/10/ededef?text=+) `hsl(256, 6%, 93.2%)` |
+| background             | ![#fdfcfd](https://via.placeholder.com/10/fdfcfd?text=+) `hsl(300, 20%, 99%)`    | ![#161618](https://via.placeholder.com/10/161618?text=+) `hsl(246, 6%, 9%)`    |
+| wash-background        | ![#6f6e77](https://via.placeholder.com/10/6f6e77?text=+) `hsl(252, 4%, 44.8%)`   | ![#a09fa6](https://via.placeholder.com/10/a09fa6?text=+) `hsl(253, 4%, 63.7%)` |
+| wash-muted             | ![#f4f2f4](https://via.placeholder.com/10/f4f2f4?text=+) `hsl(294, 5.5%, 95.3%)`∏ | ![#232326](https://via.placeholder.com/10/232326?text=+) `hsl(241, 5%, 14.3%)` |
 
 ## 📏 Code lint
 
@@ -73,7 +72,7 @@
 | -------- | --------------------------- |
 | js       | airbnb/base                 |
 | vue      | vue/recommended             |
-| scss     | stylelint/standard          |
+| css      | stylelint/standard          |
 
 ## ♻️ Forking this repo
 
@@ -81,4 +80,6 @@ Feel free to fork this repo. If you do, please let me know so I can see what bea
 If you use it as your perosnal website, don't forget to credit me by linking back to my website, https://lecouey.me.
 
 ---
-<sup>README inspired from [@bchiang7](https://github.com/bchiang7/v4)</sup>
+<sup>
+   README inspired from <a href="https://github.com/bchiang7/v4"target="_blank" rel="noopener noreferrer">@bchiang7</a>
+</sup>

@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
   },
   env: {
     browser: true,
@@ -32,7 +33,6 @@ module.exports = {
       ],
     }],
   },
-  globals: {},
   settings: {
     'import/resolver': {
       webpack: 'webpack.config.js',

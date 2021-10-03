@@ -1,29 +1,27 @@
 <template>
-  <div class="o-type-m c-chat u-height-100vh">
-    <div class="c-chat__messages u-12/12 u-relative">
+  <div class="flex flex-col gap-10 h-full text-2xl">
+    <div class="flex-grow relative">
       <TransitionTranslateY
         group
         tag="ul"
-        class="o-list o-list--block c-chat__thread u-absolute u-12/12"
+        class="absolute w-full right-0 left-0 bottom-0"
       >
         <li
           v-for="(message, index) in chatThread"
           :key="index"
-          class="o-list__item c-chat__message-container"
-          :class="{ 'u-color-primary u-text-right u-mv-x4': message.reply }"
+          class="transition duration-150 ease-out"
+          :class="{ 'py-10 text-primary text-right': message.reply }"
         >
-          <div class="c-chat__message u-inline-block">
+          <div class="inline-block">
             <img
               v-if="message.action === 'cat-gif'"
               src="~assets/images/cat-hello.gif"
               alt="cat"
+              class="rounded-xl"
             >
 
             <span v-if="message.content">
-              <template
-                v-if="message.reply"
-                v-t="`chat.content.me.${message.content}`"
-              >
+              <template v-if="message.reply">
                 {{ $t(`chat.content.visitor.${message.content}`) }}
               </template>
 
@@ -31,7 +29,7 @@
                 {{ $t(`chat.content.me.${message.content}`) }}
                 <span
                   v-if="message.content === 'hi'"
-                  class="o-anim-hi"
+                  class="animate-wave inline-block"
                 >
                   👋
                 </span>
@@ -42,16 +40,16 @@
       </TransitionTranslateY>
     </div>
 
-    <div class="u-overlay-hidden u-pb-x6@xs">
-      <div class="o-media u-pv-x2 u-mt-x4 u-text-center u-12/12 u-overflow-hidden">
+    <div class="overflow-hidden pt-4 pb-8">
+      <div class="flex text-center">
         <div
           v-for="(answer, index) in replies"
           :key="index"
-          class="c-chat__answer o-media__fluid u-ph@xs u-ph-x4@sm"
+          class="w-full px-4"
         >
           <button
-            class="c-button c-button-outline c-button--secondary u-12/12 u-p"
             :class="{ 'c-button--is-active': !isSending }"
+            class="c-chat__answer w-full rounded-full p-4 border-2 border-foreground"
             @click="sendAnswer(answer.id, index)"
           >
             {{ $t(`chat.replies.${answer.reply}`) }}
@@ -60,11 +58,11 @@
 
         <!-- Dummy element to simulate container height -->
         <div
-          class="o-transition-hide-slideup o-media__fixed"
-          style=" width: 0; visibility: hidden;"
+          class="w-0 invisible"
+          aria-hidden="true"
         >
-          <div class="c-button c-button-outline c-button--secondary u-12/12 u-pv">
-            &nbsp;
+          <div class="py-4 border-2">
+            &#8203;
           </div>
         </div>
       </div>
@@ -77,8 +75,7 @@ import gsap from 'gsap';
 import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
-import { ease } from '~/components/transitions';
-import TransitionTranslateY from '~/components/transitions/TransitionTranslateY';
+import { ease } from '~/components/transition';
 
 const animeReplies = {
   targets: '.c-chat__answer',
@@ -86,10 +83,6 @@ const animeReplies = {
 };
 
 export default {
-  components: {
-    TransitionTranslateY,
-  },
-
   data() {
     return {
       isSending: false,
@@ -348,31 +341,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.c-chat {
-  display: flex;
-  flex-direction: column;
-}
-
-.c-chat__messages {
-  flex: 1 0 auto;
-  overflow: hidden;
-}
-
-.c-chat__thread {
-  bottom: 0;
-  left: 0;
-}
-
-.c-chat__message {
-  max-width: 80%;
-}
-
-.c-chat__message-container {
-  transition-timing-function: $anim-transition-timing-move;
-  transition-duration: 0.4s;
-  transition-property: opacity, transform;
-  will-change: opacity, transform;
-}
-</style>

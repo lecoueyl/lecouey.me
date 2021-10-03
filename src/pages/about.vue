@@ -1,41 +1,37 @@
 <template>
-  <div class="u-pt-x10">
-    <section class="o-type-l o-container p-about__hero u-color-primary u-mv-x4@xs u-mv-x10@sm u-text-center u-whitespace-pre">
+  <div class="pt-32 space-y-16 sm:space-y-24">
+    <LayoutContainer class="g-about__hero text-center text-3xl whitespace-pre sm:text-7xl">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
-        class="u-overflow-hidden"
+        class="overflow-hidden leading-tight"
       >
         <span
           v-for="word in sentence"
           :key="word"
-          class="u-inline-block"
+          class="inline-block"
         >{{ word }}</span>
       </p>
-    </section>
+    </LayoutContainer>
 
-    <section class="o-container u-color-wash-light u-mv-x4@xs u-mv-x10@sm">
-      <SvgDevices />
-    </section>
+    <div class="sm:py-16">
+      <SvgDevices class="w-full h-full" />
+    </div>
 
-    <AboutSection class="o-container">
+    <AboutSection>
       <AboutArticle>
-        <template v-slot:title>
+        <template #title>
           {{ $t('about.title') }}
         </template>
 
-        <i18n
-          path="about.me.intro"
-          tag="p"
-          class="o-type-m u-color-foreground"
-        >
-          <span slot="year">{{ workedSpan }}</span>
-        </i18n>
+        <p>
+          {{ $t('about.me.intro', { year: workedSpan }) }}
+        </p>
 
         <p
           v-for="paragraph in ['current', 'history', 'moto']"
           :key="paragraph"
-          class="o-type-m u-color-foreground u-pv"
+          class="py-2"
         >
           {{ $t(`about.me.${paragraph}`) }}
         </p>
@@ -43,16 +39,15 @@
         <i18n
           path="about.me.linkedin"
           tag="p"
-          class="o-type-m u-color-foreground"
         >
-          <a
-            slot="linkedin"
-            v-t="'links.social.linkedin'"
-            :href="$config.links.linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="c-link c-link-underline c-link--primary"
-          />
+          <template #linkedin>
+            <UiLink
+              :href="$config.links.linkedin"
+              external
+            >
+              {{ $t('links.social.linkedin') }}
+            </UiLink>
+          </template>
         </i18n>
       </AboutArticle>
     </AboutSection>
@@ -61,32 +56,30 @@
       <AboutSkill />
     </AboutSection>
 
-    <AboutSection class="o-container">
+    <AboutSection>
       <AboutArticle>
-        <template v-slot:title>
+        <template #title>
           {{ $t('about.cv.title') }}
         </template>
 
-        <ul class="o-list o-list--block u-color-foreground">
+        <ul>
           <li
             v-for="period in resume"
             :key="period.workplace"
-            class="o-list__item"
+            class="pb-8 sm:grid sm:grid-cols-5 sm:gap-4 sm:pb-16"
           >
-            <div class="o-grid">
-              <div class="o-grid__col o-type-m u-5/12@sm">
-                {{ $d(new Date(period.from), 'year') }}
-                <template v-if="period.to && (period.from !== period.to)">
-                  ー {{ $d(new Date(period.to), 'year') }}
-                </template>
-              </div>
+            <div class="sm:col-span-2 text-wash-muted">
+              {{ $d(new Date(period.from), 'year') }}
+              <template v-if="period.to && (period.from !== period.to)">
+                ー {{ $d(new Date(period.to), 'year') }}
+              </template>
+            </div>
 
-              <div class="o-grid__col u-7/12@sm u-pl-x4@xs">
-                <span class="o-type-m">{{ period.workplace }}</span>
-                <sup class="o-type-xs">{{ period.location }}</sup>
-                <p class="o-type-s">
-                  {{ period.job }}
-                </p>
+            <div class="sm:col-span-3">
+              {{ period.workplace }}
+              <sup class="text-sm">{{ period.location }}</sup>
+              <div class="text-lg">
+                {{ period.job }}
               </div>
             </div>
           </li>
@@ -98,10 +91,7 @@
 
 <script>
 import gsap from 'gsap';
-import { ease } from '~/components/transitions';
-import AboutArticle from '~/components/about/AboutArticle';
-import AboutSection from '~/components/about/AboutSection';
-import AboutSkill from '~/components/about/AboutSkill';
+import { ease } from '~/components/transition';
 import transitionPage from '~/mixins/transitionPage';
 import SvgDevices from '~/assets/svg/devices.svg?inline';
 
@@ -112,9 +102,6 @@ const animeHero = {
 
 export default {
   components: {
-    AboutArticle,
-    AboutSection,
-    AboutSkill,
     SvgDevices,
   },
 
@@ -169,6 +156,12 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: this.$t('links.about'),
+    };
+  },
+
   beforeDestroy() {
     gsap.killTweensOf('.i-devices__item');
   },
@@ -180,7 +173,7 @@ export default {
 
   methods: {
     animeHeroText() {
-      gsap.fromTo('.p-about__hero p', {
+      gsap.fromTo('.g-about__hero p', {
         rotate: 10,
         transformOrigin: 'left bottom',
       },
@@ -191,7 +184,7 @@ export default {
         rotate: 0,
       }).then(() => this.$store.commit('setPageTransitioning', false));
 
-      gsap.fromTo('.p-about__hero span', {
+      gsap.fromTo('.g-about__hero span', {
         yPercent: 120,
       },
       {
@@ -230,12 +223,6 @@ export default {
         });
       });
     },
-  },
-
-  head() {
-    return {
-      title: this.$t('links.about'),
-    };
   },
 };
 </script>

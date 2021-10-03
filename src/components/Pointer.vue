@@ -1,11 +1,11 @@
 <template>
   <div
-    ref="cursor"
-    class="c-cursor u-hidden@xs u-zindex-cursor"
+    ref="pointer"
+    class="hidden fixed inset-0 -left-5 -top-5 w-10 h-10 select-none pointer-events-none sm:block"
   >
     <div
       ref="dot"
-      class="c-cursor__dot"
+      class="w-full h-full border-2 border-primary rounded-full"
     />
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import gsap from 'gsap';
 
-const cursor = {
+const pointer = {
   scale: 1.4,
   duration: {
     move: 0.3,
@@ -24,8 +24,8 @@ const cursor = {
 export default {
   data() {
     return {
-      isHoverLink: false,
-      linkElement: [
+      isHoverActionElement: false,
+      actionElements: [
         'button',
         'a',
       ],
@@ -46,61 +46,66 @@ export default {
 
   methods: {
     onMouseMove(event) {
-      // show cursur if inside the dom
+      // show pointer if inside the dom
       if (this.isOutsideDom) {
         this.isOutsideDom = false;
-        this.scaleCursor(1);
+        this.scalePointer(1);
       }
 
-      // hide cursor when exiting the window
+      // hide pointer when exiting the window
       if (event.clientY <= 0
          || event.clientX <= 0
-         || (event.clientX + 20 >= window.innerWidth || event.clientY + 20 >= window.innerHeight)) {
+         || (event.clientX + 20 >= window.innerWidth
+         || event.clientY + 20 >= window.innerHeight)
+      ) {
         this.isOutsideDom = true;
-        this.scaleCursor(0);
+        this.scalePointer(0);
       }
 
-      // move cursor
-      gsap.to(this.$refs.cursor, {
-        duration: cursor.duration.move,
+      // move pointer
+      gsap.to(this.$refs.pointer, {
+        duration: pointer.duration.move,
         x: event.clientX,
         y: event.clientY,
       });
 
+      const actionElement = event.target.closest(this.actionElements.join(','));
       // onMouseEnter
-      if (this.linkElement.includes(event.target.localName) && !this.isHoverLink) {
-        this.onMouseEnter();
+      if (actionElement && !this.isHoverActionElement) {
+        this.onMouseEnter(actionElement);
       }
 
       // onMouseLeave
-      if (!this.linkElement.includes(event.target.localName) && this.isHoverLink) {
+      if (!actionElement && this.isHoverActionElement) {
         this.onMouseLeave();
       }
     },
 
-    onMouseEnter() {
-      this.isHoverLink = true;
-      this.scaleCursor(cursor.scale);
+    onMouseEnter(element) {
+      if (element.getAttribute('disabled')) return;
+
+      this.isHoverActionElement = true;
+      this.scalePointer(pointer.scale);
     },
 
     onMouseLeave() {
-      this.isHoverLink = false;
-      this.scaleCursor(1);
+      this.isHoverActionElement = false;
+      this.scalePointer(1);
     },
 
     onMouseDown() {
-      const scale = this.isHoverLink ? cursor.scale * 1.2 : 0.8;
-      this.scaleCursor(scale);
+      const scale = this.isHoverActionElement ? pointer.scale * 1.2 : 0.8;
+      this.scalePointer(scale);
     },
 
     onMouseUp() {
-      const scale = this.isHoverLink ? cursor.scale : 1;
-      this.scaleCursor(scale);
+      const scale = this.isHoverActionElement ? pointer.scale : 1;
+      this.scalePointer(scale);
     },
 
-    scaleCursor(scale) {
+    scalePointer(scale) {
       gsap.to(this.$refs.dot, {
-        duration: cursor.duration.scale,
+        duration: pointer.duration.scale,
         ease: 'back.out(3)',
         scale,
       });
@@ -108,26 +113,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-$cursor-size: 30px;
-
-.c-cursor {
-  position: fixed;
-  top: -$cursor-size/2;
-  left: -$cursor-size/2;
-  width: $cursor-size;
-  height: $cursor-size;
-  user-select: none;
-  pointer-events: none;
-}
-
-.c-cursor__dot {
-  width: 100%;
-  height: 100%;
-  border-color: $color-accent-primary;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 100%;
-}
-</style>
