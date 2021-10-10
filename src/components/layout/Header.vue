@@ -83,14 +83,12 @@ export default {
     SvgLogo,
   },
 
-  data() {
-    return {
-      currentScrollPosition: 0,
-      scrolledOut: true,
-      clickedIndex: 0,
-      menu: ['about'],
-    };
-  },
+  data: () => ({
+    currentScrollPosition: 0,
+    scrolledOut: true,
+    clickedIndex: 0,
+    menu: ['about'],
+  }),
 
   computed: mapState([
     'loading',

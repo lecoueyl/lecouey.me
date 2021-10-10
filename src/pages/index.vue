@@ -8,21 +8,14 @@
 </template>
 
 <script>
-import Chat from '~/components/Chat';
 import transitionPage from '~/mixins/transitionPage';
 
 export default {
-  components: {
-    Chat,
-  },
-
   mixins: [transitionPage],
 
-  data() {
-    return {
-      chatInitated: false,
-    };
-  },
+  data: () => ({
+    chatInitated: false,
+  }),
 
   head() {
     return {

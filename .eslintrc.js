@@ -17,14 +17,6 @@ module.exports = {
   ],
   rules: {
     'max-len': ['error', { code: 160 }],
-    'import/no-extraneous-dependencies': 0,
-    'no-underscore-dangle': 0,
-    'import/extensions': ['error', 'always', {
-      js: 'never',
-      vue: 'never',
-      svg: 'never',
-    }],
-
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {
       ignores: [
         'nuxt',

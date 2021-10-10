@@ -22,15 +22,13 @@ const pointer = {
 };
 
 export default {
-  data() {
-    return {
-      isHoverActionElement: false,
-      actionElements: [
-        'button',
-        'a',
-      ],
-    };
-  },
+  data: () => ({
+    isHoverActionElement: false,
+    actionElements: [
+      'button',
+      'a',
+    ],
+  }),
 
   beforeMount() {
     document.addEventListener('mousemove', this.onMouseMove);

@@ -83,131 +83,129 @@ const animeReplies = {
 };
 
 export default {
-  data() {
-    return {
-      isSending: false,
-      visitorReplied: null,
-      sendDelay: 1000,
-      history: [],
-      replies: [],
-      script: [
-        {
-          id: 0,
-          content: 'hi',
-          next: 1,
-        },
-        {
-          id: 1,
-          content: 'howAreYou',
-          next: [2, 3],
-        },
-        {
-          id: 2,
-          reply: 'great',
-          content: 'awesome',
-          next: 4,
-        },
-        {
-          id: 3,
-          reply: 'meh',
-          content: 'notGood',
-          next: 5,
-        },
-        {
-          id: 4,
-          content: 'fantastic',
-          next: 8,
-        },
-        {
-          id: 5,
-          content: 'oh',
-          next: 6,
-        },
-        {
-          id: 6,
-          content: 'cheer',
-          next: 7,
-        },
-        {
-          id: 7,
-          action: 'cat-gif',
-          next: [9],
-        },
-        {
-          id: 8,
-          content: 'leonard',
-          next: [10, 11],
-        },
-        {
-          id: 9,
-          reply: 'thanks',
-          content: 'thanks',
-          next: 8,
-        },
-        {
-          id: 10,
-          reply: 'who',
-          content: 'living',
-          next: 14,
-        },
-        {
-          id: 11,
-          reply: 'iKnow',
-          content: 'friends',
-          next: 12,
-        },
-        {
-          id: 12,
-          content: 'bye',
-          next: [13],
-        },
-        {
-          id: 13,
-          reply: 'bye',
-          content: 'seeYou',
-          next: [100],
-        },
-        {
-          id: 14,
-          content: 'profession',
-          next: [15, 16],
-        },
-        {
-          id: 15,
-          reply: 'where',
-          content: 'where',
-          next: 17,
-        },
-        {
-          id: 16,
-          reply: 'andSo',
-          content: 'boring',
-          next: 18,
-        },
-        {
-          id: 17,
-          content: 'workplace',
-          next: [19],
-        },
-        {
-          id: 18,
-          content: 'challenging',
-          next: [15],
-        },
-        {
-          id: 19,
-          reply: 'bye',
-          content: 'seeYou',
-          next: 20,
-        },
-        {
-          id: 20,
-          content: 'bye',
-          next: [100],
-        },
-      ],
-    };
-  },
+  data: () => ({
+    isSending: false,
+    visitorReplied: null,
+    sendDelay: 1000,
+    history: [],
+    replies: [],
+    script: [
+      {
+        id: 0,
+        content: 'hi',
+        next: 1,
+      },
+      {
+        id: 1,
+        content: 'howAreYou',
+        next: [2, 3],
+      },
+      {
+        id: 2,
+        reply: 'great',
+        content: 'awesome',
+        next: 4,
+      },
+      {
+        id: 3,
+        reply: 'meh',
+        content: 'notGood',
+        next: 5,
+      },
+      {
+        id: 4,
+        content: 'fantastic',
+        next: 8,
+      },
+      {
+        id: 5,
+        content: 'oh',
+        next: 6,
+      },
+      {
+        id: 6,
+        content: 'cheer',
+        next: 7,
+      },
+      {
+        id: 7,
+        action: 'cat-gif',
+        next: [9],
+      },
+      {
+        id: 8,
+        content: 'leonard',
+        next: [10, 11],
+      },
+      {
+        id: 9,
+        reply: 'thanks',
+        content: 'thanks',
+        next: 8,
+      },
+      {
+        id: 10,
+        reply: 'who',
+        content: 'living',
+        next: 14,
+      },
+      {
+        id: 11,
+        reply: 'iKnow',
+        content: 'friends',
+        next: 12,
+      },
+      {
+        id: 12,
+        content: 'bye',
+        next: [13],
+      },
+      {
+        id: 13,
+        reply: 'bye',
+        content: 'seeYou',
+        next: [100],
+      },
+      {
+        id: 14,
+        content: 'profession',
+        next: [15, 16],
+      },
+      {
+        id: 15,
+        reply: 'where',
+        content: 'where',
+        next: 17,
+      },
+      {
+        id: 16,
+        reply: 'andSo',
+        content: 'boring',
+        next: 18,
+      },
+      {
+        id: 17,
+        content: 'workplace',
+        next: [19],
+      },
+      {
+        id: 18,
+        content: 'challenging',
+        next: [15],
+      },
+      {
+        id: 19,
+        reply: 'bye',
+        content: 'seeYou',
+        next: 20,
+      },
+      {
+        id: 20,
+        content: 'bye',
+        next: [100],
+      },
+    ],
+  }),
 
   computed: mapState([
     'chatThread',

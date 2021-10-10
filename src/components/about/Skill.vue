@@ -77,14 +77,12 @@ export default {
     SvgArrowRight,
   },
 
-  data() {
-    return {
-      mouseDownPositionX: null,
-      slidesBoundaryWidth: 0,
-      slideWidth: 0,
-      scrollLeft: 0,
-    };
-  },
+  data: () => ({
+    mouseDownPositionX: null,
+    slidesBoundaryWidth: 0,
+    slideWidth: 0,
+    scrollLeft: 0,
+  }),
 
   computed: {
     canSlideLeft() {

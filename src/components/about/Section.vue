@@ -12,11 +12,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      inView: true,
-    };
-  },
+  data: () => ({
+    inView: true,
+  }),
 
   mounted() {
     if ('IntersectionObserver' in window) {
