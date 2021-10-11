@@ -25,16 +25,16 @@ export default {
       },
       {
         duration: this.durationEnter,
-        opacity: 1,
         onComplete: done,
+        opacity: 1,
       });
     },
 
     leave(el, done) {
       gsap.to(el, {
         duration: this.durationEnter,
-        opacity: 0,
         onComplete: done,
+        opacity: 0,
       });
     },
   },

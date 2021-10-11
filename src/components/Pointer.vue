@@ -14,20 +14,20 @@
 import gsap from 'gsap';
 
 const pointer = {
-  scale: 1.4,
   duration: {
     move: 0.3,
     scale: 0.4,
   },
+  scale: 1.4,
 };
 
 export default {
   data: () => ({
-    isHoverActionElement: false,
     actionElements: [
-      'button',
       'a',
+      'button',
     ],
+    isHoverActionElement: false,
   }),
 
   beforeMount() {

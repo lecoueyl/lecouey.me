@@ -84,10 +84,10 @@ export default {
   },
 
   data: () => ({
-    currentScrollPosition: 0,
-    scrolledOut: true,
     clickedIndex: 0,
+    currentScrollPosition: 0,
     menu: ['about'],
+    scrolledOut: true,
   }),
 
   computed: mapState([
@@ -114,9 +114,9 @@ export default {
 
   mounted() {
     gsap.set(animeHeader.targets, {
-      yPercent: animeHeader.yPercent,
       rotate: 5,
       transformOrigin: 'left bottom',
+      yPercent: animeHeader.yPercent,
     });
   },
 
@@ -128,14 +128,14 @@ export default {
         gsap.to(animeHeader.targets, {
           duration: animeHeader.duration,
           ease: ease.leave,
-          yPercent: show ? 0 : animeHeader.yPercent,
           rotate: show ? 0 : 5,
-          transformOrigin: 'left bottom',
           stagger: {
             amount: animeHeader.stagger,
             from: this.clickedIndex,
             grid: 'auto',
           },
+          transformOrigin: 'left bottom',
+          yPercent: show ? 0 : animeHeader.yPercent,
         });
       }, timeoutAnime);
     },

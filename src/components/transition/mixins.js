@@ -2,8 +2,8 @@ export default {
   inheritAttrs: false,
   props: {
     duration: {
-      type: [Number, Object],
       default: 0.3,
+      type: [Number, Object],
     },
 
     group: {
@@ -12,17 +12,17 @@ export default {
     },
 
     tag: {
-      type: String,
       default: 'span',
+      type: String,
     },
 
     mode: {
       default: null,
       type: String,
       validator: (value) => [
-        null,
         'in-out',
         'out-in',
+        null,
       ].includes(value),
     },
   },

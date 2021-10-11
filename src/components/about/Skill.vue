@@ -79,9 +79,9 @@ export default {
 
   data: () => ({
     mouseDownPositionX: null,
-    slidesBoundaryWidth: 0,
-    slideWidth: 0,
     scrollLeft: 0,
+    slideWidth: 0,
+    slidesBoundaryWidth: 0,
   }),
 
   computed: {

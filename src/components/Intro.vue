@@ -20,10 +20,10 @@ import { ease } from '~/components/transition';
 export default {
   mounted() {
     gsap.set('.g-intro__item', {
-      yPercent: 100,
-      rotate: 5,
       opacity: 0,
+      rotate: 5,
       transformOrigin: 'left bottom',
+      yPercent: 100,
     });
 
     gsap.set('.c-intro__list', {
@@ -32,31 +32,31 @@ export default {
 
     gsap.timeline({ onComplete: () => this.$store.commit('setIntroFinished') })
       .to('.g-intro__item', {
-        duration: 0.6,
         delay: 0.6,
+        duration: 0.6,
         ease: ease.leave,
+        opacity: 1,
+        rotate: 0,
         stagger: {
           from: 'end',
           amount: 0.2,
         },
         yPercent: 0,
-        rotate: 0,
-        opacity: 1,
       })
       .to('.g-intro__item', {
-        duration: 0.6,
         delay: 0.6,
+        duration: 0.6,
         ease: ease.leave,
-        stagger: 0.1,
-        yPercent: -100,
-        rotate: 5,
         opacity: 0,
+        rotate: 5,
+        stagger: 0.1,
         transformOrigin: 'top right',
+        yPercent: -100,
       })
       .to('.g-intro', {
+        autoAlpha: 0,
         duration: 1,
         ease: ease.leave,
-        autoAlpha: 0,
       }, '-=0.4');
   },
 };

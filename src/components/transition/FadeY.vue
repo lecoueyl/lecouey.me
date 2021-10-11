@@ -26,18 +26,18 @@ export default {
       },
       {
         duration: this.durationEnter,
+        onComplete: done,
         opacity: 1,
         yPercent: 0,
-        onComplete: done,
       });
     },
 
     leave(el, done) {
       gsap.to(el, {
         duration: this.durationLeave,
+        onComplete: done,
         opacity: 0,
         yPercent: -100,
-        onComplete: done,
       });
     },
   },

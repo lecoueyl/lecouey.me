@@ -31,9 +31,9 @@ export default {
       gsap.to(el, {
         duration: this.durationEnter,
         ease: ease.enter,
+        onComplete: done,
         opacity: 1,
         yPercent: 0,
-        onComplete: done,
       });
     },
 
@@ -41,9 +41,9 @@ export default {
       gsap.to(el, {
         duration: this.durationLeave,
         ease: ease.leave,
+        onComplete: done,
         opacity: 0,
         yPercent: 100,
-        onComplete: done,
       });
     },
   },
