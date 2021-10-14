@@ -7,7 +7,7 @@
         class="absolute w-full right-0 left-0 bottom-0"
       >
         <li
-          v-for="(message, index) in chatThread"
+          v-for="(message, index) in $store.state.chatThread"
           :key="index"
           class="transition duration-150 ease-out"
           :class="{ 'py-10 text-primary text-right': message.reply }"
@@ -72,7 +72,6 @@
 
 <script>
 import gsap from 'gsap';
-import { mapState } from 'vuex';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
 import { ease } from '~/components/transition';
@@ -207,10 +206,6 @@ export default {
     ],
   }),
 
-  computed: mapState([
-    'chatThread',
-  ]),
-
   mounted() {
     // init chat thread
     const lastMessage = this.getLastMessage();
@@ -245,7 +240,6 @@ export default {
       });
       thread.then(() => {
         this.setReplies();
-        this.$emit('chatInitated');
       });
     },
 
@@ -274,7 +268,7 @@ export default {
     },
 
     getLastMessage() {
-      return this.chatThread[this.chatThread.length - 1];
+      return this.$store.state.chatThread[this.$store.state.chatThread.length - 1];
     },
 
     setReplies() {

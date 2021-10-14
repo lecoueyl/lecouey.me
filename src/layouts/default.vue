@@ -1,13 +1,9 @@
 <template>
   <div>
-    <Intro v-if="!$store.state.introFinished" />
-
+    <Loading />
     <Pointer />
-
     <LayoutHeader />
-
     <nuxt role="main" />
-
     <LayoutFooter />
   </div>
 </template>

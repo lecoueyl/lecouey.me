@@ -67,7 +67,6 @@
 
 <script>
 import gsap from 'gsap';
-import { mapState } from 'vuex';
 import { ease } from '~/components/transition';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
@@ -90,17 +89,17 @@ export default {
     scrolledOut: true,
   }),
 
-  computed: mapState([
-    'loading',
-    'pageTransitioning',
-  ]),
-
   watch: {
-    pageTransitioning(showMenu) {
-      this.animeMenu(!showMenu);
+    '$store.state.pageTransitioning': {
+      handler(newValue) {
+        if (this.$store.state.loading) return;
+        this.animeMenu(!newValue);
+      },
     },
-    loading(loading) {
-      this.animeMenu(!loading);
+    '$store.state.loading': {
+      handler(newValue) {
+        this.animeMenu(!newValue);
+      },
     },
   },
 
@@ -151,11 +150,11 @@ export default {
 
     switchLocale(localeCode) {
       const timeoutLoading = 1000;
-      this.$store.commit('setLoading', true);
+      this.$nuxt.$emit('start');
       setTimeout(() => {
         this.$router.push(this.switchLocalePath(localeCode));
         setTimeout(() => {
-          this.$store.commit('setLoading', false);
+          this.$nuxt.$emit('finish');
         }, timeoutLoading);
       }, timeoutLoading);
     },

@@ -5,6 +5,12 @@ module.exports = {
     keywords: 'フルスタック,フルスタックエンジニア,デザイナー,テックリーダー,開発者',
   },
 
+  theme: {
+    dark: 'ダーク',
+    light: 'ライト',
+    system: 'システム',
+  },
+
   links: {
     index: 'ホーム',
     about: 'プロフィール',
