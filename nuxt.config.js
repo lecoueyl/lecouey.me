@@ -43,8 +43,7 @@ module.exports = {
       { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
       { name: 'bingbot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
 
-      { name: 'msapplication-TileColor', content: '#f5f5f5' },
-      { name: 'theme-color', content: '#f5f5f5' },
+      { name: 'msapplication-TileColor', content: '#fdfcfd' },
 
       { property: 'og:title', content: i18nEn.head.title },
       { property: 'og:description', content: i18nEn.head.description },
