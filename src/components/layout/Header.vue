@@ -5,7 +5,7 @@
       class="fixed z-40 w-full left-0 top-0 right-0 px-4 py-4 sm:px-6 sm:py-8 xl:px-12"
     >
       <div class="flex items-center font-medium text-lg overflow-hidden">
-        <div class="gsap-header__item flex items-center">
+        <div class="c-header__item flex items-center">
           <nuxt-link
             key="logo"
             :to="localePath('index')"
@@ -17,7 +17,7 @@
           </nuxt-link>
         </div>
 
-        <div class="gsap-header__item flex-grow pl-2">
+        <div class="c-header__item flex-grow pl-2">
           <nuxt-link
             key="name"
             :to="localePath('index')"
@@ -32,7 +32,7 @@
             <li
               v-for="(item, index) in menu"
               :key="item"
-              class="gsap-header__item"
+              class="c-header__item"
               @click="clickedIndex = index + 2"
             >
               <nuxt-link
@@ -47,7 +47,7 @@
               <li
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
-                class="gsap-header__item"
+                class="c-header__item"
                 @click="clickedIndex = menu.length + index + 1"
               >
                 <button
@@ -71,7 +71,7 @@ import { ease } from '~/components/transition';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
-  targets: '.gsap-header__item',
+  targets: '.c-header__item',
   duration: 1,
   stagger: 0.3,
   yPercent: 150,
@@ -150,11 +150,11 @@ export default {
 
     switchLocale(localeCode) {
       const timeoutLoading = 1000;
-      this.$nuxt.$emit('start');
+      this.$nuxt.$emit('loading', true);
       setTimeout(() => {
         this.$router.push(this.switchLocalePath(localeCode));
         setTimeout(() => {
-          this.$nuxt.$emit('finish');
+          this.$nuxt.$emit('loading', false);
         }, timeoutLoading);
       }, timeoutLoading);
     },

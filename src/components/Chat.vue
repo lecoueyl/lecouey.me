@@ -48,8 +48,7 @@
           class="w-full px-4"
         >
           <button
-            :class="{ 'c-button--is-active': !isSending }"
-            class="c-chat__answer w-full rounded-full p-4 border-2 border-foreground"
+            class="c-chat__answer w-full rounded-full p-4 border-2 border-foreground hover:border-primary transition-colors"
             @click="sendAnswer(answer.id, index)"
           >
             {{ $t(`chat.replies.${answer.reply}`) }}
@@ -206,18 +205,29 @@ export default {
     ],
   }),
 
-  mounted() {
-    // init chat thread
-    const lastMessage = this.getLastMessage();
+  watch: {
+    '$store.state.loading': {
+      handler(newValue) {
+        if (!newValue) this.init();
+      },
+    },
+  },
 
-    if (lastMessage === undefined) {
-      this.sendMessage();
-    } else if (Array.isArray(lastMessage.next)) {
-      this.setReplies();
-    }
+  mounted() {
+    if (!this.$store.state.loading) this.init();
   },
 
   methods: {
+    init() {
+      const lastMessage = this.getLastMessage();
+
+      if (lastMessage === undefined) {
+        this.sendMessage();
+      } else if (Array.isArray(lastMessage.next)) {
+        this.setReplies();
+      }
+    },
+
     delaySend() {
       const randomDelay = Math.floor(Math.random() * 1000) + this.sendDelay;
       return new Promise((resolve) => setTimeout(resolve, randomDelay));
@@ -315,11 +325,7 @@ export default {
 
     playAudio(action) {
       const audio = new Audio();
-      if (action === 'receive') {
-        audio.src = audioReceive;
-      } else {
-        audio.src = audioSend;
-      }
+      audio.src = action === 'receive' ? audioReceive : audioSend;
       audio.play();
     },
 

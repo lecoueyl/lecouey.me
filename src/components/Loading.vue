@@ -1,12 +1,12 @@
 <template>
-  <div class="anim-loading fixed inset-0 z-50 bg-background">
+  <div class="c-loading fixed inset-0 z-50 bg-background">
     <div class="flex items-center justify-center w-full h-full">
       <ul class="text-4xl sm:text-7xl">
         <li
           v-for="i in 4"
           :key="i"
         >
-          <span class="anim-loading__item block">{{ $t('head.title') }}</span>
+          <span class="c-loading__item block">{{ $t('head.title') }}</span>
         </li>
       </ul>
     </div>
@@ -18,17 +18,13 @@ import gsap from 'gsap';
 import { ease } from '~/components/transition';
 
 export default {
-  created() {
-    this.$nuxt.$on('start', () => this.start());
-    this.$nuxt.$on('finish', () => this.finish());
-  },
-
   beforeDestroy() {
-    this.$nuxt.$off('start');
-    this.$nuxt.$off('finish');
+    this.$nuxt.$off('loading');
   },
 
   async mounted() {
+    this.$nuxt.$on('loading', (state) => (state ? this.start() : this.finish()));
+
     await this.start();
     await this.finish();
   },
@@ -36,7 +32,7 @@ export default {
   methods: {
     async start() {
       this.$store.commit('setLoading', true);
-      await gsap.set('.anim-loading__item', {
+      await gsap.set('.c-loading__item', {
         opacity: 0,
         rotate: 5,
         transformOrigin: 'left bottom',
@@ -44,12 +40,12 @@ export default {
       });
 
       await gsap.timeline()
-        .to('.anim-loading', {
+        .to('.c-loading', {
           autoAlpha: 1,
           duration: 0.4,
           ease: ease.enter,
         })
-        .to('.anim-loading__item', {
+        .to('.c-loading__item', {
           delay: 0.6,
           duration: 0.6,
           ease: ease.leave,
@@ -65,7 +61,7 @@ export default {
 
     async finish() {
       await gsap.timeline()
-        .to('.anim-loading__item', {
+        .to('.c-loading__item', {
           delay: 0.6,
           duration: 0.6,
           ease: ease.leave,
@@ -75,7 +71,7 @@ export default {
           transformOrigin: 'top right',
           yPercent: -100,
         })
-        .to('.anim-loading', {
+        .to('.c-loading', {
           autoAlpha: 0,
           duration: 0.5,
         }, '-=0.2');
