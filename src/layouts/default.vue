@@ -11,11 +11,7 @@
 <script>
 export default {
   head() {
-    return {
-      link: [
-        { rel: 'canonical', href: `${this.$config.app.url}${this.$route.path}` },
-      ],
-    };
+    return this.$nuxtI18nHead({ addDirAttribute: true, addSeoAttributes: true });
   },
 };
 </script>
