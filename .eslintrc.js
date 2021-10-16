@@ -17,13 +17,7 @@ module.exports = {
   ],
   rules: {
     'max-len': ['error', { code: 160 }],
-    'vue/component-name-in-template-casing': ['error', 'PascalCase', {
-      ignores: [
-        'nuxt',
-        'nuxt-link',
-        'i18n',
-      ],
-    }],
+    'import/no-extraneous-dependencies': 0,
   },
   settings: {
     'import/resolver': {
