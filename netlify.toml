@@ -1,0 +1,16 @@
+[dev]
+   command = "npm run dev"
+
+[build]
+  command = "npm run generate"
+  publish = "dist"
+
+[[redirects]]
+  from = "/js/script.js"
+  to = "https://plausible.lecouey.me/js/plausible.js"
+  status = 200
+
+[[redirects]]
+  from = "/api/event"
+  to = "https://plausible.lecouey.me/api/event"
+  status = 202

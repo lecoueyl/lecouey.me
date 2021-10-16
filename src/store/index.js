@@ -12,9 +12,6 @@ export const mutations = {
   updateChatThread: (state, message) => {
     state.chatThread.push(message);
   },
-  setIntroFinished: (state) => {
-    state.introFinished = true;
-  },
   setPageTransitioning: (state, status) => {
     state.pageTransitioning = status;
   },

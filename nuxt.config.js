@@ -1,12 +1,18 @@
-const i18n = require('./src/i18n');
-const i18nEn = require('./src/i18n/en.js');
+import i18n from './src/locales';
+import i18nEn from './src/locales/en';
 
 module.exports = {
+  // Target: https://go.nuxtjs.dev/config-target
   srcDir: 'src',
   target: 'static',
-  /*
-  **  Runtime config
-  */
+  ssr: false,
+
+  // Generate fallback pages: https://nuxtjs.org/docs/configuration-glossary/configuration-generate#fallback
+  generate: {
+    fallback: true,
+  },
+
+  // Environment variables
   publicRuntimeConfig: {
     app: {
       mail: process.env.APP_MAIL || 'leonard@lecouey.me',
@@ -20,12 +26,12 @@ module.exports = {
       linkedin: process.env.LINKS_LINKEDIN || 'https://www.linkedin.com/in/llecouey',
     },
   },
-  /*
-  ** Headers of the page
-  */
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: i18nEn.head.title,
     titleTemplate: `%s — ${i18nEn.head.title}`,
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,8 +43,7 @@ module.exports = {
       { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
       { name: 'bingbot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
 
-      { name: 'msapplication-TileColor', content: '#f5f5f5' },
-      { name: 'theme-color', content: '#f5f5f5' },
+      { name: 'msapplication-TileColor', content: '#fdfcfd' },
 
       { property: 'og:title', content: i18nEn.head.title },
       { property: 'og:description', content: i18nEn.head.description },
@@ -85,98 +90,54 @@ module.exports = {
 
     script: [
       {
-        src: 'https://plausible.lecouey.me/js/plausible.js',
+        src: '/js/script.js',
         async: true,
         defer: true,
         'data-domain': 'lecouey.me',
       },
     ],
-
-    bodyAttrs: {
-      class: ['u-bgcolor-background'],
-    },
   },
-  /*
-  ** Customize the progress bar color
-  */
-  loading: '~/components/Loading.vue',
-  /*
-  ** Style configuration
-  */
+
+  loading: false,
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/scss/main.scss',
+    '~/assets/css/main.css',
   ],
-  /*
-  ** Plugins
-  */
-  plugins: [
-    { src: '~/plugins/vue-check-view', ssr: false },
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: [
+    {
+      path: '~/components',
+      ignore: ['**/index.js'],
+    },
   ],
-  /*
-  ** Modules
-  */
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['nuxt-i18n', i18n],
+    ['@nuxtjs/i18n', i18n],
     '@nuxtjs/sitemap',
   ],
-  /*
-  ** Sitemap
-  */
+
   sitemap: {
     hostname: process.env.APP_URL,
     gzip: true,
     i18n: i18n.defaultLocale,
   },
-  /*
-  ** Nuxt.js dev-modules
-  */
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/style-resources',
+    '@nuxtjs/color-mode',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/svg',
-    'nuxt-purgecss',
+    '@nuxtjs/tailwindcss',
   ],
-  /*
-  ** Import global scss
-  */
-  styleResources: {
-    scss: [
-      './assets/scss/settings/_animations.scss',
-      './assets/scss/settings/_baseline.scss',
-      './assets/scss/settings/_colors.scss',
-    ],
+
+  tailwindcss: {
+    configPath: '../tailwind.config.js',
   },
-  /*
-  ** PurgeCSS configuration
-  */
-  purgeCSS: {
-    whitelist: [
-      'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-      'blockquote', 'p', 'pre', 'code', 'dl', 'dd', 'ol', 'ul', 'figure', 'hr', 'fieldset', 'legend',
-      'c-link--is-active',
-    ],
-    whitelistPatterns: [
-      /-(leave|enter|appear)(|-(to|from|active))$/, // Normal transitions
-      /^nuxt-link(|-exact)-active$/, // Nuxt link classes
-      /^(?!cursor-move).+-move$/, // Move transitions
-      /data-v-.*/, // Keep scoped styles
-    ],
-    extractors: () => [
-      {
-        extractor: (content) => content.match(/[\w-/@]+(?<!\/@)/g) || [], // Extarct res class (eg: u-1/12@md)
-        extensions: ['html', 'vue', 'js'],
-      },
-    ],
-  },
-  /*
-  ** Router configuration
-  */
-  router: {
-    linkActiveClass: 'c-link--is-active',
-  },
-  /*
-  ** Build configuration
-  */
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     publicPath: '/assets/',
     extractCSS: true,

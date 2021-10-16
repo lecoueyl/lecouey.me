@@ -1,22 +1,34 @@
 <template>
-  <main class="container u-p-x10">
-    <p class="u-p-x10 u-text-center">
-      <span
-        v-if="error.statusCode === 404"
-        v-t="'error.notFound'"
-        class="o-type-l"
-      />
+  <LayoutContainer class="pt-48 pb-16">
+    <SvgError class="w-64 h-auto sm:w-96" />
+    <UiTitle class="py-16">
+      <template v-if="error.statusCode === 404">
+        {{ $t('error.notFound') }}
+      </template>
 
-      <span
-        v-else
-        v-t="'error.occured'"
-      />
-    </p>
-  </main>
+      <template v-else>
+        {{ $t('error.occurred') }}
+      </template>
+    </UiTitle>
+
+    <UiLink
+      tag="nuxt-link"
+      :to="localePath('index')"
+      class="text-lg"
+    >
+      {{ $t('error.goHome') }}
+    </UiLink>
+  </LayoutContainer>
 </template>
 
 <script>
+import SvgError from '~/assets/svg/error.svg?inline';
+
 export default {
+  components: {
+    SvgError,
+  },
+
   props: {
     error: {
       required: true,
@@ -24,14 +36,14 @@ export default {
     },
   },
 
-  mounted() {
-    this.$store.commit('setPageTransitioning', false);
-  },
-
   head() {
     return {
       title: this.error.statusCode,
     };
+  },
+
+  mounted() {
+    this.$store.commit('setPageTransitioning', false);
   },
 };
 </script>

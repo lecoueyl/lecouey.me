@@ -1,0 +1,77 @@
+<template>
+  <LayoutContainer
+    tag="footer"
+    class="py-10"
+  >
+    <div class="rounded-lg p-4 bg-foreground text-background text-5xl sm:p-10 sm:text-6xl">
+      {{ $t('footer.contact') }}
+    </div>
+
+    <SvgDialogueBubbleTail class="ml-4 text-foreground" />
+
+    <ul class="py-8 text-2xl space-y-4">
+      <li>
+        <UiLink :href="`mailto:${$config.app.mail}`">
+          {{ $config.app.mail }}
+        </UiLink>
+      </li>
+
+      <li
+        v-for="(link, key) in $config.links"
+        :key="key"
+      >
+        <UiLink
+          :href="link"
+          external
+        >
+          {{ $t(`links.social.${key}`) }}
+        </UiLink>
+      </li>
+    </ul>
+
+    <div class="flex text-lg">
+      <i18n
+        class="flex-grow pr-2"
+        path="footer.source"
+      >
+        <template #link>
+          <UiLink
+            :href="$config.app.source"
+            external
+          >
+            {{ $t('links.social.github') }}
+          </UiLink>
+        </template>
+      </i18n>
+
+      <button
+        class="overflow-hidden"
+        @click="switchTheme()"
+      >
+        <TransitionTranslateY
+          mode="out-in"
+        >
+          <div :key="$colorMode.value">
+            {{ $t(`theme.${$colorMode.value}`) }}
+          </div>
+        </TransitionTranslateY>
+      </button>
+    </div>
+  </LayoutContainer>
+</template>
+
+<script>
+import SvgDialogueBubbleTail from '~/assets/svg/dialogue-bubble-tail.svg?inline';
+
+export default {
+  components: {
+    SvgDialogueBubbleTail,
+  },
+
+  methods: {
+    switchTheme() {
+      this.$colorMode.preference = this.$colorMode.value === 'light' ? 'dark' : 'light';
+    },
+  },
+};
+</script>

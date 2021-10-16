@@ -13,8 +13,9 @@ export default {
 
     enter(el, done) {
       gsap.to(el, {
-        duration: 0.4,
         autoAlpha: 1,
+        delay: 0.3,
+        duration: 0.4,
         ease: 'circ.inOut',
       }).then(() => {
         this.$store.commit('setPageTransitioning', false);
@@ -23,9 +24,11 @@ export default {
     },
 
     leave(el, done) {
+      this.$store.commit('setPageTransitioning', true);
       gsap.to(el, {
-        duration: 0.4,
         autoAlpha: 0,
+        delay: 0.5,
+        duration: 0.4,
         ease: 'circ.inOut',
       }).then(() => done());
     },
