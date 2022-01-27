@@ -3,13 +3,13 @@
     tag="footer"
     class="py-10"
   >
-    <div class="rounded-lg p-4 bg-foreground text-background text-5xl sm:p-10 sm:text-6xl">
+    <div class="p-4 text-5xl rounded-lg sm:p-10 sm:text-6xl text-background bg-foreground">
       {{ $t('footer.contact') }}
     </div>
 
     <SvgDialogueBubbleTail class="ml-4 text-foreground" />
 
-    <ul class="py-8 text-2xl space-y-4">
+    <ul class="py-8 space-y-4 text-2xl">
       <li>
         <UiLink :href="`mailto:${$config.app.mail}`">
           {{ $config.app.mail }}

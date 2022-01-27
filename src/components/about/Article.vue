@@ -10,7 +10,7 @@
         </UiTitle>
       </aside>
 
-      <article class="text-xl leading-relaxed sm:col-span-2 sm:text-3xl sm:leading-relaxed">
+      <article class="sm:col-span-2 text-xl sm:text-3xl leading-relaxed sm:leading-relaxed">
         <slot />
       </article>
     </div>

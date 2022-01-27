@@ -47,10 +47,11 @@
       <article
         v-for="(skill, key) in $t('about.skills.items')"
         :key="key"
-        class="c-slides__panel pl-4 last:pr-4 sm:pl-10 sm:last:pr-10 "
+        class="last:pr-4 pl-4 sm:last:pr-10 sm:pl-10"
+        data-slide="panel"
       >
-        <div class="flex flex-col justify-end w-[80vw] h-64 rounded-2xl p-8 bg-wash-background sm:w-96">
-          <h3 class="flex-grow text-xl pb-4">
+        <div class="flex flex-col justify-end p-8 w-[80vw] h-64 rounded-2xl sm:w-96 bg-wash-background">
+          <h3 class="flex-grow pb-4 text-xl">
             {{ skill.title }}
           </h3>
 
@@ -108,7 +109,7 @@ export default {
 
   methods: {
     setSlidesBoundaries() {
-      const slides = Array.from(this.$refs.slides.getElementsByClassName('c-slides__panel'));
+      const slides = Array.from(this.$refs.slides.querySelectorAll('[data-slide="panel"]'));
       this.slidesBoundaryWidth = 0;
       this.slideWidth = slides[0].clientWidth;
       slides.forEach((slide) => {

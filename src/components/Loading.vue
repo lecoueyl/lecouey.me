@@ -1,12 +1,20 @@
 <template>
-  <div class="c-loading fixed inset-0 z-50 bg-background">
-    <div class="flex items-center justify-center w-full h-full">
+  <div
+    class="fixed inset-0 z-50 bg-background"
+    data-gsap="loading"
+  >
+    <div class="flex justify-center items-center w-full h-full">
       <ul class="text-4xl sm:text-7xl">
         <li
           v-for="i in 4"
           :key="i"
         >
-          <span class="c-loading__item block">{{ $t('head.title') }}</span>
+          <span
+            class="block"
+            data-gsap="loading-item"
+          >
+            {{ $t('head.title') }}
+          </span>
         </li>
       </ul>
     </div>
@@ -32,7 +40,7 @@ export default {
   methods: {
     async start() {
       this.$store.commit('setLoading', true);
-      await gsap.set('.c-loading__item', {
+      await gsap.set('[data-gsap="loading-item"]', {
         opacity: 0,
         rotate: 5,
         transformOrigin: 'left bottom',
@@ -40,12 +48,12 @@ export default {
       });
 
       await gsap.timeline()
-        .to('.c-loading', {
+        .to('[data-gsap="loading"]', {
           autoAlpha: 1,
           duration: 0.4,
           ease: ease.enter,
         })
-        .to('.c-loading__item', {
+        .to('[data-gsap="loading-item"]', {
           delay: 0.6,
           duration: 0.6,
           ease: ease.leave,
@@ -61,7 +69,7 @@ export default {
 
     async finish() {
       await gsap.timeline()
-        .to('.c-loading__item', {
+        .to('[data-gsap="loading-item"]', {
           delay: 0.6,
           duration: 0.6,
           ease: ease.leave,
@@ -71,7 +79,7 @@ export default {
           transformOrigin: 'top right',
           yPercent: -100,
         })
-        .to('.c-loading', {
+        .to('[data-gsap="loading"]', {
           autoAlpha: 0,
           duration: 0.5,
         }, '-=0.2');

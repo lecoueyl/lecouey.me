@@ -2,10 +2,13 @@
   <TransitionFadeY>
     <header
       v-if="scrolledOut"
-      class="fixed z-40 w-full left-0 top-0 right-0 px-4 py-4 sm:px-6 sm:py-8 xl:px-12"
+      class="fixed inset-x-0 z-40 p-4 w-full sm:py-8 sm:px-6 xl:px-12"
     >
-      <div class="flex items-center font-medium text-lg overflow-hidden">
-        <div class="c-header__item flex items-center">
+      <div class="flex overflow-hidden items-center text-lg font-medium">
+        <div
+          class="flex items-center"
+          data-gsap="nav-item"
+        >
           <nuxt-link
             key="logo"
             :to="localePath('index')"
@@ -17,7 +20,10 @@
           </nuxt-link>
         </div>
 
-        <div class="c-header__item flex-grow pl-2">
+        <div
+          class="flex-grow pl-2"
+          data-gsap="nav-item"
+        >
           <nuxt-link
             key="name"
             :to="localePath('index')"
@@ -32,7 +38,7 @@
             <li
               v-for="(item, index) in menu"
               :key="item"
-              class="c-header__item"
+              data-gsap="nav-item"
               @click="clickedIndex = index + 2"
             >
               <nuxt-link
@@ -47,7 +53,7 @@
               <li
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
-                class="c-header__item"
+                data-gsap="nav-item"
                 @click="clickedIndex = menu.length + index + 1"
               >
                 <button
@@ -71,7 +77,7 @@ import { ease } from '~/components/transition';
 import SvgLogo from '~/assets/svg/logo.svg?inline';
 
 const animeHeader = {
-  targets: '.c-header__item',
+  targets: '[data-gsap="nav-item"]',
   duration: 1,
   stagger: 0.3,
   yPercent: 150,

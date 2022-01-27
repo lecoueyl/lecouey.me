@@ -11,6 +11,7 @@ module.exports = {
   extends: [
     'airbnb-base',
     'plugin:vue/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   plugins: [
     'vue',
@@ -25,6 +26,7 @@ module.exports = {
       },
     ],
     'vue/multi-word-component-names': 0,
+    'tailwindcss/migration-from-tailwind-2': 0,
   },
   settings: {
     'import/resolver': {
