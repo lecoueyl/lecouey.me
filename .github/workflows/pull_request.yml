@@ -34,6 +34,3 @@ jobs:
 
       - name: Run lint
         run: pnpm run lint
-
-      - name: Generate
-        run: pnpm run generate
