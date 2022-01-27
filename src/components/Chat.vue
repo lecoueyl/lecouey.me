@@ -48,7 +48,7 @@
           class="px-4 w-full"
         >
           <button
-            class="p-4 w-full rounded-full border-2 transition-colors border-foreground hover:border-primary"
+            class="p-4 w-full rounded-full border-2 border-foreground hover:border-primary transition-colors"
             data-gsap="chat-reply"
             @click="sendAnswer(answer.id, index)"
           >

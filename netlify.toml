@@ -1,8 +1,8 @@
 [dev]
-   command = "npm run dev"
+   command = "pnpm run dev || ( npm install pnpm && pnpm run dev )"
 
 [build]
-  command = "npm run generate"
+  command = "pnpm run generate || ( npm install pnpm && pnpm run generate )"
   publish = "dist"
 
 [[redirects]]

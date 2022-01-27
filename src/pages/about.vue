@@ -1,15 +1,17 @@
 <template>
   <div class="pt-32 space-y-16 sm:space-y-24">
-    <LayoutContainer class="text-3xl sm:text-7xl text-center whitespace-pre g-about__hero">
+    <LayoutContainer class="text-3xl sm:text-7xl text-center whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
         class="overflow-hidden leading-tight"
+        data-gsap="about-hero-sentence"
       >
         <span
           v-for="word in sentence"
           :key="word"
           class="inline-block"
+          data-gsap="about-hero-word"
         >{{ word }}</span>
       </p>
     </LayoutContainer>
@@ -174,7 +176,7 @@ export default {
   methods: {
     animeHeroText() {
       gsap.fromTo(
-        '.g-about__hero p',
+        '[data-gsap="about-hero-sentence"]',
         {
           rotate: 10,
           transformOrigin: 'left bottom',
@@ -188,7 +190,7 @@ export default {
       ).then(() => this.$store.commit('setPageTransitioning', false));
 
       gsap.fromTo(
-        '.g-about__hero span',
+        '[data-gsap="about-hero-word"]',
         {
           yPercent: 120,
         },

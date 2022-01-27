@@ -2,7 +2,7 @@
   <TransitionFadeY>
     <header
       v-if="scrolledOut"
-      class="fixed inset-x-0 z-40 p-4 w-full sm:py-8 sm:px-6 xl:px-12"
+      class="fixed inset-x-0 z-40 p-4 sm:py-8 sm:px-6 xl:px-12 w-full"
     >
       <div class="flex overflow-hidden items-center text-lg font-medium">
         <div
