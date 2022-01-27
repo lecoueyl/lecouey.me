@@ -18,6 +18,12 @@ module.exports = {
   rules: {
     'max-len': ['error', { code: 160 }],
     'import/no-extraneous-dependencies': 0,
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: ['.svg'],
+      },
+    ],
     'vue/multi-word-component-names': 0,
   },
   settings: {

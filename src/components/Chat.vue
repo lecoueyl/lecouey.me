@@ -230,7 +230,7 @@ export default {
 
     delaySend() {
       const randomDelay = Math.floor(Math.random() * 1000) + this.sendDelay;
-      return new Promise((resolve) => setTimeout(resolve, randomDelay));
+      return new Promise((resolve) => setTimeout(resolve, randomDelay)); // eslint-disable-line no-promise-executor-return
     },
 
     sendMessage(from) {
