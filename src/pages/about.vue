@@ -173,26 +173,32 @@ export default {
 
   methods: {
     animeHeroText() {
-      gsap.fromTo('.g-about__hero p', {
-        rotate: 10,
-        transformOrigin: 'left bottom',
-      },
-      {
-        duration: animeHero.duration,
-        ease: ease.enter,
-        stagger: animeHero.stagger,
-        rotate: 0,
-      }).then(() => this.$store.commit('setPageTransitioning', false));
+      gsap.fromTo(
+        '.g-about__hero p',
+        {
+          rotate: 10,
+          transformOrigin: 'left bottom',
+        },
+        {
+          duration: animeHero.duration,
+          ease: ease.enter,
+          stagger: animeHero.stagger,
+          rotate: 0,
+        },
+      ).then(() => this.$store.commit('setPageTransitioning', false));
 
-      gsap.fromTo('.g-about__hero span', {
-        yPercent: 120,
-      },
-      {
-        duration: animeHero.duration,
-        ease: ease.enter,
-        stagger: animeHero.stagger,
-        yPercent: 0,
-      });
+      gsap.fromTo(
+        '.g-about__hero span',
+        {
+          yPercent: 120,
+        },
+        {
+          duration: animeHero.duration,
+          ease: ease.enter,
+          stagger: animeHero.stagger,
+          yPercent: 0,
+        },
+      );
     },
 
     animeIllustration() {
@@ -206,21 +212,24 @@ export default {
         '.i-devices__keyboard',
         '.i-devices__headphone',
       ].forEach((device) => {
-        gsap.fromTo(device, {
-          transformOrigin: 'center center',
-          rotation: gsap.utils.random(-6, 6),
-          xPercent: gsap.utils.random(-5, 5),
-          yPercent: gsap.utils.random(-5, 5),
-        },
-        {
-          duration: gsap.utils.random(10, 15),
-          ease: 'expo.inOut',
-          yoyo: true,
-          repeat: -1,
-          rotation: gsap.utils.random(-6, 6),
-          xPercent: gsap.utils.random(-5, 5),
-          yPercent: gsap.utils.random(-5, 5),
-        });
+        gsap.fromTo(
+          device,
+          {
+            transformOrigin: 'center center',
+            rotation: gsap.utils.random(-6, 6),
+            xPercent: gsap.utils.random(-5, 5),
+            yPercent: gsap.utils.random(-5, 5),
+          },
+          {
+            duration: gsap.utils.random(10, 15),
+            ease: 'expo.inOut',
+            yoyo: true,
+            repeat: -1,
+            rotation: gsap.utils.random(-6, 6),
+            xPercent: gsap.utils.random(-5, 5),
+            yPercent: gsap.utils.random(-5, 5),
+          },
+        );
       });
     },
   },

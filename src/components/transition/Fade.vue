@@ -20,14 +20,17 @@ export default {
 
   methods: {
     enter(el, done) {
-      gsap.fromTo(el, {
-        opacity: 0,
-      },
-      {
-        duration: this.durationEnter,
-        onComplete: done,
-        opacity: 1,
-      });
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+        },
+        {
+          duration: this.durationEnter,
+          onComplete: done,
+          opacity: 1,
+        },
+      );
     },
 
     leave(el, done) {

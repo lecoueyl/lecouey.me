@@ -71,9 +71,9 @@
 
 <script>
 import gsap from 'gsap';
+import { ease } from '~/components/transition';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
-import { ease } from '~/components/transition';
 
 const animeReplies = {
   targets: '.c-chat__answer',
@@ -289,34 +289,40 @@ export default {
 
       this.$nextTick(() => {
         this.isSending = false;
-        gsap.fromTo(animeReplies.targets, {
-          yPercent: 150,
-        },
-        {
-          duration: 1,
-          ease: ease.elastic,
-          stagger: animeReplies.stagger,
-          yPercent: 0,
-        });
+        gsap.fromTo(
+          animeReplies.targets,
+          {
+            yPercent: 150,
+          },
+          {
+            duration: 1,
+            ease: ease.elastic,
+            stagger: animeReplies.stagger,
+            yPercent: 0,
+          },
+        );
       });
     },
 
     sendAnswer(next, index) {
       this.visitorReplied = true;
       if (!this.isSending) {
-        gsap.fromTo(animeReplies.targets, {
-          yPercent: 0,
-        },
-        {
-          duration: 0.5,
-          ease: ease.leave,
-          stagger: {
-            amount: animeReplies.stagger,
-            from: index,
-            grid: 'auto',
+        gsap.fromTo(
+          animeReplies.targets,
+          {
+            yPercent: 0,
           },
-          yPercent: 150,
-        }).then(() => {
+          {
+            duration: 0.5,
+            ease: ease.leave,
+            stagger: {
+              amount: animeReplies.stagger,
+              from: index,
+              grid: 'auto',
+            },
+            yPercent: 150,
+          },
+        ).then(() => {
           this.playAudio('send');
           this.sendMessage(next);
         });

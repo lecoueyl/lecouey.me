@@ -18,10 +18,14 @@ module.exports = {
   rules: {
     'max-len': ['error', { code: 160 }],
     'import/no-extraneous-dependencies': 0,
+    'vue/multi-word-component-names': 0,
   },
   settings: {
     'import/resolver': {
-      webpack: 'webpack.config.js',
+      nuxt: {
+        extensions: ['.js', '.vue', '.svg', '.mp4'],
+        nuxtSrcDir: 'src',
+      },
     },
   },
 };
