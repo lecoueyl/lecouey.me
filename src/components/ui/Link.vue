@@ -21,7 +21,7 @@
         stroke-linecap="round"
         fill="none"
         role="presentation"
-        class="stroke-2 w-6 h-6 ml"
+        class="ml-0.5 w-6 h-6 stroke-2"
       >
         <line
           x1="7"

@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col gap-10 h-full text-2xl">
-    <div class="flex-grow relative">
+    <div class="relative flex-grow">
       <TransitionTranslateY
         group
         tag="ul"
-        class="absolute w-full right-0 left-0 bottom-0"
+        class="absolute inset-x-0 bottom-0 w-full"
       >
         <li
           v-for="(message, index) in $store.state.chatThread"
@@ -29,7 +29,7 @@
                 {{ $t(`chat.content.me.${message.content}`) }}
                 <span
                   v-if="message.content === 'hi'"
-                  class="animate-wave inline-block"
+                  class="inline-block animate-wave"
                 >
                   👋
                 </span>
@@ -45,10 +45,11 @@
         <div
           v-for="(answer, index) in replies"
           :key="index"
-          class="w-full px-4"
+          class="px-4 w-full"
         >
           <button
-            class="c-chat__answer w-full rounded-full p-4 border-2 border-foreground hover:border-primary transition-colors"
+            class="p-4 w-full rounded-full border-2 border-foreground hover:border-primary transition-colors"
+            data-gsap="chat-reply"
             @click="sendAnswer(answer.id, index)"
           >
             {{ $t(`chat.replies.${answer.reply}`) }}
@@ -57,7 +58,7 @@
 
         <!-- Dummy element to simulate container height -->
         <div
-          class="w-0 invisible"
+          class="invisible w-0"
           aria-hidden="true"
         >
           <div class="py-4 border-2">
@@ -71,12 +72,12 @@
 
 <script>
 import gsap from 'gsap';
+import { ease } from '~/components/transition';
 import audioSend from '~/assets/media/send.m4a';
 import audioReceive from '~/assets/media/receive.m4a';
-import { ease } from '~/components/transition';
 
 const animeReplies = {
-  targets: '.c-chat__answer',
+  targets: '[data-gsap="chat-reply"]',
   stagger: 0.2,
 };
 
@@ -230,7 +231,7 @@ export default {
 
     delaySend() {
       const randomDelay = Math.floor(Math.random() * 1000) + this.sendDelay;
-      return new Promise((resolve) => setTimeout(resolve, randomDelay));
+      return new Promise((resolve) => setTimeout(resolve, randomDelay)); // eslint-disable-line no-promise-executor-return
     },
 
     sendMessage(from) {
@@ -289,34 +290,40 @@ export default {
 
       this.$nextTick(() => {
         this.isSending = false;
-        gsap.fromTo(animeReplies.targets, {
-          yPercent: 150,
-        },
-        {
-          duration: 1,
-          ease: ease.elastic,
-          stagger: animeReplies.stagger,
-          yPercent: 0,
-        });
+        gsap.fromTo(
+          animeReplies.targets,
+          {
+            yPercent: 150,
+          },
+          {
+            duration: 1,
+            ease: ease.elastic,
+            stagger: animeReplies.stagger,
+            yPercent: 0,
+          },
+        );
       });
     },
 
     sendAnswer(next, index) {
       this.visitorReplied = true;
       if (!this.isSending) {
-        gsap.fromTo(animeReplies.targets, {
-          yPercent: 0,
-        },
-        {
-          duration: 0.5,
-          ease: ease.leave,
-          stagger: {
-            amount: animeReplies.stagger,
-            from: index,
-            grid: 'auto',
+        gsap.fromTo(
+          animeReplies.targets,
+          {
+            yPercent: 0,
           },
-          yPercent: 150,
-        }).then(() => {
+          {
+            duration: 0.5,
+            ease: ease.leave,
+            stagger: {
+              amount: animeReplies.stagger,
+              from: index,
+              grid: 'auto',
+            },
+            yPercent: 150,
+          },
+        ).then(() => {
           this.playAudio('send');
           this.sendMessage(next);
         });

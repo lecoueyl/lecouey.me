@@ -1,11 +1,11 @@
 <template>
   <div
     ref="pointer"
-    class="hidden fixed inset-0 -left-5 -top-5 w-10 h-10 select-none pointer-events-none sm:block"
+    class="hidden sm:block fixed inset-0 -top-5 -left-5 w-10 h-10 pointer-events-none select-none"
   >
     <div
       ref="dot"
-      class="w-full h-full border-2 border-primary rounded-full"
+      class="w-full h-full rounded-full border-2 border-primary"
     />
   </div>
 </template>

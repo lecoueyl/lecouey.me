@@ -11,6 +11,7 @@ module.exports = {
   extends: [
     'airbnb-base',
     'plugin:vue/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   plugins: [
     'vue',
@@ -18,10 +19,21 @@ module.exports = {
   rules: {
     'max-len': ['error', { code: 160 }],
     'import/no-extraneous-dependencies': 0,
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: ['.svg'],
+      },
+    ],
+    'vue/multi-word-component-names': 0,
+    'tailwindcss/migration-from-tailwind-2': 0,
   },
   settings: {
     'import/resolver': {
-      webpack: 'webpack.config.js',
+      nuxt: {
+        extensions: ['.js', '.vue', '.svg', '.mp4'],
+        nuxtSrcDir: 'src',
+      },
     },
   },
 };

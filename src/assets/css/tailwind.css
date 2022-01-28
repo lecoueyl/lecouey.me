@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: hsl(272, 51%, 54%);
-  --color-foreground: hsl(260, 25%, 11%);
-  --color-background: hsl(300, 20%, 99%);
-  --color-wash-muted: hsl(252, 4%, 44.8%);
-  --color-wash-background: hsl(294, 5.5%, 95.3%);
+  --color-primary: hsl(272deg 51% 54%);
+  --color-foreground: hsl(260deg 25% 11%);
+  --color-background: hsl(300deg 20% 99%);
+  --color-wash-muted: hsl(252deg 4% 44.8%);
+  --color-wash-background: hsl(294deg 5.5% 95.3%);
 }
 
 .dark-mode {
-  --color-primary: hsl(272, 51%, 54%);
-  --color-foreground: hsl(256, 6%, 93.2%);
-  --color-background: hsl(246, 6%, 9%);
-  --color-wash-muted: hsl(253, 4%, 63.7%);
-  --color-wash-background: hsl(241, 5%, 14.3%);
+  --color-primary: hsl(272deg 51% 54%);
+  --color-foreground: hsl(256deg 6% 93.2%);
+  --color-background: hsl(246deg 6% 9%);
+  --color-wash-muted: hsl(253deg 4% 63.7%);
+  --color-wash-background: hsl(241deg 5% 14.3%);
 }

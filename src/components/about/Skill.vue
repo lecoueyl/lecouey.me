@@ -38,7 +38,8 @@
 
     <div
       ref="slides"
-      class="flex overflow-x-auto select-none sm:overflow-hidden"
+      class="flex sm:overflow-hidden overflow-x-auto select-none"
+      data-cursor="drag"
       @mousedown="onMouseDown($event)"
       @mouseup="onMouseUp()"
       @mousemove="onMouseMove($event)"
@@ -47,10 +48,11 @@
       <article
         v-for="(skill, key) in $t('about.skills.items')"
         :key="key"
-        class="c-slides__panel pl-4 last:pr-4 sm:pl-10 sm:last:pr-10 "
+        class="last:pr-4 sm:last:pr-10 pl-4 sm:pl-10"
+        data-slide="panel"
       >
-        <div class="flex flex-col justify-end w-[80vw] h-64 rounded-2xl p-8 bg-wash-background sm:w-96">
-          <h3 class="flex-grow text-xl pb-4">
+        <div class="flex flex-col justify-end p-8 sm:w-96 h-64 rounded-2xl w-[80vw] bg-wash-background">
+          <h3 class="flex-grow pb-4 text-xl">
             {{ skill.title }}
           </h3>
 
@@ -108,7 +110,7 @@ export default {
 
   methods: {
     setSlidesBoundaries() {
-      const slides = Array.from(this.$refs.slides.getElementsByClassName('c-slides__panel'));
+      const slides = Array.from(this.$refs.slides.querySelectorAll('[data-slide="panel"]'));
       this.slidesBoundaryWidth = 0;
       this.slideWidth = slides[0].clientWidth;
       slides.forEach((slide) => {
@@ -139,13 +141,13 @@ export default {
         if (!this.canSlideLeft) this.scrollLeft = 0;
         if (!this.canSlideRight) this.scrollLeft = this.slidesBoundaryWidth;
 
-        this.scrollSlide();
+        this.scrollSlide(1);
       }
     },
 
-    scrollSlide() {
+    scrollSlide(duration = 0.5) {
       gsap.to(this.$refs.slides, {
-        duration: 0.3,
+        duration,
         scrollTo: { x: this.scrollLeft },
         ease: 'expo.out',
       });

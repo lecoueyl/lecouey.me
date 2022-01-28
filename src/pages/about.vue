@@ -1,15 +1,17 @@
 <template>
   <div class="pt-32 space-y-16 sm:space-y-24">
-    <LayoutContainer class="g-about__hero text-center text-3xl whitespace-pre sm:text-7xl">
+    <LayoutContainer class="text-3xl sm:text-7xl text-center whitespace-pre">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
         class="overflow-hidden leading-tight"
+        data-gsap="about-hero-sentence"
       >
         <span
           v-for="word in sentence"
           :key="word"
           class="inline-block"
+          data-gsap="about-hero-word"
         >{{ word }}</span>
       </p>
     </LayoutContainer>
@@ -66,7 +68,7 @@
           <li
             v-for="period in resume"
             :key="period.workplace"
-            class="pb-8 sm:grid sm:grid-cols-5 sm:gap-4 sm:pb-16"
+            class="sm:grid sm:grid-cols-5 sm:gap-4 pb-8 sm:pb-16"
           >
             <div class="sm:col-span-2 text-wash-muted">
               {{ $d(new Date(period.from), 'year') }}
@@ -173,26 +175,32 @@ export default {
 
   methods: {
     animeHeroText() {
-      gsap.fromTo('.g-about__hero p', {
-        rotate: 10,
-        transformOrigin: 'left bottom',
-      },
-      {
-        duration: animeHero.duration,
-        ease: ease.enter,
-        stagger: animeHero.stagger,
-        rotate: 0,
-      }).then(() => this.$store.commit('setPageTransitioning', false));
+      gsap.fromTo(
+        '[data-gsap="about-hero-sentence"]',
+        {
+          rotate: 10,
+          transformOrigin: 'left bottom',
+        },
+        {
+          duration: animeHero.duration,
+          ease: ease.enter,
+          stagger: animeHero.stagger,
+          rotate: 0,
+        },
+      ).then(() => this.$store.commit('setPageTransitioning', false));
 
-      gsap.fromTo('.g-about__hero span', {
-        yPercent: 120,
-      },
-      {
-        duration: animeHero.duration,
-        ease: ease.enter,
-        stagger: animeHero.stagger,
-        yPercent: 0,
-      });
+      gsap.fromTo(
+        '[data-gsap="about-hero-word"]',
+        {
+          yPercent: 120,
+        },
+        {
+          duration: animeHero.duration,
+          ease: ease.enter,
+          stagger: animeHero.stagger,
+          yPercent: 0,
+        },
+      );
     },
 
     animeIllustration() {
@@ -206,21 +214,24 @@ export default {
         '.i-devices__keyboard',
         '.i-devices__headphone',
       ].forEach((device) => {
-        gsap.fromTo(device, {
-          transformOrigin: 'center center',
-          rotation: gsap.utils.random(-6, 6),
-          xPercent: gsap.utils.random(-5, 5),
-          yPercent: gsap.utils.random(-5, 5),
-        },
-        {
-          duration: gsap.utils.random(10, 15),
-          ease: 'expo.inOut',
-          yoyo: true,
-          repeat: -1,
-          rotation: gsap.utils.random(-6, 6),
-          xPercent: gsap.utils.random(-5, 5),
-          yPercent: gsap.utils.random(-5, 5),
-        });
+        gsap.fromTo(
+          device,
+          {
+            transformOrigin: 'center center',
+            rotation: gsap.utils.random(-6, 6),
+            xPercent: gsap.utils.random(-5, 5),
+            yPercent: gsap.utils.random(-5, 5),
+          },
+          {
+            duration: gsap.utils.random(10, 15),
+            ease: 'expo.inOut',
+            yoyo: true,
+            repeat: -1,
+            rotation: gsap.utils.random(-6, 6),
+            xPercent: gsap.utils.random(-5, 5),
+            yPercent: gsap.utils.random(-5, 5),
+          },
+        );
       });
     },
   },
