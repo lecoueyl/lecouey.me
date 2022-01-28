@@ -39,6 +39,7 @@
     <div
       ref="slides"
       class="flex sm:overflow-hidden overflow-x-auto select-none"
+      data-cursor="drag"
       @mousedown="onMouseDown($event)"
       @mouseup="onMouseUp()"
       @mousemove="onMouseMove($event)"
@@ -50,7 +51,7 @@
         class="last:pr-4 sm:last:pr-10 pl-4 sm:pl-10"
         data-slide="panel"
       >
-        <div class="flex flex-col justify-end p-8 w-[80vw] sm:w-96 h-64 bg-wash-background rounded-2xl">
+        <div class="flex flex-col justify-end p-8 sm:w-96 h-64 rounded-2xl w-[80vw] bg-wash-background">
           <h3 class="flex-grow pb-4 text-xl">
             {{ skill.title }}
           </h3>
@@ -140,13 +141,13 @@ export default {
         if (!this.canSlideLeft) this.scrollLeft = 0;
         if (!this.canSlideRight) this.scrollLeft = this.slidesBoundaryWidth;
 
-        this.scrollSlide();
+        this.scrollSlide(1);
       }
     },
 
-    scrollSlide() {
+    scrollSlide(duration = 0.5) {
       gsap.to(this.$refs.slides, {
-        duration: 0.3,
+        duration,
         scrollTo: { x: this.scrollLeft },
         ease: 'expo.out',
       });
