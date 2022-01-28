@@ -1,12 +1,14 @@
 <template>
   <div
     ref="pointer"
-    class="hidden sm:block fixed inset-0 -top-5 -left-5 w-10 h-10 pointer-events-none select-none"
+    class="sm:block fixed inset-0 -top-5 -left-5 w-10 h-10 pointer-events-none select-none"
   >
-    <div
-      ref="dot"
-      class="w-full h-full rounded-full border-2 border-primary"
-    />
+    <div class="flex relative justify-center items-center w-full h-full text-primary">
+      <div
+        ref="cursor"
+        class="w-full h-full rounded-full border-2 border-primary"
+      />
+    </div>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
       'button',
     ],
     isHoverActionElement: false,
+    pointerShape: 'default',
   }),
 
   beforeMount() {
@@ -68,25 +71,24 @@ export default {
       });
 
       const actionElement = event.target.closest(this.actionElements.join(','));
-      // onMouseEnter
-      if (actionElement && !this.isHoverActionElement) {
-        this.onMouseEnter(actionElement);
-      }
-
-      // onMouseLeave
-      if (!actionElement && this.isHoverActionElement) {
-        this.onMouseLeave();
-      }
+      this.onMouseEnter(actionElement);
+      this.onMouseLeave(actionElement);
+      this.setCursorShape(event.target);
     },
 
-    onMouseEnter(element) {
-      if (element.getAttribute('disabled')) return;
+    onMouseEnter(actionElement) {
+      if (!actionElement) return;
+      if (this.isHoverActionElement) return;
+      if (actionElement.getAttribute('disabled')) return;
 
       this.isHoverActionElement = true;
       this.scalePointer(pointer.scale);
     },
 
-    onMouseLeave() {
+    onMouseLeave(actionElement) {
+      if (!this.isHoverActionElement) return;
+      if (actionElement) return;
+
       this.isHoverActionElement = false;
       this.scalePointer(1);
     },
@@ -102,11 +104,30 @@ export default {
     },
 
     scalePointer(scale) {
-      gsap.to(this.$refs.dot, {
+      gsap.to(this.$refs.cursor, {
         duration: pointer.duration.scale,
         ease: 'back.out(3)',
         scale,
       });
+    },
+
+    setCursorShape(target) {
+      // move
+      if (target.closest('[data-pointer="move"]')) {
+        this.pointerShape = 'move';
+        gsap.to(this.$refs.cursor, {
+          duration: pointer.duration.scale,
+          ease: 'back.out(3)',
+          height: '50%',
+        });
+      } else if (this.pointerShape === 'move') {
+        gsap.to(this.$refs.cursor, {
+          duration: pointer.duration.scale,
+          ease: 'back.out(3)',
+          height: '100%',
+        });
+        this.pointerShape = 'default';
+      }
     },
   },
 };

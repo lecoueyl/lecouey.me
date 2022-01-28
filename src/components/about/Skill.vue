@@ -39,7 +39,7 @@
     <div
       ref="slides"
       class="flex sm:overflow-hidden overflow-x-auto select-none"
-      data-cursor="drag"
+      data-pointer="move"
       @mousedown="onMouseDown($event)"
       @mouseup="onMouseUp()"
       @mousemove="onMouseMove($event)"
@@ -145,7 +145,7 @@ export default {
       }
     },
 
-    scrollSlide(duration = 0.5) {
+    scrollSlide(duration = 0.6) {
       gsap.to(this.$refs.slides, {
         duration,
         scrollTo: { x: this.scrollLeft },
