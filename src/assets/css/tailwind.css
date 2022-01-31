@@ -2,18 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-primary: hsl(272deg 51% 54%);
-  --color-foreground: hsl(260deg 25% 11%);
-  --color-background: hsl(300deg 20% 99%);
-  --color-wash-muted: hsl(252deg 4% 44.8%);
-  --color-wash-background: hsl(294deg 5.5% 95.3%);
-}
+@layer base {
+  /* inter-400 - latin */
+  @font-face {
+    font-weight: 400;
+    font-family: Inter;
+    font-style: normal;
+    font-display: swap;
+    src:
+      url("~assets/font/inter-v3-latin-regular.woff2") format("woff2"),
+      url("~assets/font/inter-v3-latin-regular.woff") format("woff"),
+      url("~assets/font/inter-v3-latin-regular.ttf") format("truetype"),
+      url("~assets/font/inter-v3-latin-regular.svg#Inter") format("svg"); /* Legacy iOS */
+  }
 
-.dark-mode {
-  --color-primary: hsl(272deg 51% 54%);
-  --color-foreground: hsl(256deg 6% 93.2%);
-  --color-background: hsl(246deg 6% 9%);
-  --color-wash-muted: hsl(253deg 4% 63.7%);
-  --color-wash-background: hsl(241deg 5% 14.3%);
+  /* inter-500 - latin */
+  @font-face {
+    font-weight: 500;
+    font-family: Inter;
+    font-style: 500;
+    font-display: swap;
+    src:
+      url("~assets/font/inter-v3-latin-500.woff2") format("woff2"),
+      url("~assets/font/inter-v3-latin-500.woff") format("woff"),
+      url("~assets/font/inter-v3-latin-500.ttf") format("truetype"),
+      url("~assets/font/inter-v3-latin-500.svg#Inter") format("svg"); /* Legacy iOS */
+  }
+
+  html {
+    @apply h-full text-foreground bg-background selection:bg-foreground selection:text-background;
+  }
+
+  body {
+    @apply min-h-full;
+  }
+
+  :lang(ja-Jp) {
+    @apply font-japanese;
+  }
 }

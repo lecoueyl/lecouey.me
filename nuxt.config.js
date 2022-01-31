@@ -100,11 +100,6 @@ module.exports = {
 
   loading: false,
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/assets/css/main.css',
-  ],
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
