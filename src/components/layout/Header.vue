@@ -41,10 +41,7 @@
               data-gsap="nav-item"
               @click="clickedIndex = index + 2"
             >
-              <nuxt-link
-                :to="localePath(item)"
-                class=""
-              >
+              <nuxt-link :to="localePath(item)">
                 {{ $t(`links.${item}`) }}
               </nuxt-link>
             </li>
