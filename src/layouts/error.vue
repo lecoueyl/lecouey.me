@@ -1,6 +1,6 @@
 <template>
   <LayoutContainer class="pt-48 pb-16">
-    <SvgError class="w-64 sm:w-96 h-auto" />
+    <SvgError class="w-64 h-auto sm:w-96" />
     <UiTitle class="py-16">
       <template v-if="error.statusCode === 404">
         {{ $t('error.notFound') }}

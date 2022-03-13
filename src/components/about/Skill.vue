@@ -38,7 +38,7 @@
 
     <div
       ref="slides"
-      class="flex sm:overflow-hidden overflow-x-auto select-none"
+      class="flex overflow-x-auto select-none sm:overflow-hidden"
       data-pointer="move"
       @mousedown="onMouseDown($event)"
       @mouseup="onMouseUp()"
@@ -48,10 +48,10 @@
       <article
         v-for="(skill, key) in $t('about.skills.items')"
         :key="key"
-        class="last:pr-4 sm:last:pr-10 pl-4 sm:pl-10"
+        class="last:pr-4 pl-4 sm:last:pr-10 sm:pl-10"
         data-slide="panel"
       >
-        <div class="flex flex-col justify-end p-8 sm:w-96 h-64 rounded-2xl w-[80vw] bg-wash-background">
+        <div class="flex flex-col justify-end p-8 w-[80vw] h-64 bg-wash-background rounded-2xl sm:w-96">
           <h3 class="flex-grow pb-4 text-xl">
             {{ skill.title }}
           </h3>

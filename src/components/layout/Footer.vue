@@ -3,7 +3,7 @@
     tag="footer"
     class="py-10"
   >
-    <div class="p-4 sm:p-10 text-5xl sm:text-6xl text-background bg-foreground rounded-lg">
+    <div class="p-4 text-5xl text-background bg-foreground rounded-lg sm:p-10 sm:text-6xl">
       {{ $t('footer.contact') }}
     </div>
 

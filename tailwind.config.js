@@ -64,6 +64,7 @@ module.exports = {
     }),
   ],
   content: [
-    './src/**/*.{vue}',
+    './src/**/*.{vue,js}',
+    'nuxt.config.{js,ts}',
   ],
 };

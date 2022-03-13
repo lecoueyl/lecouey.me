@@ -1,6 +1,6 @@
 <template>
   <div class="pt-32 space-y-16 sm:space-y-24">
-    <LayoutContainer class="text-3xl sm:text-7xl text-center whitespace-pre">
+    <LayoutContainer class="text-3xl text-center whitespace-pre sm:text-7xl">
       <p
         v-for="(sentence, index) in $t('about.hero')"
         :key="index"
@@ -68,9 +68,9 @@
           <li
             v-for="period in resume"
             :key="period.workplace"
-            class="sm:grid sm:grid-cols-5 sm:gap-4 pb-8 sm:pb-16"
+            class="pb-8 sm:grid sm:grid-cols-5 sm:gap-4 sm:pb-16"
           >
-            <div class="sm:col-span-2 text-wash-muted">
+            <div class="text-wash-muted sm:col-span-2">
               {{ $d(new Date(period.from), 'year') }}
               <template v-if="period.to && (period.from !== period.to)">
                 ー {{ $d(new Date(period.to), 'year') }}
