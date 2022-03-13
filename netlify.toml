@@ -1,9 +1,12 @@
-[dev]
-   command = "pnpm run dev || ( npm install pnpm && pnpm run dev )"
+[build.environment]
+  NPM_FLAGS = "--version"
 
 [build]
   command = "pnpm run generate || ( npm install pnpm && pnpm run generate )"
   publish = "dist"
+
+[dev]
+   command = "pnpm run dev || ( npm install pnpm && pnpm run dev )"
 
 [[redirects]]
   from = "/js/script.js"
