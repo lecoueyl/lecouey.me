@@ -1,7 +1,7 @@
 <template>
   <div
     ref="pointer"
-    class="sm:block fixed inset-0 -top-5 -left-5 w-10 h-10 pointer-events-none select-none"
+    class="fixed inset-0 -top-5 -left-5 w-10 h-10 pointer-events-none select-none sm:block"
   >
     <div class="flex relative justify-center items-center w-full h-full text-primary">
       <div

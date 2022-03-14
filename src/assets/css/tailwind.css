@@ -30,7 +30,7 @@
   }
 
   html {
-    @apply h-full text-foreground bg-background selection:bg-foreground selection:text-background;
+    @apply h-full text-foreground bg-background selection:bg-foreground selection:text-background antialiased;
   }
 
   body {

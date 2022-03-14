@@ -12,6 +12,10 @@ module.exports = {
     fallback: true,
   },
 
+  server: {
+    host: '0.0.0.0',
+  },
+
   // Environment variables
   publicRuntimeConfig: {
     app: {
@@ -128,8 +132,8 @@ module.exports = {
     '@nuxtjs/tailwindcss',
   ],
 
-  tailwindcss: {
-    configPath: '../tailwind.config.js',
+  colorMode: {
+    classSuffix: '',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

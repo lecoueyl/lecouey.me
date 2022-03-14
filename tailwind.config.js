@@ -2,8 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  mode: 'jit',
-  darkMode: false,
+  darkMode: 'class',
   theme: {
     animation: {
       wave: 'wave 10s infinite ease forwards',
@@ -54,7 +53,7 @@ module.exports = {
         },
       });
       addUtilities({
-        '.dark-mode': {
+        '.dark': {
           '--color-primary': 'hsl(272deg 51% 54%)',
           '--color-foreground': 'hsl(256deg 6% 93.2%)',
           '--color-background': 'hsl(246deg 6% 9%)',
@@ -64,12 +63,8 @@ module.exports = {
       });
     }),
   ],
-  purge: {
-    content: [
-      './src/**/*.{vue}',
-    ],
-    safelist: [
-      'dark-mode',
-    ],
-  },
+  content: [
+    './src/**/*.{vue,js}',
+    'nuxt.config.{js,ts}',
+  ],
 };
