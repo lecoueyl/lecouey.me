@@ -41,7 +41,6 @@ module.exports = {
   plugins: [
     plugin(({
       addBase,
-      addUtilities,
     }) => {
       addBase({
         ':root': {
@@ -51,9 +50,7 @@ module.exports = {
           '--color-wash-muted': 'hsl(252deg 4% 44.8%)',
           '--color-wash-background': 'hsl(294deg 5.5% 95.3%)',
         },
-      });
-      addUtilities({
-        '.dark': {
+        ':root.dark': {
           '--color-primary': 'hsl(272deg 51% 54%)',
           '--color-foreground': 'hsl(256deg 6% 93.2%)',
           '--color-background': 'hsl(246deg 6% 9%)',
