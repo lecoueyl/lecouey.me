@@ -1,17 +1,7 @@
 <template>
-  <div>
-    <Loading />
-    <Pointer />
+  <div class="h-full">
     <LayoutHeader />
-    <nuxt role="main" />
-    <LayoutFooter />
+
+    <slot />
   </div>
 </template>
-
-<script>
-export default {
-  head() {
-    return this.$nuxtI18nHead({ addDirAttribute: true, addSeoAttributes: true });
-  },
-};
-</script>
