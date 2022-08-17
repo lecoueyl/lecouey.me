@@ -34,6 +34,20 @@
       </Transition>
     </div>
 
+    <h2
+      ref="title"
+      class="py-64 text-center text-7xl duration-1000"
+    >
+      <TransitionRevealText
+        :show="inView.value"
+        :transition-delay="50"
+      >
+        It starts with an idea
+      </TransitionRevealText>
+    </h2>
+
+    <IndexChat />
+
     <div class="p-8">
       <h1 class="pb-10 font-medium">
         Lead designer
@@ -44,18 +58,11 @@
         <span class="block">in Italian heritage through every detail.</span>
       </p>
 
-      <h1 class="mx-auto max-w-4xl origin-center text-3xl leading-normal lg:text-4xl lg:leading-normal">
-        <TransitionRevealText :show="true">
-          French Full stack engineer and Product designer based in Tokyo.
-          I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
-        </TransitionRevealText>
-      </h1>
-
       <div class="my-10 rounded-full bg-neutral-900 p-4 text-xl font-medium text-neutral-50">
         Hi there, happy to see you
       </div>
 
-      <div class="gradient-border relative rounded-3xl bg-neutral-50 p-10 text-3xl before:absolute before:inset-0 before:-top-px before:-left-px before:z-[-1] before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:from-neutral-100 before:via-neutral-300 before:opacity-50">
+      <div class="gradient-border relative rounded-3xl bg-neutral-50 p-10 text-3xl before:absolute before:inset-0 before:-top-px before:-left-px before:z-[-1] before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:from-neutral-100 before:via-neutral-900 before:opacity-50">
         French Full stack engineer and Product designer based in Tokyo.
         I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
       </div>
@@ -65,12 +72,15 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
+import { useInView } from '@/composables/intersectionObserver';
 
 const mounted = ref(false);
 const loading = ref(false);
+const title = ref();
+// const inView = useInView(title.value);
 
 const heroBeforeEnter = (el) => {
-  disableScroll();
+  // disableScroll();
   gsap.set(el, {
     yPercent: 40,
     scale: 0.95,
@@ -91,13 +101,15 @@ const heroEnter = async (el) => {
       ease: 'Circ.inOut',
       scale: 1,
     }, '-=1.5');
-  enableScroll();
+  // enableScroll();
   loading.value = true;
 };
 
 onMounted(() => {
   mounted.value = true;
 });
+
+const inView = computed(() => useInView({ element: title.value }));
 </script>
 
 <style>

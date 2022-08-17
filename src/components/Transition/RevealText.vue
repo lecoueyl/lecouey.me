@@ -2,23 +2,20 @@
   <span :aria-label="trimmedText" />
   <transition-group
     v-if="splittedText.length > 0"
-    enter-active-class="transition-opacity duration-1000 motion-reduce:transition-none"
-    enter-from-class="opacity-0"
-    enter-to-class="opacity-100"
+    enter-active-class="transition duration-1000 in-out-expo motion-reduce:transition-none"
+    enter-from-class="opacity-0 translate-y-full transform"
+    enter-to-class="opacity-100 translate-y-0 transform"
     @after-enter="onAfterEnterTransition"
   >
     <template v-for="word, key in splittedText">
       <span
-        v-if="showText"
+        v-if="show"
         :key="key"
         :style="{ transitionDelay: `${key * transitionDelay}ms` }"
         class="inline-block"
         aria-hidden="true"
       >
-        <span
-          class="inline-block"
-        >{{ word }}&nbsp;
-        </span>
+        {{ word }}&nbsp;
       </span>
     </template>
   </transition-group>
@@ -37,11 +34,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['change']);
-
 const slots = useSlots();
-
-const showText = ref(false);
 
 const trimmedText = computed(() => {
   if (!slots.default) throw new Error('Default slot is required');
@@ -57,8 +50,4 @@ const onAfterEnterTransition = (el) => {
   const element = el;
   element.style.transitionDelay = null;
 };
-
-onMounted(() => {
-  showText.value = props.show;
-});
 </script>

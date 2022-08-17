@@ -68,6 +68,14 @@ module.exports = {
         '"MS Gothic"', 'hirakakupron-w3', 'TakaoExゴシック', 'takaoexgothic', 'MotoyaLCedar', '"Droid Sans Japanese"', 'sans-serif',
       ],
     },
+    extend: {
+      transitionDuration: {
+        2000: '2000ms',
+      },
+      transitionTimingFunction: {
+        'in-out-expo': 'cubic-bezier(0.87, 0, 0.13, 1)',
+      },
+    },
   },
   plugins: [
     plugin(({
