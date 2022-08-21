@@ -30,15 +30,11 @@
   }
 
   html {
-    @apply h-full text-neutral-900 bg-neutral-50 antialiased;
-  }
-
-  body {
     @apply h-full;
   }
 
-  :lang(ja-Jp) {
-    @apply font-japanese;
+  body {
+    @apply h-full text-neutral-12 bg-neutral-1 antialiased;
   }
 }
 
