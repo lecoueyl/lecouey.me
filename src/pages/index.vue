@@ -77,7 +77,6 @@ import { useInView } from '@/composables/intersectionObserver';
 const mounted = ref(false);
 const loading = ref(false);
 const title = ref();
-// const inView = useInView(title.value);
 
 const heroBeforeEnter = (el) => {
   // disableScroll();
