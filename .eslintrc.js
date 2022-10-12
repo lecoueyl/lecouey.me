@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    '@nuxtjs/eslint-config-typescript',
     'airbnb-base',
     'plugin:vue/vue3-recommended',
     'plugin:nuxt/recommended',
