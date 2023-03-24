@@ -52,7 +52,7 @@
         mode="out-in"
       >
         <div
-          v-if="!inView.value"
+          v-if="!isIntersecting"
           class="inline-block max-w-[60%] rounded-2xl bg-primary-11 p-6 text-2xl text-primary-1"
         >
           <div class="flex items-center space-x-2">
@@ -102,8 +102,6 @@
 </template>
 
 <script setup lang="ts">
-import { useInView } from '@/composables/intersectionObserver';
-
 const container = ref();
 const thread = reactive([
   {
@@ -123,5 +121,5 @@ const thread = reactive([
   },
 ]);
 
-const inView = computed(() => useInView({ element: container.value }));
+const { isIntersecting } = useIntersectionObserver({ target: container.value });
 </script>

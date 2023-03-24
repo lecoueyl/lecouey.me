@@ -1,11 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { defineNuxtConfig } from 'nuxt';
 import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
   srcDir: 'src',
-  target: 'static',
-  ssr: false,
+  ssr: true,
 
   head: {
     script: [
@@ -21,6 +18,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
+    'nuxt-eslint-global-imports',
   ],
 
   colorMode: {

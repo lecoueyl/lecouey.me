@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   show: {
     type: Boolean,
     default: false,
@@ -34,12 +34,10 @@ const props = defineProps({
   },
 });
 
-const slots = useSlots();
-
 const trimmedText = computed(() => {
-  if (!slots.default) throw new Error('Default slot is required');
+  if (!useSlots().default()) throw new Error('Default slot is required');
 
-  return slots.default()[0].children
+  return useSlots().default()[0].children
     .trim()
     .replace(/\s\s+/g, ' ');
 });

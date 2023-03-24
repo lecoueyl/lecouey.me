@@ -10,6 +10,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:nuxt/recommended',
     'plugin:tailwindcss/recommended',
+    './.nuxt/.eslintrc-auto-import.json',
   ],
   parserOptions: {
     ecmaVersion: 'latest',

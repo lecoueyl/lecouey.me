@@ -39,7 +39,7 @@
       class="py-64 text-center text-7xl duration-1000"
     >
       <TransitionRevealText
-        :show="inView.value"
+        :show="isIntersecting"
         :transition-delay="50"
       >
         It starts with an idea
@@ -72,13 +72,13 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
-import { useInView } from '@/composables/intersectionObserver';
 
 const mounted = ref(false);
 const loading = ref(false);
 const title = ref();
+const { isIntersecting } = useIntersectionObserver({ target: title });
 
-const heroBeforeEnter = (el) => {
+const heroBeforeEnter = (el: Element) => {
   // disableScroll();
   gsap.set(el, {
     yPercent: 40,
@@ -87,7 +87,7 @@ const heroBeforeEnter = (el) => {
   });
 };
 
-const heroEnter = async (el) => {
+const heroEnter = async (el: Element) => {
   await gsap.timeline()
     .to(el, {
       duration: 2,
@@ -107,8 +107,6 @@ const heroEnter = async (el) => {
 onMounted(() => {
   mounted.value = true;
 });
-
-const inView = computed(() => useInView({ element: title.value }));
 </script>
 
 <style>
