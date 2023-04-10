@@ -1,6 +1,6 @@
 <template>
-  <main class="h-full">
-    <div class="h-full p-4">
+  <main>
+    <div class="h-screen p-4">
       <Transition
         appear
         mode="out-in"
@@ -19,11 +19,11 @@
             I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
           </BreakoutGame>
 
-          <div class="absolute -top-1/2 -left-1/3 z-0 h-full w-full animate-blob">
+          <div class="absolute -left-1/3 -top-1/2 z-0 h-full w-full animate-blob">
             <div class="h-4/5 w-4/5 rounded-full bg-primary-11 mix-blend-multiply blur-2xl" />
           </div>
 
-          <div class="absolute -top-1/2 -right-1/2 z-0 h-full w-full animate-blob animation-delay-2000 ">
+          <div class="absolute -right-1/2 -top-1/2 z-0 h-full w-full animate-blob animation-delay-2000 ">
             <div class="h-4/5 w-4/5 rounded-full bg-secondary-200 mix-blend-multiply blur-2xl" />
           </div>
 
@@ -36,11 +36,10 @@
 
     <h2
       ref="title"
-      class="py-64 text-center text-7xl duration-1000"
+      class="py-64 text-center text-7xl"
     >
       <TransitionRevealText
         :show="isIntersecting"
-        :transition-delay="50"
       >
         It starts with an idea
       </TransitionRevealText>
@@ -62,7 +61,7 @@
         Hi there, happy to see you
       </div>
 
-      <div class="gradient-border relative rounded-3xl bg-neutral-1 p-10 text-3xl before:absolute before:inset-0 before:-top-px before:-left-px before:z-[-1] before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:from-neutral-2 before:via-neutral-12 before:opacity-50">
+      <div class="gradient-border relative rounded-3xl bg-neutral-1 p-10 text-3xl before:absolute before:inset-0 before:-left-px before:-top-px before:z-[-1] before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:from-neutral-2 before:via-neutral-12 before:opacity-50">
         French Full stack engineer and Product designer based in Tokyo.
         I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
       </div>
@@ -81,7 +80,7 @@ const { isIntersecting } = useIntersectionObserver({ target: title });
 const heroBeforeEnter = (el: Element) => {
   // disableScroll();
   gsap.set(el, {
-    yPercent: 40,
+    yPercent: 10,
     scale: 0.95,
     opacity: 0,
   });
@@ -96,7 +95,7 @@ const heroEnter = async (el: Element) => {
       opacity: 1,
     })
     .to(el, {
-      duration: 2,
+      duration: 1.5,
       ease: 'Circ.inOut',
       scale: 1,
     }, '-=1.5');

@@ -2,9 +2,11 @@
   <span :aria-label="trimmedText" />
   <transition-group
     v-if="splittedText.length > 0"
-    enter-active-class="transition duration-1000 in-out-expo motion-reduce:transition-none"
+    enter-active-class="transition duration-[700ms] in-out-expo motion-reduce:transition-none"
     enter-from-class="opacity-0 translate-y-full transform"
     enter-to-class="opacity-100 translate-y-0 transform"
+    class="overflow-hidden"
+    tag="p"
     @after-enter="onAfterEnterTransition"
   >
     <template v-for="word, key in splittedText">
@@ -30,7 +32,7 @@ defineProps({
 
   transitionDelay: {
     type: Number,
-    default: 25,
+    default: 50,
   },
 });
 

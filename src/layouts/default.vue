@@ -1,7 +1,3 @@
 <template>
-  <div class="h-full">
-    <LayoutHeader />
-
-    <slot />
-  </div>
+  <slot />
 </template>
