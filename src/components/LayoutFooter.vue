@@ -15,7 +15,7 @@
         <div class="text-sm text-neutral-11">
           Local time
         </div>
-        <div>{{ currentJstTime }}</div>
+        <div>{{ currentJstTime }} JST</div>
       </li>
     </ul>
   </div>
