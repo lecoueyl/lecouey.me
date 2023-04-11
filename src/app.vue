@@ -2,9 +2,13 @@
   <div>
     <LayoutHeader />
 
-    <NuxtLayout :key="$route.fullPath">
-      <NuxtPage />
-    </NuxtLayout>
+    <TransitionPage>
+      <div :key="$route.fullPath">
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </div>
+    </TransitionPage>
 
     <LayoutFooter />
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex h-screen items-center p-16">
     <div class="text-center text-7xl">
       <span class="relative inline-block overflow-hidden pr-2 text-left">
         <div

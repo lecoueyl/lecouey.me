@@ -29,16 +29,30 @@
       url("~/assets/font/inter-v3-latin-500.svg#Inter") format("svg"); /* Legacy iOS */
   }
 
-  html {
-    @apply h-full;
-  }
-
   body {
-    @apply h-full text-neutral-12 bg-neutral-1 antialiased;
+    @apply text-neutral-1 bg-neutral-12 antialiased;
   }
 }
 
 #__nuxt,
 #__layout {
   @apply h-full;
+}
+
+@layer utilities {
+  .text-shine {
+    @apply bg-clip-text bg-[linear-gradient(to_right,theme(colors.neutral.1)_0%,theme(colors.neutral.5)_20%,theme(colors.neutral.11)_40%,theme(colors.neutral.11)_60%,theme(colors.neutral.5)_70%,theme(colors.neutral.1)_100%)];
+    background-size: 200% auto;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 2s linear infinite;
+
+    @keyframes shine {
+      to {
+        background-position: -200% center;
+      }
+    }
+  }
 }
