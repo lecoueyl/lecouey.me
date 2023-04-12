@@ -27,6 +27,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "@nuxt/image-edge": "1.0.0-28020728.5df24eb",
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.6.5",
@@ -48,5 +49,10 @@
   "dependencies": {
     "gsap": "^3.11.5",
     "vite-svg-loader": "^4.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "consola": "3.0.1"
+    }
   }
 }

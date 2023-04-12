@@ -1,5 +1,6 @@
 import svgLoader from 'vite-svg-loader';
 
+// eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   srcDir: 'src',
   ssr: true,
@@ -16,6 +17,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/image-edge',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
     'nuxt-eslint-global-imports',
