@@ -15,6 +15,7 @@ npm-debug.log
 
 # Nuxt build
 .nuxt
+.output
 dist
 
 # Nuxt generate

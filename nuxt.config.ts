@@ -23,6 +23,10 @@ export default defineNuxtConfig({
     'nuxt-eslint-global-imports',
   ],
 
+  image: {
+    dir: 'assets/img',
+  },
+
   colorMode: {
     classSuffix: '',
     dataValue: 'theme',
