@@ -5,15 +5,17 @@ export default defineNuxtConfig({
   srcDir: 'src',
   ssr: true,
 
-  head: {
-    script: [
-      {
-        src: '/js/script.js',
-        async: true,
-        defer: true,
-        'data-domain': 'lecouey.me',
-      },
-    ],
+  app: {
+    head: {
+      script: [
+        {
+          src: '/js/script.js',
+          async: true,
+          defer: true,
+          'data-domain': 'lecouey.me',
+        },
+      ],
+    },
   },
 
   modules: [

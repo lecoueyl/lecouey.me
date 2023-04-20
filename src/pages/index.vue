@@ -27,7 +27,9 @@
     </div>
 
     <div class="h-screen bg-primary-3" />
-    <div class="test h-screen bg-primary-3" />
+    <div class="test h-screen bg-primary-6">
+      Test
+    </div>
     <div class="h-screen bg-primary-3" />
     <div class="h-screen bg-primary-3" />
 
@@ -107,7 +109,8 @@ onMounted(async () => {
       each: 0.05,
     },
     scrollTrigger: {
-      trigger: '#hero',
+      trigger: '.test',
+      endTrigger: '.test',
       start: 'top top',
       end: '+=1000',
       scrub: true,
