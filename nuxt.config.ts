@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    dir: 'assets/img',
+    dir: 'public/img/',
   },
 
   colorMode: {

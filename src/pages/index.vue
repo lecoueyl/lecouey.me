@@ -7,13 +7,13 @@
 
       <div ref="cards">
         <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-12 scale-90  overflow-hidden rounded-2xl bg-primary-7 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
-          <nuxt-img src="/thumb3.jpg" />
+          <nuxt-img src="thumb3.jpg" />
         </div>
         <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-6 scale-95 overflow-hidden rounded-2xl bg-primary-8 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
-          <nuxt-img src="/thumb2.jpg" />
+          <nuxt-img src="thumb2.jpg" />
         </div>
         <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 overflow-hidden rounded-2xl bg-primary-10 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
-          <nuxt-img src="/thumb.jpg" />
+          <nuxt-img src="thumb.jpg" />
         </div>
       </div>
 
