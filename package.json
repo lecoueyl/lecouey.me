@@ -52,7 +52,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-nuxt": "^3.1.0",
     "husky": "^7.0.0",
-    "stylelint": "^14.3.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended-vue": "^1.1.0",
     "stylelint-config-standard": "^24.0.0",
