@@ -1,33 +1,31 @@
 <template>
-  <header class="fixed inset-x-0 top-0 z-40 items-center p-8 text-lg tracking-tight">
-    <nav class="flex items-center justify-between gap-4 font-medium">
+  <header class="container sticky top-0 z-40 w-full items-center py-6 ">
+    <nav class="flex h-6 items-center justify-between gap-4 text-lg">
       <NuxtLink
         to="/"
-        class="inline-block h-6 grow"
+        class=""
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="none" viewBox="0 0 120 120">
-          <path id="logoPath" ref="targetPath" d="M17 93V42c0-13.807 11.193-25 25-25h58" />
-
-          <text>
-            <textPath ref="targetPath" textLength="150" href="#logoPath" fill="currentColor" class="text-lg font-medium">Leonard&nbsp;Lecouey</textPath>
-          </text>
-        </svg>
+        Leonard Lecouey
       </NuxtLink>
-      <!-- <NuxtLink
-        to="/"
-        class="inline-block"
+
+      <div class="flex items-center justify-between gap-4">
+        <NuxtLink to="about">
+          JP
+        </NuxtLink>
+
+        <div class="h-[0.15rem] w-10 bg-neutral-950" />
+
+        <NuxtLink to="about">
+          About
+        </NuxtLink>
+      </div>
+
+      <a
+        href=""
+        class="inline-block h-6 text-lg"
       >
-        Lecouey Leonard
-      </NuxtLink> -->
-      <NuxtLink to="about">
-        JP
-      </NuxtLink>
-
-      <div class="h-[0.15rem] w-8 bg-neutral-1" />
-
-      <NuxtLink to="about">
-        About
-      </NuxtLink>
+        hi@lecouey
+      </a>
     </nav>
   </header>
 </template>
