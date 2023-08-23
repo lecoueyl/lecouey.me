@@ -1,7 +1,7 @@
 <template>
   <svg
     class="fixed top-0 z-50"
-    :class="isRouting ? 'block' : 'hidden'"
+    :class="store.isRouting ? 'block' : 'hidden'"
     width="100%"
     height="100%"
     viewBox="0 0 100 100"
@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import gsap from 'gsap';
 
-const isRouting = ref(false);
+const store = useStore();
 const targetPath = ref();
 let timeline: GSAPTimeline;
 const paths = {
@@ -49,10 +49,10 @@ const paths = {
 
 async function onBeforeLeave() {
   timeline = gsap.timeline();
-  isRouting.value = true;
+  store.value.isRouting = true;
 }
 
-async function onLeave(el: Element, done: Function) {
+async function onLeave(_el: Element, done: Function) {
   await timeline
     .set(targetPath.value, {
       attr: { d: paths.start.unfilled },
@@ -70,7 +70,7 @@ async function onLeave(el: Element, done: Function) {
   done();
 }
 
-async function onEnter(el: Element, done: Function) {
+async function onEnter(_el: Element, done: Function) {
   await timeline
     .set(targetPath.value, {
       attr: { d: paths.finish.filled },
@@ -87,16 +87,16 @@ async function onEnter(el: Element, done: Function) {
     });
 
   done();
-  isRouting.value = false;
+  store.value.isRouting = false;
 }
 
 async function onLeaveCancelled() {
   await timeline.reverse();
-  isRouting.value = false;
+  store.value.isRouting = false;
 }
 
 async function onEnterCancelled() {
   await timeline.reverse();
-  isRouting.value = false;
+  store.value.isRouting = false;
 }
 </script>

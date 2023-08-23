@@ -24,7 +24,7 @@
         href=""
         class="inline-block h-6 text-lg"
       >
-        hi@lecouey
+        hi@lecouey.me
       </a>
     </nav>
   </header>

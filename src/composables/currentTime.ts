@@ -1,24 +1,30 @@
-// eslint-disable-next-line import/prefer-default-export
-export function useCurrentTime() {
-  const getCurrentJstTime = () => new Intl.DateTimeFormat('ja-JP', {
-    timeZone: 'Asia/Tokyo',
+export function useCurrentTime({
+  format = 'ja-JP',
+  timeZone = 'Asia/Tokyo',
+} = {}) {
+  const getCurrentTime = () => new Intl.DateTimeFormat(format, {
+    timeZone,
     hour: 'numeric',
     minute: 'numeric',
   }).format(new Date());
 
-  const currentJstTime = ref(getCurrentJstTime());
+  const currentTime = ref(getCurrentTime());
+  const currentTimeArray = currentTime.value.split(':');
 
-  function updateCurrentJstTimeEverySeconds() {
+  function updateCurrentTimeEverySeconds() {
     setInterval(() => {
-      currentJstTime.value = getCurrentJstTime();
+      currentTime.value = getCurrentTime();
     }, 1000);
   }
 
   onMounted(() => {
-    updateCurrentJstTimeEverySeconds();
+    updateCurrentTimeEverySeconds();
   });
 
   return {
-    currentJstTime,
+    currentTime,
+    currentTimeArray,
   };
 }
+
+export default useCurrentTime();
