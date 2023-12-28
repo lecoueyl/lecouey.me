@@ -9,9 +9,9 @@ export const useCurrentTime = ({
   }).format(new Date());
 
   const currentTime = ref(getCurrentTime());
-  const currentTimeArray = currentTime.value.split(':');
-  const currentHour = Number(currentTimeArray[0]);
-  const currentMinute = Number(currentTimeArray[1]);
+  const currentTimeArray = computed(() => currentTime.value.split(':'));
+  const currentHour = computed(() => Number(currentTimeArray.value[0]));
+  const currentMinute = computed(() => Number(currentTimeArray.value[1]));
 
   function updateCurrentTimeEverySeconds() {
     setInterval(() => {

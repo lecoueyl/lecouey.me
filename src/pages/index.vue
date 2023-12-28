@@ -27,6 +27,8 @@
         <p class="max-w-lg text-[2vw] uppercase leading-tight text-neutral-500">
           With a passion for creating intuitive and visually appealing user interfaces
         </p>
+
+        <nuxt-img src="img/thumb1.jpg" class="absolute inset-x-0 -bottom-16 -z-10 mx-auto w-[30rem] rounded-xl" />
         <!-- <h1 ref="heroMain" class="w-full text-justify text-[13vw] sm:text-[8vw] lg:text-[7vw] 2xl:text-[6vw]">
           <div class="flex gap-2 overflow-hidden font-bold leading-[0.9]">
             <span>CREATIVE</span>
