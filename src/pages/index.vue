@@ -1,8 +1,8 @@
 <template>
   <main>
-    <div class="flex h-[calc(100vh-theme(space.20))] flex-col items-center">
-      <div class="container flex grow flex-col items-center justify-center gap-8">
-        <h1 ref="heroMain" class="text-[7vw] font-bold uppercase leading-[0.85] tracking-tighter">
+    <div class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 py-10">
+      <div class="container flex grow flex-col gap-10">
+        <h1 ref="heroMain" class="grow text-[8vw] font-bold uppercase leading-[0.9] tracking-tight">
           <span
             v-for="text, index in [
               'Creative',
@@ -24,7 +24,7 @@
           developer & full stack engineer based in Tokyo -->
         </h1>
 
-        <p class="max-w-sm self-end text-[1.2vw] uppercase leading-none text-neutral-400">
+        <p class="max-w-lg text-[2vw] uppercase leading-tight text-neutral-500">
           With a passion for creating intuitive and visually appealing user interfaces
         </p>
         <!-- <h1 ref="heroMain" class="w-full text-justify text-[13vw] sm:text-[8vw] lg:text-[7vw] 2xl:text-[6vw]">
@@ -105,9 +105,29 @@
         </p> -->
       </div>
 
-      <div class="container flex w-full justify-between pb-6">
-        <div>
-          {{ currentTimeArray[0] }}<span class="animate-pulse">:</span>{{ currentTimeArray[1] }} JST
+      <div class="container flex w-full justify-between">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+            <g>
+              <path fill="currentColor" fill-rule="evenodd" d="M7.2.808V.8a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm-3.598.967v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0ZM.972 4.406v-.008a.8.8 0 0 1 1.599 0v.008a.8.8 0 0 1-1.6 0Zm-.968 3.59v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm.968 3.606v-.008a.8.8 0 0 1 1.599 0v.008a.8.8 0 0 1-1.6 0Zm2.63 2.623v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm3.598.976v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm3.599-.976v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm2.63-2.623v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm.968-3.606v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm-.968-3.59v-.008a.8.8 0 1 1 1.6 0v.008a.8.8 0 0 1-1.6 0ZM10.8 1.767v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Z" clip-rule="evenodd" />
+              <path
+                class="origin-center transition-transform"
+                fill="currentColor"
+                d="M7.5 8a.5.5 0 0 0 1 0h-1Zm1 0V4h-1v4h1Z"
+                :style="{'transform': `rotate(${getDegreesFromModulo(currentHour, 24)}deg)`}"
+              />
+              <path
+                class="origin-center transition-transform"
+                fill="currentColor"
+                d="M7.5 8a.5.5 0 0 0 1 0h-1Zm1 0V2h-1v6h1Z"
+                :style="{'transform': `rotate(${getDegreesFromModulo(currentMinute, 60)}deg)`}"
+              />
+            </g>
+          </svg>
+
+          <div>
+            {{ currentHour }}<span class="animate-pulse">:</span>{{ currentMinute }} JST
+          </div>
         </div>
 
         <div class="text-shine">
@@ -128,7 +148,6 @@ import gsap from 'gsap';
 
 const heroMain = ref();
 
-const { currentTimeArray } = useCurrentTime();
 const { ease } = useGsap();
 
 function getHeroChildren() {
@@ -140,6 +159,10 @@ function getHeroChildren() {
 
   return elements;
 }
+
+// clock
+const { currentHour, currentMinute } = useCurrentTime();
+const getDegreesFromModulo = (value: number, modulo: number) => ((value % modulo) / modulo) * 360;
 
 onMounted(async () => {
   useScroll().disable();
