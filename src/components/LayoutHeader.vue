@@ -31,38 +31,5 @@
 </template>
 
 <script setup>
-import gsap from 'gsap';
 
-const targetPath = ref();
-
-onMounted(() => {
-  // gsap.timeline()
-  //   .set('#logoPath', {
-  //     attr: { d: 'M17 93V42c0-13.807 11.193-25 25-25h58m-83 0h83' },
-  //   })
-  //   .to('#logoPath', {
-  //     duration: 2,
-  //     ease: 'power1',
-  //     attr: { d: 'M0 0h100v100H0z' },
-  //   });
-
-  gsap.timeline()
-    .set(targetPath.value, {
-      attr: { startOffset: '-100%' },
-    })
-    .to(targetPath.value, {
-      duration: 2,
-      ease: 'expo.out',
-      attr: { startOffset: '0%' },
-    });
-  // gsap.timeline()
-  //   .set(targetPath.value, {
-  //     attr: { textLength: 0 },
-  //   })
-  //   .to(targetPath.value, {
-  //     duration: 2,
-  //     ease: 'power1',
-  //     attr: { textLength: 150 },
-  //   });
-});
 </script>
