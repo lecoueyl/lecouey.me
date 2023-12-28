@@ -5,8 +5,7 @@ if (process.client) {
   gsap.registerPlugin(CustomEase);
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export function useGsap() {
+export const useGsap = () => {
   const ease = {
     inOut: CustomEase.create(
       'custom',
@@ -18,4 +17,6 @@ export function useGsap() {
   return {
     ease,
   };
-}
+};
+
+export default useGsap;

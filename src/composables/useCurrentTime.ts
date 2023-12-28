@@ -1,7 +1,7 @@
-export function useCurrentTime({
+export const useCurrentTime = ({
   format = 'ja-JP',
   timeZone = 'Asia/Tokyo',
-} = {}) {
+} = {}) => {
   const getCurrentTime = () => new Intl.DateTimeFormat(format, {
     timeZone,
     hour: 'numeric',
@@ -25,6 +25,6 @@ export function useCurrentTime({
     currentTime,
     currentTimeArray,
   };
-}
+};
 
-export default useCurrentTime();
+export default useCurrentTime;

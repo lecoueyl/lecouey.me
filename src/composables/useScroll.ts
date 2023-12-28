@@ -1,4 +1,4 @@
-export function useScroll() {
+export const useScroll = () => {
   function disable() {
     document.querySelector('body')?.classList.add('overflow-hidden');
   }
@@ -11,6 +11,6 @@ export function useScroll() {
     disable,
     enable,
   };
-}
+};
 
-export default useScroll();
+export default useScroll;

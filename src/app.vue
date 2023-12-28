@@ -20,7 +20,7 @@
     >
       <path
         ref="targetPath"
-        class="fill-primary-11"
+        class="fill-neutral-950"
         vector-effect="non-scaling-stroke"
         d="M 0 100 V 100 Q 50 100 100 100 V 100 z"
       />
@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import type { TransitionProps } from 'nuxt/dist/app/compat/vue-demi';
 
 let timeline: GSAPTimeline; // eslint-disable-line no-undef
 
@@ -38,7 +39,6 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const transition = ref();
 const store = useStore();
 const settings = useRuntimeConfig().public;
 const targetPath = ref();
@@ -62,7 +62,7 @@ const paths = {
   },
 };
 
-const transitionProps = {
+const transitionProps: boolean | TransitionProps = {
   mode: 'out-in',
 
   onBeforeLeave: () => {
@@ -103,7 +103,6 @@ const transitionProps = {
         ease: 'power4',
         attr: { d: paths.finish.unfilled },
       });
-
     done();
     store.value.isRouting = false;
   },
@@ -119,10 +118,6 @@ const transitionProps = {
   },
 };
 
-// onMounted(async () => {
-
-// });
-
 useNuxtApp().hook('page:finish', () => {
   ScrollTrigger.refresh();
 });
@@ -132,7 +127,7 @@ useSchemaOrg([
     name: settings.siteName,
     logo: '/favicon.svg',
     sameAs: [
-      'https://biz-maps.com/item/kVZEAX4dZE',
+      'https://www.linkedin.com/in/llecouey/',
     ],
   }),
   defineWebSite(),

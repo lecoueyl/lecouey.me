@@ -23,23 +23,6 @@ export const theme = {
     '9xl': ['8rem', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: 500 }],
   },
 
-  // container: {
-  //   padding: {
-  //     DEFAULT: '1rem',
-  //     sm: '2rem',
-  //     lg: '4rem',
-  //     xl: '5rem',
-  //     '2xl': '6rem',
-  //   },
-  //   screens: {
-  //     DEFAULT: '100%',
-  //     sm: '100%',
-  //     md: '100%',
-  //     lg: '100%',
-  //     xl: '100%',
-  //   },
-  // },
-
   extend: {
     transitionTimingFunction: {
       'out-quint': 'cubic-bezier(0.22, 1, 0.36, 1)',
@@ -50,6 +33,5 @@ export const theme = {
 export const corePlugins = {
   container: false,
 };
-
 
 export default theme;
