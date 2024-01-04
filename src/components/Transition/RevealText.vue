@@ -4,58 +4,107 @@
     ref="target"
     :aria-label="trimmedText"
   >
-    <transition-group
-      v-if="splittedText.length > 0"
-      enter-active-class="transition duration-1000 in-out-expo motion-reduce:transition-none"
-      enter-from-class="opacity-0 translate-y-full transform"
-      enter-to-class="opacity-100 translate-y-0 transform"
-      @after-enter="onAfterEnterTransition"
+    <span
+      v-for="(word, index) in content ?? splittedText"
+      :key="index"
+      class="inline-block overflow-hidden"
     >
-      <template v-for="word, key in trimmedText">
-        <span
-          v-if="isIntersecting"
-          :key="key"
-          :style="{ transitionDelay: `${key * transitionDelay}ms` }"
-          class="inline-block"
-          aria-hidden="true"
-        >
-          <template v-if="word === ' '">&nbsp;</template>
-          <template v-else>{{ word }}</template></span>
-      </template>
-    </transition-group>
-
-    <template v-else>
-      <slot />
-    </template>
+      <span class="inline-block translate-y-full">
+        <template v-if="word === ' '">&nbsp;</template>
+        <template v-else>{{ word }}</template>
+      </span>
+    </span>
   </component>
 </template>
 
-<script setup>
-defineProps({
-  transitionDelay: {
-    type: Number,
-    default: 5,
+<script setup lang="ts">
+import gsap from 'gsap';
+
+const props = defineProps({
+  show: {
+    default: false,
+    type: Boolean,
   },
 
   tag: {
     default: 'div',
     type: String,
   },
+
+  content: {
+    default: null,
+    type: Array,
+  },
 });
 
-const target = ref(null);
-const { isIntersecting } = useIntersectionObserver(target);
+const gsapSetting = {
+  duration: 1,
+  ease: 'power4.out',
+  stagger: 0.02,
+};
+
+const target = ref();
 
 const trimmedText = computed(() => {
   if (!useSlots().default()) throw new Error('Default slot is required');
 
-  return useSlots().default()[0].children.trim().replace(/\s\s+/g, ' ');
+  return useSlots().default()[0].children.trim();
 });
 
-const splittedText = computed(() => trimmedText.value.split(' '));
+const splittedText = computed(() => trimmedText.value.split(/(\s+)/));
 
-const onAfterEnterTransition = (el) => {
-  const element = el;
-  element.style.transitionDelay = null;
+const getElementChildren = () => {
+  const elements: Array<Element> = [];
+
+  if (!target.value) return elements;
+
+  Array.from(target.value?.children).forEach((child: Element | any) => {
+    elements.push(child.children);
+  });
+
+  return elements;
 };
+
+async function showElements() {
+  await gsap.fromTo(
+    getElementChildren(),
+    {
+      y: '100%',
+    },
+    {
+      y: 0,
+      ...gsapSetting,
+    },
+  );
+}
+
+async function hideElements() {
+  await gsap.fromTo(
+    getElementChildren(),
+    {
+      y: '0%',
+    },
+    {
+      y: '-100%',
+      ...gsapSetting,
+    },
+  );
+}
+
+watch(
+  () => props.show,
+  (newValue) => {
+    if (!target.value) return;
+
+    if (newValue) {
+      showElements();
+      return;
+    }
+    hideElements();
+  },
+);
+
+onMounted(() => {
+  if (props.show && target.value) showElements();
+});
 </script>

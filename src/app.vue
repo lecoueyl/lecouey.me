@@ -99,12 +99,18 @@ const transitionProps: boolean | TransitionProps = {
         attr: { d: paths.finish.inBetween.curve2 },
       })
       .to(targetPath.value, {
-        duration: 1,
-        ease: 'power4',
+        duration: 0.5,
+        ease: 'power4.out',
         attr: { d: paths.finish.unfilled },
+        onUpdate: () => {
+          // call done() before animation is completed
+          const currentTime = timeline.time();
+          if (timeline.duration() - currentTime <= 0.2) {
+            done();
+            store.value.isRouting = false;
+          }
+        },
       });
-    done();
-    store.value.isRouting = false;
   },
 
   onLeaveCancelled: async () => {

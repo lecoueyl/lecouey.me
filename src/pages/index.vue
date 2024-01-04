@@ -2,7 +2,15 @@
   <main>
     <div class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 py-10">
       <div class="container flex grow flex-col gap-10">
-        <h1 ref="heroMain" class="grow text-[8vw] font-bold uppercase leading-[0.9] tracking-tight">
+        <div class="grow">
+          <TransitionRevealText
+            :show="isPageDisplayed"
+            class="text-[8vw] font-bold uppercase leading-[0.9] tracking-tight"
+          >
+            Creative developer & fullstack engineer based in Tokyo
+          </TransitionRevealText>
+        </div>
+        <!-- <h1 ref="heroMain" class="grow  font-bold uppercase leading-[0.9] tracking-tight">
           <span
             v-for="text, index in [
               'Creative',
@@ -20,15 +28,13 @@
           >
             <span class="inline-block">{{ text }}</span>&nbsp;
           </span>
-          <!-- <span class="overflow-hidden"><span class="inline-block">Creative</span></span> <span>developer</span> <span>developer</span> <span>developer</span> <span>developer</span>
-          developer & full stack engineer based in Tokyo -->
-        </h1>
 
-        <p class="max-w-lg text-[2vw] uppercase leading-tight text-neutral-500">
+        </h1> -->
+
+        <p class="max-w-xs text-[2vw] uppercase leading-tight text-neutral-500 xl:max-w-lg">
           With a passion for creating intuitive and visually appealing user interfaces
         </p>
 
-        <nuxt-img src="img/thumb1.jpg" class="absolute inset-x-0 -bottom-16 -z-10 mx-auto w-[30rem] rounded-xl" />
         <!-- <h1 ref="heroMain" class="w-full text-justify text-[13vw] sm:text-[8vw] lg:text-[7vw] 2xl:text-[6vw]">
           <div class="flex gap-2 overflow-hidden font-bold leading-[0.9]">
             <span>CREATIVE</span>
@@ -107,29 +113,11 @@
         </p> -->
       </div>
 
-      <div class="container flex w-full justify-between">
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-            <g>
-              <path fill="currentColor" fill-rule="evenodd" d="M7.2.808V.8a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm-3.598.967v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0ZM.972 4.406v-.008a.8.8 0 0 1 1.599 0v.008a.8.8 0 0 1-1.6 0Zm-.968 3.59v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm.968 3.606v-.008a.8.8 0 0 1 1.599 0v.008a.8.8 0 0 1-1.6 0Zm2.63 2.623v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm3.598.976v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm3.599-.976v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm2.63-2.623v-.008a.8.8 0 0 1 1.6 0v.008a.8.8 0 0 1-1.6 0Zm.968-3.606v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Zm-.968-3.59v-.008a.8.8 0 1 1 1.6 0v.008a.8.8 0 0 1-1.6 0ZM10.8 1.767v.008a.8.8 0 0 0 1.6 0v-.008a.8.8 0 0 0-1.6 0Z" clip-rule="evenodd" />
-              <path
-                class="origin-center transition-transform"
-                fill="currentColor"
-                d="M7.5 8a.5.5 0 0 0 1 0h-1Zm1 0V4h-1v4h1Z"
-                :style="{'transform': `rotate(${getDegreesFromModulo(currentHour, 24)}deg)`}"
-              />
-              <path
-                class="origin-center transition-transform"
-                fill="currentColor"
-                d="M7.5 8a.5.5 0 0 0 1 0h-1Zm1 0V2h-1v6h1Z"
-                :style="{'transform': `rotate(${getDegreesFromModulo(currentMinute, 60)}deg)`}"
-              />
-            </g>
-          </svg>
+      <div class="container flex w-full justify-between gap-10">
+        <Clock />
 
-          <div>
-            {{ currentHour }}<span class="animate-pulse">:</span>{{ currentMinute }} JST
-          </div>
+        <div class="relative grow">
+          <nuxt-img src="img/thumb1.jpg" class="absolute bottom-0 right-0 -z-10 w-[30rem] rounded-xl" />
         </div>
 
         <div class="text-shine">
@@ -139,49 +127,12 @@
     </div>
 
     <div class="h-[500vh]" />
-    <!-- <Marquee class="text-7xl uppercase">
+    <Marquee class="text-7xl uppercase">
       This is a test
-    </Marquee> -->
+    </Marquee>
   </main>
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-
-const heroMain = ref();
-
-const { ease } = useGsap();
-
-function getHeroChildren() {
-  const elements: Array<Element> = [];
-
-  Array.from(heroMain.value.children).forEach((child: Element | any) => {
-    elements.push(child.children);
-  });
-
-  return elements;
-}
-
-// clock
-const { currentHour, currentMinute } = useCurrentTime();
-const getDegreesFromModulo = (value: number, modulo: number) => ((value % modulo) / modulo) * 360;
-
-onMounted(async () => {
-  useScroll().disable();
-
-  await gsap.fromTo(
-    getHeroChildren(),
-    {
-      y: '100%',
-    },
-    {
-      duration: 1,
-      y: '0%',
-      stagger: 0.035,
-      ease: ease.inOut,
-    },
-  );
-
-  useScroll().enable();
-});
+const { isPageDisplayed } = usePage();
 </script>

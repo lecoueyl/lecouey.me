@@ -19,7 +19,7 @@
 
       <a
         href=""
-        class="inline-block h-6 text-lg"
+        class="inline-block hidden h-6 text-lg sm:inline-block"
       >
         hi@lecouey.me
       </a>
