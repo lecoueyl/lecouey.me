@@ -4,6 +4,7 @@
       <div class="container flex grow flex-col gap-10">
         <div class="grow">
           <TransitionRevealText
+            tag="h1"
             :show="isPageDisplayed"
             class="text-[8vw] font-bold uppercase leading-[0.9] tracking-tight"
           >
@@ -31,9 +32,13 @@
 
         </h1> -->
 
-        <p class="max-w-xs text-[2vw] uppercase leading-tight text-neutral-500 xl:max-w-lg">
+        <TransitionRevealText
+          :delay="0.3"
+          :show="isPageDisplayed"
+          class="max-w-xs text-[2.5vw] leading-[1.15] text-neutral-700 xl:max-w-lg"
+        >
           With a passion for creating intuitive and visually appealing user interfaces
-        </p>
+        </TransitionRevealText>
 
         <!-- <h1 ref="heroMain" class="w-full text-justify text-[13vw] sm:text-[8vw] lg:text-[7vw] 2xl:text-[6vw]">
           <div class="flex gap-2 overflow-hidden font-bold leading-[0.9]">
@@ -113,11 +118,29 @@
         </p> -->
       </div>
 
-      <div class="container flex w-full justify-between gap-10">
+      <div class="container flex w-full justify-between gap-10 ">
         <Clock />
 
         <div class="relative grow">
-          <nuxt-img src="img/thumb1.jpg" class="absolute bottom-0 right-0 -z-10 w-[30rem] rounded-xl" />
+          <div class="absolute bottom-0 right-0 w-[30rem]">
+            <div class="relative">
+              <NuxtImg
+                src="img/thumb1.jpg"
+                alt="project 1"
+                class="absolute bottom-0 left-0 -translate-y-10 scale-90 rounded-xl opacity-30"
+              />
+              <NuxtImg
+                src="img/thumb1.jpg"
+                alt="project 1"
+                class="absolute bottom-0 left-0 -translate-y-5 scale-95 rounded-xl opacity-50"
+              />
+              <NuxtImg
+                src="img/thumb1.jpg"
+                alt="project 1"
+                class="absolute bottom-0 left-0 rounded-xl"
+              />
+            </div>
+          </div>
         </div>
 
         <div class="text-shine">
@@ -125,6 +148,18 @@
         </div>
       </div>
     </div>
+
+    <section class="container grid grid-cols-2 gap-8">
+      <article class="text-lg">
+        <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
+        <h2 class="pt-4 font-bold uppercase">
+          The wall
+        </h2>
+        <p class="">
+          A descriptive text
+        </p>
+      </article>
+    </section>
 
     <div class="h-[500vh]" />
     <Marquee class="text-7xl uppercase">

@@ -30,6 +30,6 @@
 </template>
 
 <script setup lang="ts">
-const { currentHour, currentMinute } = useCurrentTime();
+const { currentHour, currentMinute } = useTime();
 const getDegreesFromModulo = (value: number, modulo: number) => ((value % modulo) / modulo) * 360;
 </script>

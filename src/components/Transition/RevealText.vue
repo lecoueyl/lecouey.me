@@ -21,6 +21,16 @@
 import gsap from 'gsap';
 
 const props = defineProps({
+  content: {
+    default: null,
+    type: Array,
+  },
+
+  delay: {
+    default: 0,
+    type: Number,
+  },
+
   show: {
     default: false,
     type: Boolean,
@@ -30,17 +40,13 @@ const props = defineProps({
     default: 'div',
     type: String,
   },
-
-  content: {
-    default: null,
-    type: Array,
-  },
 });
 
 const gsapSetting = {
   duration: 1,
   ease: 'power4.out',
   stagger: 0.02,
+  delay: props.delay,
 };
 
 const target = ref();

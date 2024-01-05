@@ -1,4 +1,4 @@
-export const useCurrentTime = ({
+export const useTime = ({
   format = 'ja-JP',
   timeZone = 'Asia/Tokyo',
 } = {}) => {
@@ -30,4 +30,4 @@ export const useCurrentTime = ({
   };
 };
 
-export default useCurrentTime;
+export default useTime;
