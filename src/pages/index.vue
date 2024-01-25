@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 py-10">
+    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 py-10">
       <div class="container flex grow flex-col gap-10">
         <div class="grow">
           <TransitionRevealText
@@ -11,26 +11,6 @@
             Creative developer & fullstack engineer based in Tokyo
           </TransitionRevealText>
         </div>
-        <!-- <h1 ref="heroMain" class="grow  font-bold uppercase leading-[0.9] tracking-tight">
-          <span
-            v-for="text, index in [
-              'Creative',
-              'developer',
-              '&',
-              'full',
-              'stack',
-              'engineer',
-              'based',
-              'in',
-              'Tokyo',
-            ]"
-            :key="index"
-            class="inline-block overflow-hidden"
-          >
-            <span class="inline-block">{{ text }}</span>&nbsp;
-          </span>
-
-        </h1> -->
 
         <TransitionRevealText
           :delay="0.3"
@@ -121,23 +101,23 @@
       <div class="container flex w-full justify-between gap-10 ">
         <Clock />
 
-        <div class="relative grow">
-          <div class="absolute bottom-0 right-0 w-[30rem]">
-            <div class="relative">
+        <div class="relative flex grow justify-end">
+          <div class="sticky w-[30rem] origin-bottom-right">
+            <div ref="cards" class="relative">
               <NuxtImg
                 src="img/thumb1.jpg"
                 alt="project 1"
-                class="absolute bottom-0 left-0 -translate-y-10 scale-90 rounded-xl opacity-30"
+                class="absolute bottom-0 left-0 aspect-video w-full -translate-y-10 scale-90 rounded-xl opacity-30"
               />
               <NuxtImg
                 src="img/thumb1.jpg"
                 alt="project 1"
-                class="absolute bottom-0 left-0 -translate-y-5 scale-95 rounded-xl opacity-50"
+                class="absolute bottom-0 left-0 aspect-video w-full -translate-y-5 scale-95 rounded-xl opacity-50"
               />
               <NuxtImg
                 src="img/thumb1.jpg"
                 alt="project 1"
-                class="absolute bottom-0 left-0 rounded-xl"
+                class="absolute bottom-0 left-0 aspect-video w-full rounded-xl"
               />
             </div>
           </div>
@@ -146,6 +126,15 @@
         <div class="text-shine">
           (SCROLL)
         </div>
+      </div>
+    </div>
+
+    <div class="grid gap-4 py-40">
+      <div class="flex gap-2 overflow-x-hidden">
+        <span v-for="item in 20" :key="item" class="-translate-x-10 rounded-full bg-neutral-900 px-8 py-2 text-4xl text-neutral-100">VUE</span>
+      </div>
+      <div class="flex gap-2 overflow-x-hidden">
+        <span v-for="item in 20" :key="item" class="-translate-x-24 rounded-full bg-neutral-900 px-8 py-2 text-4xl text-neutral-100">ALL</span>
       </div>
     </div>
 
@@ -169,5 +158,91 @@
 </template>
 
 <script setup lang="ts">
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const { isPageDisplayed } = usePage();
+
+const cards = ref();
+const hero = ref();
+
+onMounted(async () => {
+  // gsap.set(cards.value, {
+  //   scale: 0.3,
+  // });
+  // gsap.to(cards.value, {
+  //   top: '50%',
+  //   left: '50%',
+  //   xPercent: -50,
+  //   yPercent: -50,
+  //   width: hero.value.clientWidth,
+  //   scrollTrigger: {
+  //     trigger: hero.value,
+  //     endTrigger: hero.value,
+  //     start: 'top top',
+  //     end: 'bottom top',
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
+  // await gsap
+  //   .timeline()
+  //   .set(cards.value.children, {
+  //     opacity: 0,
+  //     top: '50%',
+  //     left: '50%',
+  //     xPercent: -50,
+  //     yPercent: -50,
+  //     y: 0,
+  //     scale: 1.2,
+  //   })
+  //   .to(cards.value.children, {
+  //     delay: 0.3,
+  //     duration: 1.5,
+  //     ease: 'expo.out',
+  //     opacity: 1,
+  //     stagger: 0.5,
+  //   })
+  //   .to(cards.value.children, {
+  //     duration: 1.5,
+  //     ease: 'expo.out',
+  //     stagger: 0.2,
+  //     y: (index) => `${index * 5}%`,
+  //   }, '-=1')
+  //   .to(cards.value.children, {
+  //     duration: 1,
+  //     ease: 'expo.out',
+  //     top: 'auto',
+  //     left: 'auto',
+  //     xPercent: 0,
+  //     yPercent: 0,
+  //     scale: (index) => `${(1 - (cards.value.children.length * 0.05)) + index * 0.05}`,
+  //     stagger: {
+  //       from: 'end',
+  //       each: 0.05,
+  //     },
+  //   }, '-=1');
+
+  // gsap.to(cards.value.children, {
+  //   top: '50%',
+  //   left: '50%',
+  //   xPercent: -50,
+  //   yPercent: -50,
+  //   width: '90%',
+  //   stagger: {
+  //     from: 'end',
+  //     each: 0.05,
+  //   },
+  //   scrollTrigger: {
+  //     trigger: hero.value,
+  //     endTrigger: hero.value,
+  //     start: 'top top',
+  //     end: '+=1000',
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
+});
 </script>

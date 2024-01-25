@@ -1,7 +1,7 @@
 <template>
   <header class="container sticky top-0 z-40 w-full items-center pt-10 ">
     <nav class="flex h-6 items-center justify-between gap-4 text-lg">
-      <NuxtLink to="/" class="font-bold uppercase">
+      <NuxtLink to="/" class="rounded-sm bg-neutral-950 px-2 font-bold uppercase text-neutral-50">
         Leonard Lecouey
       </NuxtLink>
 
@@ -19,7 +19,7 @@
 
       <a
         href=""
-        class="inline-block hidden h-6 text-lg sm:inline-block"
+        class="hidden h-6 text-lg sm:inline-block"
       >
         hi@lecouey.me
       </a>
