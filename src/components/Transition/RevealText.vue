@@ -7,9 +7,9 @@
     <span
       v-for="(word, index) in content ?? splittedText"
       :key="index"
-      class="inline-block overflow-hidden"
+      class="inline-block overflow-hidden pb-6"
     >
-      <span class="inline-block translate-y-full">
+      <span class="inline-block origin-bottom-left translate-y-[200%]">
         <template v-if="word === ' '">&nbsp;</template>
         <template v-else>{{ word }}</template>
       </span>
@@ -41,6 +41,8 @@ const props = defineProps({
     type: String,
   },
 });
+
+const emit = defineEmits(['done']);
 
 const gsapSetting = {
   duration: 1,
@@ -75,13 +77,16 @@ async function showElements() {
   await gsap.fromTo(
     getElementChildren(),
     {
-      y: '100%',
+      rotate: 10,
+      y: '200%',
     },
     {
+      rotate: 0,
       y: 0,
       ...gsapSetting,
     },
   );
+  emit('done');
 }
 
 async function hideElements() {
@@ -89,9 +94,10 @@ async function hideElements() {
     getElementChildren(),
     {
       y: '0%',
+      rotate: 10,
     },
     {
-      y: '-100%',
+      y: '-200%',
       ...gsapSetting,
     },
   );

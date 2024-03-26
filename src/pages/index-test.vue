@@ -6,13 +6,13 @@
       </TransitionRevealTextCopy>
 
       <div ref="cards">
-        <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-12 scale-90  overflow-hidden rounded-2xl bg-primary-7 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
+        <div class="bg-primary-7 fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-12  scale-90 overflow-hidden rounded-2xl opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.950)]">
           <nuxt-img src="thumb3.jpg" format="webp" />
         </div>
-        <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-6 scale-95 overflow-hidden rounded-2xl bg-primary-8 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
+        <div class="bg-primary-8 fixed bottom-0 right-10 z-10 aspect-video w-1/2 -translate-y-6 scale-95 overflow-hidden rounded-2xl opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.950)]">
           <nuxt-img src="thumb2.jpg" format="webp" />
         </div>
-        <div class="fixed bottom-0 right-10 z-10 aspect-video w-1/2 overflow-hidden rounded-2xl bg-primary-10 opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.1)]">
+        <div class="bg-primary-10 fixed bottom-0 right-10 z-10 aspect-video w-1/2 overflow-hidden rounded-2xl opacity-0 shadow-[0px_-16px_40px_-24px_theme(colors.neutral.950)]">
           <nuxt-img src="thumb.jpg" format="webp" />
         </div>
       </div>
@@ -26,12 +26,12 @@
       </div>
     </div>
 
-    <div class="h-screen bg-primary-3" />
-    <div class="h-screen bg-primary-6">
+    <div class="bg-primary-3 h-screen" />
+    <div class="bg-primary-6 h-screen">
       Test
     </div>
-    <div class="h-screen bg-primary-3" />
-    <div class="test h-screen bg-primary-3" />
+    <div class="bg-primary-3 h-screen" />
+    <div class="test bg-primary-3 h-screen" />
 
     <Marquee class="text-7xl uppercase">
       This is a test

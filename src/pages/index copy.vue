@@ -9,7 +9,7 @@
       >
         <div
           v-if="mounted"
-          class="relative h-full overflow-hidden rounded-3xl bg-neutral-2 shadow-lg force-gpu focus:outline-none dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-neutral-6"
+          class="bg-neutral-2 force-gpu dark:ring-neutral-6 relative h-full overflow-hidden rounded-3xl shadow-lg focus:outline-none dark:shadow-none dark:ring-1 dark:ring-inset"
         >
           <BreakoutGame
             :in-view="loading"
@@ -19,16 +19,16 @@
             I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
           </BreakoutGame>
 
-          <div class="absolute -left-1/3 -top-1/2 z-0 h-full w-full animate-blob">
-            <div class="h-4/5 w-4/5 rounded-full bg-primary-11 mix-blend-multiply blur-2xl" />
+          <div class="animate-blob absolute -left-1/3 -top-1/2 z-0 size-full">
+            <div class="bg-primary-11 size-4/5 rounded-full mix-blend-multiply blur-2xl" />
           </div>
 
-          <div class="absolute -right-1/2 -top-1/2 z-0 h-full w-full animate-blob animation-delay-2000 ">
-            <div class="h-4/5 w-4/5 rounded-full bg-secondary-200 mix-blend-multiply blur-2xl" />
+          <div class="animate-blob animation-delay-2000 absolute -right-1/2 -top-1/2 z-0 size-full ">
+            <div class="bg-secondary-200 size-4/5 rounded-full mix-blend-multiply blur-2xl" />
           </div>
 
-          <div class="absolute -bottom-1/2 left-0 z-0 h-full w-full animate-blob animation-delay-4000">
-            <div class="h-4/5 w-4/5 rounded-full bg-tertiary-200 mix-blend-multiply blur-2xl" />
+          <div class="animate-blob animation-delay-4000 absolute -bottom-1/2 left-0 z-0 size-full">
+            <div class="bg-tertiary-200 size-4/5 rounded-full mix-blend-multiply blur-2xl" />
           </div>
         </div>
       </Transition>
@@ -51,17 +51,17 @@
       <h1 class="pb-10 font-medium">
         Lead designer
       </h1>
-      <p class="pb-48 text-neutral-11">
+      <p class="text-neutral-11 pb-48">
         <span class="block">Experience Saeco’s love and respect for the</span>
         <span class="block">perfect cup through rich storytelling bringing</span>
         <span class="block">in Italian heritage through every detail.</span>
       </p>
 
-      <div class="my-10 rounded-full bg-neutral-12 p-4 text-xl font-medium text-neutral-1">
+      <div class="bg-neutral-12 text-neutral-1 my-10 rounded-full p-4 text-xl font-medium">
         Hi there, happy to see you
       </div>
 
-      <div class="gradient-border relative rounded-3xl bg-neutral-1 p-10 text-3xl before:absolute before:inset-0 before:-left-px before:-top-px before:z-[-1] before:h-[calc(100%+2px)] before:w-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:from-neutral-2 before:via-neutral-12 before:opacity-50">
+      <div class="gradient-border bg-neutral-1 before:from-neutral-2 before:via-neutral-12 relative rounded-3xl p-10 text-3xl before:absolute before:inset-0 before:-left-px before:-top-px before:z-[-1] before:size-[calc(100%+2px)] before:rounded-3xl before:bg-opacity-20 before:bg-gradient-to-br before:opacity-50">
         French Full stack engineer and Product designer based in Tokyo.
         I love building well designed product from a draft idea, working on every aspect from mockup design to delivery.
       </div>

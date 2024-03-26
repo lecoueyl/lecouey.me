@@ -1,9 +1,14 @@
-// eslint-disable-next-line import/prefer-default-export
-export function useIntersectionObserver(
-  target: Ref<HTMLElement>,
+interface IntersectionOptions {
+  root?: HTMLElement | null;
+  rootMargin?: string;
+  threshold?: number | number[];
+}
+
+export function useIntersectionObserver({
+  target,
   once = true,
-  options: IntersectionObserverInit = { root: null, rootMargin: '0px', threshold: [0.8] },
-) {
+  options = { root: null, rootMargin: '0px', threshold: [0.8] },
+}: { target: Ref<HTMLElement>, once?: boolean, options?: IntersectionOptions }) {
   const intersectionRatio = ref(0);
   const isIntersecting = ref(false);
   const isFullyInView = ref(false);
@@ -24,6 +29,8 @@ export function useIntersectionObserver(
   }
 
   onMounted(() => {
+    if (!target) return;
+
     observer = new IntersectionObserver(([entry]) => {
       if (once && isIntersecting.value) return;
 
@@ -43,9 +50,12 @@ export function useIntersectionObserver(
   onUnmounted(unobserve);
 
   return {
+    intersectionRatio,
     isIntersecting,
     isFullyInView,
     observe,
     unobserve,
   };
 }
+
+export default useIntersectionObserver;

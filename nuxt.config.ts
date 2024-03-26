@@ -41,11 +41,6 @@ export default defineNuxtConfig({
     'nuxt-seo-kit',
   ],
 
-  colorMode: {
-    classSuffix: '',
-    dataValue: 'theme',
-  },
-
   tailwindcss: {
     viewer: false,
   },

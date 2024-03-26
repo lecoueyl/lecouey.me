@@ -1,7 +1,7 @@
 <template>
   <header class="container sticky top-0 z-40 w-full items-center pt-10 ">
     <nav class="flex h-6 items-center justify-between gap-4 text-lg">
-      <NuxtLink to="/" class="rounded-sm bg-neutral-950 px-2 font-bold uppercase text-neutral-50">
+      <NuxtLink to="/">
         Leonard Lecouey
       </NuxtLink>
 
