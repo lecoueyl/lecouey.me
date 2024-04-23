@@ -16,31 +16,32 @@
               ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="img/thumb2.jpg"
               alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="/img/thumb1.jpg"
               alt="project 1"
-              class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible -z-10 ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
           </div>
         </div>
       </div>
 
       <div
+        id="footer"
         class="container flex w-full justify-between gap-10"
       >
         <Clock />
@@ -85,7 +86,6 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const { isPageDisplayed } = usePage();
 
@@ -94,30 +94,15 @@ const hero = ref();
 
 const { enable: enableScroll, disable: disableScroll } = useScroll();
 
-onMounted(async () => {
-  disableScroll();
-  ScrollTrigger.create({
-    trigger: hero.value,
-    start: 'top top',
-    end: 'bottom top',
-    // onUpdate: (self) => {
-    //   console.log(
-    //     'progress:',
-    //     self.progress.toFixed(3),
-    //     'direction:',
-    //     self.direction,
-    //     'velocity',
-    //     self.getVelocity(),
-    //   );
-    // },
-  });
+const cardsTransformPositionArray = [
+  { x: -140, y: -40 },
+  { x: 150, y: -30 },
+  { x: 150, y: 50 },
+  { x: -270, y: 50 },
+];
 
-  const cardsTransformPositionArray = [
-    { x: -140, y: -40 },
-    { x: 150, y: -30 },
-    { x: 150, y: 50 },
-    { x: -270, y: 50 },
-  ];
+const heroIntro = async () => {
+  disableScroll();
 
   await gsap
     .timeline()
@@ -140,18 +125,27 @@ onMounted(async () => {
       yPercent: (index) => cardsTransformPositionArray[index].y,
       xPercent: (index) => cardsTransformPositionArray[index].x,
       stagger: 0.1,
-    }, '-=0.3');
+    }, '-=0.5');
 
   enableScroll();
+};
 
-  gsap.to(cards.value.children, {
-    yPercent: (index) => index - 2,
+onMounted(async () => {
+  await heroIntro();
+
+  const gsapTimeline = gsap.timeline({
     scrollTrigger: {
-      end: 'bottom top',
+      end: '100%-=64px top',
       scrub: true,
-      start: 'top top',
+      start: '-64px top',
       trigger: hero.value,
     },
   });
+
+  gsapTimeline
+    .to(cards.value.children, {
+      yPercent: (index) => cardsTransformPositionArray[index].y - (20 * index + 1),
+    })
+    .to('#footer', { opacity: 0 });
 });
 </script>
