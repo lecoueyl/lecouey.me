@@ -1,5 +1,12 @@
-import type { Config } from 'tailwindcss'
+/** @type {import('tailwindcss').Config} */
+/* eslint-disable import/no-extraneous-dependencies */
 import { fontFamily } from 'tailwindcss/defaultTheme';
+
+export const jit = true;
+
+export const corePlugins = {
+  container: false,
+};
 
 export const theme = {
   colors: {
@@ -44,9 +51,3 @@ export const theme = {
     },
   },
 };
-
-export const corePlugins = {
-  container: false,
-};
-
-export default theme;

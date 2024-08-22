@@ -85,8 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-
+const { gsap } = useGsap();
 const { isPageDisplayed } = usePage();
 
 const cards = ref();

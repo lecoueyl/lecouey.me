@@ -1,48 +1,70 @@
 import svgLoader from 'vite-svg-loader';
 
-// eslint-disable-next-line no-undef
+const config = {
+  siteDescription: '',
+  siteKeyword: '',
+  siteLang: 'en',
+  siteName: 'Leonard Lecouey',
+  siteUrl: 'https://www.lecouey.me',
+};
+
 export default defineNuxtConfig({
   srcDir: 'src',
 
   runtimeConfig: {
-    emailHost: process.env.EMAIL_HOST,
-    emailPass: process.env.EMAIL_PASS,
-    emailPort: process.env.EMAIL_PORT,
-    emailUser: process.env.EMAIL_USER,
     public: {
-      siteUrl: 'https://www.lecouey.me',
-      siteName: 'Leonard Lecouey',
-      siteDescription: '',
-      language: 'en',
+      ...config,
     },
   },
 
   app: {
     head: {
       script: [
-        {
+        ...(process.env.NODE_ENV !== 'development' ? [{
           src: '/js/script.js',
           async: true,
           defer: true,
           'data-domain': 'lecouey.me',
+        }] : []),
+      ],
+
+      meta: [
+        {
+          name: 'keyword',
+          content: config.siteKeyword,
         },
       ],
+
+      htmlAttrs: {
+        lang: config.siteLang,
+      },
     },
   },
 
   modules: [
-    '@nuxtjs/html-validator',
     '@nuxt/image',
+    '@nuxtjs/html-validator',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     '@nuxtjs/tailwindcss',
     'nuxt-eslint-global-imports',
+    'nuxt-schema-org',
   ],
 
-  extends: [
-    'nuxt-seo-kit',
-  ],
+  site: {
+    url: config.siteUrl,
+  },
+
+  robots: {
+    allow: ['/'],
+  },
 
   tailwindcss: {
     viewer: false,
+  },
+
+  nitro: {
+    static: process.env.NODE_ENV !== 'development',
   },
 
   vite: {
@@ -50,4 +72,14 @@ export default defineNuxtConfig({
       svgLoader(),
     ],
   },
+
+  features: {
+    inlineStyles: false,
+  },
+
+  build: {
+    transpile: ['gsap'],
+  },
+
+  compatibilityDate: '2024-08-22',
 });

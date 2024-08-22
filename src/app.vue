@@ -1,7 +1,5 @@
 <template>
   <div>
-    <SeoKit />
-
     <LayoutHeader />
 
     <NuxtLayout>
@@ -29,18 +27,30 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import type { TransitionProps } from 'nuxt/dist/app/compat/vue-demi';
+import type { TransitionProps } from 'vue';
 
+const { gsap } = useGsap();
 let timeline: GSAPTimeline; // eslint-disable-line no-undef
 
-if (process.client) {
-  gsap.registerPlugin(ScrollTrigger);
-}
+const settings = useRuntimeConfig().public;
+
+useHead({
+  titleTemplate: (title) => (title ? `${title} · ${settings.siteName}` : settings.siteName),
+});
+
+// useSeoMeta({
+//   ogTitle: settings.siteName,
+//   description: settings.siteDescription,
+//   ogDescription: settings.siteDescription,
+//   ogImage: `${settings.siteUrl}/og.png`,
+//   ogUrl: settings.siteUrl,
+//   twitterCard: 'summary_large_image',
+//   twitterTitle: settings.siteName,
+//   twitterDescription: settings.siteDescription,
+//   twitterImage: `${settings.siteUrl}/og.png`,
+// });
 
 const store = useStore();
-const settings = useRuntimeConfig().public;
 const targetPath = ref();
 
 const paths = {
@@ -62,7 +72,7 @@ const paths = {
   },
 };
 
-const transitionProps: boolean | TransitionProps = {
+const transitionProps: TransitionProps = {
   mode: 'out-in',
 
   onBeforeLeave: () => {
@@ -123,20 +133,4 @@ const transitionProps: boolean | TransitionProps = {
     store.value.isRouting = false;
   },
 };
-
-useNuxtApp().hook('page:finish', () => {
-  ScrollTrigger.refresh();
-});
-
-useSchemaOrg([
-  defineOrganization({
-    name: settings.siteName,
-    logo: '/favicon.svg',
-    sameAs: [
-      'https://www.linkedin.com/in/llecouey/',
-    ],
-  }),
-  defineWebSite(),
-  defineWebPage(),
-]);
 </script>
