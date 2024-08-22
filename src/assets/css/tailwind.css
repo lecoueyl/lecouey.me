@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply text-neutral-950 bg-neutral-100 antialiased text-base;
+    @apply text-neutral-950 bg-neutral-100 antialiased text-base font-medium;
   }
 }
 

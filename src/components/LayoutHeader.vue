@@ -1,6 +1,6 @@
 <template>
   <header class="container sticky top-0 z-40 w-full items-center pt-10 ">
-    <nav class="flex h-6 items-center justify-between gap-4 text-lg">
+    <nav class="flex h-6 items-center justify-between gap-4">
       <NuxtLink to="/">
         Leonard Lecouey
       </NuxtLink>
@@ -19,7 +19,7 @@
 
       <a
         href=""
-        class="hidden h-6 text-lg sm:inline-block"
+        class="hidden sm:inline-block"
       >
         hi@lecouey.me
       </a>

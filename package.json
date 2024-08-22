@@ -49,6 +49,7 @@
     "nuxt": "^3.12.4",
     "nuxt-eslint-global-imports": "^1.0.1",
     "nuxt-schema-org": "^3.3.9",
+    "tailwindcss-fluid-type": "^2.0.6",
     "typescript": "^5.5.4",
     "vite-plugin-eslint": "^1.8.1"
   },
