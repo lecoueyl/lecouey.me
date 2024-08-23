@@ -45,8 +45,8 @@ const props = defineProps({
 const emit = defineEmits(['done']);
 
 const gsapSetting = {
-  duration: 1,
-  ease: 'power4.out',
+  duration: 2,
+  ease: 'easeInOutCirc',
   stagger: 0.02,
   delay: props.delay,
 };
@@ -54,9 +54,13 @@ const gsapSetting = {
 const target = ref();
 
 const trimmedText = computed(() => {
-  if (!useSlots().default()) throw new Error('Default slot is required');
+  const defaultSlot = useSlots().default?.();
 
-  return useSlots().default()[0].children.trim();
+  if (!defaultSlot || !defaultSlot[0] || typeof defaultSlot[0].children !== 'string') {
+    throw new Error('Default slot is required and should contain plain text.');
+  }
+
+  return defaultSlot[0].children.trim();
 });
 
 const splittedText = computed(() => trimmedText.value.split(/(\s+)/));
@@ -77,7 +81,7 @@ async function showElements() {
   await gsap.fromTo(
     getElementChildren(),
     {
-      rotate: 10,
+      rotate: 0,
       y: '200%',
     },
     {

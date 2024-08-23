@@ -1,24 +1,25 @@
 <template>
-  <div class="grid gap-10 rounded-t-[2.5rem] bg-neutral-12 p-10 text-neutral-1">
+  <footer class="container grid gap-10 rounded-t-[2.5rem] p-10">
     <div class="text-6xl">
       Let's work together
     </div>
 
     <ul class="flex gap-8">
       <li>
-        <div class="text-sm text-neutral-11">
+        <div class="text-sm text-neutral-500">
           Version
         </div>
         <div>2023</div>
       </li>
+
       <li>
-        <div class="text-sm text-neutral-11">
+        <div class="text-sm text-neutral-500">
           Local time
         </div>
         <div>{{ currentJstTime }} JST</div>
       </li>
     </ul>
-  </div>
+  </footer>
 </template>
 
 <script setup lang="ts">

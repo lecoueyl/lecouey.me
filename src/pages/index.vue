@@ -46,9 +46,18 @@
       >
         <Clock />
 
-        <div class="text-shine">
-          (SCROLL)
-        </div>
+        <Transition
+          enter-active-class="duration-[3s] motion-reduce:transition-none"
+          enter-from-class="opacity-0"
+          enter-to-class="opacity-100"
+        >
+          <div
+            v-if="isIntroDone"
+            class="text-shine"
+          >
+            (SCROLL)
+          </div>
+        </Transition>
       </div>
     </div>
 
@@ -61,7 +70,75 @@
       </div>
     </div> -->
 
-    <section class="container gap-24 pt-64">
+    <div class="container grid grid-cols-3 gap-8 pt-96">
+      <p class="col-start-2">
+        <span class="pl-16">Watson is founded in the</span>
+        <span>belief that exceptional work starts</span>
+        <span>with craft and conversation. We</span>
+        <span>strive to break the conventions of</span>
+        <span>the industry, our tools, and our</span>
+        <span>platforms for our work to be more</span>
+        <span>noticed, valued, and discussed.</span>
+      </p>
+      <p>
+        <span class="pl-16">For over 15 years, we've</span>
+        <span>been dedicated to the details,</span>
+        <span>thoughtful design and copy, and an</span>
+        <span>ongoing curiosity for ideas that</span>
+        <span>spark discussion. Because brands</span>
+        <span>and communities aren't built on</span>
+        <span>content, but moments that engage.</span>
+      </p>
+      <NuxtLink class="col-start-2 pt-10 uppercase">
+        Learn more
+      </NuxtLink>
+    </div>
+
+    <section class="container grid grid-cols-2 gap-24 pt-64">
+      <h2 class="col-span-2 flex pt-4 align-top text-8xl">
+        Works <span class="pt-4 text-base font-normal text-neutral-500">(5)</span>
+      </h2>
+
+      <article class="flex flex-col-reverse gap-6">
+        <h2 class="pt-4 text-xl">
+          A multi-purpose creative space.
+        </h2>
+        <div class="rounded-xl">
+          <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
+        </div>
+      </article>
+      <article class="flex flex-col-reverse gap-6">
+        <h2 class="pt-4 text-xl">
+          A multi-purpose creative space.
+        </h2>
+        <div class="rounded-xl">
+          <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-xl" />
+        </div>
+      </article>
+      <article class="flex flex-col-reverse gap-6">
+        <h2 class="pt-4 text-xl">
+          A multi-purpose creative space.
+        </h2>
+        <div class="rounded-xl">
+          <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-xl" />
+        </div>
+      </article>
+
+      <!-- <article class="grid gap-16">
+        <header class="flex items-center justify-between">
+          <h2 class="pt-4 text-2xl">
+            A multi-purpose creative space.
+          </h2>
+          <p class="text-lg text-neutral-600">
+            Design, Development
+          </p>
+        </header>
+        <div class="rounded-xl border border-neutral-200 p-24">
+          <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
+        </div>
+      </article> -->
+    </section>
+    <!-- <section class="container gap-24 pt-64">
       <article class="grid gap-16">
         <header class="flex items-center justify-between">
           <h2 class="pt-4 text-2xl">
@@ -75,10 +152,10 @@
           <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
         </div>
       </article>
-    </section>
+    </section> -->
 
     <div class="h-[500vh]" />
-    <Marquee class="text-7xl uppercase">
+    <Marquee class="text-9xl font-bold uppercase">
       This is a test
     </Marquee>
   </main>
@@ -90,6 +167,7 @@ const { isPageDisplayed } = usePage();
 
 const cards = ref();
 const hero = ref();
+const isIntroDone = ref();
 
 const { enable: enableScroll, disable: disableScroll } = useScroll();
 
@@ -113,20 +191,21 @@ const heroIntro = async () => {
     .to(cards.value.children, {
       delay: 0.5,
       duration: 1.2,
-      ease: 'expo.out',
+      ease: 'easeInOutCirc',
       yPercent: (index) => index * 6,
       rotate: 0,
       stagger: 0.1,
     })
     .to(cards.value.children, {
-      duration: 1,
-      ease: 'expo.out',
+      duration: 1.5,
+      ease: 'easeInOutCirc',
       yPercent: (index) => cardsTransformPositionArray[index].y,
       xPercent: (index) => cardsTransformPositionArray[index].x,
       stagger: 0.1,
     }, '-=0.5');
 
   enableScroll();
+  isIntroDone.value = true;
 };
 
 onMounted(async () => {
