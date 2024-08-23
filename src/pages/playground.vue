@@ -1,5 +1,26 @@
 <template>
   <div class="container py-24">
+    <div class="grid grid-cols-3 gap-10">
+      <TransitionReveal :show="true" tag="p" class="col-start-2">
+        <span class="pl-16">For over 15 years, we've</span>
+        <span>been dedicated to the details,</span>
+        <span>thoughtful design and copy, and an</span>
+        <span>ongoing curiosity for ideas that</span>
+        <span>spark discussion. Because brands</span>
+        <span>and communities aren't built on</span>
+        <span>content, but moments that engage.</span>
+      </TransitionReveal>
+
+      <TransitionReveal :show="true" tag="p">
+        <span class="pl-16">For over 15 years, we've</span>
+        <span>been dedicated to the details,</span>
+        <span>thoughtful design and copy, and an</span>
+        <span>ongoing curiosity for ideas that</span>
+        <span>spark discussion. Because brands</span>
+        <span>and communities aren't built on</span>
+        <span>content, but moments that engage.</span>
+      </TransitionReveal>
+    </div>
     <div class="grid gap-4">
       <div class="animate-translate-x-1 size-20 rounded-full bg-neutral-600">
         1
