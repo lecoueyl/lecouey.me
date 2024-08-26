@@ -1,7 +1,8 @@
 <template>
   <div class="container py-24">
+    <div class="h-screen" />
     <div class="grid grid-cols-3 gap-10">
-      <TransitionReveal :show="true" tag="p" class="col-start-2">
+      <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-16">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
         <span>thoughtful design and copy, and an</span>
@@ -11,7 +12,7 @@
         <span>content, but moments that engage.</span>
       </TransitionReveal>
 
-      <TransitionReveal :show="true" tag="p">
+      <TransitionReveal tag="p">
         <span class="pl-16">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
         <span>thoughtful design and copy, and an</span>

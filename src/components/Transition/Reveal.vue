@@ -2,40 +2,33 @@
   <component
     :is="tag"
     ref="target"
+    v-bind="$attrs"
   >
-    <span
-      v-for="(element, index) in elements"
-      :key="index"
-      class="block overflow-hidden"
-    >
-      <span class="inline-block translate-y-full">
-        {{ element }}
-      </span>
-    </span>
+    <slot />
   </component>
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 const props = defineProps({
-  content: {
-    default: null,
-    type: Array,
-  },
-
   delay: {
     default: 0,
     type: Number,
   },
 
-  show: {
+  tag: {
+    default: 'div',
+    type: String,
+  },
+
+  isShowing: {
     default: false,
     type: Boolean,
   },
 
-  tag: {
-    default: 'div',
+  wrapTag: {
+    default: 'span',
     type: String,
   },
 });
@@ -49,73 +42,58 @@ const gsapSetting = {
   delay: props.delay,
 };
 
-const target = ref();
+const target = ref<HTMLElement>();
+const elements = ref<HTMLElement[]>([]);
+const { isIntersecting } = useIntersectionObserver(target as Ref<HTMLElement>);
 
-const getElementChildren = () => {
-  const elements: Array<Element> = [];
-  if (!target.value) return elements;
-
-  Array.from(target.value?.children).forEach((child: Element | any) => {
-    elements.push(child.children);
-  });
-
-  return elements;
-};
-
-const elements = computed(() => {
-  const defaultSlot = useSlots().default?.();
-
-  if (!defaultSlot || !defaultSlot[0]) {
-    throw new Error('Default slot is required');
-  }
-
-  return defaultSlot.map((element) => element.children);
-});
-
-async function showElements() {
+const showElements = async () => {
   await gsap.fromTo(
-    getElementChildren(),
-    {
-      rotate: 0,
-      y: '100%',
-    },
-    {
-      rotate: 0,
-      y: 0,
-      ...gsapSetting,
-    },
+    elements.value,
+    { y: '100%' },
+    { y: 0, ...gsapSetting },
   );
   emit('done');
-}
+};
 
-async function hideElements() {
+const hideElements = async () => {
   await gsap.fromTo(
-    getElementChildren(),
-    {
-      y: '0%',
-      rotate: 10,
-    },
-    {
-      y: '-100%',
-      ...gsapSetting,
-    },
+    elements.value,
+    { y: '0%' },
+    { y: '-100%', ...gsapSetting },
   );
-}
+};
+
+const wrapChildren = () => {
+  if (!target.value) return;
+
+  const children = Array.from(target.value.children) as HTMLElement[];
+  children.forEach((child) => {
+    child.classList.add('block', 'translate-y-full');
+    elements.value.push(child);
+
+    const wrap = document.createElement(props.wrapTag);
+    wrap.classList.add('overflow-hidden', 'block');
+    child.parentNode?.insertBefore(wrap, child);
+    wrap.appendChild(child);
+  });
+};
+
+onMounted(async () => {
+  if (!target.value) return;
+  wrapChildren();
+
+  if (!props.isShowing) return;
+  showElements();
+});
 
 watch(
-  () => props.show,
+  () => [props.isShowing, isIntersecting.value],
   (newValue) => {
-    if (!target.value) return;
-
     if (newValue) {
       showElements();
-      return;
+    } else {
+      hideElements();
     }
-    hideElements();
   },
 );
-
-onMounted(() => {
-  if (props.show && target.value) showElements();
-});
 </script>

@@ -6,7 +6,7 @@
       </NuxtLink>
 
       <div class="flex items-center justify-between gap-4">
-        <NuxtLink to="about">
+        <NuxtLink to="playground">
           JP
         </NuxtLink>
 
