@@ -71,7 +71,7 @@
     </div> -->
 
     <div class="container grid grid-cols-3 gap-8 pt-96">
-      <p class="col-start-2">
+      <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
         <span>with craft and conversation. We</span>
@@ -79,8 +79,9 @@
         <span>the industry, our tools, and our</span>
         <span>platforms for our work to be more</span>
         <span>noticed, valued, and discussed.</span>
-      </p>
-      <p>
+      </TransitionReveal>
+
+      <TransitionReveal tag="p">
         <span class="pl-16">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
         <span>thoughtful design and copy, and an</span>
@@ -88,10 +89,14 @@
         <span>spark discussion. Because brands</span>
         <span>and communities aren't built on</span>
         <span>content, but moments that engage.</span>
-      </p>
-      <NuxtLink class="col-start-2 pt-10 uppercase">
+      </TransitionReveal>
+
+      <TransitionReveal tag="NuxtLink" class="col-start-2 pt-10 uppercase">
+        <span>Learn more</span>
+      </TransitionReveal>
+      <!-- <NuxtLink class="col-start-2 pt-10 uppercase">
         Learn more
-      </NuxtLink>
+      </NuxtLink> -->
     </div>
 
     <section class="container grid grid-cols-2 gap-24 pt-64">

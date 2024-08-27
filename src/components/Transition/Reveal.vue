@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap';
+const { gsap } = useGsap();
 
 const props = defineProps({
   delay: {
