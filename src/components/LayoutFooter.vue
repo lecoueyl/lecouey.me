@@ -1,5 +1,5 @@
 <template>
-  <footer class="container grid gap-10 rounded-t-[2.5rem] p-10">
+  <footer class="container grid gap-10 rounded-t-[2.5rem] pb-16 pt-64">
     <div class="text-6xl">
       Let's work together
     </div>
