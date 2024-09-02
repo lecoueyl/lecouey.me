@@ -97,8 +97,8 @@ const setGsapTimeline = () => {
       '[data-gsap="row"]',
       { translateY: '100%' },
       {
-        duration: 1,
-        ease: 'easeInOutCirc',
+        duration: 2,
+        ease: 'easeIntCirc',
         stagger: 0.01,
         translateY: '0%',
       },
@@ -112,7 +112,7 @@ const setGsapTimeline = () => {
         ease: 'easeInOutCirc',
         stagger: 0.1,
       },
-      '-=0.5',
+      '-=2',
     );
 };
 
@@ -128,6 +128,7 @@ watch(
   () => [props.isShowing, isIntersecting.value],
   (newValue) => {
     if (newValue) {
+      console.log('show')
       gsapTimeline.play();
     } else {
       gsapTimeline.reverse();
