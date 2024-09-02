@@ -27,13 +27,13 @@
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@nuxt/image": "^1.7.0",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
+    "@nuxt/image": "^1.8.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/robots": "^4.1.2",
-    "@nuxtjs/sitemap": "6.0.0-beta.4",
+    "@nuxtjs/sitemap": "6.0.0-beta.5",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",

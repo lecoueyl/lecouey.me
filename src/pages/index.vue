@@ -91,9 +91,9 @@
         <span>content, but moments that engage.</span>
       </TransitionReveal>
 
-      <TransitionReveal tag="NuxtLink" class="col-start-2 pt-10 uppercase">
+      <!-- <TransitionReveal tag="NuxtLink" class="col-start-2 pt-10 uppercase">
         <span>Learn more</span>
-      </TransitionReveal>
+      </TransitionReveal> -->
       <!-- <NuxtLink class="col-start-2 pt-10 uppercase">
         Learn more
       </NuxtLink> -->

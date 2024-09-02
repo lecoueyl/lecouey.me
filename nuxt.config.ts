@@ -19,6 +19,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: config.siteName,
+
       script: [
         ...(process.env.NODE_ENV !== 'development' ? [{
           src: '/js/script.js',
@@ -80,6 +82,10 @@ export default defineNuxtConfig({
   build: {
     transpile: ['gsap'],
   },
+
+  ignore: [
+    'src/pages/breakout.vue',
+  ],
 
   compatibilityDate: '2024-08-22',
 });
