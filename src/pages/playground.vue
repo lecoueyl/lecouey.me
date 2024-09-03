@@ -29,6 +29,7 @@
         <span>content, but moments that engage.</span>
       </TransitionReveal>
     </div>
+
     <div class="container grid gap-4 py-16">
       <div class="animate-translate-x-1 size-20 rounded-full bg-neutral-600">
         1

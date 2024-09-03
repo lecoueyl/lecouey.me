@@ -32,17 +32,29 @@ const store = useStore();
 // Transition
 
 const { gsap } = useGsap();
+const { enable: enableScroll, disable: disableScroll } = useScroll();
+
+const transitionStart = () => {
+  store.value.isRouting = true;
+  disableScroll();
+};
+
+const transitionEnd = () => {
+  store.value.isRouting = false;
+  enableScroll();
+};
 
 const transition: TransitionProps = {
   onBeforeEnter: async (element: Element) => {
     await gsap.set(element, {
-      position: 'absolute',
+      position: 'fixed',
       width: '100%',
     });
-    store.value.isRouting = true;
+
+    transitionStart();
   },
 
-  onEnter: async (element: Element, done: Function) => {
+  onEnter: async (element: Element, done: () => void) => {
     const timeline = gsap.timeline();
     await timeline
       .fromTo(
@@ -58,15 +70,17 @@ const transition: TransitionProps = {
             const durationLeft = timeline.duration() - timeline.time();
             if (durationLeft <= 0.5) {
               done();
-              store.value.isRouting = false;
+              transitionEnd();
             }
           },
         },
       );
+
+    gsap.set(element, { clearProps: 'all' });
   },
 
   onEnterCancelled: async () => {
-    store.value.isRouting = false;
+    transitionEnd();
   },
 
   onBeforeLeave: async (element: Element) => {
@@ -74,10 +88,11 @@ const transition: TransitionProps = {
       position: 'absolute',
       width: '100%',
     });
-    store.value.isRouting = true;
+
+    transitionStart();
   },
 
-  onLeave: async (element: Element, done: Function) => {
+  onLeave: async (element: Element, done: () => void) => {
     await gsap.to(element, {
       scale: 0.96,
       translateY: '-5%',
@@ -85,11 +100,12 @@ const transition: TransitionProps = {
       opacity: 0.4,
       ease: 'circ2.inOut',
     });
+
     done();
   },
 
   onLeaveCancelled: async () => {
-    store.value.isRouting = false;
+    transitionEnd();
   },
 };
 </script>
