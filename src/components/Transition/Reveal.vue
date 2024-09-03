@@ -37,7 +37,7 @@ const emit = defineEmits(['done']);
 
 const gsapSetting = {
   duration: 1.5,
-  ease: 'easeInOutCirc',
+  ease: 'circ2.out',
   stagger: 0.02,
   delay: props.delay,
 };
@@ -88,8 +88,8 @@ onMounted(async () => {
 
 watch(
   () => [props.isShowing, isIntersecting.value],
-  (newValue) => {
-    if (newValue) {
+  ([isShowing, isIntersecting]) => {
+    if (isShowing || isIntersecting) {
       showElements();
     } else {
       hideElements();

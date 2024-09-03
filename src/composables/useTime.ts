@@ -11,7 +11,7 @@ export const useTime = ({
   const currentTime = ref(getCurrentTime());
   const currentTimeArray = computed(() => currentTime.value.split(':'));
   const currentHour = computed(() => Number(currentTimeArray.value[0]));
-  const currentMinute = computed(() => Number(currentTimeArray.value[1]));
+  const currentMinute = computed(() => currentTimeArray.value[1].toString().padStart(2, '0'));
 
   function updateCurrentTimeEverySeconds() {
     setInterval(() => {

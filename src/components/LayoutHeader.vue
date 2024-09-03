@@ -18,8 +18,6 @@
         <NuxtLink to="about">
           About
         </NuxtLink>
-
-        {{ store.isRouting }}
       </div>
 
       <a
@@ -41,7 +39,7 @@ const { gsap } = useGsap();
 const gsapSetting = {
   duration: 1,
   ease: 'expo.out',
-  stagger: 0.05,
+  stagger: 0.1,
 };
 
 async function showNav() {
@@ -74,7 +72,6 @@ watch(
   () => [store.value.isRouting],
   ([isRouting]) => {
     if (isRouting) {
-      hideNav();
       return;
     }
     showNav();
@@ -82,6 +79,8 @@ watch(
 );
 
 onMounted(() => {
-  hideNav();
+  if (store.value.isRouting) {
+    hideNav();
+  }
 });
 </script>

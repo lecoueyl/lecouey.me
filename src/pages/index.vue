@@ -2,7 +2,7 @@
   <main>
     <LayoutHeader />
 
-    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden pt-16 pb-10">
+    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden pb-10 pt-16">
       <div class="container flex grow flex-col gap-10">
         <div class="relative grid grow grid-cols-12 items-center justify-center">
           <TransitionRevealText
@@ -165,6 +165,8 @@
     <Marquee class="text-9xl font-bold uppercase">
       This is a test
     </Marquee>
+
+    <LayoutFooter />
   </main>
 </template>
 
@@ -198,14 +200,14 @@ const heroIntro = async () => {
     .to(cards.value.children, {
       delay: 0.5,
       duration: 1.2,
-      ease: 'easeInOutCirc',
+      ease: 'circ2.inOut',
       yPercent: (index) => index * 6,
       rotate: 0,
       stagger: 0.1,
     })
     .to(cards.value.children, {
       duration: 1.5,
-      ease: 'easeInOutCirc',
+      ease: 'circ2.inOut',
       yPercent: (index) => cardsTransformPositionArray[index].y,
       xPercent: (index) => cardsTransformPositionArray[index].x,
       stagger: 0.1,

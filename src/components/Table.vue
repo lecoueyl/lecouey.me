@@ -98,7 +98,7 @@ const setGsapTimeline = () => {
       { translateY: '100%' },
       {
         duration: 2,
-        ease: 'easeIntCirc',
+        ease: 'circ2.out',
         stagger: 0.01,
         translateY: '0%',
       },
@@ -109,7 +109,7 @@ const setGsapTimeline = () => {
       {
         scaleX: 1,
         duration: 1.5,
-        ease: 'easeInOutCirc',
+        ease: 'circ2.inOut',
         stagger: 0.1,
       },
       '-=2',
@@ -128,7 +128,6 @@ watch(
   () => [props.isShowing, isIntersecting.value],
   (newValue) => {
     if (newValue) {
-      console.log('show')
       gsapTimeline.play();
     } else {
       gsapTimeline.reverse();

@@ -2,11 +2,13 @@
   <div class="pb-16">
     <LayoutHeader />
 
-    <div class="h-[calc(100vh-theme(space.16))] container text-4xl flex items-end pb-10">
-      About
+    <div class="container flex h-[calc(100vh-theme(space.16))] items-end pb-10 text-4xl">
+      <TransitionReveal>
+        <span>About</span>
+      </TransitionReveal>
     </div>
 
-    <div class="grid grid-cols-3 gap-6 py-48 container">
+    <div class="container grid grid-cols-3 gap-6 py-48">
       <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-12">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
@@ -37,6 +39,8 @@
       ]"
       class="container"
     />
+
+    <LayoutFooter />
   </div>
 </template>
 
@@ -44,4 +48,6 @@
 useSeoMeta({
   title: 'About',
 });
+
+const store = useStore();
 </script>

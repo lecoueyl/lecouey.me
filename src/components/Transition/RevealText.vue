@@ -46,7 +46,7 @@ const emit = defineEmits(['done']);
 
 const gsapSetting = {
   duration: 2,
-  ease: 'easeInOutCirc',
+  ease: 'circ2.inOut',
   stagger: 0.02,
   delay: props.delay,
 };

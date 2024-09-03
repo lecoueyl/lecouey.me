@@ -2,16 +2,12 @@
   <div>
     <NuxtLayout>
       <NuxtPage class="bg-neutral-100" :transition="transition" />
-      <!-- <LayoutFooter /> -->
     </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { TransitionProps } from 'vue';
-
-const { gsap } = useGsap();
-let timeline: GSAPTimeline; // eslint-disable-line no-undef
 
 const settings = useRuntimeConfig().public;
 
@@ -33,6 +29,10 @@ useHead({
 
 const store = useStore();
 
+// Transition
+
+const { gsap } = useGsap();
+
 const transition: TransitionProps = {
   onBeforeEnter: async (element: Element) => {
     await gsap.set(element, {
@@ -43,24 +43,29 @@ const transition: TransitionProps = {
   },
 
   onEnter: async (element: Element, done: Function) => {
-    await gsap.fromTo(
-      element,
-      {
-        clipPath: 'inset(100% 0 0 0)',
-      },
-      {
-        clipPath: 'inset(0% 0 0 0)',
-        duration: 1.5,
-        ease: 'expo.inOut',
-      },
-    );
-
-    done();
-    store.value.isRouting = false;
+    const timeline = gsap.timeline();
+    await timeline
+      .fromTo(
+        element,
+        {
+          clipPath: 'inset(100% 0 0 0)',
+        },
+        {
+          clipPath: 'inset(0% 0 0 0)',
+          duration: 1.5,
+          ease: 'expo.inOut',
+          onUpdate: () => {
+            const durationLeft = timeline.duration() - timeline.time();
+            if (durationLeft <= 0.5) {
+              done();
+              store.value.isRouting = false;
+            }
+          },
+        },
+      );
   },
 
   onEnterCancelled: async () => {
-    await timeline.reverse();
     store.value.isRouting = false;
   },
 
@@ -78,13 +83,12 @@ const transition: TransitionProps = {
       translateY: '-5%',
       duration: 1.5,
       opacity: 0.4,
-      ease: 'easeInOutCirc',
+      ease: 'circ2.inOut',
     });
     done();
   },
 
   onLeaveCancelled: async () => {
-    await timeline.reverse();
     store.value.isRouting = false;
   },
 };

@@ -6,8 +6,8 @@ export default defineNuxtPlugin(() => {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(CustomEase);
 
-  CustomEase.create('easeInOutCirc', '.87, 0, .13, 1');
-  CustomEase.create('easeIntCirc', '.19, 1, .22, 1');
+  CustomEase.create('circ2.inOut', '.87, 0, .13, 1');
+  CustomEase.create('circ2.out', '.19, 1, .22, 1');
 
   return {
     provide: {
