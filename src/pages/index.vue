@@ -2,7 +2,7 @@
   <main>
     <LayoutHeader />
 
-    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden pb-10 pt-16">
+    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16">
       <div class="container flex grow flex-col gap-10">
         <div class="relative grid grow grid-cols-12 items-center justify-center">
           <TransitionRevealText
@@ -18,25 +18,25 @@
               ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
-              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
-              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="img/thumb2.jpg"
               alt="project 1"
-              class="invisible -z-10 ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
               ref="card"
               src="/img/thumb1.jpg"
               alt="project 1"
-              class="invisible -z-10 ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+              class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
           </div>
         </div>
@@ -72,7 +72,7 @@
       </div>
     </div> -->
 
-    <div class="container grid grid-cols-3 gap-8 pt-96">
+    <div class="container grid grid-cols-3 gap-8 bg-neutral-100 pt-96">
       <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
@@ -101,7 +101,7 @@
       </NuxtLink> -->
     </div>
 
-    <section class="container grid grid-cols-2 gap-24 pt-64">
+    <section class="container grid grid-cols-2 gap-24 bg-neutral-100 pt-64">
       <h2 class="col-span-2 flex pt-4 align-top text-8xl">
         Works <span class="pt-4 text-base font-normal text-neutral-500">(5)</span>
       </h2>
@@ -161,8 +161,7 @@
       </article>
     </section> -->
 
-    <div class="h-[500vh]" />
-    <Marquee class="text-9xl font-bold uppercase">
+    <Marquee class="bg-neutral-100 text-9xl font-bold uppercase">
       This is a test
     </Marquee>
 
@@ -178,7 +177,7 @@ const cards = ref();
 const hero = ref();
 const isIntroDone = ref();
 
-const { enable: enableScroll, disable: disableScroll } = useScroll();
+const { enableScroll, disableScroll } = useScroll();
 
 const cardsTransformPositionArray = [
   { x: -140, y: -40 },

@@ -1,42 +1,27 @@
-export const useScroll = () => {
-  function disable() {
-    document.querySelector('body')?.classList.add('overflow-hidden');
-  }
-
-  function enable() {
-    document.querySelector('body')?.classList.remove('overflow-hidden');
-  }
-
-  return {
-    disable,
-    enable,
+export function useScroll() {
+  const preventScroll = (event: Event) => {
+    event.preventDefault();
   };
-};
 
-export function useScrollPercentage(target: Ref<HTMLElement>) {
-  const scrollingPercentage = ref(0);
+  const disableScroll = () => {
+    window.addEventListener('scroll', preventScroll, { passive: false });
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
+  };
 
-  function updateScrollingPercentage() {
-    if (!target) return;
-
-    const { top, bottom, height } = target.value.getBoundingClientRect();
-    const visibleHeight = Math.max(0, Math.min(height, bottom) - Math.max(0, top));
-    const bodyScrollTop = document.body.getBoundingClientRect().top * -1;
-    console.log(bottom - bodyScrollTop);
-    scrollingPercentage.value = Math.round((visibleHeight / height) * 100);
-  }
-
-  onMounted(() => {
-    updateScrollingPercentage();
-    window.addEventListener('scroll', updateScrollingPercentage);
-  });
+  const enableScroll = () => {
+    window.removeEventListener('scroll', preventScroll);
+    window.removeEventListener('wheel', preventScroll);
+    window.removeEventListener('touchmove', preventScroll);
+  };
 
   onUnmounted(() => {
-    window.removeEventListener('scroll', updateScrollingPercentage);
+    enableScroll();
   });
 
   return {
-    scrollingPercentage,
+    disableScroll,
+    enableScroll,
   };
 }
 

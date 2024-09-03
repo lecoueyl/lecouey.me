@@ -2,13 +2,13 @@
   <div>
     <LayoutHeader />
 
-    <div class="container flex h-[calc(100vh-theme(space.16))] items-end pb-10 text-4xl">
+    <div class="container flex h-[calc(100vh-theme(space.16))] items-end bg-neutral-100 pb-10 text-9xl">
       <TransitionReveal>
         <span>Playground</span>
       </TransitionReveal>
     </div>
 
-    <div class="container grid grid-cols-3 gap-10">
+    <div class="container grid grid-cols-3 gap-10 bg-neutral-100">
       <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-16">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
@@ -30,7 +30,7 @@
       </TransitionReveal>
     </div>
 
-    <div class="container grid gap-4 py-16">
+    <div class="container grid gap-4 bg-neutral-100 py-16">
       <div class="animate-translate-x-1 size-20 rounded-full bg-neutral-600">
         1
       </div>

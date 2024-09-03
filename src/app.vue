@@ -28,11 +28,8 @@ useHead({
 // });
 
 const store = useStore();
-
-// Transition
-
 const { gsap } = useGsap();
-const { enable: enableScroll, disable: disableScroll } = useScroll();
+const { enableScroll, disableScroll } = useScroll();
 
 const transitionStart = () => {
   store.value.isRouting = true;
