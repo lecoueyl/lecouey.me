@@ -1,6 +1,12 @@
 <template>
-  <section class="container pt-48">
-    <div class="grid grid-cols-3 gap-6 py-48">
+  <div class="pb-16">
+    <LayoutHeader />
+
+    <div class="h-[calc(100vh-theme(space.16))] container text-4xl flex items-end pb-10">
+      About
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 py-48 container">
       <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-12">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
@@ -29,8 +35,9 @@
         { name: 'Alice Johnson', age: 35, location: 'Chicago' },
         { name: 'Michael Brown', age: 28, location: 'San Francisco' },
       ]"
+      class="container"
     />
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">

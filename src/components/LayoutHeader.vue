@@ -1,6 +1,9 @@
 <template>
-  <header class="container sticky top-0 z-40 w-full items-center pt-10 ">
-    <nav class="flex h-6 items-center justify-between gap-4">
+  <header class="container sticky top-0 z-40 w-full items-center pt-10">
+    <nav
+      ref="nav"
+      class="flex h-6 items-center justify-between gap-4 overflow-hidden"
+    >
       <NuxtLink to="/">
         Leonard Lecouey
       </NuxtLink>
@@ -15,6 +18,8 @@
         <NuxtLink to="about">
           About
         </NuxtLink>
+
+        {{ store.isRouting }}
       </div>
 
       <a
@@ -26,3 +31,57 @@
     </nav>
   </header>
 </template>
+
+<script setup lang="ts">
+const store = useStore();
+
+const nav = ref();
+
+const { gsap } = useGsap();
+const gsapSetting = {
+  duration: 1,
+  ease: 'expo.out',
+  stagger: 0.05,
+};
+
+async function showNav() {
+  await gsap.fromTo(
+    nav.value.children,
+    {
+      y: '100%',
+    },
+    {
+      y: 0,
+      ...gsapSetting,
+    },
+  );
+}
+
+async function hideNav() {
+  await gsap.fromTo(
+    nav.value.children,
+    {
+      y: 0,
+    },
+    {
+      y: '-100%',
+      ...gsapSetting,
+    },
+  );
+}
+
+watch(
+  () => [store.value.isRouting],
+  ([isRouting]) => {
+    if (isRouting) {
+      hideNav();
+      return;
+    }
+    showNav();
+  },
+);
+
+onMounted(() => {
+  hideNav();
+});
+</script>

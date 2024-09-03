@@ -1,6 +1,8 @@
 <template>
   <main>
-    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden py-16">
+    <LayoutHeader />
+
+    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden pt-16 pb-10">
       <div class="container flex grow flex-col gap-10">
         <div class="relative grid grow grid-cols-12 items-center justify-center">
           <TransitionRevealText

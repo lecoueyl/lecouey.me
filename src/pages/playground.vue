@@ -1,7 +1,12 @@
 <template>
-  <div class="container py-24">
-    <div class="h-screen" />
-    <div class="grid grid-cols-3 gap-10">
+  <div>
+    <LayoutHeader />
+
+    <div class="h-[calc(100vh-theme(space.16))] container text-4xl flex items-end pb-10">
+      Playground
+    </div>
+
+    <div class="grid grid-cols-3 gap-10 container">
       <TransitionReveal tag="p" class="col-start-2">
         <span class="pl-16">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
@@ -22,7 +27,7 @@
         <span>content, but moments that engage.</span>
       </TransitionReveal>
     </div>
-    <div class="grid gap-4">
+    <div class="grid gap-4 container py-16">
       <div class="animate-translate-x-1 size-20 rounded-full bg-neutral-600">
         1
       </div>
