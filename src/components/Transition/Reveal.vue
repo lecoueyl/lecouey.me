@@ -88,7 +88,7 @@ onMounted(async () => {
 
 watch(
   () => [props.isShowing, isIntersecting.value],
-  ([isShowing, isIntersecting]) => {
+  ([isShowing]) => {
     if (isShowing || isIntersecting) {
       showElements();
     } else {

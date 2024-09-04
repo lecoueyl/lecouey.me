@@ -126,8 +126,8 @@ onMounted(async () => {
 
 watch(
   () => [props.isShowing, isIntersecting.value],
-  (newValue) => {
-    if (newValue) {
+  ([isShowing]) => {
+    if (isShowing || isIntersecting) {
       gsapTimeline.play();
     } else {
       gsapTimeline.reverse();

@@ -2,7 +2,13 @@
   <main>
     <LayoutHeader />
 
-    <div ref="hero" class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16">
+    <div
+      ref="hero"
+      class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16"
+      :class="{
+        'overflow-hidden': !isIntroDone,
+      }"
+    >
       <div class="container flex grow flex-col gap-10">
         <div class="relative grid grow grid-cols-12 items-center justify-center">
           <TransitionRevealText
@@ -192,7 +198,7 @@ const heroIntro = async () => {
   await gsap
     .timeline()
     .set(cards.value.children, {
-      yPercent: 250,
+      y: window.innerHeight,
       visibility: 'visible',
       rotate: (index) => (index + 1) * 10,
     })
@@ -200,7 +206,7 @@ const heroIntro = async () => {
       delay: 0.5,
       duration: 1.2,
       ease: 'circ2.inOut',
-      yPercent: (index) => index * 6,
+      y: (index) => index * 6,
       rotate: 0,
       stagger: 0.1,
     })
@@ -219,16 +225,14 @@ const heroIntro = async () => {
 onMounted(async () => {
   await heroIntro();
 
-  const gsapTimeline = gsap.timeline({
+  gsap.timeline({
     scrollTrigger: {
       end: '100%-=64px top',
       scrub: true,
       start: '-64px top',
       trigger: hero.value,
     },
-  });
-
-  gsapTimeline
+  })
     .to(cards.value.children, {
       yPercent: (index) => cardsTransformPositionArray[index].y - (20 * index + 1),
     })
