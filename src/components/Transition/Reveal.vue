@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 const { gsap } = useGsap();
+const store = useStore();
 
 const props = defineProps({
   delay: {
@@ -87,9 +88,11 @@ onMounted(async () => {
 });
 
 watch(
-  () => [props.isShowing, isIntersecting.value],
-  ([isShowing]) => {
-    if (isShowing || isIntersecting) {
+  () => [props.isShowing, isIntersecting.value, store.value.isRouting],
+  ([isShowing, isIntersectingValue, isRouting]) => {
+    if (isRouting) return;
+
+    if (isShowing || isIntersectingValue) {
       showElements();
     } else {
       hideElements();

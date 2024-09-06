@@ -2,13 +2,13 @@
   <header class="container sticky top-0 z-40 pt-10">
     <nav
       ref="nav"
-      class="flex h-6 items-center justify-between gap-4 overflow-hidden"
+      class="grid h-6 grid-cols-3 gap-4 overflow-hidden"
     >
       <NuxtLink to="/">
         Leonard Lecouey
       </NuxtLink>
 
-      <div class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
         <NuxtLink to="playground">
           JP
         </NuxtLink>
@@ -20,12 +20,14 @@
         </NuxtLink>
       </div>
 
-      <a
-        href=""
-        class="hidden sm:inline-block"
-      >
-        hi@lecouey.me
-      </a>
+      <div class="text-right">
+        <a
+          href=""
+          class="hidden sm:inline-block"
+        >
+          hi@lecouey.me
+        </a>
+      </div>
     </nav>
   </header>
 </template>
@@ -39,7 +41,7 @@ const { gsap } = useGsap();
 const gsapSetting = {
   duration: 1,
   ease: 'expo.out',
-  stagger: 0.1,
+  stagger: 0.15,
 };
 
 async function showNav() {

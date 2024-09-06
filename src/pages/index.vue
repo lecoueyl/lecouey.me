@@ -166,11 +166,6 @@
         </div>
       </article>
     </section> -->
-
-    <Marquee class="bg-neutral-100 text-9xl font-bold uppercase">
-      This is a test
-    </Marquee>
-
     <LayoutFooter />
   </main>
 </template>
