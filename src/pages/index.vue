@@ -49,23 +49,14 @@
       </div>
 
       <div
-        id="footer"
-        class="container flex w-full justify-between gap-10"
+        ref="heroFooter"
+        class="container flex w-full justify-between gap-10 overflow-hidden"
       >
-        <Clock />
+        <Clock class="translate-y-full" />
 
-        <Transition
-          enter-active-class="duration-[3s] motion-reduce:transition-none"
-          enter-from-class="opacity-0"
-          enter-to-class="opacity-100"
-        >
-          <div
-            v-if="isIntroDone"
-            class="text-shine"
-          >
-            (SCROLL)
-          </div>
-        </Transition>
+        <div class="text-shine translate-y-full">
+          (SCROLL)
+        </div>
       </div>
     </div>
 
@@ -176,6 +167,7 @@ const { isPageDisplayed } = usePage();
 
 const cards = ref();
 const hero = ref();
+const heroFooter = ref();
 const isIntroDone = ref();
 
 const { enableScroll, disableScroll } = useScroll();
@@ -211,7 +203,13 @@ const heroIntro = async () => {
       yPercent: (index) => cardsTransformPositionArray[index].y,
       xPercent: (index) => cardsTransformPositionArray[index].x,
       stagger: 0.1,
-    }, '-=0.5');
+    }, '-=0.5')
+    .to(heroFooter.value.children, {
+      y: 0,
+      duration: 1,
+      ease: 'expo.out',
+      stagger: 0.15,
+    }, '-=0.2');
 
   enableScroll();
   isIntroDone.value = true;
@@ -231,6 +229,6 @@ onMounted(async () => {
     .to(cards.value.children, {
       yPercent: (index) => cardsTransformPositionArray[index].y - (20 * index + 1),
     })
-    .to('#footer', { opacity: 0 });
+    .to(heroFooter.value, { opacity: 0 });
 });
 </script>

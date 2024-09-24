@@ -4,11 +4,11 @@
       ref="nav"
       class="grid h-6 grid-cols-3 gap-4 overflow-hidden"
     >
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="translate-y-full">
         Leonard Lecouey
       </NuxtLink>
 
-      <div class="flex items-center gap-4">
+      <div class="flex translate-y-full items-center gap-4">
         <NuxtLink to="playground">
           JP
         </NuxtLink>
@@ -20,7 +20,7 @@
         </NuxtLink>
       </div>
 
-      <div class="text-right">
+      <div class="translate-y-full text-right">
         <a
           href=""
           class="hidden sm:inline-block"
@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 const store = useStore();
-
 const nav = ref();
 
 const { gsap } = useGsap();
@@ -45,11 +44,8 @@ const gsapSetting = {
 };
 
 async function showNav() {
-  await gsap.fromTo(
+  await gsap.to(
     nav.value.children,
-    {
-      y: '100%',
-    },
     {
       y: 0,
       ...gsapSetting,
@@ -58,11 +54,8 @@ async function showNav() {
 }
 
 async function hideNav() {
-  await gsap.fromTo(
+  await gsap.to(
     nav.value.children,
-    {
-      y: 0,
-    },
     {
       y: '-100%',
       ...gsapSetting,
@@ -70,19 +63,25 @@ async function hideNav() {
   );
 }
 
+onMounted(async () => {
+  // await hideNav();
+  gsap.set(nav.value.children, {
+    y: '100%',
+  });
+  if (store.value.isRouting) return;
+  showNav();
+});
+
 watch(
   () => [store.value.isRouting],
   ([isRouting]) => {
-    if (isRouting) {
-      return;
-    }
+    if (isRouting) return;
     showNav();
   },
 );
 
-onMounted(() => {
-  if (store.value.isRouting) {
-    hideNav();
-  }
+defineExpose({
+  showNav,
+  hideNav,
 });
 </script>
