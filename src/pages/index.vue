@@ -207,8 +207,8 @@ const heroIntro = async () => {
     .to(heroFooter.value.children, {
       y: 0,
       duration: 1,
-      ease: 'expo.out',
-      stagger: 0.15,
+      ease: 'circ2.out',
+      stagger: 0.1,
     }, '-=0.2');
 
   enableScroll();
