@@ -1,9 +1,14 @@
-export const useIntersectionObserver = (
-  target: Ref<HTMLElement>,
+export const useIntersectionObserver = ({
+  target,
   once = true,
-  // eslint-disable-next-line no-undef
-  options: IntersectionObserverInit = { root: null, rootMargin: '0px', threshold: [0.3] },
-) => {
+  options = { root: null, rootMargin: '0px', threshold: [0.3] },
+  onIntersect = (entry: IntersectionObserverEntry) => {},
+}: {
+  target: Ref<HTMLElement>,
+  once?: boolean,
+  options?: IntersectionObserverInit,
+  onIntersect?: (entry: IntersectionObserverEntry) => void,
+}) => {
   const intersectionRatio = ref(0);
   const isIntersecting = ref(false);
   const isFullyInView = ref(false);
@@ -32,6 +37,8 @@ export const useIntersectionObserver = (
       if (entry.intersectionRatio > 0) {
         isIntersecting.value = true;
         isFullyInView.value = entry.intersectionRatio >= 1;
+        onIntersect(entry);
+
         return;
       }
 

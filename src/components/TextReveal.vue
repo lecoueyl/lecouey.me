@@ -42,7 +42,7 @@ defineProps({
 });
 
 const target = ref(null);
-const { isIntersecting } = useIntersectionObserver(target);
+const { isIntersecting } = useIntersectionObserver({ target });
 
 const trimmedText = computed(() => {
   if (!useSlots().default) return '';

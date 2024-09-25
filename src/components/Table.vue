@@ -70,9 +70,9 @@ const headers = computed(() => (props.data.length > 0 ? Object.keys(props.data[0
 
 const target = ref<HTMLElement>();
 
-const { isIntersecting } = useIntersectionObserver(target as Ref<HTMLElement>);
+const { isIntersecting } = useIntersectionObserver({ target: target as Ref<HTMLElement> });
 
-// Gsap
+// GSAP
 
 const { gsap } = useGsap();
 

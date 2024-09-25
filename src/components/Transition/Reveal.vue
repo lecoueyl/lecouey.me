@@ -45,7 +45,7 @@ const gsapSetting = {
 
 const target = ref<HTMLElement>();
 const elements = ref<HTMLElement[]>([]);
-const { isIntersecting } = useIntersectionObserver(target as Ref<HTMLElement>);
+const { isIntersecting } = useIntersectionObserver({ target: target as Ref<HTMLElement> });
 
 const showElements = async () => {
   await gsap.fromTo(
