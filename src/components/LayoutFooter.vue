@@ -2,7 +2,7 @@
   <footer ref="target" class="pt-48">
     <div class="container relative z-50 h-screen bg-neutral-950 p-6">
       <div class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100">
-        <div class="relative z-10 col-span-3 p-10 text-9xl">
+        <div class="relative z-10 col-span-3 p-10 text-8xl">
           Let's work together
         </div>
 
@@ -66,8 +66,7 @@ const setGsapTimeline = () => {
     );
 };
 
-const onIntersect = (entry: IntersectionObserverEntry) => {
-  console.log('Intersecting:', entry.intersectionRatio);
+const onIntersect = () => {
   gsapTimeline.play();
 };
 

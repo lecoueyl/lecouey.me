@@ -5,14 +5,14 @@
   >
     <li class="overflow-hidden">
       <div
-        data-gsap="row"
+        data-gsap="table-row"
         class="grid grid-cols-3 gap-6 pb-6 capitalize text-neutral-600"
       >
         <span v-for="header, index in headers" :key="index">{{ header }}</span>
       </div>
     </li>
 
-    <li class="h-px w-full bg-neutral-300" data-gsap="border" />
+    <li class="h-px w-full bg-neutral-300" data-gsap="table-border" />
 
     <template
       v-for="dataObject, dataIndex in data"
@@ -21,7 +21,7 @@
       <li class="group overflow-hidden">
         <div
           class="grid grid-cols-3 gap-6 py-6 text-xl"
-          data-gsap="row"
+          data-gsap="table-row"
         >
           <div
             v-for="dataEntry, entryIndex in dataObject"
@@ -39,7 +39,7 @@
         </div>
       </li>
 
-      <li class="h-px w-full bg-neutral-300" data-gsap="border" />
+      <li class="h-px w-full bg-neutral-300" data-gsap="table-border" />
     </template>
   </ul>
 </template>
@@ -79,11 +79,11 @@ const { gsap } = useGsap();
 let gsapTimeline: GSAPTimeline;
 
 const setGsapTimeline = () => {
-  gsap.set('[data-gsap="row"]', {
+  gsap.set('[data-gsap="table-row"]', {
     translateY: '100%',
   });
 
-  gsap.set('[data-gsap="border"]', {
+  gsap.set('[data-gsap="table-border"]', {
     scaleX: 0,
     transformOrigin: 'left',
   });
@@ -94,7 +94,7 @@ const setGsapTimeline = () => {
     onComplete: () => emit('done'),
   })
     .fromTo(
-      '[data-gsap="row"]',
+      '[data-gsap="table-row"]',
       { translateY: '100%' },
       {
         duration: 2,
@@ -104,7 +104,7 @@ const setGsapTimeline = () => {
       },
     )
     .fromTo(
-      '[data-gsap="border"]',
+      '[data-gsap="table-border"]',
       { scaleX: 0 },
       {
         scaleX: 1,

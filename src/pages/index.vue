@@ -4,7 +4,7 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh-theme(space.16))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16"
+      class="flex h-[calc(100vh-theme(space.10)-theme(space.8))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16"
       :class="{
         'overflow-hidden': !isIntroDone,
       }"

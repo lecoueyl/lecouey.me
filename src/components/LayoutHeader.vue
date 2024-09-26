@@ -2,7 +2,7 @@
   <header class="container sticky top-0 z-40 pt-10">
     <nav
       ref="nav"
-      class="grid h-6 grid-cols-3 gap-4 overflow-hidden"
+      class="grid h-8 grid-cols-3 gap-4 overflow-hidden"
     >
       <NuxtLink to="/" class="translate-y-full">
         Leonard Lecouey

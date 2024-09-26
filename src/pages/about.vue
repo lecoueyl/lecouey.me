@@ -2,9 +2,17 @@
   <div>
     <LayoutHeader />
 
-    <div class="container flex h-[calc(100vh-theme(space.16))] items-end bg-neutral-100 pb-10 text-9xl">
+    <div class="container flex h-[calc(100vh-theme(space.10)-theme(space.8))] items-end justify-between bg-neutral-100 pb-10">
+      <div class="relative">
+        <TransitionReveal class="absolute bottom-0 left-0">
+          <span class="text-9xl">About</span>
+        </TransitionReveal>
+      </div>
+
       <TransitionReveal>
-        <span>About</span>
+        <div class="text-shine">
+          (SCROLL)
+        </div>
       </TransitionReveal>
     </div>
 
