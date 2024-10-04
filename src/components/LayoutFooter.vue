@@ -4,7 +4,7 @@
       <div ref="container" class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100">
         <div class="relative z-10 col-span-3 px-10 pb-10 pt-8">
           <span class="inline-block overflow-hidden">
-            <span :ref="setElementRef" data-gsap="footer" class="inline-block text-8xl/tight">Let's work together</span>
+            <span :ref="setElementRef" class="inline-block text-8xl/tight">Let's work together</span>
           </span>
         </div>
 
@@ -14,16 +14,16 @@
             :key="item"
             class="overflow-hidden"
           >
-            <span :ref="setElementRef" data-gsap="footer" class="block">{{ item }}</span>
+            <span :ref="(el) => setElementRef(el)" class="block">{{ item }}</span>
           </li>
         </ul>
 
         <div class="relative z-10 col-span-3 flex items-end p-10">
           <div class="flex w-full justify-between gap-8 overflow-hidden">
-            <div :ref="setElementRef">
-              <Clock data-gsap="footer" />
+            <div :ref="(el) => setElementRef(el)">
+              <Clock />
             </div>
-            <span :ref="setElementRef" class="block">Back to top</span>
+            <span :ref="(el) => setElementRef(el)" class="block">Back to top</span>
           </div>
         </div>
 

@@ -5,14 +5,17 @@
   >
     <li class="overflow-hidden">
       <div
-        data-gsap="table-row"
+        :ref="(el) => setElementRef(el, rows)"
         class="grid grid-cols-3 gap-6 pb-6 capitalize text-neutral-600"
       >
         <span v-for="header, index in headers" :key="index">{{ header }}</span>
       </div>
     </li>
 
-    <li class="h-px w-full bg-neutral-300" data-gsap="table-border" />
+    <li
+      :ref="(el) => setElementRef(el, borders)"
+      class="h-px w-full bg-neutral-300"
+    />
 
     <template
       v-for="dataObject, dataIndex in data"
@@ -20,8 +23,8 @@
     >
       <li class="group overflow-hidden">
         <div
+          :ref="(el) => setElementRef(el, rows)"
           class="grid grid-cols-3 gap-6 py-6 text-xl"
-          data-gsap="table-row"
         >
           <div
             v-for="dataEntry, entryIndex in dataObject"
@@ -39,7 +42,7 @@
         </div>
       </li>
 
-      <li class="h-px w-full bg-neutral-300" data-gsap="table-border" />
+      <li :ref="(el) => setElementRef(el, borders)" class="h-px w-full bg-neutral-300" />
     </template>
   </ul>
 </template>
@@ -72,18 +75,22 @@ const target = ref<HTMLElement>();
 
 const { isIntersecting } = useIntersectionObserver({ target: target as Ref<HTMLElement> });
 
-// GSAP
+// GSAP animation
+
+const { setElementRef } = useElement();
+const rows = reactive<HTMLElement[]>([]);
+const borders = reactive<HTMLElement[]>([]);
 
 const { gsap } = useGsap();
 
 let gsapTimeline: GSAPTimeline;
 
 const setGsapTimeline = () => {
-  gsap.set('[data-gsap="table-row"]', {
+  gsap.set(rows, {
     translateY: '100%',
   });
 
-  gsap.set('[data-gsap="table-border"]', {
+  gsap.set(borders, {
     scaleX: 0,
     transformOrigin: 'left',
   });
@@ -94,7 +101,7 @@ const setGsapTimeline = () => {
     onComplete: () => emit('done'),
   })
     .fromTo(
-      '[data-gsap="table-row"]',
+      rows,
       { translateY: '100%' },
       {
         duration: 2,
@@ -104,7 +111,7 @@ const setGsapTimeline = () => {
       },
     )
     .fromTo(
-      '[data-gsap="table-border"]',
+      borders,
       { scaleX: 0 },
       {
         scaleX: 1,
