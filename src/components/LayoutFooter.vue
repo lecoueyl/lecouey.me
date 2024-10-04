@@ -1,29 +1,29 @@
 <template>
   <footer ref="target" class="pt-48">
-    <div class="container relative z-50 h-screen bg-neutral-950 p-6">
-      <div class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100">
-        <div class="relative z-10 col-span-3 p-10 text-8xl">
-          <span class="block overflow-hidden">
-            <span data-gsap="footer" class="block">Let's work together</span>
+    <div class="container relative z-50 h-screen overflow-hidden bg-neutral-950 p-6">
+      <div ref="container" class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100">
+        <div class="relative z-10 col-span-3 px-10 pb-10 pt-8">
+          <span class="inline-block overflow-hidden">
+            <span :ref="setElementRef" data-gsap="footer" class="inline-block text-8xl/tight">Let's work together</span>
           </span>
         </div>
 
         <ul class="relative z-10 col-span-2 col-start-2 flex flex-col gap-4 p-5 text-4xl">
-          <li class="overflow-hidden">
-            <span data-gsap="footer" class="block">Github</span>
-          </li>
-          <li class="overflow-hidden">
-            <span data-gsap="footer" class="block">LinkedIn</span>
-          </li>
-          <li class="overflow-hidden">
-            <span data-gsap="footer" class="block">Dribbble</span>
+          <li
+            v-for="item in ['Github', 'LinkedIn', 'Dribbble']"
+            :key="item"
+            class="overflow-hidden"
+          >
+            <span :ref="setElementRef" data-gsap="footer" class="block">{{ item }}</span>
           </li>
         </ul>
 
         <div class="relative z-10 col-span-3 flex items-end p-10">
           <div class="flex w-full justify-between gap-8 overflow-hidden">
-            <Clock data-gsap="footer" />
-            <span data-gsap="footer" class="block">Back to top</span>
+            <div :ref="setElementRef">
+              <Clock data-gsap="footer" />
+            </div>
+            <span :ref="setElementRef" class="block">Back to top</span>
           </div>
         </div>
 
@@ -46,8 +46,11 @@
 <script setup lang="ts">
 import type GSAPTimeline from 'gsap';
 
+const { elements, setElementRef } = useElement();
+
 const grid = ref();
 const target = ref();
+const container = ref();
 
 // GSAP
 
@@ -56,7 +59,7 @@ const { gsap } = useGsap();
 let gsapTimeline: GSAPTimeline;
 
 const setGsapTimeline = () => {
-  gsap.set('[data-gsap="footer"]', {
+  gsap.set(elements, {
     translateY: '100%',
   });
 
@@ -69,6 +72,20 @@ const setGsapTimeline = () => {
     paused: true,
   })
     .fromTo(
+      container.value,
+      {
+        borderRadius: '0',
+        scale: 1.07,
+      },
+      {
+        borderRadius: '1.5rem',
+        scale: 1,
+        duration: 2,
+        ease: 'circ2.inOut',
+      },
+      '=-0.8s',
+    )
+    .fromTo(
       grid.value.children,
       { scaleY: 0 },
       {
@@ -77,9 +94,10 @@ const setGsapTimeline = () => {
         ease: 'circ2.inOut',
         stagger: 0.1,
       },
+      '=-1.5s',
     )
     .fromTo(
-      '[data-gsap="footer"]',
+      elements,
       { translateY: '100%' },
       {
         duration: 2,
