@@ -12,6 +12,10 @@
     font-named-instance: 'Regular';
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply text-neutral-950 bg-neutral-950 antialiased text-base font-medium;
   }

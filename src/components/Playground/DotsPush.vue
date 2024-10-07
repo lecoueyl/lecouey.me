@@ -1,28 +1,44 @@
 <template>
-  <div class="grid grid-cols-8 gap-6">
+  <div class="grid grid-cols-10 gap-6">
     <div
-      v-for="item in 80"
+      v-for="item in 100"
       :key="item"
+      :ref="(el) => setElementRef(el, containers)"
       class="relative"
     >
       <div
         :ref="(el) => setElementRef(el)"
-        class="absolute inset-0 size-6 rounded-full border border-neutral-900 bg-neutral-50"
+        class="absolute inset-0 size-6 rounded-full border-[0.1rem] border-neutral-950 bg-neutral-100"
       />
-      <div class="size-6 rounded-full bg-neutral-600" />
+      <div class="size-6 rounded-full bg-neutral-950" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const { elements, setElementRef } = useElement();
+const containers = reactive([]);
 
 const { gsap } = useGsap();
 
-const setGsapAnimation = () => {
+const setGsapAnimation = async () => {
+  gsap.fromTo(
+    containers,
+    { scale: 0 },
+    {
+      scale: 1,
+      ease: 'power1.inOut',
+      duration: 1,
+      stagger: {
+        each: 0.01,
+        from: 'end',
+        axis: 'x',
+      },
+    },
+  );
   elements.forEach((el) => {
-    const startPosition = Math.random() > 0.5 ? '0%' : '-50%';
-    const endPosition = startPosition === '-50%' ? '0%' : '-50%';
+    const startPosition = Math.random() > 0.5 ? '0%' : '-40%';
+    const endPosition = startPosition === '-40%' ? '0%' : '-40%';
     gsap.set(el, {
       x: startPosition,
       y: startPosition,
@@ -38,13 +54,13 @@ const setGsapAnimation = () => {
         yoyo: true,
         ease: 'power1.inOut',
         duration: 1.5,
-        delay: () => Math.random() * 2, // random delay between 0 and 2 seconds
+        delay: () => Math.random() * 2,
       },
     );
   });
 };
 
 onMounted(async () => {
-  setGsapAnimation();
+  await setGsapAnimation();
 });
 </script>

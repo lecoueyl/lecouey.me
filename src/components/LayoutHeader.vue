@@ -5,7 +5,7 @@
       class="grid h-8 grid-cols-3 gap-4 overflow-hidden"
     >
       <NuxtLink to="/" class="translate-y-full">
-        Leonard Lecouey
+        {{ settings.siteName }}
       </NuxtLink>
 
       <div class="flex translate-y-full items-center gap-4">
@@ -25,7 +25,7 @@
           href=""
           class="hidden sm:inline-block"
         >
-          hi@lecouey.me
+          {{ settings.email }}
         </a>
       </div>
     </nav>
@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+const settings = useRuntimeConfig().public;
 const store = useStore();
 const nav = ref();
 

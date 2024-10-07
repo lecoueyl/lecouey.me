@@ -6,6 +6,13 @@
           <span class="inline-block overflow-hidden">
             <span :ref="(el) => setElementRef(el)" class="inline-block text-8xl/tight">Let's work together</span>
           </span>
+          <div class="absolute bottom-10 right-10 inline-block">
+            <a
+              ref="email"
+              class="inline-block -rotate-6 overflow-hidden rounded-full bg-neutral-950 px-10 py-6 text-2xl text-neutral-50 transition-transform hover:-rotate-0"
+              :href="`mailto:${settings.mail}`"
+            ><span class="inline-block">{{ settings.email }}</span></a>
+          </div>
         </div>
 
         <ul class="relative z-10 col-span-2 col-start-2 flex flex-col gap-4 p-5 text-4xl">
@@ -23,7 +30,11 @@
             <div :ref="(el) => setElementRef(el)">
               <Clock />
             </div>
-            <span :ref="(el) => setElementRef(el)" class="block">Back to top</span>
+            <a
+              :ref="(el) => setElementRef(el)"
+              href="#"
+              class="block"
+            >Back to top</a>
           </div>
         </div>
 
@@ -46,11 +57,14 @@
 <script setup lang="ts">
 import type GSAPTimeline from 'gsap';
 
+const settings = useRuntimeConfig().public;
+
 const { elements, setElementRef } = useElement();
 
 const grid = ref();
 const target = ref();
 const container = ref();
+const email = ref();
 
 // GSAP
 
@@ -58,7 +72,7 @@ const { gsap } = useGsap();
 
 let gsapTimeline: GSAPTimeline;
 
-const setGsapTimeline = () => {
+const setGsapTimeline = async () => {
   gsap.set(elements, {
     translateY: '100%',
   });
@@ -106,6 +120,30 @@ const setGsapTimeline = () => {
         translateY: '0%',
       },
       '=-2s',
+    )
+    .fromTo(
+      email.value,
+      { scaleX: 0, transformOrigin: 'left' },
+      {
+        duration: 2,
+        ease: 'circ2.out',
+        stagger: 0.1,
+        scaleX: 1,
+      },
+      '=-2s',
+    )
+    .fromTo(
+      email.value.children[0],
+      { translateY: '100%' },
+      {
+        duration: 2,
+        ease: 'circ2.out',
+        stagger: 0.1,
+        translateY: '0%',
+        onComplete: () => {
+          gsap.set(email.value, { clearProps: 'all' });
+        },
+      },
     );
 };
 

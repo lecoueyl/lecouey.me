@@ -3,7 +3,7 @@
     <LayoutHeader />
 
     <div class="container flex h-[calc(100vh-theme(space.10)-theme(space.8))] items-end justify-between bg-neutral-100 pb-10">
-      <TransitionReveal>
+      <TransitionReveal class="translate-y-6">
         <span class="text-9xl">About</span>
       </TransitionReveal>
 

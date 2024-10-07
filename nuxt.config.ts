@@ -6,6 +6,7 @@ const config = {
   siteLang: 'en',
   siteName: 'Leonard Lecouey',
   siteUrl: 'https://www.lecouey.me',
+  email: 'hi@lecouey.me',
 };
 
 export default defineNuxtConfig({
