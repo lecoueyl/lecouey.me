@@ -98,49 +98,44 @@
       </NuxtLink> -->
     </div>
 
-    <section class="container grid grid-cols-2 gap-24 bg-neutral-100 pt-64">
-      <h2 class="col-span-2 flex pt-4 align-top text-8xl">
+    <div class="container grid grid-cols-6 gap-8 bg-neutral-100 pt-96">
+      <TransitionReveal tag="p" class="col-span-6 col-start-1 text-center text-3xl">
+        <span>Haus is a Los Angeles-based agency that</span>
+        <span>pushes the boundaries of technology,</span>
+        <span>strategy, design and content to create lasting</span>
+        <span>relationships between brands & customers.</span>
+      </TransitionReveal>
+
+      <!-- <TransitionReveal tag="NuxtLink" class="col-start-2 pt-10 uppercase">
+        <span>Learn more</span>
+      </TransitionReveal> -->
+      <!-- <NuxtLink class="col-start-2 pt-10 uppercase">
+        Learn more
+      </NuxtLink> -->
+    </div>
+
+    <section class="container relative grid grid-cols-6 gap-64 bg-neutral-100 pt-64">
+      <h2 class="col-span-6 flex pt-4 align-top text-8xl">
         Works <span class="pt-4 text-base font-normal text-neutral-500">(5)</span>
       </h2>
 
-      <article class="flex flex-col-reverse gap-6">
-        <h2 class="pt-4 text-xl">
-          A multi-purpose creative space.
-        </h2>
-        <div class="rounded-xl">
-          <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
+      <div class="sticky top-1/2 col-span-4 col-start-2 flex items-center">
+        <div class="w-full text-center text-4xl">
+          THIS IS TITLE
         </div>
-      </article>
-      <article class="flex flex-col-reverse gap-6">
-        <h2 class="pt-4 text-xl">
-          A multi-purpose creative space.
-        </h2>
-        <div class="rounded-xl">
-          <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-xl" />
-        </div>
-      </article>
-      <article class="flex flex-col-reverse gap-6">
-        <h2 class="pt-4 text-xl">
-          A multi-purpose creative space.
-        </h2>
-        <div class="rounded-xl">
-          <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-xl" />
-        </div>
+      </div>
+
+      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
+        <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-md" />
       </article>
 
-      <!-- <article class="grid gap-16">
-        <header class="flex items-center justify-between">
-          <h2 class="pt-4 text-2xl">
-            A multi-purpose creative space.
-          </h2>
-          <p class="text-lg text-neutral-600">
-            Design, Development
-          </p>
-        </header>
-        <div class="rounded-xl border border-neutral-200 p-24">
-          <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
-        </div>
-      </article> -->
+      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
+        <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-md" />
+      </article>
+
+      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
+        <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-md" />
+      </article>
     </section>
     <!-- <section class="container gap-24 pt-64">
       <article class="grid gap-16">

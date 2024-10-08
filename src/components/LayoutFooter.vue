@@ -6,12 +6,13 @@
           <span class="inline-block overflow-hidden">
             <span :ref="(el) => setElementRef(el)" class="inline-block text-8xl/tight">Let's work together</span>
           </span>
-          <div class="absolute bottom-10 right-10 inline-block">
+
+          <div class="absolute bottom-10 right-10 inline-block -rotate-6 transition-transform hover:-rotate-0">
             <a
               ref="email"
-              class="inline-block -rotate-6 overflow-hidden rounded-full bg-neutral-950 px-10 py-6 text-2xl text-neutral-50 transition-transform hover:-rotate-0"
-              :href="`mailto:${settings.mail}`"
-            ><span class="inline-block">{{ settings.email }}</span></a>
+              class="inline-block overflow-hidden "
+              :href="`mailto:${settings.email}`"
+            ><Marquee class="inline-block w-72 rounded-full bg-neutral-950 py-6 text-2xl text-neutral-50">{{ settings.email }}</Marquee></a>
           </div>
         </div>
 
@@ -123,27 +124,27 @@ const setGsapTimeline = async () => {
     )
     .fromTo(
       email.value,
-      { scaleX: 0, transformOrigin: 'left' },
+      { scale: 0 },
       {
         duration: 2,
         ease: 'circ2.out',
         stagger: 0.1,
-        scaleX: 1,
+        scale: 1,
       },
       '=-2s',
     )
     .fromTo(
       email.value.children[0],
-      { translateY: '100%' },
+      { translateY: '150%' },
       {
-        duration: 2,
+        duration: 0.8,
         ease: 'circ2.out',
-        stagger: 0.1,
         translateY: '0%',
         onComplete: () => {
           gsap.set(email.value, { clearProps: 'all' });
         },
       },
+      '=-1.5s',
     );
 };
 
