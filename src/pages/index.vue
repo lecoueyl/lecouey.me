@@ -204,9 +204,9 @@ const heroIntro = async () => {
       duration: 1,
       ease: 'circ2.out',
       stagger: 0.1,
-    }, '-=0.2');
+    }, '-=0.2')
+    .call(enableScroll, [], '-=2');
 
-  enableScroll();
   isIntroDone.value = true;
 };
 
