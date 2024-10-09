@@ -12,18 +12,34 @@
     font-named-instance: 'Regular';
   }
 
-  html {
-    @apply scroll-smooth;
-  }
-
   body {
-    @apply text-neutral-950 bg-neutral-950 antialiased text-base font-medium;
+    @apply text-neutral-950 bg-neutral-950 antialiased text-base font-medium selection:bg-neutral-200;
   }
 }
 
 @layer components{
   .container {
     @apply px-4 lg:px-16;
+  }
+
+  html.lenis, html.lenis body {
+    @apply h-auto;
+  }
+
+  .lenis.lenis-smooth {
+    @apply !scroll-auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    @apply overscroll-contain;
+  }
+
+  .lenis.lenis-stopped {
+    @apply overflow-hidden
+  }
+
+  .lenis.lenis-smooth iframe {
+    @apply pointer-events-none;
   }
 }
 
