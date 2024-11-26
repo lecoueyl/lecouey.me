@@ -38,6 +38,8 @@
       </TransitionReveal>
     </div>
 
+    <Cards />
+
     <Table
       :data="[
         { name: 'John Doe', age: 30, location: 'New York' },
