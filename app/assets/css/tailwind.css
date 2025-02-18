@@ -27,26 +27,26 @@
 
   --animate-move: move 20s ease infinite;
   @keyframes move {
-    fom {
-      transform: translate(0%, 0%);
+    0% {
+      transform: translate(0, 0);
     }
     50% {
       transform: translate(50%, 25%);
     }
-    to {
-      transform: translate(0%, 0%);
+    100% {
+      transform: translate(0, 0);
     }
   }
 
   --animate-move2: move2 30s ease infinite;
   @keyframes move2 {
-    fom {
+    0% {
       transform: translate(0%, 0%);
     }
     50% {
       transform: translate(20%, 10%);
     }
-    to {
+    100% {
       transform: translate(0%, 0%);
     }
   }

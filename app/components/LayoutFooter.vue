@@ -1,10 +1,10 @@
 <template>
   <footer ref="target" class="pt-48">
-    <div class="container relative z-50 h-screen overflow-hidden bg-neutral-950 p-6">
+    <div class="container relative z-50 h-screen overflow-hidden bg-neutral-950 px-2 py-6 sm:p-6">
       <div ref="container" class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100">
         <div class="relative z-10 col-span-3 px-10 pb-10 pt-8">
           <span class="inline-block overflow-hidden">
-            <span :ref="(el) => setElementRef(el)" class="inline-block text-8xl/tight">Let's work together</span>
+            <span :ref="(el) => setElementRef(el)" class="inline-block text-5xl sm:text-9xl/tight">Let's work together</span>
           </span>
 
           <div class="absolute bottom-10 right-10 inline-block -rotate-6 transition-transform hover:-rotate-0">

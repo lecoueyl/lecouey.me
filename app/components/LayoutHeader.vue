@@ -2,7 +2,7 @@
   <header class="container sticky top-0 z-40 pt-10">
     <nav
       ref="nav"
-      class="grid h-8 grid-cols-3 gap-4 overflow-hidden"
+      class="flex justify-between sm:grid h-8 sm:grid-cols-3 gap-4 overflow-hidden"
     >
       <NuxtLink to="/" class="translate-y-full">
         {{ settings.siteName }}
@@ -20,10 +20,9 @@
         </NuxtLink>
       </div>
 
-      <div class="translate-y-full text-right">
+      <div class="translate-y-full text-right hidden sm:inline-block">
         <a
           href=""
-          class="hidden sm:inline-block"
         >
           {{ settings.email }}
         </a>

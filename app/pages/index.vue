@@ -69,8 +69,8 @@
       </div>
     </div> -->
 
-    <div class="container grid grid-cols-3 gap-8 bg-neutral-100 pt-96">
-      <TransitionReveal tag="p" class="col-start-2">
+    <div class="container grid sm:grid-cols-3 gap-8 bg-neutral-100 pt-96">
+      <TransitionReveal tag="p" class="sm:col-start-2">
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
         <span>with craft and conversation. We</span>
@@ -114,44 +114,29 @@
       </NuxtLink> -->
     </div>
 
-    <section class="container relative grid grid-cols-6 gap-64 bg-neutral-100 pt-64">
-      <h2 class="col-span-6 flex pt-4 align-top text-8xl">
+    <section class="container relative grid sm:grid-cols-6 gap-64 bg-neutral-100 pt-64">
+      <h2 class="sm:col-span-6 pt-4 align-top text-8xl">
         Works <span class="pt-4 text-base font-normal text-neutral-500">(5)</span>
       </h2>
 
-      <div class="sticky top-1/2 col-span-4 col-start-2 flex items-center">
+      <div class="sticky top-1/2 sm:col-span-4 sm:col-start-2">
         <div class="w-full text-center text-4xl">
           THIS IS TITLE
         </div>
       </div>
 
-      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
-        <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-md" />
+      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
+        <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
       </article>
 
-      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
-        <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-md" />
+      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
+        <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
       </article>
 
-      <article class="relative z-10 col-span-4 col-start-2 flex flex-col-reverse gap-6">
-        <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-md" />
+      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
+        <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
       </article>
     </section>
-    <!-- <section class="container gap-24 pt-64">
-      <article class="grid gap-16">
-        <header class="flex items-center justify-between">
-          <h2 class="pt-4 text-2xl">
-            A multi-purpose creative space.
-          </h2>
-          <p class="text-lg text-neutral-600">
-            Design, Development
-          </p>
-        </header>
-        <div class="rounded-xl border border-neutral-200 p-24">
-          <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-xl" />
-        </div>
-      </article>
-    </section> -->
     <LayoutFooter />
   </main>
 </template>
@@ -195,8 +180,8 @@ const heroIntro = async () => {
     .to(cards.value.children, {
       duration: 1.5,
       ease: 'circ2.inOut',
-      yPercent: (index) => cardsTransformPositionArray[index].y,
-      xPercent: (index) => cardsTransformPositionArray[index].x,
+      yPercent: (index) => cardsTransformPositionArray?.[index]?.y ?? 0,
+      xPercent: (index) => cardsTransformPositionArray?.[index]?.x ?? 0,
       stagger: 0.1,
     }, '-=0.5')
     .to(heroFooter.value.children, {
@@ -222,7 +207,7 @@ onMounted(async () => {
     },
   })
     .to(cards.value.children, {
-      yPercent: (index) => cardsTransformPositionArray[index].y - (20 * index + 1),
+      yPercent: (index) => cardsTransformPositionArray?.[index]?.y ?? 0 - (20 * index + 1),
     })
     .to(heroFooter.value, { opacity: 0 });
 });
