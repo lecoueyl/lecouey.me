@@ -54,7 +54,7 @@
       >
         <Clock class="translate-y-full" />
 
-        <div class="text-shine translate-y-full">
+        <div class="text-shine animate-shine translate-y-full select-none">
           (SCROLL)
         </div>
       </div>

@@ -90,9 +90,6 @@ importers:
       tailwindcss:
         specifier: ^4.0.6
         version: 4.0.6
-      tailwindcss-fluid-type:
-        specifier: ^2.0.7
-        version: 2.0.7(tailwindcss@4.0.6)
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -4455,11 +4452,6 @@ packages:
   system-architecture@0.1.0:
     resolution: {integrity: sha512-ulAk51I9UVUyJgxlv9M6lFot2WP3e7t8Kz9+IS6D4rVba1tR9kON+Ey69f+1R4Q8cd45Lod6a4IcJIxnzGc/zA==}
     engines: {node: '>=18'}
-
-  tailwindcss-fluid-type@2.0.7:
-    resolution: {integrity: sha512-VJEZ6O8QyeEwW3nbm6TV+okoW/CiORX1TG/ygf4yQGqfBiYWPFPUJ3bvMsV96+p3bYr7Y+NOf5nR4oDEsiMfpA==}
-    peerDependencies:
-      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
 
   tailwindcss@4.0.6:
     resolution: {integrity: sha512-mysewHYJKaXgNOW6pp5xon/emCsfAMnO8WMaGKZZ35fomnR/T5gYnRg2/yRTTrtXiEl1tiVkeRt0eMO6HxEZqw==}
@@ -10307,10 +10299,6 @@ snapshots:
       picocolors: 1.1.0
 
   system-architecture@0.1.0: {}
-
-  tailwindcss-fluid-type@2.0.7(tailwindcss@4.0.6):
-    dependencies:
-      tailwindcss: 4.0.6
 
   tailwindcss@4.0.6: {}
 

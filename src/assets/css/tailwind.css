@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@config '../../../tailwind.config.js';
 
 @layer base {
   @font-face {
@@ -12,7 +11,18 @@
   }
 
   body {
-    @apply text-neutral-950 bg-neutral-950 antialiased text-base font-medium selection:bg-neutral-200;
+    @apply text-neutral-950 bg-neutral-950 antialiased text-lg font-medium selection:bg-neutral-200;
+  }
+}
+
+@theme {
+  --font-sans: "Inter var", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-shine: shine 4s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: -200% center;
+    }
   }
 }
 
@@ -44,22 +54,12 @@
   .lenis.lenis-smooth iframe {
     @apply pointer-events-none;
   }
-}
 
-@layer utilities {
   .text-shine {
     @apply bg-clip-text bg-[linear-gradient(to_right,theme(colors.neutral.100)_0%,theme(colors.neutral.100)_20%,theme(colors.neutral.950)_40%,theme(colors.neutral.950)_60%,theme(colors.neutral.100)_70%,theme(colors.neutral.100)_100%)];
     background-size: 200% auto;
     text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    animation: shine 4s linear infinite;
-
-    @keyframes shine {
-      to {
-        background-position: -200% center;
-      }
-    }
   }
 }
