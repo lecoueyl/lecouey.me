@@ -114,29 +114,8 @@
       </NuxtLink> -->
     </div>
 
-    <section class="container relative grid sm:grid-cols-6 gap-64 bg-neutral-100 pt-64">
-      <h2 class="sm:col-span-6 pt-4 align-top text-8xl">
-        Works <span class="pt-4 text-base font-normal text-neutral-500">(5)</span>
-      </h2>
+    <Works />
 
-      <div class="sticky top-1/2 sm:col-span-4 sm:col-start-2">
-        <div class="w-full text-center text-4xl">
-          THIS IS TITLE
-        </div>
-      </div>
-
-      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
-        <NuxtImg src="img/thumb1.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
-      </article>
-
-      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
-        <NuxtImg src="img/thumb2.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
-      </article>
-
-      <article class="relative z-10 sm:col-span-4 sm:col-start-2 gap-6">
-        <NuxtImg src="img/thumb3.jpg" alt="project 2" class="w-full rounded-2xl shadow-2xl" />
-      </article>
-    </section>
     <LayoutFooter />
   </main>
 </template>
