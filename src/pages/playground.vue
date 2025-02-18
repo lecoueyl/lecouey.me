@@ -2,32 +2,13 @@
   <div>
     <LayoutHeader />
 
-    <div class="container flex h-[calc(100vh-theme(space.16))] items-end bg-neutral-100 pb-10 text-9xl">
-      <TransitionReveal>
-        <span>Playground</span>
-      </TransitionReveal>
-    </div>
-
-    <div class="container grid grid-cols-3 gap-10 bg-neutral-100">
-      <TransitionReveal tag="p" class="col-start-2">
-        <span class="pl-16">For over 15 years, we've</span>
-        <span>been dedicated to the details,</span>
-        <span>thoughtful design and copy, and an</span>
-        <span>ongoing curiosity for ideas that</span>
-        <span>spark discussion. Because brands</span>
-        <span>and communities aren't built on</span>
-        <span>content, but moments that engage.</span>
-      </TransitionReveal>
-
-      <TransitionReveal tag="p">
-        <span class="pl-16">For over 15 years, we've</span>
-        <span>been dedicated to the details,</span>
-        <span>thoughtful design and copy, and an</span>
-        <span>ongoing curiosity for ideas that</span>
-        <span>spark discussion. Because brands</span>
-        <span>and communities aren't built on</span>
-        <span>content, but moments that engage.</span>
-      </TransitionReveal>
+    <div class="relative mx-auto my-24 h-48 overflow-hidden sm:h-96 sm:w-1/2 sm:rounded-3xl">
+      <div class="animate-move absolute aspect-square w-1/2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 mix-blend-multiply" />
+      <div class="translate-1/2 animate-move2 absolute aspect-square w-1/2 rounded-full bg-gradient-to-l from-emerald-700 from-40% to-emerald-950 mix-blend-multiply" />
+      <div class="animate-move2 absolute right-0 aspect-square w-1/2 rounded-full bg-gradient-to-l from-rose-700 from-40% to-rose-950 mix-blend-multiply" />
+      <div class="flex h-full justify-around">
+        <div v-for="index in 20" :key="index" class="size-full bg-gradient-to-r from-neutral-100/20 to-neutral-400/20 backdrop-blur-xl backdrop-saturate-200" />
+      </div>
     </div>
 
     <div class="container grid gap-4 bg-neutral-100 py-16">
