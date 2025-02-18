@@ -25,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import type GSAPTimeline from 'gsap';
+
 const { elements, setElementRef } = useElement();
 const target = ref();
 
@@ -54,11 +56,11 @@ const setGsapTimeline = async () => {
   })
     .to(elements, {
       rotate: 0,
-      xPercent: (index) => justifyElement({ index, totalElements: elements.length, range: 200 }),
+      xPercent: (index) => justifyElement({ index, totalElements: elements.length, range: 180 }),
       yPercent: (index) => justifyElement({ index, totalElements: elements.length, range: 30 }),
       ease: 'circ2.out',
       duration: 1.5,
-      stagger: -0.02,
+      stagger: 0.02,
     });
 };
 
@@ -69,7 +71,7 @@ const onIntersect = () => {
 useIntersectionObserver({
   target,
   once: false,
-  options: { threshold: [0.2] },
+  options: { threshold: [0.5] },
   onIntersect,
 
 });

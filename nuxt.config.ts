@@ -1,4 +1,5 @@
 import svgLoader from 'vite-svg-loader';
+import tailwindcss from '@tailwindcss/vite';
 
 const config = {
   siteDescription: '',
@@ -49,7 +50,6 @@ export default defineNuxtConfig({
     '@nuxtjs/html-validator',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
-    '@nuxtjs/tailwindcss',
     'nuxt-eslint-global-imports',
     'nuxt-schema-org',
   ],
@@ -62,9 +62,7 @@ export default defineNuxtConfig({
     allow: ['/'],
   },
 
-  tailwindcss: {
-    viewer: false,
-  },
+  css: ['~/assets/css/tailwind.css'],
 
   nitro: {
     static: process.env.NODE_ENV !== 'development',
@@ -73,6 +71,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       svgLoader(),
+      tailwindcss(),
     ],
   },
 

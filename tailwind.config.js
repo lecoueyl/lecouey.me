@@ -3,11 +3,7 @@
 import fluidType from 'tailwindcss-fluid-type';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
-export const corePlugins = {
-  container: false,
-};
-
-export const theme = {
+export default {
   colors: {
     neutral: {
       50: '#EAE9E6',
