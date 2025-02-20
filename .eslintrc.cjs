@@ -9,7 +9,7 @@ module.exports = {
     'airbnb-base',
     'plugin:vue/vue3-recommended',
     'plugin:nuxt/recommended',
-    'plugin:tailwindcss/recommended',
+    // 'plugin:tailwindcss/recommended',
     './.nuxt/.eslintrc-auto-import.json',
   ],
   parserOptions: {
@@ -20,7 +20,7 @@ module.exports = {
   plugins: [
     'vue',
     '@typescript-eslint',
-    'tailwindcss',
+    // 'tailwindcss',
     'import',
   ],
   rules: {

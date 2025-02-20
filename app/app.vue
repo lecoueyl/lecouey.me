@@ -1,5 +1,6 @@
 <template>
   <div>
+    <DevTool />
     <NuxtLayout>
       <NuxtPage class="bg-neutral-100" :transition="transition" />
     </NuxtLayout>

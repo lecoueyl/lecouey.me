@@ -4,13 +4,12 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh-theme(space.10)-theme(space.8))] flex-col items-center gap-10 overflow-x-hidden bg-neutral-100 pb-10 pt-16"
+      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden bg-neutral-100"
       :class="{
         'overflow-hidden': !isIntroDone,
       }"
     >
-      <div class="container flex grow flex-col gap-10">
-        <div class="relative grid grow grid-cols-12 items-center justify-center">
+        <div class="container grow flex-col gap-10 relative grid grid-cols-12 items-center justify-center py-10">
           <TransitionRevealText
             tag="h1"
             :show="isPageDisplayed"
@@ -21,53 +20,39 @@
 
           <div ref="cards" class="absolute inset-0 m-auto flex w-1/4 items-center">
             <NuxtImg
-              ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
               class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
-              ref="card"
               src="/img/thumb3.jpg"
               alt="project 1"
               class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
-              ref="card"
               src="img/thumb2.jpg"
               alt="project 1"
               class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
             <NuxtImg
-              ref="card"
               src="/img/thumb1.jpg"
               alt="project 1"
               class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
             />
           </div>
         </div>
-      </div>
 
       <div
         ref="heroFooter"
-        class="container flex w-full justify-between gap-10 overflow-hidden"
+        class="container flex w-full justify-between items-start gap-10 overflow-hidden"
       >
-        <Clock class="translate-y-full" />
+        <Clock class="translate-y-20" />
 
-        <div class="text-shine animate-shine translate-y-full select-none">
+        <div class="h-18 text-shine animate-shine translate-y-20 select-none">
           (SCROLL)
         </div>
       </div>
     </div>
-
-    <!-- <div class="grid gap-4 py-40">
-      <div class="flex gap-2 overflow-x-hidden">
-        <span v-for="item in 20" :key="item" class="-translate-x-10 rounded-full bg-neutral-900 px-8 py-2 text-4xl text-neutral-100">VUE</span>
-      </div>
-      <div class="flex gap-2 overflow-x-hidden">
-        <span v-for="item in 20" :key="item" class="-translate-x-24 rounded-full bg-neutral-900 px-8 py-2 text-4xl text-neutral-100">ALL</span>
-      </div>
-    </div> -->
 
     <div class="container grid sm:grid-cols-3 gap-8 bg-neutral-100 pt-96">
       <TransitionReveal tag="p" class="sm:col-start-2">
