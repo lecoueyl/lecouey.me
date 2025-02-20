@@ -9,38 +9,38 @@
         'overflow-hidden': !isIntroDone,
       }"
     >
-        <div class="container grow flex-col gap-10 relative grid grid-cols-12 items-center justify-center py-10">
-          <TransitionRevealText
-            tag="h1"
-            :show="isPageDisplayed"
-            class="col-span-8 col-start-3 text-[5.5vw] font-semibold leading-[0.75] tracking-tight"
-          >
-            Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
-          </TransitionRevealText>
+      <div class="container grow flex-col gap-10 relative grid grid-cols-12 items-center justify-center py-10">
+        <TransitionRevealText
+          tag="h1"
+          :show="isPageDisplayed"
+          class="col-span-8 col-start-3 text-[5.5vw] font-semibold leading-[0.75] tracking-tight"
+        >
+          Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
+        </TransitionRevealText>
 
-          <div ref="cards" class="absolute inset-0 m-auto flex w-1/4 items-center">
-            <NuxtImg
-              src="/img/thumb3.jpg"
-              alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-            />
-            <NuxtImg
-              src="/img/thumb3.jpg"
-              alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-            />
-            <NuxtImg
-              src="img/thumb2.jpg"
-              alt="project 1"
-              class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-            />
-            <NuxtImg
-              src="/img/thumb1.jpg"
-              alt="project 1"
-              class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-            />
-          </div>
+        <div ref="cards" class="absolute inset-0 m-auto flex w-1/4 items-center">
+          <NuxtImg
+            src="/img/thumb3.jpg"
+            alt="project 1"
+            class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+          />
+          <NuxtImg
+            src="/img/thumb3.jpg"
+            alt="project 1"
+            class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+          />
+          <NuxtImg
+            src="img/thumb2.jpg"
+            alt="project 1"
+            class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+          />
+          <NuxtImg
+            src="/img/thumb1.jpg"
+            alt="project 1"
+            class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+          />
         </div>
+      </div>
 
       <div
         ref="heroFooter"
@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <div class="container grid sm:grid-cols-3 gap-8 bg-neutral-100 pt-96">
+    <div class="container layout bg-neutral-100 pt-96">
       <TransitionReveal tag="p" class="sm:col-start-2">
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>

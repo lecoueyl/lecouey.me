@@ -1,58 +1,61 @@
 <template>
-  <div>
+  <Transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
     <div
+      v-if="showGrid"
       ref="grid"
-      class="z-50 fixed top-0 inset-0 h-full w-full container grid sm:grid-cols-3 pointer-events-none"
+      class="z-50 fixed inset-0 h-full w-full container layout pointer-events-none"
     >
-      <div class="border-l border-pink-500 scale-y-0" />
-      <div class="border-l border-pink-500 scale-y-0" />
-      <div class="border-l border-pink-500 scale-y-0" />
+      <div v-for="index in 3 " :key="index" class="border-l border-pink-500" />
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
 import type GSAPTimeline from 'gsap';
 
-const grid = ref();
-
 const { gsap } = useGsap();
 
-let gsapTimeline: GSAPTimeline;
+let gsapTimeline: GSAPTimeline | null = null;
+const showGrid = ref(false);
+const grid = ref<HTMLElement>();
 
-const setGridGsapTimeline = async () => {
-  gsap.set(grid.value.children, {
-    scaleY: 0,
+function beforeEnter(el: HTMLElement) {
+  gsap.set(el.children, {
+    scaleY: 1,
     transformOrigin: 'top',
   });
+}
 
-  gsapTimeline = gsap.timeline({
-    paused: true,
-  })
-    .fromTo(
-      grid.value.children,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        duration: 1,
-        ease: 'circ2.inOut',
-        stagger: 0.1,
-      },
-    );
-};
+function enter(el: HTMLElement, done: () => void) {
+  gsapTimeline = gsap.timeline().fromTo(
+    el.children,
+    { scaleY: 0 },
+    {
+      scaleY: 1,
+      duration: 1,
+      ease: 'circ2.inOut',
+      stagger: 0.1,
+    },
+  );
+  done();
+}
 
-const handleKeyDown = (e: KeyboardEvent) => {
-  if (e.ctrlKey && e.key === 'g') {
-    if (gsapTimeline.reversed() || gsapTimeline.progress() === 0) {
-      gsapTimeline.play();
-    } else {
-      gsapTimeline.reverse();
-    }
+function leave(_el: HTMLElement, done: () => void) {
+  if (gsapTimeline) {
+    gsapTimeline.reverse();
+    gsapTimeline.eventCallback('onReverseComplete', done);
+  } else {
+    done();
   }
-};
+}
+
+function handleKeyDown(e: KeyboardEvent) {
+  if (e.ctrlKey && e.key === 'g') {
+    showGrid.value = !showGrid.value;
+  }
+}
 
 onMounted(() => {
-  setGridGsapTimeline();
   window.addEventListener('keydown', handleKeyDown);
 });
 

@@ -6,7 +6,7 @@
     <li class="overflow-hidden">
       <div
         :ref="(el) => setElementRef(el, rows)"
-        class="grid grid-cols-3 gap-6 pb-6 capitalize text-neutral-600"
+        class="layout pb-6 capitalize text-neutral-600"
       >
         <span v-for="header, index in headers" :key="index">{{ header }}</span>
       </div>
@@ -24,7 +24,7 @@
       <li class="group overflow-hidden">
         <div
           :ref="(el) => setElementRef(el, rows)"
-          class="grid grid-cols-3 gap-6 py-6 text-xl"
+          class="layout py-6 text-xl"
         >
           <div
             v-for="dataEntry, entryIndex in dataObject"

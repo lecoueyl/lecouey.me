@@ -61,6 +61,13 @@
     }
   }
 
+  .layout {
+    @apply grid grid-cols-3 gap-4;
+    @variant sm {
+      @apply grid-cols-3 gap-10;
+    }
+  }
+
   html.lenis, html.lenis body {
     @apply h-auto;
   }

@@ -2,13 +2,13 @@
   <header class="container sticky top-0 z-40 pt-10">
     <nav
       ref="nav"
-      class="flex justify-between sm:grid h-8 sm:grid-cols-3 gap-4 overflow-hidden"
+      class="layout justify-between overflow-hidden h-8 grid-cols-2 sm:grid-cols-3"
     >
       <NuxtLink to="/" class="translate-y-full">
         {{ settings.siteName }}
       </NuxtLink>
 
-      <div class="flex translate-y-full items-center gap-4">
+      <div class="flex translate-y-full items-center justify-end sm:justify-start gap-4">
         <NuxtLink to="playground">
           JP
         </NuxtLink>
