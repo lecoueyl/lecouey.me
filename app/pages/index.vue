@@ -46,9 +46,9 @@
         ref="heroFooter"
         class="container flex w-full justify-between items-start gap-10 overflow-hidden"
       >
-        <Clock class="translate-y-20" />
+        <Clock class="-translate-y-full" />
 
-        <div class="h-18 text-shine animate-shine translate-y-20 select-none">
+        <div class="h-18 text-shine animate-shine -translate-y-full select-none">
           (SCROLL)
         </div>
       </div>
