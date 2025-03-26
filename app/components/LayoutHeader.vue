@@ -4,7 +4,10 @@
       ref="nav"
       class="layout justify-between overflow-hidden h-8 grid-cols-2 sm:grid-cols-3"
     >
-      <NuxtLink to="/" class="translate-y-full">
+      <NuxtLink
+        to="/"
+        class="translate-y-full"
+      >
         {{ settings.siteName }}
       </NuxtLink>
 

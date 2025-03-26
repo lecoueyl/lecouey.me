@@ -7,7 +7,11 @@
       <div class="translate-1/2 animate-move2 absolute aspect-square w-1/2 rounded-full bg-gradient-to-l from-emerald-700 from-40% to-emerald-950 mix-blend-multiply" />
       <div class="animate-move2 absolute right-0 aspect-square w-1/2 rounded-full bg-gradient-to-l from-rose-700 from-40% to-rose-950 mix-blend-multiply" />
       <div class="flex h-full justify-around">
-        <div v-for="index in 20" :key="index" class="size-full bg-gradient-to-r from-neutral-100/20 to-neutral-400/20 backdrop-blur-xl backdrop-saturate-200" />
+        <div
+          v-for="index in 20"
+          :key="index"
+          class="size-full bg-gradient-to-r from-neutral-100/20 to-neutral-400/20 backdrop-blur-xl backdrop-saturate-200"
+        />
       </div>
     </div>
 

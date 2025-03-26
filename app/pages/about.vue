@@ -17,7 +17,10 @@
     </div>
 
     <div class="container layout bg-neutral-100 py-48">
-      <TransitionReveal tag="p" class="col-start-2 col-span-2 sm:col-start-2 sm:col-span-1">
+      <TransitionReveal
+        tag="p"
+        class="col-start-2 col-span-2 sm:col-start-2 sm:col-span-1"
+      >
         <span class="pl-12">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
         <span>with craft and conversation. We</span>
@@ -27,7 +30,10 @@
         <span>noticed, valued, and discussed.</span>
       </TransitionReveal>
 
-      <TransitionReveal tag="p" class="col-start-2 col-span-2 sm:col-start-3 sm:col-span-1">
+      <TransitionReveal
+        tag="p"
+        class="col-start-2 col-span-2 sm:col-start-3 sm:col-span-1"
+      >
         <span class="pl-12">For over 15 years, we've</span>
         <span>been dedicated to the details,</span>
         <span>thoughtful design and copy, and an</span>

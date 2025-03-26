@@ -1,11 +1,19 @@
 <template>
-  <Transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
+  <Transition
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
+  >
     <div
       v-if="showGrid"
       ref="grid"
       class="z-50 fixed inset-0 h-full w-full container layout pointer-events-none"
     >
-      <div v-for="index in 3 " :key="index" class="border-l border-pink-500" />
+      <div
+        v-for="index in 3 "
+        :key="index"
+        class="border-l border-pink-500"
+      />
     </div>
   </Transition>
 </template>

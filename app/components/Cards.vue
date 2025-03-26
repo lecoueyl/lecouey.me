@@ -1,5 +1,8 @@
 <template>
-  <div ref="target" class="flex items-center justify-center overflow-x-hidden py-96">
+  <div
+    ref="target"
+    class="flex items-center justify-center overflow-x-hidden py-96"
+  >
     <div class="relative grid aspect-[4/5] w-[calc(100cqw/4)]">
       <div
         v-for="img, index in [

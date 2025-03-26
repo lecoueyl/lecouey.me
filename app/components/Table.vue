@@ -8,7 +8,10 @@
         :ref="(el) => setElementRef(el, rows)"
         class="layout pb-6 capitalize text-neutral-600"
       >
-        <span v-for="header, index in headers" :key="index">{{ header }}</span>
+        <span
+          v-for="header, index in headers"
+          :key="index"
+        >{{ header }}</span>
       </div>
     </li>
 
@@ -42,7 +45,10 @@
         </div>
       </li>
 
-      <li :ref="(el) => setElementRef(el, borders)" class="h-px w-full bg-neutral-300" />
+      <li
+        :ref="(el) => setElementRef(el, borders)"
+        class="h-px w-full bg-neutral-300"
+      />
     </template>
   </ul>
 </template>

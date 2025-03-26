@@ -1,5 +1,6 @@
 import svgLoader from 'vite-svg-loader';
 import tailwindcss from '@tailwindcss/vite';
+import { defineNuxtConfig } from 'nuxt/config';
 
 const config = {
   siteDescription: '',
@@ -48,6 +49,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/eslint',
     '@nuxt/image',
     '@nuxtjs/html-validator',
     '@nuxtjs/robots',

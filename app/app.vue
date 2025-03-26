@@ -2,7 +2,10 @@
   <div>
     <DevTool />
     <NuxtLayout>
-      <NuxtPage class="bg-neutral-100" :transition="transition" />
+      <NuxtPage
+        class="bg-neutral-100"
+        :transition="transition"
+      />
     </NuxtLayout>
   </div>
 </template>

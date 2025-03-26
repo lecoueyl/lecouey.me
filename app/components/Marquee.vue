@@ -4,7 +4,10 @@
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
   >
-    <div ref="marquee" class="whitespace-nowrap">
+    <div
+      ref="marquee"
+      class="whitespace-nowrap"
+    >
       <span
         v-for="item in 10"
         :key="item"

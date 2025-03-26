@@ -18,7 +18,10 @@
           Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
         </TransitionRevealText>
 
-        <div ref="cards" class="absolute inset-0 m-auto flex w-1/4 items-center">
+        <div
+          ref="cards"
+          class="absolute inset-0 m-auto flex w-1/4 items-center"
+        >
           <NuxtImg
             src="/img/thumb3.jpg"
             alt="project 1"
@@ -55,7 +58,10 @@
     </div>
 
     <div class="container layout bg-neutral-100 pt-96">
-      <TransitionReveal tag="p" class="sm:col-start-2">
+      <TransitionReveal
+        tag="p"
+        class="sm:col-start-2"
+      >
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
         <span>with craft and conversation. We</span>
@@ -84,7 +90,10 @@
     </div>
 
     <div class="container grid grid-cols-6 gap-8 bg-neutral-100 pt-96">
-      <TransitionReveal tag="p" class="col-span-6 col-start-1 text-center text-3xl">
+      <TransitionReveal
+        tag="p"
+        class="col-span-6 col-start-1 text-center text-3xl"
+      >
         <span>Haus is a Los Angeles-based agency that</span>
         <span>pushes the boundaries of technology,</span>
         <span>strategy, design and content to create lasting</span>

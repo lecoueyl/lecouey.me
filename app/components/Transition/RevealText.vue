@@ -70,8 +70,10 @@ const getElementChildren = () => {
 
   if (!target.value) return elements;
 
-  Array.from(target.value?.children).forEach((child: Element | any) => {
-    elements.push(child.children);
+  Array.from(target.value?.children as HTMLCollection).forEach((child) => {
+    Array.from(child.children).forEach((grandChild) => {
+      elements.push(grandChild);
+    });
   });
 
   return elements;
