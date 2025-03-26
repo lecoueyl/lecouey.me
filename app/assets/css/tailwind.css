@@ -16,6 +16,31 @@
 }
 
 @theme {
+  --color-*: initial;
+  /* --color-neutral-50: oklch(96.91% 0.002 145.56);
+  --color-neutral-100: oklch(93.19% 0.003 145.55);
+  --color-neutral-200: oklch(84.89% 0.01 140.51);
+  --color-neutral-300: oklch(75.46% 0.016 142.21);
+  --color-neutral-400: oklch(61.61% 0.025 141.19);
+  --color-neutral-500: oklch(37.11% 0.014 141.2);
+  --color-neutral-600: oklch(33.68% 0.013 145.28);
+  --color-neutral-700: oklch(31.54% 0.01 139.44);
+  --color-neutral-800: oklch(27.23% 0.008 137.82);
+  --color-neutral-900: oklch(21.88% 0.006 134.98);
+  --color-neutral-950: oklch(21.88% 0.006 134.98); */
+
+  --color-neutral-50: oklch(97.81% 0.002 145.56);
+  --color-neutral-100: oklch(95.61% 0.003 145.55);
+  --color-neutral-200: oklch(90.96% 0.005 145.53);
+  --color-neutral-300: oklch(86.46% 0.009 145.5);
+  --color-neutral-400: oklch(81.05% 0.012 141.26);
+  --color-neutral-500: oklch(73.83% 0.017 139.44);
+  --color-neutral-600: oklch(65.73% 0.022 142.98);
+  --color-neutral-700: oklch(55.37% 0.022 140.47);
+  --color-neutral-800: oklch(37.11% 0.014 141.2);
+  --color-neutral-900: oklch(31.54% 0.01 139.44);
+  --color-neutral-950: oklch(21.88% 0.006 134.98);
+
   --font-sans: "Inter var", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-shine: shine 4s linear infinite;

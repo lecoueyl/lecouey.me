@@ -2,7 +2,7 @@
   <div>
     <LayoutHeader />
 
-    <div class="container flex h-[calc(100vh-theme(space.10)-theme(space.8))] items-end justify-between bg-neutral-100 pb-10">
+    <div class="container flex h-[calc(100vh-theme(space.10)-theme(space.8))] items-end justify-between pb-10">
       <TransitionReveal class="translate-y-6">
         <span class="text-9xl">About</span>
       </TransitionReveal>
@@ -16,7 +16,7 @@
       </TransitionReveal>
     </div>
 
-    <div class="container layout bg-neutral-100 py-48">
+    <div class="container layout py-48">
       <TransitionReveal
         tag="p"
         class="col-start-2 col-span-2 sm:col-start-2 sm:col-span-1"
@@ -53,7 +53,7 @@
         { name: 'Alice Johnson', age: 35, location: 'Chicago' },
         { name: 'Michael Brown', age: 28, location: 'San Francisco' },
       ]"
-      class="container bg-neutral-100 pb-20"
+      class="container pb-20"
     />
 
     <LayoutFooter />

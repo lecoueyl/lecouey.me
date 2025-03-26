@@ -1,5 +1,5 @@
 <template>
-  <section class="container relative grid sm:grid-cols-6 gap-8 bg-neutral-100 pt-64">
+  <section class="container relative grid sm:grid-cols-6 gap-8 pt-64">
     <TransitionReveal
       tag="h2"
       class="col-span-full pt-4 flex items-start mb-64"

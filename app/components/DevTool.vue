@@ -12,7 +12,7 @@
       <div
         v-for="index in 3 "
         :key="index"
-        class="border-l border-pink-500"
+        class="border-l border-neutral-500"
       />
     </div>
   </Transition>
@@ -27,14 +27,15 @@ let gsapTimeline: GSAPTimeline | null = null;
 const showGrid = ref(false);
 const grid = ref<HTMLElement>();
 
-function beforeEnter(el: HTMLElement) {
-  gsap.set(el.children, {
+function beforeEnter(el: Element) {
+  const element = el as HTMLElement;
+  gsap.set(element.children, {
     scaleY: 1,
     transformOrigin: 'top',
   });
 }
 
-function enter(el: HTMLElement, done: () => void) {
+function enter(el: Element, done: () => void) {
   gsapTimeline = gsap.timeline().fromTo(
     el.children,
     { scaleY: 0 },
@@ -48,7 +49,7 @@ function enter(el: HTMLElement, done: () => void) {
   done();
 }
 
-function leave(_el: HTMLElement, done: () => void) {
+function leave(_el: Element, done: () => void) {
   if (gsapTimeline) {
     gsapTimeline.reverse();
     gsapTimeline.eventCallback('onReverseComplete', done);

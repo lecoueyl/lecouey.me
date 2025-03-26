@@ -4,7 +4,7 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden bg-neutral-100"
+      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden"
       :class="{
         'overflow-hidden': !isIntroDone,
       }"
@@ -57,10 +57,15 @@
       </div>
     </div>
 
-    <div class="container layout bg-neutral-100 pt-96">
+    <div class="container layout pt-96">
+      <TransitionReveal
+        tag="h2"
+        class="text-neutral-800 uppercase font-normal"
+      >
+        <span>( about )</span>
+      </TransitionReveal>
       <TransitionReveal
         tag="p"
-        class="sm:col-start-2"
       >
         <span class="pl-16">Watson is founded in the</span>
         <span>belief that exceptional work starts</span>
@@ -89,7 +94,7 @@
       </NuxtLink> -->
     </div>
 
-    <div class="container grid grid-cols-6 gap-8 bg-neutral-100 pt-96">
+    <div class="container grid grid-cols-6 gap-8 pt-96">
       <TransitionReveal
         tag="p"
         class="col-span-6 col-start-1 text-center text-3xl"

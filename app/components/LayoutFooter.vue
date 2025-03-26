@@ -6,7 +6,7 @@
     <div class="container relative z-50 h-screen overflow-hidden bg-neutral-950 px-2 py-6 sm:p-6">
       <div
         ref="container"
-        class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-100"
+        class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-50"
       >
         <div class="relative z-10 col-span-3 px-10 pb-10 pt-8">
           <span class="inline-block overflow-hidden">

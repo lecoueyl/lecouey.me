@@ -3,7 +3,7 @@
     <DevTool />
     <NuxtLayout>
       <NuxtPage
-        class="bg-neutral-100"
+        class="bg-neutral-50"
         :transition="transition"
       />
     </NuxtLayout>
