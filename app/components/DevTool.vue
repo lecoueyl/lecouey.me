@@ -12,7 +12,7 @@
       <div
         v-for="index in 3 "
         :key="index"
-        class="border-l border-neutral-500"
+        class="border-l border-yellow-500"
       />
     </div>
   </Transition>

@@ -10,7 +10,7 @@
       <PlaygroundDotsPush />
 
       <TransitionReveal>
-        <div class="text-shine">
+        <div class="text-shine animate-shine select-none">
           (SCROLL)
         </div>
       </TransitionReveal>

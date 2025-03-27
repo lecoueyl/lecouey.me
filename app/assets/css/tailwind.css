@@ -23,6 +23,10 @@
 
   --color-dark: oklch(31.54% 0.01 139.44);
 
+  --color-yellow-500: oklch(83.04% 0.155 86.09);
+
+  --color-green-500: oklch(68.61% 0.164 156.29);
+
   /* Fonts */
 
   --font-sans: "Inter var", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

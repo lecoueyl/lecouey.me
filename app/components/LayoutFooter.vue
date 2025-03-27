@@ -31,10 +31,11 @@
             :key="item"
             class="overflow-hidden"
           >
-            <span
+            <a
               :ref="(el) => setElementRef(el)"
-              class="block"
-            >{{ item }}</span>
+              href="#"
+              class="inline-block hover:text-neutral-800 transition-colors duration-200"
+            >{{ item }}</a>
           </li>
         </ul>
 
@@ -47,7 +48,7 @@
             <a
               :ref="(el) => setElementRef(el)"
               href="#"
-              class="block"
+              class="block hover:text-neutral-800 transition-colors duration-200"
             >Back to top</a>
           </div>
         </div>

@@ -6,7 +6,7 @@
     <li class="overflow-hidden">
       <div
         :ref="(el) => setElementRef(el, rows)"
-        class="layout pb-6 capitalize text-neutral-600"
+        class="layout pb-6 capitalize text-neutral-700"
       >
         <span
           v-for="header, index in headers"
