@@ -3,7 +3,7 @@
     ref="target"
     class="pt-48"
   >
-    <div class="container relative z-50 h-screen overflow-hidden bg-neutral-950 px-2 py-6 sm:p-6">
+    <div class="container relative z-50 h-screen overflow-hidden bg-dark px-2 py-6 sm:p-6">
       <div
         ref="container"
         class="relative grid h-full grid-cols-3 overflow-hidden rounded-3xl bg-neutral-50"
@@ -21,7 +21,7 @@
               ref="email"
               class="inline-block overflow-hidden "
               :href="`mailto:${settings.email}`"
-            ><Marquee class="inline-block w-72 rounded-full bg-neutral-950 py-6 text-2xl text-neutral-50">{{ settings.email }}</Marquee></a>
+            ><Marquee class="inline-block w-72 rounded-full bg-dark py-6 text-2xl text-neutral-50">{{ settings.email }}</Marquee></a>
           </div>
         </div>
 
