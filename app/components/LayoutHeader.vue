@@ -5,12 +5,9 @@
       class="layout justify-between overflow-hidden h-8 grid-cols-2 sm:grid-cols-3"
     >
       <div>
-        <NuxtLink
-          to="/"
-          class="hover:text-neutral-800 transition-colors duration-200"
-        >
+        <LayoutHeaderNavItem to="/">
           {{ settings.siteName }}
-        </NuxtLink>
+        </LayoutHeaderNavItem>
       </div>
 
       <div class="flex translate-y-full items-center justify-end sm:justify-start gap-4">
@@ -20,12 +17,9 @@
 
         <div class="h-[0.15rem] w-10 bg-neutral-950" />
 
-        <NuxtLink
-          to="about"
-          class="hover:text-neutral-800 transition-colors duration-200"
-        >
+        <LayoutHeaderNavItem to="/about">
           About
-        </NuxtLink>
+        </LayoutHeaderNavItem>
       </div>
 
       <div class="translate-y-full text-right hidden sm:inline-block">
