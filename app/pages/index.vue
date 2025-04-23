@@ -57,13 +57,14 @@
       </div>
     </div>
 
-    <div class="container layout pt-96">
+    <div class="container layout py-96">
       <TransitionReveal
         tag="h2"
         class="text-neutral-800 uppercase font-normal"
       >
         <span>( about )</span>
       </TransitionReveal>
+
       <TransitionReveal
         tag="p"
       >
@@ -94,7 +95,11 @@
       </NuxtLink> -->
     </div>
 
-    <div class="container grid grid-cols-6 gap-8 pt-96">
+    <div class="container flex justify-center">
+      <div class="w-px bg-neutral-400 h-96 rounded-full" />
+    </div>
+
+    <div class="container grid grid-cols-6 gap-8 py-12">
       <TransitionReveal
         tag="p"
         class="col-span-6 col-start-1 text-center text-3xl"
@@ -111,6 +116,10 @@
       <!-- <NuxtLink class="col-start-2 pt-10 uppercase">
         Learn more
       </NuxtLink> -->
+    </div>
+
+    <div class="container flex justify-center">
+      <div class="w-px bg-neutral-400 h-96 rounded-full" />
     </div>
 
     <Works />
