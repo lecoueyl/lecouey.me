@@ -95,32 +95,7 @@
       </NuxtLink> -->
     </div>
 
-    <div class="container flex justify-center">
-      <div class="w-px bg-neutral-400 h-96 rounded-full" />
-    </div>
-
-    <div class="container grid grid-cols-6 gap-8 py-12">
-      <TransitionReveal
-        tag="p"
-        class="col-span-6 col-start-1 text-center text-3xl"
-      >
-        <span>Haus is a Los Angeles-based agency that</span>
-        <span>pushes the boundaries of technology,</span>
-        <span>strategy, design and content to create lasting</span>
-        <span>relationships between brands & customers.</span>
-      </TransitionReveal>
-
-      <!-- <TransitionReveal tag="NuxtLink" class="col-start-2 pt-10 uppercase">
-        <span>Learn more</span>
-      </TransitionReveal> -->
-      <!-- <NuxtLink class="col-start-2 pt-10 uppercase">
-        Learn more
-      </NuxtLink> -->
-    </div>
-
-    <div class="container flex justify-center">
-      <div class="w-px bg-neutral-400 h-96 rounded-full" />
-    </div>
+    <IndexAbout />
 
     <Works />
 
