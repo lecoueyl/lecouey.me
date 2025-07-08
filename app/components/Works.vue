@@ -82,7 +82,7 @@ onMounted(() => {
   });
 });
 
-watch(currentTitle, async (newVal) => {
+watch(currentTitle, async (newVal: string) => {
   if (!title.value) return;
 
   await gsap.to(title.value, {

@@ -47,31 +47,32 @@ onMounted(() => {
 
   const container = cardsContainer.value;
 
-  const animate = () => {
+  const animateCard = () => {
     const firstCard = container.children[0] as HTMLElement;
-    const cardHeight = firstCard.offsetHeight;
 
     const clonedFirstCard = firstCard.cloneNode(true) as HTMLElement;
     container.appendChild(clonedFirstCard);
 
-    gsap.to(container, {
-      y: -cardHeight,
-      duration: 1.5,
-      ease: 'power4.inOut',
-      delay: 1.5,
-      onComplete: () => {
-        // Réinitialiser la position
-        gsap.set(container, { y: 0 });
+    // Animer la première carte vers le haut
+    gsap.to(container.children, {
+  yPercent: -100,
+  duration: 1,
+  ease: 'power4.inOut',
+  delay: 1.5,
+  rotate: (index) => index % 2 === 0 ? 15 : -15,
+  onComplete: () => {
+    // Réinitialiser la position
+    gsap.set(container, { y: 0 });
 
-        // Supprimer le premier élément
-        container.removeChild(firstCard);
+    // Supprimer le premier élément
+    container.removeChild(firstCard);
 
-        // Répéter l'animation
-        animate();
-      },
-    });
+    // Lancer l'animation suivante
+    animateCard();
+  },
+});
   };
 
-  animate();
+  animateCard();
 });
 </script>

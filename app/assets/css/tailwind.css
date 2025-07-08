@@ -127,7 +127,7 @@
   }
 
   .text-shine {
-    @apply bg-clip-text bg-[linear-gradient(to_right,theme(colors.neutral.100)_0%,theme(colors.neutral.100)_20%,theme(colors.neutral.950)_40%,theme(colors.neutral.950)_60%,theme(colors.neutral.100)_70%,theme(colors.neutral.100)_100%)];
+    @apply bg-clip-text bg-[linear-gradient(to_right,theme(colors.neutral.50)_0%,theme(colors.neutral.50)_20%,theme(colors.neutral.950)_40%,theme(colors.neutral.950)_60%,theme(colors.neutral.50)_70%,theme(colors.neutral.50)_100%)];
     background-size: 200% auto;
     text-fill-color: transparent;
     -webkit-background-clip: text;
