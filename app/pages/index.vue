@@ -4,44 +4,52 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden"
+      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden pt-12 gap-12"
       :class="{
         'overflow-hidden': !isIntroDone,
       }"
     >
-      <div class="container grow flex-col gap-10 relative grid grid-cols-12 items-center justify-center py-10">
-        <TransitionRevealText
-          tag="h1"
-          :show="isPageDisplayed"
-          class="col-span-8 col-start-3 text-[5.5vw] font-semibold leading-[0.75] tracking-tight"
-        >
-          Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
-        </TransitionRevealText>
-
+      <div
+        ref="cards"
+        class="relative flex"
+      >
         <div
-          ref="cards"
-          class="absolute inset-0 m-auto flex w-1/4 items-center"
+          v-for="src, index in [
+            '/img/thumb1.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb3.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb1.jpg',
+            '/img/thumb1.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb3.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb1.jpg',
+            '/img/thumb1.jpg',
+          ]"
+          :key="index"
+          class="w-[20vw]"
         >
           <NuxtImg
-            src="/img/thumb3.jpg"
+            :src="src"
             alt="project 1"
-            class="invisible ml-[-50%] flex-none translate-y-[-24%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+            class="rounded-xl w-full shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
           />
-          <NuxtImg
-            src="/img/thumb3.jpg"
-            alt="project 1"
-            class="invisible ml-[-50%] flex-none translate-y-[-16%] scale-90 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-          />
-          <NuxtImg
-            src="img/thumb2.jpg"
-            alt="project 1"
-            class="invisible ml-[-50%] flex-none translate-y-[-8%] scale-95 rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-          />
-          <NuxtImg
-            src="/img/thumb1.jpg"
-            alt="project 1"
-            class="invisible ml-[-50%] flex-none rounded-xl shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-          />
+        </div>
+      </div>
+
+      <div class="grow flex items-center">
+        <div class="container layout">
+          <div class="flex items-center text-neutral-700">
+            hello this is a test dasljdlas djlsaldas dlas dasl djsaldjsalji8yuw8yde9qw ydhs adhaskld as
+          </div>
+          <TransitionRevealText
+            tag="h1"
+            :show="isPageDisplayed"
+            class="col-span-2 text-[4vw] font-semibold leading-[0.75] tracking-tight"
+          >
+            Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
+          </TransitionRevealText>
         </div>
       </div>
 
@@ -114,38 +122,78 @@ const isIntroDone = ref();
 
 const { enableScroll, disableScroll } = useScroll();
 
-const cardsTransformPositionArray = [
-  { x: -140, y: -40 },
-  { x: 150, y: -30 },
-  { x: 150, y: 50 },
-  { x: -270, y: 50 },
-];
+// Arc configuration constants
+const arcStrength = 2; // Adjustable arc intensity (0-2)
+const cardSpread = 0.05; // Adjustable card spacing (0-1, where 1 = full width)
+
+// Extract positioning logic into reusable function
+const calculateCardPosition = (index: number, images: HTMLImageElement[]) => {
+  const totalCards = images.length;
+  const containerWidth = cards.value.offsetWidth;
+  const cardWidth = containerWidth / totalCards;
+  const center = (totalCards - 1) / 2;
+  const relativeIndex = index - center;
+
+  // Dynamic horizontal spread calculation
+  const maxSpread = (cardWidth * cardSpread) * arcStrength;
+  const x = relativeIndex * maxSpread;
+
+  // Dynamic circular arc curve calculation
+  const imageElement = images[index];
+  if (!imageElement) return { x: 0, y: 0, rotation: 0 };
+  const imageHeight = imageElement.offsetHeight;
+  const maxAngle = Math.PI / 2 * arcStrength;
+  const angle = (relativeIndex / center) * (maxAngle / 2);
+  const radius = (imageHeight * 0.5) * arcStrength;
+  const y = radius - (radius * Math.cos(angle));
+
+  // Dynamic rotation calculation
+  const normalizedIndex = relativeIndex / center;
+  const maxRotation = 10 * arcStrength;
+  const rotation = normalizedIndex * maxRotation;
+
+  return { x, y, rotation };
+};
+
+// Function to reposition cards (for resize events)
+const repositionCards = () => {
+  if (!cards.value || !isIntroDone.value) return;
+
+  const images = Array.from(cards.value.children).map(card => (card as HTMLElement).querySelector('img')) as HTMLImageElement[];
+
+  gsap.to(images, {
+    duration: 0.3,
+    x: (index) => calculateCardPosition(index, images).x,
+    y: (index) => calculateCardPosition(index, images).y,
+    rotation: (index) => calculateCardPosition(index, images).rotation,
+    ease: 'quart.out',
+  });
+};
 
 const heroIntro = async () => {
   disableScroll();
 
+  // Get all img elements from each card
+  const images = Array.from(cards.value.children).map(card => (card as HTMLElement).querySelector('img')) as HTMLImageElement[];
+
   await gsap
     .timeline()
-    .set(cards.value.children, {
+    .set(images, {
       y: window.innerHeight,
       visibility: 'visible',
-      rotate: (index) => (index + 1) * 10,
     })
-    .to(cards.value.children, {
+    .to(images, {
       delay: 0.5,
-      duration: 1.2,
-      ease: 'circ2.inOut',
-      y: (index) => index * 6,
-      rotate: 0,
-      stagger: 0.1,
+      duration: 1,
+      x: (index) => calculateCardPosition(index, images).x,
+      y: (index) => calculateCardPosition(index, images).y,
+      rotation: (index) => calculateCardPosition(index, images).rotation,
+      stagger: {
+        amount: 0.3,
+        from: 'center',
+      },
+      ease: 'quart.inOut',
     })
-    .to(cards.value.children, {
-      duration: 1.5,
-      ease: 'circ2.inOut',
-      yPercent: (index) => cardsTransformPositionArray?.[index]?.y ?? 0,
-      xPercent: (index) => cardsTransformPositionArray?.[index]?.x ?? 0,
-      stagger: 0.1,
-    }, '-=0.5')
     .to(heroFooter.value.children, {
       y: 0,
       duration: 1,
@@ -157,8 +205,18 @@ const heroIntro = async () => {
   isIntroDone.value = true;
 };
 
+// Debounced resize handler
+let resizeTimeout: ReturnType<typeof setTimeout>;
+const handleResize = () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(repositionCards, 150);
+};
+
 onMounted(async () => {
   await heroIntro();
+
+  // Add resize listener
+  window.addEventListener('resize', handleResize);
 
   gsap.timeline({
     scrollTrigger: {
@@ -168,9 +226,11 @@ onMounted(async () => {
       trigger: hero.value,
     },
   })
-    .to(cards.value.children, {
-      yPercent: (index) => cardsTransformPositionArray?.[index]?.y ?? 0 - (20 * index + 1),
-    })
     .to(heroFooter.value, { opacity: 0 });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+  clearTimeout(resizeTimeout);
 });
 </script>
