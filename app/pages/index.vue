@@ -4,41 +4,12 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden pt-12 gap-12"
+      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden pt-12 gap-12 justify-between"
       :class="{
         'overflow-hidden': !isIntroDone,
       }"
     >
-      <div
-        ref="cards"
-        class="relative flex"
-      >
-        <div
-          v-for="src, index in [
-            '/img/thumb1.jpg',
-            '/img/thumb2.jpg',
-            '/img/thumb3.jpg',
-            '/img/thumb2.jpg',
-            '/img/thumb1.jpg',
-            '/img/thumb1.jpg',
-            '/img/thumb2.jpg',
-            '/img/thumb3.jpg',
-            '/img/thumb2.jpg',
-            '/img/thumb1.jpg',
-            '/img/thumb1.jpg',
-          ]"
-          :key="index"
-          class="w-[20vw]"
-        >
-          <NuxtImg
-            :src="src"
-            alt="project 1"
-            class="rounded-xl w-full shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
-          />
-        </div>
-      </div>
-
-      <div class="grow flex items-center">
+      <div class="flex items-center">
         <div class="container layout">
           <div class="flex items-center text-neutral-700">
             hello this is a test dasljdlas djlsaldas dlas dasl djsaldjsalji8yuw8yde9qw ydhs adhaskld as
@@ -50,6 +21,29 @@
           >
             Tokyo based full-stack engineer with a passion for creating intuitive and visually appealing user interfaces
           </TransitionRevealText>
+        </div>
+      </div>
+
+      <div
+        ref="cards"
+        class="relative flex"
+      >
+        <div
+          v-for="src, index in [
+            '/img/thumb1.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb3.jpg',
+            '/img/thumb2.jpg',
+            '/img/thumb1.jpg',
+          ]"
+          :key="index"
+          class="w-[25vw]"
+        >
+          <NuxtImg
+            :src="src"
+            alt="project 1"
+            class="rounded-xl w-full shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+          />
         </div>
       </div>
 
@@ -114,19 +108,18 @@
 <script setup lang="ts">
 const { gsap } = useGsap();
 const { isPageDisplayed } = usePage();
+const { enableScroll, disableScroll } = useScroll();
 
 const cards = ref();
 const hero = ref();
 const heroFooter = ref();
-const isIntroDone = ref();
+const isIntroDone = ref(false);
 
-const { enableScroll, disableScroll } = useScroll();
+// Arc configuration
+const arcStrength = 1.5; // Adjustable arc intensity (0-2)
+const cardSpread = 0.1; // Adjustable card spacing (0-1, where 1 = full width)
 
-// Arc configuration constants
-const arcStrength = 2; // Adjustable arc intensity (0-2)
-const cardSpread = 0.05; // Adjustable card spacing (0-1, where 1 = full width)
-
-// Extract positioning logic into reusable function
+// Positioning calculation
 const calculateCardPosition = (index: number, images: HTMLImageElement[]) => {
   const totalCards = images.length;
   const containerWidth = cards.value.offsetWidth;
@@ -134,11 +127,11 @@ const calculateCardPosition = (index: number, images: HTMLImageElement[]) => {
   const center = (totalCards - 1) / 2;
   const relativeIndex = index - center;
 
-  // Dynamic horizontal spread calculation
+  // Horizontal spread
   const maxSpread = (cardWidth * cardSpread) * arcStrength;
   const x = relativeIndex * maxSpread;
 
-  // Dynamic circular arc curve calculation
+  // Circular arc curve
   const imageElement = images[index];
   if (!imageElement) return { x: 0, y: 0, rotation: 0 };
   const imageHeight = imageElement.offsetHeight;
@@ -147,7 +140,7 @@ const calculateCardPosition = (index: number, images: HTMLImageElement[]) => {
   const radius = (imageHeight * 0.5) * arcStrength;
   const y = radius - (radius * Math.cos(angle));
 
-  // Dynamic rotation calculation
+  // Rotation
   const normalizedIndex = relativeIndex / center;
   const maxRotation = 10 * arcStrength;
   const rotation = normalizedIndex * maxRotation;
@@ -155,7 +148,7 @@ const calculateCardPosition = (index: number, images: HTMLImageElement[]) => {
   return { x, y, rotation };
 };
 
-// Function to reposition cards (for resize events)
+// Reposition function for resize
 const repositionCards = () => {
   if (!cards.value || !isIntroDone.value) return;
 
@@ -170,20 +163,38 @@ const repositionCards = () => {
   });
 };
 
+// Intro animation
 const heroIntro = async () => {
   disableScroll();
 
-  // Get all img elements from each card
   const images = Array.from(cards.value.children).map(card => (card as HTMLElement).querySelector('img')) as HTMLImageElement[];
+  const containerWidth = cards.value.offsetWidth;
+
+  const initialXs = images.map((img, index) => {
+    const cardWidth = img.offsetWidth;
+    const centerX = containerWidth / 2;
+    const naturalCenter = index * cardWidth + cardWidth / 2;
+    return centerX - naturalCenter;
+  });
 
   await gsap
     .timeline()
     .set(images, {
+      x: (index) => initialXs[index]!,
       y: window.innerHeight,
       visibility: 'visible',
     })
     .to(images, {
       delay: 0.5,
+      duration: 1,
+      y: 0,
+      stagger: {
+        amount: 0.3,
+        from: 'center',
+      },
+      ease: 'quart.inOut',
+    })
+    .to(images, {
       duration: 1,
       x: (index) => calculateCardPosition(index, images).x,
       y: (index) => calculateCardPosition(index, images).y,
@@ -205,17 +216,17 @@ const heroIntro = async () => {
   isIntroDone.value = true;
 };
 
-// Debounced resize handler
+// Resize handling
 let resizeTimeout: ReturnType<typeof setTimeout>;
 const handleResize = () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(repositionCards, 150);
 };
 
+// Lifecycle hooks
 onMounted(async () => {
   await heroIntro();
 
-  // Add resize listener
   window.addEventListener('resize', handleResize);
 
   gsap.timeline({
