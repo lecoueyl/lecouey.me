@@ -4,10 +4,7 @@
 
     <div
       ref="hero"
-      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-x-hidden pt-12 gap-12 justify-between"
-      :class="{
-        'overflow-hidden': !isIntroDone,
-      }"
+      class="flex h-[calc(100vh---spacing(18))] flex-col items-center overflow-hidden pt-12 gap-12 justify-between"
     >
       <div class="flex items-center">
         <div class="container layout">
@@ -37,12 +34,12 @@
             '/img/thumb1.jpg',
           ]"
           :key="index"
-          class="w-[25vw]"
+          class="w-[22.5vw]"
         >
           <NuxtImg
             :src="src"
             alt="project 1"
-            class="rounded-xl w-full shadow-[0px_-16px_40px_-24px_theme(colors.neutral.400)]"
+            class="rounded-xl w-full"
           />
         </div>
       </div>
