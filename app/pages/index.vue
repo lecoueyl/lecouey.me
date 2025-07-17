@@ -56,6 +56,8 @@
       </div>
     </div>
 
+    <ArcCarousel :images="['/img/thumb1.jpg', '/img/thumb2.jpg', '/img/thumb3.jpg']" />
+
     <div class="container layout py-96">
       <TransitionReveal
         tag="h2"
